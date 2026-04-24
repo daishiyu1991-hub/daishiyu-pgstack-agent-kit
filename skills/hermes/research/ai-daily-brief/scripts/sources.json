@@ -14,6 +14,8 @@
     "source_priority": 94,
     "max_items": 8,
     "keywords_any": ["gemini", "alphafold", "veo", "imagen", "reasoning", "agent", "agents", "multimodal", "model", "models", "science", "robot", "robots"],
+    "taxonomy_ref": "PGStack brain/ai-knowledge/ai-radar-taxonomy.md",
+    "taxonomy_groups": ["entity", "capability", "model_system"],
     "tags": ["official", "global", "product", "research", "science"]
   },
   {
@@ -23,6 +25,8 @@
     "source_priority": 92,
     "max_items": 8,
     "keywords_any": ["ai", "gemini", "gemma", "veo", "imagen", "notebooklm", "model", "models", "llm", "agent", "agents", "tts"],
+    "taxonomy_ref": "PGStack brain/ai-knowledge/ai-radar-taxonomy.md",
+    "taxonomy_groups": ["entity", "capability", "model_system"],
     "tags": ["official", "global", "product", "research"]
   },
   {
@@ -59,6 +63,8 @@
     "source_priority": 78,
     "max_items": 8,
     "keywords_any": ["ai", "llm", "model", "models", "training", "inference", "agent", "agents", "blackwell", "gpu", "reasoning", "multimodal"],
+    "taxonomy_ref": "PGStack brain/ai-knowledge/ai-radar-taxonomy.md",
+    "taxonomy_groups": ["capability", "model_system", "infrastructure"],
     "tags": ["official", "global", "infrastructure", "research"]
   },
   {
@@ -85,6 +91,8 @@
     "source_priority": 60,
     "max_items": 5,
     "keywords_any": ["llm", "language model", "agent", "agents", "reasoning", "multimodal", "benchmark", "evaluation", "eval", "vision", "speech", "alignment", "transformer"],
+    "taxonomy_ref": "PGStack brain/ai-knowledge/ai-radar-taxonomy.md",
+    "taxonomy_groups": ["capability", "model_system", "evaluation_research"],
     "tags": ["research", "papers"]
   },
   {
@@ -94,6 +102,8 @@
     "source_priority": 58,
     "max_items": 5,
     "keywords_any": ["llm", "language model", "agent", "agents", "reasoning", "multimodal", "benchmark", "evaluation", "eval", "vision", "speech", "alignment", "transformer"],
+    "taxonomy_ref": "PGStack brain/ai-knowledge/ai-radar-taxonomy.md",
+    "taxonomy_groups": ["capability", "model_system", "evaluation_research"],
     "tags": ["research", "papers"]
   }
 ]
