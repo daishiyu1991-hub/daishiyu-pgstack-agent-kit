@@ -106,6 +106,7 @@ if [[ "$INSTALL_HERMES" == "1" ]]; then
 fi
 
 if [[ "$DRY_RUN" != "1" ]]; then
+  python3 "$PGSTACK_HOME/engine/skillpack_check.py"
   python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" doctor
 fi
 

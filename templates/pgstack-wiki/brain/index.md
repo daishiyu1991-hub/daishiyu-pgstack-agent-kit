@@ -19,3 +19,4 @@ source_of_truth:
 - [[pipelines/notebooklm-research-sidecar|NotebookLM Research Sidecar Pipeline]]
 - [[memory/team-hub-sharing|Team Hub Sharing]]
 - [[skills/pgbrain-engine-v1|PGBrain Engine v1]]
+- [[skills/pgstack-repo-skillpack-protocol-v1|PGStack Repo Skillpack Protocol v1]]

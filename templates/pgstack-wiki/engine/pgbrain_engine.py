@@ -30,6 +30,7 @@ INDEX_DIRS = ("brain", "wiki", "skills", "jobs", "adapters", "engine")
 HERMES_JOBS_PATH = Path(
     os.environ.get("PGSTACK_HERMES_JOBS_PATH", Path.home() / ".hermes" / "cron" / "jobs.json")
 ).expanduser()
+SKILL_MANIFEST_PATH = ROOT / "skills" / "manifest.json"
 
 REQUIRED_KERNEL_PATHS = (
     "AGENTS.md",
@@ -38,8 +39,13 @@ REQUIRED_KERNEL_PATHS = (
     "brain/index.md",
     "brain/log.md",
     "skills/RESOLVER.md",
+    "skills/README.md",
+    "skills/manifest.json",
+    "skills/signal-detector/SKILL.md",
+    "skills/brain-ops/SKILL.md",
     "engine/README.md",
     "engine/pgbrain_engine.py",
+    "engine/skillpack_check.py",
     "jobs/RESOLVER.md",
     "adapters/README.md",
 )
@@ -49,6 +55,26 @@ CORE_TWO_LAYER_PAGES = (
     "brain/skills/gbrain-operating-logic-compatibility-matrix.md",
     "brain/skills/pgbrain-engine-v1.md",
     "skills/RESOLVER.md",
+)
+
+REQUIRED_CANONICAL_SKILLS = (
+    "signal-detector",
+    "brain-ops",
+    "personal-gstack",
+    "llm-wiki",
+    "ai-daily-brief",
+    "query",
+    "ingest",
+    "enrich",
+    "maintain",
+    "repo-architecture",
+    "minion-orchestrator",
+    "source-discovery",
+    "research-brief",
+    "team-memory-writing",
+    "team-memory-gate",
+    "skillify",
+    "testing",
 )
 
 REQUIRED_JOB_METADATA = (
@@ -387,6 +413,92 @@ def load_hermes_jobs() -> dict[str, dict[str, object]]:
     return {str(job.get("id")): job for job in jobs if isinstance(job, dict) and job.get("id")}
 
 
+def validate_skillpack() -> tuple[list[str], list[str]]:
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    if not SKILL_MANIFEST_PATH.exists():
+        return [f"missing skill manifest: {SKILL_MANIFEST_PATH.relative_to(ROOT).as_posix()}"], warnings
+
+    try:
+        manifest = json.loads(read_text(SKILL_MANIFEST_PATH))
+    except json.JSONDecodeError as exc:
+        return [f"invalid skill manifest JSON: {exc}"], warnings
+
+    resolver = str(manifest.get("resolver", "")).strip()
+    resolver_text = ""
+    if resolver and not (ROOT / resolver).exists():
+        errors.append(f"skill manifest resolver path missing: {resolver}")
+    elif resolver:
+        resolver_text = read_text(ROOT / resolver)
+
+    skills = manifest.get("skills")
+    if not isinstance(skills, list):
+        return ["skill manifest skills must be a list"], warnings
+
+    manifest_names: set[str] = set()
+    manifest_paths: set[str] = set()
+
+    for item in skills:
+        if not isinstance(item, dict):
+            errors.append("skill manifest contains a non-object skill entry")
+            continue
+
+        name = str(item.get("name", "")).strip()
+        path = str(item.get("path", "")).strip()
+        if not name:
+            errors.append("skill manifest entry missing name")
+        if not path:
+            errors.append(f"skill manifest entry missing path: {name or '<unnamed>'}")
+            continue
+
+        if name in manifest_names:
+            errors.append(f"duplicate skill name in manifest: {name}")
+        if path in manifest_paths:
+            errors.append(f"duplicate skill path in manifest: {path}")
+        manifest_names.add(name)
+        manifest_paths.add(path)
+        full_path = ROOT / path
+        if not full_path.exists():
+            errors.append(f"skill manifest path missing: {path}")
+            continue
+
+        metadata, body = parse_frontmatter(read_text(full_path))
+        skill_name = str(metadata.get("name", "")).strip()
+        if not skill_name:
+            errors.append(f"skill missing frontmatter name: {path}")
+        elif name and skill_name != name:
+            errors.append(f"skill name mismatch manifest={name} frontmatter={skill_name}: {path}")
+
+        if metadata.get("type") != "skill":
+            warnings.append(f"skill frontmatter type is not skill: {path}")
+        if "description" not in metadata:
+            warnings.append(f"skill missing description: {path}")
+        if "## Contract" not in body and "## Protocol" not in body:
+            warnings.append(f"skill may lack explicit Contract/Protocol section: {path}")
+
+    for required in REQUIRED_CANONICAL_SKILLS:
+        if required not in manifest_names:
+            errors.append(f"required canonical skill missing from manifest: {required}")
+        expected_path = f"skills/{required}/SKILL.md"
+        if expected_path not in manifest_paths:
+            errors.append(f"required canonical skill path missing from manifest: {expected_path}")
+        elif not (ROOT / expected_path).exists():
+            errors.append(f"required canonical skill file missing: {expected_path}")
+        if resolver_text and expected_path not in resolver_text:
+            errors.append(f"resolver does not route canonical skill path: {expected_path}")
+
+    declared_required = manifest.get("required", [])
+    if not isinstance(declared_required, list):
+        errors.append("skill manifest required must be a list")
+    else:
+        missing_declared = sorted(set(REQUIRED_CANONICAL_SKILLS) - {str(item) for item in declared_required})
+        for name in missing_declared:
+            warnings.append(f"skill manifest required list omits canonical skill: {name}")
+
+    return errors, warnings
+
+
 def validate() -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -396,6 +508,10 @@ def validate() -> tuple[list[str], list[str]]:
     for rel in REQUIRED_KERNEL_PATHS:
         if not (ROOT / rel).exists():
             errors.append(f"missing required kernel path: {rel}")
+
+    skill_errors, skill_warnings = validate_skillpack()
+    errors.extend(skill_errors)
+    warnings.extend(skill_warnings)
 
     for rel in CORE_TWO_LAYER_PAGES:
         path = ROOT / rel

@@ -19,15 +19,17 @@ Requirements:
 2. If any target directory already exists, report it before overwriting.
 3. Run the official remote installer.
 4. After install, run the smoke test if the checkout is available.
-5. Run PGBrain doctor and confirm 0 errors and 0 warnings.
-6. Do not upload, commit, or copy my secrets, tokens, cookies, Feishu channels,
+5. Run `python3 engine/skillpack_check.py` inside PGSTACK_HOME and confirm 0 errors and 0 warnings.
+6. Run PGBrain doctor and confirm 0 errors and 0 warnings.
+7. Do not upload, commit, or copy my secrets, tokens, cookies, Feishu channels,
    MemTensor data, browser profiles, or private notes.
-7. Do not enable recurring cron jobs until I approve delivery channels and
+8. Do not enable recurring cron jobs until I approve delivery channels and
    runtime ownership.
-8. Give me an acceptance report with:
+9. Give me an acceptance report with:
    - PGStack install path
    - Codex skills path
    - Hermes skills path
+   - skillpack check result
    - PGBrain doctor result
    - smoke test result
    - optional integrations that are still disconnected
@@ -69,6 +71,7 @@ The install is ready only when:
 - PGStack starter wiki exists at `PGSTACK_HOME`
 - Codex skills are installed or intentionally skipped
 - Hermes runtime skills are installed or intentionally skipped
+- `skillpack_check.py` returns `0 error(s), 0 warning(s)`
 - `PGBrain doctor` returns `0 error(s), 0 warning(s)`
 - smoke test passes when run from the checkout
 - no private secrets, Feishu channels, cookies, MemTensor memory dumps, or

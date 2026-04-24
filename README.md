@@ -7,6 +7,9 @@ It packages the reusable parts of the system:
 - Codex skills for `personal-gstack`, `llm-wiki`, AI daily brief authoring, and team-memory governance
 - Hermes runtime skills for AI daily brief and team knowledge curation
 - a starter `PGStack + PGBrain` wiki kernel
+- a gbrain-style repo-level canonical skillpack with `skills/RESOLVER.md`,
+  `skills/manifest.json`, always-on `signal-detector` / `brain-ops`, and
+  portable thick skills
 - `PGBrain Engine v1` for local indexing, query, relation lookup, doctor checks, and maintenance reports
 - example config for Hermes cron, MemTensor, MultiCA/AgentHost orchestration, NotebookLM sidecars, and GitHub-backed collaboration
 - local smoke tests so a teammate can verify the node before using it
@@ -82,7 +85,8 @@ MemTensor Team Hub = optional shared compiled knowledge layer
 ./scripts/smoke_test.sh
 ```
 
-The smoke test installs into a temporary directory, runs `PGBrain doctor`, and checks for obvious private-path leakage.
+The smoke test installs into a temporary directory, runs `skillpack_check.py`,
+PGBrain validation/doctor checks, and checks for obvious private-path leakage.
 
 ## First Real Pipeline
 

@@ -16,4 +16,4 @@ test-output/
 .env
 *.local
 engine/state/pgbrain-index.json
-
+**/engine/state/pgbrain-index.json

@@ -1,0 +1,115 @@
+{
+  "name": "pgstack-skillpack",
+  "version": "0.1.0",
+  "updated": "2026-04-24",
+  "description": "Canonical repo-level skills for PGStack + PGBrain shared kernel.",
+  "resolver": "skills/RESOLVER.md",
+  "required": [
+    "signal-detector",
+    "brain-ops",
+    "personal-gstack",
+    "llm-wiki",
+    "ai-daily-brief",
+    "query",
+    "ingest",
+    "enrich",
+    "maintain",
+    "repo-architecture",
+    "minion-orchestrator",
+    "source-discovery",
+    "research-brief",
+    "team-memory-writing",
+    "team-memory-gate",
+    "skillify",
+    "testing"
+  ],
+  "skills": [
+    {
+      "name": "signal-detector",
+      "path": "skills/signal-detector/SKILL.md",
+      "always_on": true,
+      "description": "Detect durable inbound signal without blocking the main response."
+    },
+    {
+      "name": "brain-ops",
+      "path": "skills/brain-ops/SKILL.md",
+      "always_on": true,
+      "description": "Enforce brain-first lookup, source discipline, and write-back rules."
+    },
+    {
+      "name": "personal-gstack",
+      "path": "skills/personal-gstack/SKILL.md",
+      "description": "Clarify, plan, red-team, implement, verify, persist, operate, and retro durable work."
+    },
+    {
+      "name": "llm-wiki",
+      "path": "skills/llm-wiki/SKILL.md",
+      "description": "Compile raw sources and durable conclusions into the Obsidian wiki."
+    },
+    {
+      "name": "ai-daily-brief",
+      "path": "skills/ai-daily-brief/SKILL.md",
+      "description": "Maintain the Hermes-operated AI Daily Brief pipeline."
+    },
+    {
+      "name": "query",
+      "path": "skills/query/SKILL.md",
+      "description": "Answer from PGBrain and the local wiki using brain-first lookup."
+    },
+    {
+      "name": "ingest",
+      "path": "skills/ingest/SKILL.md",
+      "description": "Route source material into raw, wiki, brain, state, or runbook surfaces."
+    },
+    {
+      "name": "enrich",
+      "path": "skills/enrich/SKILL.md",
+      "description": "Apply tiered enrichment to durable objects and update compiled truth."
+    },
+    {
+      "name": "maintain",
+      "path": "skills/maintain/SKILL.md",
+      "description": "Run lint, relink, promote, reroute, log, and doctor cycles."
+    },
+    {
+      "name": "repo-architecture",
+      "path": "skills/repo-architecture/SKILL.md",
+      "description": "Choose the correct PGStack/PGBrain filing surface."
+    },
+    {
+      "name": "minion-orchestrator",
+      "path": "skills/minion-orchestrator/SKILL.md",
+      "description": "Route recurring or background work to Hermes, jobs, or future minions."
+    },
+    {
+      "name": "source-discovery",
+      "path": "skills/source-discovery/SKILL.md",
+      "description": "Expand and test information sources through review-only source gates."
+    },
+    {
+      "name": "research-brief",
+      "path": "skills/research-brief/SKILL.md",
+      "description": "Convert enriched source packs into concise research briefs."
+    },
+    {
+      "name": "team-memory-writing",
+      "path": "skills/team-memory-writing/SKILL.md",
+      "description": "Write compact, governed team-memory knowledge."
+    },
+    {
+      "name": "team-memory-gate",
+      "path": "skills/team-memory-gate/SKILL.md",
+      "description": "Decide memory scope and promotion eligibility."
+    },
+    {
+      "name": "skillify",
+      "path": "skills/skillify/SKILL.md",
+      "description": "Turn repeated successful work into reusable skills."
+    },
+    {
+      "name": "testing",
+      "path": "skills/testing/SKILL.md",
+      "description": "Validate the shared kernel, skillpack, and PGBrain engine."
+    }
+  ]
+}
