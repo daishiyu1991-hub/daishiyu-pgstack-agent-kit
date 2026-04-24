@@ -18,7 +18,7 @@ This repo intentionally does not include private state, Feishu channels, persona
 After this repository is published, teammates can install with:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/daishiyu/pgstack-agent-kit/main/bin/install-remote.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit/main/bin/install-remote.sh)"
 ```
 
 For local testing from a checkout:

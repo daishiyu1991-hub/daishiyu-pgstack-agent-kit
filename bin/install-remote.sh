@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="${PGSTACK_KIT_REPO_URL:-https://github.com/daishiyu/pgstack-agent-kit.git}"
+REPO_URL="${PGSTACK_KIT_REPO_URL:-https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit.git}"
 INSTALL_DIR="${PGSTACK_KIT_INSTALL_DIR:-$HOME/.pgstack-agent-kit}"
 
 if ! command -v git >/dev/null 2>&1; then

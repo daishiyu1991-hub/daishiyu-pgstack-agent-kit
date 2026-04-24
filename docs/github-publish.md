@@ -14,7 +14,7 @@ git init
 git add .
 git commit -m "Initial PGStack Agent Kit"
 git branch -M main
-git remote add origin git@github.com:daishiyu/pgstack-agent-kit.git
+git remote add origin git@github.com:daishiyu1991-hub/daishiyu-pgstack-agent-kit.git
 git push -u origin main
 ```
 
