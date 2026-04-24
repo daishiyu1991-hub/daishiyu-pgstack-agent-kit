@@ -11,7 +11,7 @@ It packages the reusable parts of the system:
 - example config for Hermes cron, MemTensor, NotebookLM sidecars, and GitHub-backed collaboration
 - local smoke tests so a teammate can verify the node before using it
 
-This repo intentionally does not include private state, Feishu channels, personal Obsidian content, MemTensor memories, cookies, tokens, or machine-specific paths.
+This repo is a starter kit, not a full dependency bundle. It intentionally does not include private state, Feishu channels, personal Obsidian content, MemTensor memories, cookies, tokens, machine-specific paths, or third-party account logins.
 
 ## One-Click Install
 
@@ -52,6 +52,8 @@ The installer never installs credentials. Each person must connect their own:
 - GitHub account/plugin
 - NotebookLM browser login or MCP bridge
 - Hermes cron jobs
+
+Integration setup is guided, not bundled. See [docs/setup-integrations.md](docs/setup-integrations.md).
 
 ## Runtime Split
 

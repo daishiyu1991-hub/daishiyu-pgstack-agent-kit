@@ -120,6 +120,5 @@ HERMES_HOME=$HERMES_HOME
 Next:
 1. Review $PGSTACK_HOME/AGENTS.md
 2. Configure Hermes cron from $HERMES_HOME/cron/pgstack-jobs.example.json
-3. Connect your own Feishu/MemTensor/GitHub/NotebookLM credentials if desired.
+3. Follow docs/setup-integrations.md to connect only the integrations you need.
 EOF
-

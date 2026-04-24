@@ -38,3 +38,5 @@ radars
 Every teammate should install their own node and connect their own accounts.
 The kit provides the rails. It does not ship anyone's private runtime state.
 
+Third-party dependencies and account-backed services are guided in
+`docs/setup-integrations.md`; they are not vendored into the kit.
