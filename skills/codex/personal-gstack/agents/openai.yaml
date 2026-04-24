@@ -1,0 +1,10 @@
+interface:
+  display_name: "Personal GStack"
+  short_description: "Clarify, plan, and red-team complex tasks with memory"
+  icon_small: "./assets/personal-gstack.svg"
+  icon_large: "./assets/personal-gstack.svg"
+  brand_color: "#7C5CFF"
+  default_prompt: "Use $personal-gstack to clarify this complex task, then create a plan and red-team it while updating the local wiki."
+
+policy:
+  allow_implicit_invocation: true

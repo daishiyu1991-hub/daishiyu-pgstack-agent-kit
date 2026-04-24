@@ -1,0 +1,19 @@
+.DS_Store
+*.pyc
+__pycache__/
+.venv/
+node_modules/
+dist/
+build/
+.pytest_cache/
+
+# Local install/test outputs
+.tmp/
+tmp/
+test-output/
+
+# Private local runtime state
+.env
+*.local
+engine/state/pgbrain-index.json
+

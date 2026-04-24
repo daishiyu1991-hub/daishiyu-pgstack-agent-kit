@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="LLM Wiki">
+  <rect width="512" height="512" rx="112" fill="#149B9B"/>
+  <path d="M138 126h172c35 0 64 29 64 64v196H202c-35 0-64-29-64-64V126Z" fill="#F7FAF8"/>
+  <path d="M202 126h172v196c0 35-29 64-64 64H202V126Z" fill="#E7F4F1"/>
+  <path d="M183 193h150M183 245h150M183 297h96" stroke="#17232E" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="358" cy="350" r="46" fill="#F3BF4F" stroke="#17232E" stroke-width="18"/>
+  <path d="M391 383l45 45" stroke="#17232E" stroke-width="22" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Personal GStack">
+  <rect width="512" height="512" rx="112" fill="#7C5CFF"/>
+  <circle cx="256" cy="154" r="58" fill="#F7FAF8"/>
+  <path d="M156 356c16-72 64-112 100-112s84 40 100 112" fill="none" stroke="#F7FAF8" stroke-width="34" stroke-linecap="round"/>
+  <path d="M132 397h248" stroke="#F3BF4F" stroke-width="32" stroke-linecap="round"/>
+  <path d="M154 104l54-38M304 66l54 38M256 38v64" stroke="#F3BF4F" stroke-width="24" stroke-linecap="round"/>
+  <path d="M184 434h144" stroke="#17232E" stroke-width="22" stroke-linecap="round" opacity=".55"/>
+</svg>

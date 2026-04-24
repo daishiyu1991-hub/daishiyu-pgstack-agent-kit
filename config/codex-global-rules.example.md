@@ -1,0 +1,21 @@
+# Optional Codex PGStack Rules
+
+Use this as a starting point for local Codex global instructions.
+
+PGStack is the preferred operating system for durable workflows, research systems, skills, automations, and knowledge capture.
+
+Default split:
+
+- Codex designs, tunes, verifies, documents, and evolves the operating system.
+- Hermes runs recurring pipelines.
+- PGBrain/Obsidian store durable knowledge.
+- MemTensor stores continuity and optional team knowledge, after governance.
+
+For substantive PGStack work:
+
+- read the local PGStack wiki first
+- keep one-off fixes secondary to reusable operating improvements
+- update `wiki/index.md`, `wiki/log.md`, and relevant pages after durable changes
+- write compact memory only for durable state, decisions, blockers, or recovery pointers
+- do not promote personal or noisy operational details into team memory
+

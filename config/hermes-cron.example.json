@@ -1,0 +1,23 @@
+{
+  "jobs": [
+    {
+      "name": "AI Daily Brief",
+      "enabled": false,
+      "schedule_display": "Every day at 08:00 local time",
+      "skills": ["ai-daily-brief", "obsidian"],
+      "script": "ai-daily-brief-context.py",
+      "deliver": "feishu:REPLACE_WITH_YOUR_DM_OR_CHANNEL",
+      "prompt": "Run the AI Daily Brief workflow. Use the injected run context, write the full Obsidian report, and return the compact delivery digest."
+    },
+    {
+      "name": "PGStack Team KB Curator",
+      "enabled": false,
+      "schedule_display": "Every day at 09:20 local time",
+      "skills": ["team-kb-curator"],
+      "script": "team-kb-curator-context.py",
+      "deliver": "feishu:REPLACE_WITH_YOUR_DM_OR_CHANNEL",
+      "prompt": "Curate team knowledge only when there is meaningful delta. Keep the shared shelf narrow, compiled, and source-linked."
+    }
+  ]
+}
+

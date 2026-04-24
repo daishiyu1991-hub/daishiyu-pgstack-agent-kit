@@ -1,0 +1,10 @@
+interface:
+  display_name: "LLM Wiki"
+  short_description: "Build Karpathy-style compounding knowledge wikis"
+  icon_small: "./assets/llm-wiki.svg"
+  icon_large: "./assets/llm-wiki.svg"
+  brand_color: "#149B9B"
+  default_prompt: "Use $llm-wiki to ingest this source into a Karpathy-style wiki with raw sources, generated wiki pages, index.md, log.md, and AGENTS.md."
+
+policy:
+  allow_implicit_invocation: true

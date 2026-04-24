@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Daily Brief"
+  short_description: "Author and tune the Hermes-run AI daily brief"
+  default_prompt: "Use $ai-daily-brief to inspect or refine the Hermes-run AI Daily Brief workflow, source tiers, formatting rules, and quality bar, then dry-run the brief if needed."

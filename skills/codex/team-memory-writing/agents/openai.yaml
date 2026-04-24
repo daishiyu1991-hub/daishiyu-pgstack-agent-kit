@@ -1,0 +1,7 @@
+interface:
+  display_name: "Team Memory Writing"
+  short_description: "Write compact team knowledge-base entries for MemTensor"
+  default_prompt: "Use $team-memory-writing to turn this outcome into a curated team knowledge-base memory with the right scope, kb_domain, compact wording, and a source-of-truth link."
+
+policy:
+  allow_implicit_invocation: true

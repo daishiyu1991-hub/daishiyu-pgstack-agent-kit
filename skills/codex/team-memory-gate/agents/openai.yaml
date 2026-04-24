@@ -1,0 +1,7 @@
+interface:
+  display_name: "Team Memory Gate"
+  short_description: "Gate what enters the curated team MemTensor knowledge base"
+  default_prompt: "Use $team-memory-gate to decide what should enter the curated team knowledge base, rewrite noisy memories into business/ai_knowledge/skills objects, and remove low-signal shared clutter."
+
+policy:
+  allow_implicit_invocation: true

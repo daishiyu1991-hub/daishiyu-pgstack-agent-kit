@@ -1,0 +1,99 @@
+[
+  {
+    "name": "OpenAI News RSS",
+    "kind": "feed",
+    "url": "https://openai.com/news/rss.xml",
+    "source_priority": 100,
+    "max_items": 8,
+    "tags": ["official", "global", "product", "research"]
+  },
+  {
+    "name": "Google DeepMind News RSS",
+    "kind": "feed",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "source_priority": 94,
+    "max_items": 8,
+    "keywords_any": ["gemini", "alphafold", "veo", "imagen", "reasoning", "agent", "agents", "multimodal", "model", "models", "science", "robot", "robots"],
+    "tags": ["official", "global", "product", "research", "science"]
+  },
+  {
+    "name": "Google AI Blog RSS",
+    "kind": "feed",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+    "source_priority": 92,
+    "max_items": 8,
+    "keywords_any": ["ai", "gemini", "gemma", "veo", "imagen", "notebooklm", "model", "models", "llm", "agent", "agents", "tts"],
+    "tags": ["official", "global", "product", "research"]
+  },
+  {
+    "name": "Anthropic Sitemap",
+    "kind": "sitemap",
+    "url": "https://www.anthropic.com/sitemap.xml",
+    "source_priority": 90,
+    "max_items": 8,
+    "allow_prefixes": ["/claude/", "/engineering/", "/research/", "/news/"],
+    "exclude_prefixes": ["/claude/team", "/claude/enterprise", "/research#"],
+    "tags": ["official", "global", "product", "engineering", "research"]
+  },
+  {
+    "name": "Mistral Sitemap",
+    "kind": "sitemap",
+    "url": "https://mistral.ai/sitemap.xml",
+    "source_priority": 88,
+    "max_items": 8,
+    "allow_prefixes": ["/news/", "/models", "/products/", "/pricing"],
+    "tags": ["official", "global", "product", "research"]
+  },
+  {
+    "name": "Hugging Face Blog Feed",
+    "kind": "feed",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "source_priority": 80,
+    "max_items": 8,
+    "tags": ["official", "global", "open-source", "research"]
+  },
+  {
+    "name": "NVIDIA Developer Blog Feed",
+    "kind": "feed",
+    "url": "https://developer.nvidia.com/blog/feed/",
+    "source_priority": 78,
+    "max_items": 8,
+    "keywords_any": ["ai", "llm", "model", "models", "training", "inference", "agent", "agents", "blackwell", "gpu", "reasoning", "multimodal"],
+    "tags": ["official", "global", "infrastructure", "research"]
+  },
+  {
+    "name": "Qwen Blog Feed",
+    "kind": "feed",
+    "url": "https://qwenlm.github.io/blog/index.xml",
+    "source_priority": 76,
+    "max_items": 8,
+    "tags": ["official", "china", "product", "research", "open-source"]
+  },
+  {
+    "name": "ERNIE Blog EN Sitemap",
+    "kind": "sitemap",
+    "url": "https://ernie.baidu.com/blog/en/sitemap.xml",
+    "source_priority": 74,
+    "max_items": 8,
+    "allow_prefixes": ["/blog/posts/"],
+    "tags": ["official", "china", "product", "research", "multimodal"]
+  },
+  {
+    "name": "arXiv cs.AI RSS",
+    "kind": "feed",
+    "url": "https://export.arxiv.org/rss/cs.AI",
+    "source_priority": 60,
+    "max_items": 5,
+    "keywords_any": ["llm", "language model", "agent", "agents", "reasoning", "multimodal", "benchmark", "evaluation", "eval", "vision", "speech", "alignment", "transformer"],
+    "tags": ["research", "papers"]
+  },
+  {
+    "name": "arXiv cs.CL RSS",
+    "kind": "feed",
+    "url": "https://export.arxiv.org/rss/cs.CL",
+    "source_priority": 58,
+    "max_items": 5,
+    "keywords_any": ["llm", "language model", "agent", "agents", "reasoning", "multimodal", "benchmark", "evaluation", "eval", "vision", "speech", "alignment", "transformer"],
+    "tags": ["research", "papers"]
+  }
+]

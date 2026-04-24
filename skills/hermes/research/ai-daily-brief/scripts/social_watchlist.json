@@ -1,0 +1,232 @@
+[
+  {
+    "actor": "OpenAI",
+    "tier": "core-frontier-labs",
+    "channels": [
+      {
+        "type": "x",
+        "url": "https://x.com/OpenAI",
+        "purpose": "early launch and product signal",
+        "automation_support": "manual"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/@OpenAI",
+        "purpose": "keynotes, demos, launch videos",
+        "automation_support": "manual"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/openai",
+        "purpose": "repo and release activity",
+        "automation_support": "beta_github_atom",
+        "feed_url": "https://github.com/openai.atom",
+        "signal_class": "org_activity",
+        "repositories": [
+          {
+            "name": "openai/openai-python",
+            "url": "https://github.com/openai/openai-python",
+            "feed_url": "https://github.com/openai/openai-python/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          },
+          {
+            "name": "openai/openai-node",
+            "url": "https://github.com/openai/openai-node",
+            "feed_url": "https://github.com/openai/openai-node/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          },
+          {
+            "name": "openai/openai-agents-python",
+            "url": "https://github.com/openai/openai-agents-python",
+            "feed_url": "https://github.com/openai/openai-agents-python/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actor": "Anthropic",
+    "tier": "core-frontier-labs",
+    "channels": [
+      {
+        "type": "x",
+        "url": "https://x.com/AnthropicAI",
+        "purpose": "early launch and policy signal",
+        "automation_support": "manual"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/anthropics",
+        "purpose": "repo and release activity",
+        "automation_support": "beta_github_atom",
+        "feed_url": "https://github.com/anthropics.atom",
+        "signal_class": "org_activity",
+        "repositories": [
+          {
+            "name": "anthropics/claude-code",
+            "url": "https://github.com/anthropics/claude-code",
+            "feed_url": "https://github.com/anthropics/claude-code/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          },
+          {
+            "name": "anthropics/anthropic-sdk-python",
+            "url": "https://github.com/anthropics/anthropic-sdk-python",
+            "feed_url": "https://github.com/anthropics/anthropic-sdk-python/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actor": "Google DeepMind",
+    "tier": "core-frontier-labs",
+    "channels": [
+      {
+        "type": "x",
+        "url": "https://x.com/GoogleDeepMind",
+        "purpose": "research and launch signal",
+        "automation_support": "manual"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/@GoogleDeepMind",
+        "purpose": "talks, demos, launch videos",
+        "automation_support": "manual"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/google-deepmind",
+        "purpose": "repo and release activity",
+        "automation_support": "beta_github_atom",
+        "feed_url": "https://github.com/google-deepmind.atom",
+        "signal_class": "org_activity"
+      }
+    ]
+  },
+  {
+    "actor": "Mistral",
+    "tier": "core-frontier-labs",
+    "channels": [
+      {
+        "type": "x",
+        "url": "https://x.com/MistralAI",
+        "purpose": "early product and platform signal",
+        "automation_support": "manual"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/mistralai",
+        "purpose": "repo and release activity",
+        "automation_support": "beta_github_atom",
+        "feed_url": "https://github.com/mistralai.atom",
+        "signal_class": "org_activity",
+        "repositories": [
+          {
+            "name": "mistralai/mistral-common",
+            "url": "https://github.com/mistralai/mistral-common",
+            "feed_url": "https://github.com/mistralai/mistral-common/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actor": "Hugging Face",
+    "tier": "open-source-and-infra",
+    "channels": [
+      {
+        "type": "x",
+        "url": "https://x.com/huggingface",
+        "purpose": "open-source and ecosystem signal",
+        "automation_support": "manual"
+      },
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/@huggingface",
+        "purpose": "demos, community launches, explainers",
+        "automation_support": "manual"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/huggingface",
+        "purpose": "repo and release activity",
+        "automation_support": "beta_github_atom",
+        "feed_url": "https://github.com/huggingface.atom",
+        "signal_class": "org_activity",
+        "repositories": [
+          {
+            "name": "huggingface/transformers",
+            "url": "https://github.com/huggingface/transformers",
+            "feed_url": "https://github.com/huggingface/transformers/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actor": "NVIDIA Developer",
+    "tier": "open-source-and-infra",
+    "channels": [
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/@NVIDIADeveloper",
+        "purpose": "talks, infra updates, launch videos",
+        "automation_support": "manual"
+      }
+    ]
+  },
+  {
+    "actor": "Qwen",
+    "tier": "china-high-signal-builders",
+    "channels": [
+      {
+        "type": "github",
+        "url": "https://github.com/QwenLM",
+        "purpose": "repo and release activity",
+        "automation_support": "beta_github_atom",
+        "feed_url": "https://github.com/QwenLM.atom",
+        "signal_class": "org_activity",
+        "repositories": [
+          {
+            "name": "QwenLM/Qwen-Agent",
+            "url": "https://github.com/QwenLM/Qwen-Agent",
+            "feed_url": "https://github.com/QwenLM/Qwen-Agent/releases.atom",
+            "automation_support": "github_release_atom",
+            "signal_class": "repo_releases"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "actor": "DeepSeek",
+    "tier": "china-high-signal-builders",
+    "channels": [
+      {
+        "type": "x",
+        "url": "https://x.com/deepseek_ai",
+        "purpose": "early launch signal",
+        "automation_support": "manual"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/deepseek-ai",
+        "purpose": "repo and release activity",
+        "automation_support": "beta_github_atom",
+        "feed_url": "https://github.com/deepseek-ai.atom",
+        "signal_class": "org_activity"
+      }
+    ]
+  }
+]
