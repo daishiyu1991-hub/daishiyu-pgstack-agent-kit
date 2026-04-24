@@ -13,6 +13,16 @@ It packages the reusable parts of the system:
 
 This repo is a starter kit, not a full dependency bundle. It intentionally does not include private state, Feishu channels, personal Obsidian content, MemTensor memories, cookies, tokens, machine-specific paths, or third-party account logins.
 
+## Install With Your Agent
+
+The recommended teammate flow is agent-led installation.
+
+Ask the teammate's local agent to install, verify, and report back using
+[docs/agent-install.md](docs/agent-install.md). The human should approve target
+directories, credentials, optional integrations, and cron activation. The agent
+should handle cloning, running the installer, smoke testing, and producing the
+acceptance report.
+
 ## One-Click Install
 
 After this repository is published, teammates can install with:

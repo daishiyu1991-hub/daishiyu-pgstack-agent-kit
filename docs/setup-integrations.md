@@ -28,11 +28,12 @@ The kit does not install or copy:
 
 ## Recommended Setup Order
 
-1. Run the one-click installer.
-2. Verify the local node with `PGBrain doctor`.
-3. Connect only the integrations the teammate actually needs.
-4. Run the matching health check.
-5. Enable recurring jobs only after the integration works.
+1. Prefer agent-led install with `docs/agent-install.md`.
+2. Run the one-click installer.
+3. Verify the local node with `PGBrain doctor`.
+4. Connect only the integrations the teammate actually needs.
+5. Run the matching health check.
+6. Enable recurring jobs only after the integration works.
 
 ## Core Check
 

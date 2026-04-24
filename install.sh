@@ -120,5 +120,6 @@ HERMES_HOME=$HERMES_HOME
 Next:
 1. Review $PGSTACK_HOME/AGENTS.md
 2. Configure Hermes cron from $HERMES_HOME/cron/pgstack-jobs.example.json
-3. Follow docs/setup-integrations.md to connect only the integrations you need.
+3. If an agent installed this, have it follow $KIT_ROOT/docs/agent-install.md for the acceptance report.
+4. Follow $KIT_ROOT/docs/setup-integrations.md to connect only the integrations you need.
 EOF
