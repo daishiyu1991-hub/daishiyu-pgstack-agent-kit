@@ -8,7 +8,7 @@ It packages the reusable parts of the system:
 - Hermes runtime skills for AI daily brief and team knowledge curation
 - a starter `PGStack + PGBrain` wiki kernel
 - `PGBrain Engine v1` for local indexing, query, relation lookup, doctor checks, and maintenance reports
-- example config for Hermes cron, MemTensor, NotebookLM sidecars, and GitHub-backed collaboration
+- example config for Hermes cron, MemTensor, MultiCA/AgentHost orchestration, NotebookLM sidecars, and GitHub-backed collaboration
 - local smoke tests so a teammate can verify the node before using it
 
 This repo is a starter kit, not a full dependency bundle. It intentionally does not include private state, Feishu channels, personal Obsidian content, MemTensor memories, cookies, tokens, machine-specific paths, or third-party account logins.
@@ -49,6 +49,7 @@ The installer never installs credentials. Each person must connect their own:
 
 - Feishu or another delivery channel
 - MemTensor local or team hub
+- MultiCA / AgentHost runtime and credentials
 - GitHub account/plugin
 - NotebookLM browser login or MCP bridge
 - Hermes cron jobs
@@ -60,6 +61,7 @@ Integration setup is guided, not bundled. See [docs/setup-integrations.md](docs/
 ```text
 Codex  = design, tuning, red-team, documentation, skill evolution
 Hermes = recurring runtime execution and unattended pipelines
+MultiCA / AgentHost = optional orchestration layer for multi-agent routing
 PGBrain = durable local knowledge engine
 MemTensor Team Hub = optional shared compiled knowledge layer
 ```

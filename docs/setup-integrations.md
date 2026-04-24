@@ -21,6 +21,7 @@ The kit does not install or copy:
 - API keys or tokens
 - Feishu channels or bot secrets
 - MemTensor databases or memory dumps
+- MultiCA / AgentHost runtime state
 - NotebookLM cookies or browser sessions
 - local Hermes state
 - machine-specific paths
@@ -70,6 +71,45 @@ $HERMES_HOME/cron/pgstack-jobs.example.json
 ```
 
 Do not enable cron jobs until delivery channels and required state paths are configured.
+
+## MultiCA And AgentHost
+
+MultiCA and AgentHost are optional orchestration layers for teammates who want
+one control plane to route work across Codex, Hermes, and other agents.
+
+The kit provides:
+
+- PGBrain runtime-host vocabulary for `MultiCA` and `AgentHost`
+- adapter notes in the starter wiki
+- a safe integration contract for writing back to PGBrain and MemTensor
+
+The kit does not install:
+
+- MultiCA servers
+- AgentHost processes
+- access tokens
+- browser sessions
+- teammate-specific agent routing rules
+
+Suggested health checks after the teammate connects MultiCA or AgentHost:
+
+```text
+open the MultiCA or AgentHost dashboard
+run one no-op or echo task through the target agent
+write one test artifact to the local PGStack wiki
+run PGBrain doctor
+verify that any MemTensor write uses team-memory gate rules
+```
+
+Default routing:
+
+```text
+MultiCA / AgentHost
+-> Codex for design and verification
+-> Hermes for recurring runtime jobs
+-> PGBrain for durable local conclusions
+-> MemTensor only after scope/source/review checks
+```
 
 ## MemTensor
 

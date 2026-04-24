@@ -21,3 +21,9 @@
 - [[../brain/skills/pgbrain-engine-v1|PGBrain Engine v1]]
 - [[../skills/RESOLVER|PGStack Skill Resolver]]
 
+## Adapters
+
+- [[../adapters/codex|Codex Adapter]]
+- [[../adapters/hermes|Hermes Adapter]]
+- [[../adapters/multica-agenthost|MultiCA AgentHost Adapter]]
+- [[../adapters/memtensor|MemTensor Adapter]]

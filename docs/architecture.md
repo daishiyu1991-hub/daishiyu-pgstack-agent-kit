@@ -4,10 +4,10 @@
 
 ```text
 Human steward
--> Codex workbench
+-> optional MultiCA / AgentHost orchestration
+-> Codex workbench + Hermes runtime adapters
 -> PGStack workflow layer
 -> PGBrain durable knowledge layer
--> Hermes recurring runtime
 -> optional MemTensor Team Hub
 ```
 
@@ -18,6 +18,26 @@ Human steward
 - `templates/pgstack-wiki`: starter Obsidian/Markdown wiki and PGBrain kernel
 - `engine/pgbrain_engine.py`: deterministic local index, query, validation, and maintenance tool
 - `config`: examples only, never live secrets
+
+## MultiCA And AgentHost
+
+MultiCA and AgentHost sit above a local PGStack Node when a teammate wants
+multiple agents to work together.
+
+They are orchestration surfaces, not the durable memory layer.
+
+Recommended contract:
+
+```text
+MultiCA / AgentHost
+-> dispatches work to Codex, Hermes, or other agents
+-> receives artifacts or status
+-> writes durable conclusions into PGBrain
+-> promotes only governed knowledge candidates into MemTensor
+```
+
+The kit documents this path but does not install a MultiCA server, agent host,
+tokens, browser sessions, or remote credentials.
 
 ## Pipeline Shape
 
