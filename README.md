@@ -18,7 +18,7 @@ This repo intentionally does not include private state, Feishu channels, persona
 After this repository is published, teammates can install with:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/YOUR_ORG/pgstack-agent-kit/main/bin/install-remote.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/daishiyu/pgstack-agent-kit/main/bin/install-remote.sh)"
 ```
 
 For local testing from a checkout:
@@ -80,4 +80,3 @@ radars -> signal queue -> confirmation -> triage -> daily brief
 ```
 
 The production cron schedule and delivery channel are deliberately left as examples. Do not copy another person's Feishu channel or local state into a teammate node.
-
