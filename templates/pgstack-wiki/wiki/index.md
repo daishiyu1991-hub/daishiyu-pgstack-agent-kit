@@ -21,7 +21,9 @@
 - [[../brain/skills/pgbrain-engine-v1|PGBrain Engine v1]]
 - [[../brain/skills/pgstack-gbrain-compatibility-layer|PGStack GBrain Compatibility Layer]]
 - [[../brain/skills/pgstack-upstream-parity-checklist|PGStack Upstream Parity Checklist]]
+- [[../brain/agents/pgstack-agent-layer-stage35|PGStack Agent Layer Stage 3.5]]
 - [[../skills/RESOLVER|PGStack Skill Resolver]]
+- [[../skills/agent-router/SKILL|PGStack Agent Router]]
 
 ## Adapters
 

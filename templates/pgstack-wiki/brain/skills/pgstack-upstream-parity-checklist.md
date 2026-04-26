@@ -39,7 +39,7 @@ unknown
 |---|---|
 | Operating wrapper | adapted |
 | Skills | adapted |
-| Agents | partial |
+| Agents | adapted |
 | Jobs / minions | partial |
 | Brain repo | adapted |
 | Retrieval / memory | substituted |
@@ -72,6 +72,10 @@ Agent layer: partial
 
 Do not upgrade it just because Codex, Hermes, MultiCA, or MCP tools exist.
 
+Installed nodes may report `Agent layer: adapted` only after
+[[../agents/pgstack-agent-layer-stage35|PGStack Agent Layer Stage 3.5]] and
+`skills/agent-router/SKILL.md` are present and pass smoke.
+
 ## Required Answer Format
 
 For upstream parity questions, answer with:
@@ -91,6 +95,7 @@ Next merge gate:
 
 - depends_on: [[pgstack-gbrain-compatibility-layer|PGStack GBrain Compatibility Layer]]
 - depends_on: [[gbrain-operating-logic-compatibility-matrix|GBrain Operating Logic Compatibility Matrix]]
+- depends_on: [[../agents/pgstack-agent-layer-stage35|PGStack Agent Layer Stage 3.5]]
 - implements: [[../../skills/brain-ops/SKILL|PGStack Brain Ops]]
 - validated_by: [[pgbrain-engine-v1|PGBrain Engine v1]]
 

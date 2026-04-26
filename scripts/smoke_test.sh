@@ -18,10 +18,12 @@ python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" query "AI Daily Brief Job" --li
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" query "PGStack Repo Skillpack Protocol" --limit 5
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" query "PGStack GBrain Compatibility Layer" --limit 5
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" query "PGStack Upstream Parity Checklist" --limit 5
+python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" query "PGStack Agent Layer Stage 3.5 agent router" --limit 5
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "AI Daily Brief Job" --limit 10
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "PGStack Repo Skillpack Protocol" --limit 10
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "PGStack GBrain Compatibility Layer" --limit 10
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "PGStack Upstream Parity Checklist" --limit 10
+python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "PGStack Agent Layer Stage 3.5" --limit 10
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" maintenance --limit 10
 python3 "$PGSTACK_HOME/engine/central_brain_health.py" --json
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" maintenance --central-brain-smoke --limit 10

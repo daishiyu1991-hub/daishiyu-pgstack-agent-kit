@@ -37,6 +37,8 @@ operate -> retro
 - Preserve structural changes in wiki/brain and Git.
 - Run the upstream parity checklist before claiming PGStack has aligned to,
   merged with, completed, or faithfully replicated original `gstack + gbrain`.
+- Run `agent-router` before assigning durable work to Codex, Hermes,
+  MultiCA/ACP, AgentHost, jobs, or minions.
 
 ## Host Adapters
 

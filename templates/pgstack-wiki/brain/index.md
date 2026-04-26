@@ -21,4 +21,5 @@ source_of_truth:
 - [[skills/pgbrain-engine-v1|PGBrain Engine v1]]
 - [[skills/pgstack-gbrain-compatibility-layer|PGStack GBrain Compatibility Layer]]
 - [[skills/pgstack-upstream-parity-checklist|PGStack Upstream Parity Checklist]]
+- [[agents/pgstack-agent-layer-stage35|PGStack Agent Layer Stage 3.5]]
 - [[skills/pgstack-repo-skillpack-protocol-v1|PGStack Repo Skillpack Protocol v1]]

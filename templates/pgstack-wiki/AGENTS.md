@@ -28,6 +28,9 @@ This directory is the local `PGStack + PGBrain` wiki for one person or teammate.
   or faithfully replicating upstream `gstack + gbrain`, read
   `brain/skills/pgstack-upstream-parity-checklist.md` and check the agent layer
   explicitly.
+- Before assigning durable work across Codex, Hermes, MultiCA/ACP, AgentHost,
+  jobs, or minions, read `skills/agent-router/SKILL.md` and
+  `brain/agents/pgstack-agent-layer-stage35.md`.
 - Update `wiki/index.md` and `wiki/log.md` after material changes.
 - Prefer `Compiled Truth` plus `Timeline` for evolving durable objects.
 - Run `python3 engine/skillpack_check.py` and

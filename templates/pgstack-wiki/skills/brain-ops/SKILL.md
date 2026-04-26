@@ -16,6 +16,7 @@ source_of_truth:
   - ../../brain/skills/pgbrain-enrichment-protocol-v1.md
   - ../../brain/skills/pgstack-gbrain-compatibility-layer.md
   - ../../brain/skills/pgstack-upstream-parity-checklist.md
+  - ../../brain/agents/pgstack-agent-layer-stage35.md
 ---
 
 # PGStack Brain Ops
@@ -40,6 +41,9 @@ Before answering whether PGStack is aligned to, merged with, complete against,
 or faithfully replicating upstream `gstack + gbrain`, also read
 `brain/skills/pgstack-upstream-parity-checklist.md`. Check the agent layer
 explicitly; do not infer it from Codex, Hermes, MultiCA, or MCP tools alone.
+
+Before routing work across Codex, Hermes, MultiCA/ACP, AgentHost, jobs, or
+minions, also read `skills/agent-router/SKILL.md`.
 
 After durable work:
 

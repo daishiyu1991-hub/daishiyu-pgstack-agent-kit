@@ -2,7 +2,7 @@
 title: PGStack Skill Resolver
 type: resolver
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-26
 status: active
 confidence: high
 scope: local_pgstack
@@ -49,6 +49,14 @@ Pure acknowledgements, disposable UI chatter, and no-op turns may be skipped by
 | Create or improve a reusable skill | `skills/skillify/SKILL.md` |
 | Validate skillpack/kernel health | `skills/testing/SKILL.md` |
 
+### Agent Operations
+
+| Trigger | Canonical Skill |
+|---|---|
+| Decide which agent/host owns work | `skills/agent-router/SKILL.md` |
+| MultiCA/ACP, AgentHost, remote repair, or multi-agent handoff | `skills/agent-router/SKILL.md` |
+| Upstream parity question touches agent layer | `skills/agent-router/SKILL.md` plus `brain/skills/pgstack-upstream-parity-checklist.md` |
+
 ### PGStack Workflow
 
 | Trigger | Canonical Skill |
@@ -84,6 +92,7 @@ first, then use the host adapter to execute.
 | `personal-gstack` | `$CODEX_HOME/skills/personal-gstack/SKILL.md` | future mirror | Codex is the current workbench adapter. |
 | `llm-wiki` | `$CODEX_HOME/skills/llm-wiki/SKILL.md` | future mirror | Used for Obsidian compilation and maintenance. |
 | `ai-daily-brief` | `$CODEX_HOME/skills/ai-daily-brief/SKILL.md` | Hermes runtime skill/spec | Hermes owns recurring execution. |
+| `agent-router` | repo-level skill only for now | future Hermes/MultiCA mirror | Shared-kernel contract for agent ownership and handoff. |
 | `team-memory-writing` | `$CODEX_HOME/skills/team-memory-writing/SKILL.md` | future curator support | Team memory must stay curated, not transcript-shaped. |
 | `team-memory-gate` | `$CODEX_HOME/skills/team-memory-gate/SKILL.md` | future curator support | Gate before publication or cleanup. |
 
@@ -118,3 +127,5 @@ the Level 1-4 ladder in [[../wiki/syntheses/personal-gstack-pipeline-graduation-
 - 2026-04-24: Created as the first canonical shared-kernel skill dispatcher.
 - 2026-04-24: Reworked to mirror original `gbrain`'s resolver pattern with
   always-on `signal-detector` and `brain-ops`, plus repo-level thick skills.
+- 2026-04-26: Added `agent-router` as the canonical owner for agent host
+  routing, MultiCA/ACP handoff, and agent-layer parity checks.

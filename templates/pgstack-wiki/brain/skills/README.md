@@ -9,5 +9,6 @@ Skills, operating rules, templates, and tool policies.
 - [[gbrain-operating-logic-compatibility-matrix|GBrain Operating Logic Compatibility Matrix]]
 - [[pgstack-gbrain-compatibility-layer|PGStack GBrain Compatibility Layer]]
 - [[pgstack-upstream-parity-checklist|PGStack Upstream Parity Checklist]]
+- [[../agents/pgstack-agent-layer-stage35|PGStack Agent Layer Stage 3.5]]
 - [[github-version-control-adapter|GitHub Version Control Adapter]]
 - [[pgstack-repo-skillpack-protocol-v1|PGStack Repo Skillpack Protocol v1]]

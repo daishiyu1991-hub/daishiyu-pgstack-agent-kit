@@ -55,6 +55,7 @@ Core operation skills:
 - `skills/enrich/SKILL.md`
 - `skills/maintain/SKILL.md`
 - `skills/repo-architecture/SKILL.md`
+- `skills/agent-router/SKILL.md`
 - `skills/minion-orchestrator/SKILL.md`
 - `skills/source-discovery/SKILL.md`
 - `skills/research-brief/SKILL.md`
@@ -68,3 +69,5 @@ Core operation skills:
 - 2026-04-24: Created as a resolver-only shared-kernel skill surface.
 - 2026-04-24: Upgraded to a canonical repo-level skillpack modeled on
   original `gbrain`'s resolver plus thick skills pattern.
+- 2026-04-26: Added `agent-router` for host ownership, MultiCA/ACP handoff,
+  and agent-layer parity routing.

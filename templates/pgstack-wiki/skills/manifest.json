@@ -1,7 +1,7 @@
 {
   "name": "pgstack-skillpack",
   "version": "0.1.0",
-  "updated": "2026-04-24",
+  "updated": "2026-04-26",
   "description": "Canonical repo-level skills for PGStack + PGBrain shared kernel.",
   "resolver": "skills/RESOLVER.md",
   "required": [
@@ -15,6 +15,7 @@
     "enrich",
     "maintain",
     "repo-architecture",
+    "agent-router",
     "minion-orchestrator",
     "source-discovery",
     "research-brief",
@@ -75,6 +76,11 @@
       "name": "repo-architecture",
       "path": "skills/repo-architecture/SKILL.md",
       "description": "Choose the correct PGStack/PGBrain filing surface."
+    },
+    {
+      "name": "agent-router",
+      "path": "skills/agent-router/SKILL.md",
+      "description": "Route durable work across Codex, Hermes, MultiCA/ACP, AgentHost, jobs, minions, and memory write-back."
     },
     {
       "name": "minion-orchestrator",

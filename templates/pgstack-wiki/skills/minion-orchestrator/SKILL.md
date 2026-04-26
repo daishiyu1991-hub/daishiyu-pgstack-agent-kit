@@ -12,6 +12,7 @@ description: Route recurring or background work to Hermes, jobs, or future minio
 source_of_truth:
   - ../RESOLVER.md
   - ../conventions/cron-via-minions.md
+  - ../agent-router/SKILL.md
   - ../../jobs/RESOLVER.md
 ---
 
@@ -31,7 +32,12 @@ Use this skill when work should run outside the foreground conversation.
 - Daily/weekly recurring pipeline -> Hermes cron plus `jobs/<name>.md`.
 - Long task with durable state -> split into stages and write state pointers.
 - One-off interactive implementation -> Codex workbench.
-- Future multi-agent dispatch -> AgentHost/MultiCA adapter, not a new core rule.
+- Multi-agent dispatch -> `agent-router` first, then AgentHost/MultiCA adapter.
+
+## Handoff Rule
+
+Judgment agents define the route and contract. Minions execute bounded,
+repeatable steps. Verifiers check evidence before state is promoted.
 
 ## Timeout Rule
 

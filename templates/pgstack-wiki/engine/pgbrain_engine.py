@@ -71,6 +71,7 @@ REQUIRED_CANONICAL_SKILLS = (
     "enrich",
     "maintain",
     "repo-architecture",
+    "agent-router",
     "minion-orchestrator",
     "source-discovery",
     "research-brief",
