@@ -99,7 +99,7 @@ first, then use the host adapter to execute.
 ### Runtime Rule
 
 Use the smallest skill set that covers the task, then write durable outcomes
-back to the wiki, brain, Git, and local MemTensor as appropriate.
+back to the wiki, brain, Git, and configured cloud memory route as appropriate.
 
 For recurring pipelines, do not call a pipeline `graduated-v1` unless it passes
 the Level 1-4 ladder in [[../wiki/syntheses/personal-gstack-pipeline-graduation-template|Personal GStack Pipeline Graduation Template]].

@@ -46,8 +46,8 @@ GBrain operating contract.
 - semantic recall over compact memory objects
 - cross-session continuity recall
 - team-memory sharing through governed `team_candidate` / `team_shared`
-- retrieval fallback when GBrain embeddings are missing or intentionally
-  disabled
+- semantic retrieval delegation when the GBrain embedding layer is intentionally
+  replaced by MemTensor
 - compact write-through pointers from durable brain/wiki updates
 
 It does not replace source-of-truth pages.

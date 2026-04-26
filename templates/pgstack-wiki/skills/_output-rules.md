@@ -24,5 +24,6 @@ source_of_truth:
 
 - Write durable structure to wiki/brain, not only chat.
 - Update `wiki/index.md`, `wiki/log.md`, and relevant brain indexes after core changes.
-- Use local MemTensor as compact continuity memory when appropriate.
+- Use the configured cloud memory route for compact continuity when appropriate,
+  or record `needs_cloud_memory_write`.
 - Do not publish to team memory without gate and rewrite.

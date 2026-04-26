@@ -28,7 +28,7 @@ Problem:
 ## Better
 
 ```text
-If Hub approval is already active but the local client still shows pending, compare Hub registration status with local `client_hub_connection`. When Hub is active but local `user_token` is empty, local token sync is stale. kb_domain: skills. Source of truth: install-memos-local-hermes-plugin skill.
+If Hub approval is already active but an agent still shows pending, compare Hub registration status with the agent's configured cloud memory route. When Hub is active but the agent has no usable route token, route setup is stale. kb_domain: skills. Source of truth: cloud MemTensor Hub setup runbook.
 ```
 
 Why it works:

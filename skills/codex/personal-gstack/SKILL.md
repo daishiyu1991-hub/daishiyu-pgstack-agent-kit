@@ -65,9 +65,10 @@ After durable work, update:
 
 Default memory layer order:
 
-1. local MemTensor for continuity
-2. local wiki when the knowledge changes `pgstack` structure
-3. team promotion only after rewrite and governance
+1. local wiki / PGBrain when the knowledge changes `pgstack` structure
+2. cloud GBrain Remote MCP and cloud MemTensor for continuity when available
+3. `needs_cloud_memory_write` when a cloud write is required but unavailable
+4. team promotion only after rewrite and governance
 
 ## Live Team Memory
 
