@@ -16,6 +16,8 @@ import argparse
 import json
 import os
 import re
+import subprocess
+import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -53,6 +55,7 @@ REQUIRED_KERNEL_PATHS = (
 CORE_TWO_LAYER_PAGES = (
     "brain/skills/pgstack-pgbrain-shared-kernel-architecture.md",
     "brain/skills/gbrain-operating-logic-compatibility-matrix.md",
+    "brain/skills/pgstack-gbrain-compatibility-layer.md",
     "brain/skills/pgbrain-engine-v1.md",
     "skills/RESOLVER.md",
 )
@@ -625,7 +628,44 @@ def print_related(query: str, limit: int) -> int:
     return 0
 
 
-def print_maintenance(limit: int) -> int:
+def central_brain_maintenance_smoke(require_config: bool) -> dict[str, object]:
+    cmd = [
+        sys.executable,
+        str(ROOT / "engine" / "central_brain_health.py"),
+        "--json",
+    ]
+    if require_config:
+        cmd.append("--require-config")
+    try:
+        completed = subprocess.run(
+            cmd,
+            check=False,
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            timeout=70,
+        )
+    except subprocess.TimeoutExpired as exc:
+        return {
+            "verdict": "FAIL",
+            "error": f"timed out after {exc.timeout}s",
+        }
+
+    try:
+        result = json.loads(completed.stdout)
+    except json.JSONDecodeError:
+        result = {
+            "verdict": "FAIL",
+            "error": "central_brain_health.py returned non-JSON output",
+            "stdout_preview": completed.stdout[-500:],
+        }
+    if completed.stderr.strip():
+        result["stderr_preview"] = completed.stderr.strip()[-500:]
+    result["returncode"] = completed.returncode
+    return result
+
+
+def print_maintenance(limit: int, central_brain_smoke: bool, require_central_brain: bool) -> int:
     docs = [parse_doc(path) for path in iter_markdown_files()]
     lookup = markdown_lookup()
     inbound: dict[str, int] = {doc.path: 0 for doc in docs}
@@ -669,6 +709,33 @@ def print_maintenance(limit: int) -> int:
             print(f"  {doc.path} | {doc.title}")
         if len(open_thread_docs) > limit:
             print(f"  ... {len(open_thread_docs) - limit} more")
+
+    if central_brain_smoke:
+        smoke = central_brain_maintenance_smoke(require_central_brain)
+        print("central-brain smoke:")
+        print(f"  verdict: {smoke.get('verdict')}")
+        route = smoke.get("memory_owner_route")
+        if isinstance(route, dict):
+            print(
+                "  memory_owner_route: "
+                f"{route.get('requested')} -> {route.get('resolved')} "
+                f"(alias_applied={route.get('alias_applied')})"
+            )
+        checks = smoke.get("checks")
+        if isinstance(checks, list):
+            for check in checks:
+                if isinstance(check, dict):
+                    status = "SKIP" if check.get("skipped") else ("PASS" if check.get("passed") else "FAIL")
+                    print(f"  {check.get('name')}: {status} (evidence_count={check.get('evidence_count')})")
+        if smoke.get("missing"):
+            for item in smoke.get("missing", []):
+                print(f"  missing: {item}")
+        if smoke.get("error"):
+            print(f"  error: {smoke.get('error')}")
+        if smoke.get("verdict") == "FAIL":
+            return 2
+        if smoke.get("verdict") == "SKIP" and require_central_brain:
+            return 2
 
     return 0
 
@@ -732,6 +799,16 @@ def main(argv: list[str] | None = None) -> int:
 
     maintenance_parser = subparsers.add_parser("maintenance", help="Print a local maintenance report")
     maintenance_parser.add_argument("--limit", type=int, default=20)
+    maintenance_parser.add_argument(
+        "--central-brain-smoke",
+        action="store_true",
+        help="Include the optional cloud Central Brain maintenance smoke.",
+    )
+    maintenance_parser.add_argument(
+        "--require-central-brain",
+        action="store_true",
+        help="Fail maintenance if the central brain smoke is skipped or fails.",
+    )
 
     query_parser = subparsers.add_parser("query", help="Search the local index")
     query_parser.add_argument("query")
@@ -758,7 +835,7 @@ def main(argv: list[str] | None = None) -> int:
         return print_related(args.query, args.limit)
 
     if args.command == "maintenance":
-        return print_maintenance(args.limit)
+        return print_maintenance(args.limit, args.central_brain_smoke, args.require_central_brain)
 
     if args.command == "validate":
         return print_validate()

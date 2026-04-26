@@ -12,6 +12,7 @@ It packages the reusable parts of the system:
   portable thick skills
 - `PGBrain Engine v1` for local indexing, query, relation lookup, doctor checks, and maintenance reports
 - example config for Hermes cron, MemTensor, MultiCA/AgentHost orchestration, NotebookLM sidecars, and GitHub-backed collaboration
+- optional central-brain lookup, health, and MCP bridge commands that keep GBrain first and MemTensor as retrieval context
 - local smoke tests so a teammate can verify the node before using it
 
 This repo is a starter kit, not a full dependency bundle. It intentionally does not include private state, Feishu channels, personal Obsidian content, MemTensor memories, cookies, tokens, machine-specific paths, or third-party account logins.
@@ -66,6 +67,7 @@ The installer never installs credentials. Each person must connect their own:
 - GitHub account/plugin
 - NotebookLM browser login or MCP bridge
 - Hermes cron jobs
+- Central Brain Host SSH access and memory owner routing
 
 Integration setup is guided, not bundled. See [docs/setup-integrations.md](docs/setup-integrations.md).
 
@@ -77,6 +79,7 @@ Hermes = recurring runtime execution and unattended pipelines
 MultiCA / AgentHost = optional orchestration layer for multi-agent routing
 PGBrain = durable local knowledge engine
 MemTensor Team Hub = optional shared compiled knowledge layer
+Central Brain Host = optional shared GBrain + MemTensor center for teams
 ```
 
 ## Quick Verification
@@ -86,7 +89,8 @@ MemTensor Team Hub = optional shared compiled knowledge layer
 ```
 
 The smoke test installs into a temporary directory, runs `skillpack_check.py`,
-PGBrain validation/doctor checks, and checks for obvious private-path leakage.
+PGBrain validation/doctor checks, central-brain SKIP/PASS health checks, and
+checks for obvious private-path leakage.
 
 ## First Real Pipeline
 

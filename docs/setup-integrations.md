@@ -14,6 +14,7 @@ The kit installs:
 - Hermes runtime skills
 - example configuration
 - local smoke tests
+- optional central-brain lookup, health, and MCP bridge commands
 
 The kit does not install or copy:
 
@@ -25,6 +26,7 @@ The kit does not install or copy:
 - NotebookLM cookies or browser sessions
 - local Hermes state
 - machine-specific paths
+- Central Brain Host SSH targets or key paths
 
 ## Recommended Setup Order
 
@@ -140,6 +142,42 @@ Team sharing should stay disabled until the team owner confirms:
 - review gate
 - source-of-truth rules
 - rollback path
+
+## Central Brain Host
+
+Central Brain is optional. Use it when a teammate node should read from a
+shared GBrain + MemTensor center.
+
+The kit provides:
+
+- `engine/central_brain_lookup.py`
+- `engine/central_brain_health.py`
+- `engine/central_brain_mcp_server.mjs`
+- compatibility boundary docs in the starter wiki
+
+It does not install:
+
+- SSH keys
+- cloud servers
+- GBrain server state
+- MemTensor databases
+- MCP SDK dependencies
+
+Before configuration, this should return `SKIP`:
+
+```bash
+python3 "$PGSTACK_HOME/engine/central_brain_health.py"
+```
+
+After the human approves the target and key:
+
+```bash
+export PGSTACK_CENTRAL_BRAIN_SSH_TARGET="user@host"
+export PGSTACK_CENTRAL_BRAIN_SSH_KEY="$HOME/.ssh/your_key"
+python3 "$PGSTACK_HOME/engine/central_brain_health.py" --require-config
+```
+
+See `docs/central-brain.md`.
 
 ## Feishu
 

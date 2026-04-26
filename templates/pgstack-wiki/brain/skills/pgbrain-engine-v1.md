@@ -26,11 +26,15 @@ python3 engine/pgbrain_engine.py doctor
 python3 engine/pgbrain_engine.py query "AI Daily Brief Job"
 python3 engine/pgbrain_engine.py related "AI Daily Brief Job"
 python3 engine/pgbrain_engine.py maintenance
+python3 engine/pgbrain_engine.py maintenance --central-brain-smoke
+python3 engine/central_brain_health.py
 ```
 
 ## Current Open Threads
 
 - Keep the engine filesystem-backed until real pipeline use requires a heavier graph or retrieval layer.
+- Configure Central Brain only after the human approves SSH target, key path,
+  and memory owner route.
 
 ## Source Of Truth
 
@@ -39,4 +43,4 @@ python3 engine/pgbrain_engine.py maintenance
 ## Timeline
 
 - 2026-04-24: Added engine object to the portable starter kernel.
-
+- 2026-04-26: Added optional central-brain maintenance smoke entry.

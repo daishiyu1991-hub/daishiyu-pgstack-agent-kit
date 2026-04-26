@@ -14,6 +14,7 @@ source_of_truth:
   - ../conventions/brain-first.md
   - ../../brain/schema.md
   - ../../brain/skills/pgbrain-enrichment-protocol-v1.md
+  - ../../brain/skills/pgstack-gbrain-compatibility-layer.md
 ---
 
 # PGStack Brain Ops
@@ -29,6 +30,10 @@ Before changing durable rules or answering from project context:
 3. Read the highest-value wiki/brain pages.
 4. Use MemTensor as governed supporting memory.
 5. Use external sources only when freshness or missing evidence requires it.
+
+Before changing GBrain, MemTensor, central-brain lookup, Agent Kit packaging,
+or unattended maintenance topology, also read
+`brain/skills/pgstack-gbrain-compatibility-layer.md`.
 
 After durable work:
 

@@ -19,6 +19,7 @@
 
 - [[../brain/skills/pgstack-pgbrain-shared-kernel-architecture|PGStack PGBrain Shared Kernel Architecture]]
 - [[../brain/skills/pgbrain-engine-v1|PGBrain Engine v1]]
+- [[../brain/skills/pgstack-gbrain-compatibility-layer|PGStack GBrain Compatibility Layer]]
 - [[../skills/RESOLVER|PGStack Skill Resolver]]
 
 ## Adapters
@@ -27,3 +28,4 @@
 - [[../adapters/hermes|Hermes Adapter]]
 - [[../adapters/multica-agenthost|MultiCA AgentHost Adapter]]
 - [[../adapters/memtensor|MemTensor Adapter]]
+- [[../adapters/memtensor-gbrain-retrieval|MemTensor as GBrain Retrieval Adapter]]

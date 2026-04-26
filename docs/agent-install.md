@@ -21,16 +21,19 @@ Requirements:
 4. After install, run the smoke test if the checkout is available.
 5. Run `python3 engine/skillpack_check.py` inside PGSTACK_HOME and confirm 0 errors and 0 warnings.
 6. Run PGBrain doctor and confirm 0 errors and 0 warnings.
-7. Do not upload, commit, or copy my secrets, tokens, cookies, Feishu channels,
+7. Run `python3 engine/central_brain_health.py` and report whether it returns
+   SKIP because no central host is configured or PASS after I provide config.
+8. Do not upload, commit, or copy my secrets, tokens, cookies, Feishu channels,
    MemTensor data, browser profiles, or private notes.
-8. Do not enable recurring cron jobs until I approve delivery channels and
+9. Do not enable recurring cron jobs until I approve delivery channels and
    runtime ownership.
-9. Give me an acceptance report with:
+10. Give me an acceptance report with:
    - PGStack install path
    - Codex skills path
    - Hermes skills path
    - skillpack check result
    - PGBrain doctor result
+   - central-brain health result
    - smoke test result
    - optional integrations that are still disconnected
    - any blocker or permission needed from me
@@ -74,6 +77,8 @@ The install is ready only when:
 - `skillpack_check.py` returns `0 error(s), 0 warning(s)`
 - `PGBrain doctor` returns `0 error(s), 0 warning(s)`
 - smoke test passes when run from the checkout
+- central-brain health returns `SKIP` before config or `PASS` after approved
+  config
 - no private secrets, Feishu channels, cookies, MemTensor memory dumps, or
   machine-specific private paths are committed or uploaded
 
@@ -82,6 +87,8 @@ The install is ready only when:
 Do these after the core install is verified.
 
 - `MemTensor`: connect local memory or team hub, then run a write/read health check.
+- `Central Brain`: configure only after the human approves SSH target, key, and
+  memory owner route; see `docs/central-brain.md`.
 - `MultiCA / AgentHost`: connect the orchestration layer, run one no-op task,
   then verify the artifact can land in PGBrain.
 - `Feishu`: connect only the teammate's own bot or DM target.

@@ -21,6 +21,9 @@ This directory is the local `PGStack + PGBrain` wiki for one person or teammate.
 - Read `wiki/index.md` before durable work.
 - Use `brain/RESOLVER.md` before creating durable brain objects.
 - Use `skills/RESOLVER.md` before choosing a canonical skill.
+- Before changing GBrain, MemTensor, central-brain lookup, Agent Kit packaging,
+  or unattended maintenance topology, read
+  `brain/skills/pgstack-gbrain-compatibility-layer.md`.
 - Update `wiki/index.md` and `wiki/log.md` after material changes.
 - Prefer `Compiled Truth` plus `Timeline` for evolving durable objects.
 - Run `python3 engine/skillpack_check.py` and
