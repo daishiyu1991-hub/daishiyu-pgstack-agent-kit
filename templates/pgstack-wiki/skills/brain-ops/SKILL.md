@@ -15,6 +15,7 @@ source_of_truth:
   - ../../brain/schema.md
   - ../../brain/skills/pgbrain-enrichment-protocol-v1.md
   - ../../brain/skills/pgstack-gbrain-compatibility-layer.md
+  - ../../brain/skills/pgstack-upstream-parity-checklist.md
 ---
 
 # PGStack Brain Ops
@@ -34,6 +35,11 @@ Before changing durable rules or answering from project context:
 Before changing GBrain, MemTensor, central-brain lookup, Agent Kit packaging,
 or unattended maintenance topology, also read
 `brain/skills/pgstack-gbrain-compatibility-layer.md`.
+
+Before answering whether PGStack is aligned to, merged with, complete against,
+or faithfully replicating upstream `gstack + gbrain`, also read
+`brain/skills/pgstack-upstream-parity-checklist.md`. Check the agent layer
+explicitly; do not infer it from Codex, Hermes, MultiCA, or MCP tools alone.
 
 After durable work:
 

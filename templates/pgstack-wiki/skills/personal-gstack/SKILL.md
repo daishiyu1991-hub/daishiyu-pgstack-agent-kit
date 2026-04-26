@@ -13,6 +13,7 @@ source_of_truth:
   - ../RESOLVER.md
   - ../../wiki/syntheses/personal-gstack-north-star.md
   - ../../wiki/syntheses/personal-gstack-completeness-map.md
+  - ../../brain/skills/pgstack-upstream-parity-checklist.md
 ---
 
 # Personal GStack
@@ -34,6 +35,8 @@ operate -> retro
 - Keep Codex as workbench and Hermes as recurring runtime by default.
 - Route durable knowledge through `brain-ops`.
 - Preserve structural changes in wiki/brain and Git.
+- Run the upstream parity checklist before claiming PGStack has aligned to,
+  merged with, completed, or faithfully replicated original `gstack + gbrain`.
 
 ## Host Adapters
 

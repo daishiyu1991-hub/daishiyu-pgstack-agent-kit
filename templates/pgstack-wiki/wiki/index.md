@@ -20,6 +20,7 @@
 - [[../brain/skills/pgstack-pgbrain-shared-kernel-architecture|PGStack PGBrain Shared Kernel Architecture]]
 - [[../brain/skills/pgbrain-engine-v1|PGBrain Engine v1]]
 - [[../brain/skills/pgstack-gbrain-compatibility-layer|PGStack GBrain Compatibility Layer]]
+- [[../brain/skills/pgstack-upstream-parity-checklist|PGStack Upstream Parity Checklist]]
 - [[../skills/RESOLVER|PGStack Skill Resolver]]
 
 ## Adapters

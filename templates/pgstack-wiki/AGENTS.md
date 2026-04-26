@@ -24,6 +24,10 @@ This directory is the local `PGStack + PGBrain` wiki for one person or teammate.
 - Before changing GBrain, MemTensor, central-brain lookup, Agent Kit packaging,
   or unattended maintenance topology, read
   `brain/skills/pgstack-gbrain-compatibility-layer.md`.
+- Before answering whether PGStack is aligned to, merged with, complete against,
+  or faithfully replicating upstream `gstack + gbrain`, read
+  `brain/skills/pgstack-upstream-parity-checklist.md` and check the agent layer
+  explicitly.
 - Update `wiki/index.md` and `wiki/log.md` after material changes.
 - Prefer `Compiled Truth` plus `Timeline` for evolving durable objects.
 - Run `python3 engine/skillpack_check.py` and
