@@ -18,7 +18,7 @@ source_of_truth:
 
 ## 2026-04-26
 
-- Added central-brain optional commands and the PGStack/GBrain compatibility
-  layer to the starter kernel.
+- Added GBrain Remote MCP optional health/wrapper commands and the
+  PGStack/GBrain compatibility layer to the starter kernel.
 - Locked MemTensor as retrieval/continuity/team-sharing adapter, not a second
   canonical brain.

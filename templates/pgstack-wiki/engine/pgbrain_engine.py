@@ -29,9 +29,7 @@ VAULT_ROOT = ROOT.parents[1]
 STATE_DIR = ROOT / "engine" / "state"
 INDEX_PATH = STATE_DIR / "pgbrain-index.json"
 INDEX_DIRS = ("brain", "wiki", "skills", "jobs", "adapters", "engine")
-HERMES_JOBS_PATH = Path(
-    os.environ.get("PGSTACK_HERMES_JOBS_PATH", Path.home() / ".hermes" / "cron" / "jobs.json")
-).expanduser()
+HERMES_JOBS_PATH = Path(os.environ.get("HERMES_JOBS_PATH", Path.home() / ".hermes" / "cron" / "jobs.json"))
 SKILL_MANIFEST_PATH = ROOT / "skills" / "manifest.json"
 
 REQUIRED_KERNEL_PATHS = (
@@ -55,7 +53,6 @@ REQUIRED_KERNEL_PATHS = (
 CORE_TWO_LAYER_PAGES = (
     "brain/skills/pgstack-pgbrain-shared-kernel-architecture.md",
     "brain/skills/gbrain-operating-logic-compatibility-matrix.md",
-    "brain/skills/pgstack-gbrain-compatibility-layer.md",
     "brain/skills/pgbrain-engine-v1.md",
     "skills/RESOLVER.md",
 )
@@ -629,10 +626,10 @@ def print_related(query: str, limit: int) -> int:
     return 0
 
 
-def central_brain_maintenance_smoke(require_config: bool) -> dict[str, object]:
+def remote_mcp_maintenance_smoke(require_config: bool) -> dict[str, object]:
     cmd = [
-        sys.executable,
-        str(ROOT / "engine" / "central_brain_health.py"),
+        "node",
+        str(ROOT / "engine" / "gbrain_remote_mcp_health.mjs"),
         "--json",
     ]
     if require_config:
@@ -657,7 +654,7 @@ def central_brain_maintenance_smoke(require_config: bool) -> dict[str, object]:
     except json.JSONDecodeError:
         result = {
             "verdict": "FAIL",
-            "error": "central_brain_health.py returned non-JSON output",
+            "error": "gbrain_remote_mcp_health.mjs returned non-JSON output",
             "stdout_preview": completed.stdout[-500:],
         }
     if completed.stderr.strip():
@@ -666,7 +663,7 @@ def central_brain_maintenance_smoke(require_config: bool) -> dict[str, object]:
     return result
 
 
-def print_maintenance(limit: int, central_brain_smoke: bool, require_central_brain: bool) -> int:
+def print_maintenance(limit: int, remote_mcp_smoke: bool, require_remote_mcp: bool) -> int:
     docs = [parse_doc(path) for path in iter_markdown_files()]
     lookup = markdown_lookup()
     inbound: dict[str, int] = {doc.path: 0 for doc in docs}
@@ -711,23 +708,22 @@ def print_maintenance(limit: int, central_brain_smoke: bool, require_central_bra
         if len(open_thread_docs) > limit:
             print(f"  ... {len(open_thread_docs) - limit} more")
 
-    if central_brain_smoke:
-        smoke = central_brain_maintenance_smoke(require_central_brain)
-        print("central-brain smoke:")
+    if remote_mcp_smoke:
+        smoke = remote_mcp_maintenance_smoke(require_remote_mcp)
+        print("gbrain-remote-mcp smoke:")
         print(f"  verdict: {smoke.get('verdict')}")
-        route = smoke.get("memory_owner_route")
-        if isinstance(route, dict):
-            print(
-                "  memory_owner_route: "
-                f"{route.get('requested')} -> {route.get('resolved')} "
-                f"(alias_applied={route.get('alias_applied')})"
-            )
+        if smoke.get("url"):
+            print(f"  url: {smoke.get('url')}")
         checks = smoke.get("checks")
         if isinstance(checks, list):
             for check in checks:
                 if isinstance(check, dict):
-                    status = "SKIP" if check.get("skipped") else ("PASS" if check.get("passed") else "FAIL")
-                    print(f"  {check.get('name')}: {status} (evidence_count={check.get('evidence_count')})")
+                    detail = []
+                    for key in ("count", "page_count", "chunk_count", "slug"):
+                        if check.get(key) is not None:
+                            detail.append(f"{key}={check.get(key)}")
+                    suffix = f" ({', '.join(detail)})" if detail else ""
+                    print(f"  {check.get('name')}: {'PASS' if check.get('passed') else 'FAIL'}{suffix}")
         if smoke.get("missing"):
             for item in smoke.get("missing", []):
                 print(f"  missing: {item}")
@@ -735,7 +731,7 @@ def print_maintenance(limit: int, central_brain_smoke: bool, require_central_bra
             print(f"  error: {smoke.get('error')}")
         if smoke.get("verdict") == "FAIL":
             return 2
-        if smoke.get("verdict") == "SKIP" and require_central_brain:
+        if smoke.get("verdict") == "SKIP" and require_remote_mcp:
             return 2
 
     return 0
@@ -801,14 +797,14 @@ def main(argv: list[str] | None = None) -> int:
     maintenance_parser = subparsers.add_parser("maintenance", help="Print a local maintenance report")
     maintenance_parser.add_argument("--limit", type=int, default=20)
     maintenance_parser.add_argument(
-        "--central-brain-smoke",
+        "--remote-mcp-smoke",
         action="store_true",
-        help="Include the optional cloud Central Brain maintenance smoke.",
+        help="Include the formal cloud GBrain Remote MCP maintenance smoke.",
     )
     maintenance_parser.add_argument(
-        "--require-central-brain",
+        "--require-remote-mcp",
         action="store_true",
-        help="Fail maintenance if the central brain smoke is skipped or fails.",
+        help="Fail maintenance if the GBrain Remote MCP smoke is skipped or fails.",
     )
 
     query_parser = subparsers.add_parser("query", help="Search the local index")
@@ -836,7 +832,7 @@ def main(argv: list[str] | None = None) -> int:
         return print_related(args.query, args.limit)
 
     if args.command == "maintenance":
-        return print_maintenance(args.limit, args.central_brain_smoke, args.require_central_brain)
+        return print_maintenance(args.limit, args.remote_mcp_smoke, args.require_remote_mcp)
 
     if args.command == "validate":
         return print_validate()

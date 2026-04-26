@@ -62,10 +62,11 @@ brain_lookup(query, scope, freshness, max_results)
 
 Resolution order:
 
-1. Query the configured Central Brain Host GBrain / PGBrain first.
-2. Query MemTensor second when continuity or team-memory context may help.
-3. Merge results by source authority.
-4. Return both answer candidates and source pointers.
+1. Query the configured GBrain Remote MCP / PGBrain first.
+2. Query MemTensor only when the task explicitly needs TeamHub or continuity
+   context.
+3. Keep results separated by source authority.
+4. Return answer candidates and source pointers with the boundary visible.
 
 MemTensor hits are context, not canonical truth. A MemTensor result that changes
 behavior must point back to a durable source: brain page, wiki page, repo
@@ -73,25 +74,23 @@ artifact, runbook, or verified external source.
 
 ## Included Commands
 
-The starter kit includes a read-only cloud-centered adapter:
+The starter kit includes a Remote MCP health check:
 
 ```bash
-python3 engine/central_brain_lookup.py lookup --query "central brain host" --memory-owner central
-python3 engine/central_brain_lookup.py smoke --memory-owner central
-python3 engine/central_brain_health.py
-python3 engine/pgbrain_engine.py maintenance --central-brain-smoke
+node engine/gbrain_remote_mcp_health.mjs
+node engine/gbrain_remote_mcp_health.mjs --require-config
+python3 engine/pgbrain_engine.py maintenance --remote-mcp-smoke
 ```
 
 The commands require explicit environment configuration before they contact a
 remote host:
 
 ```bash
-export PGSTACK_CENTRAL_BRAIN_SSH_TARGET="user@host"
-export PGSTACK_CENTRAL_BRAIN_SSH_KEY="$HOME/.ssh/your_key"
-export PGSTACK_CENTRAL_BRAIN_MEMORY_OWNER="central"
+export PGSTACK_GBRAIN_REMOTE_MCP_URL="https://your-host/gbrain/mcp"
+export PGSTACK_GBRAIN_REMOTE_MCP_TOKEN="..."
 ```
 
-If the target is not configured, `central_brain_health.py` returns `SKIP` by
+If the target is not configured, `gbrain_remote_mcp_health.mjs` returns `SKIP` by
 default so local-only nodes still pass their base smoke tests.
 
 ## Failure Modes

@@ -10,10 +10,10 @@ python3 engine/pgbrain_engine.py doctor
 python3 engine/pgbrain_engine.py query "AI Daily Brief Job"
 python3 engine/pgbrain_engine.py related "AI Daily Brief Job"
 python3 engine/pgbrain_engine.py maintenance
-python3 engine/pgbrain_engine.py maintenance --central-brain-smoke
-python3 engine/central_brain_health.py
-python3 engine/central_brain_lookup.py smoke --memory-owner central
-node engine/central_brain_mcp_server.mjs
+python3 engine/pgbrain_engine.py maintenance --remote-mcp-smoke
+node engine/gbrain_remote_mcp_health.mjs
+node engine/gbrain_remote_mcp_health.mjs --write-smoke
+node engine/gbrain_remote_mcp_http_server.mjs
 python3 engine/skillpack_check.py
 ```
 
@@ -23,23 +23,20 @@ The engine is filesystem-backed and intentionally small.
 coverage, and required `skills/*/SKILL.md` files. `PGBrain Engine` validate and
 doctor also call this check.
 
-## Optional Central Brain
+## Optional GBrain Remote MCP
 
-The kit includes read-only central-brain commands:
+The kit includes Remote MCP commands:
 
-- `central_brain_lookup.py`: queries a configured Central Brain Host GBrain
-  first, then MemTensor as `memory_context`.
-- `central_brain_health.py`: runs the central-brain smoke and returns `SKIP`
-  when no SSH target is configured.
-- `central_brain_mcp_server.mjs`: optional Codex-compatible MCP bridge over the
-  lookup adapter.
+- `gbrain_remote_mcp_health.mjs`: checks a configured GBrain Remote MCP route
+  and returns `SKIP` when no token is configured.
+- `gbrain_remote_mcp_http_server.mjs`: host-side HTTP MCP wrapper for a cloud
+  GBrain memory center.
 
 Configuration is explicit and never guessed:
 
 ```bash
-export PGSTACK_CENTRAL_BRAIN_SSH_TARGET="user@host"
-export PGSTACK_CENTRAL_BRAIN_SSH_KEY="$HOME/.ssh/your_key"
-export PGSTACK_CENTRAL_BRAIN_MEMORY_OWNER="central"
+export PGSTACK_GBRAIN_REMOTE_MCP_URL="https://your-host/gbrain/mcp"
+export PGSTACK_GBRAIN_REMOTE_MCP_TOKEN="..."
 ```
 
-See `docs/central-brain.md` in the kit checkout.
+See `docs/gbrain-remote-mcp.md` in the kit checkout.

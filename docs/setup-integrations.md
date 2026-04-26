@@ -14,7 +14,7 @@ The kit installs:
 - Hermes runtime skills
 - example configuration
 - local smoke tests
-- optional central-brain lookup, health, and MCP bridge commands
+- optional GBrain Remote MCP health and host-wrapper commands
 
 The kit does not install or copy:
 
@@ -26,7 +26,7 @@ The kit does not install or copy:
 - NotebookLM cookies or browser sessions
 - local Hermes state
 - machine-specific paths
-- Central Brain Host SSH targets or key paths
+- GBrain Remote MCP bearer tokens or host-specific endpoints
 
 ## Recommended Setup Order
 
@@ -143,41 +143,39 @@ Team sharing should stay disabled until the team owner confirms:
 - source-of-truth rules
 - rollback path
 
-## Central Brain Host
+## GBrain Remote MCP
 
-Central Brain is optional. Use it when a teammate node should read from a
-shared GBrain + MemTensor center.
+GBrain Remote MCP is optional. Use it when a teammate node should read and write
+through a shared GBrain memory center.
 
 The kit provides:
 
-- `engine/central_brain_lookup.py`
-- `engine/central_brain_health.py`
-- `engine/central_brain_mcp_server.mjs`
+- `engine/gbrain_remote_mcp_health.mjs`
+- `engine/gbrain_remote_mcp_http_server.mjs`
 - compatibility boundary docs in the starter wiki
 
 It does not install:
 
-- SSH keys
+- bearer tokens
 - cloud servers
 - GBrain server state
 - MemTensor databases
-- MCP SDK dependencies
 
 Before configuration, this should return `SKIP`:
 
 ```bash
-python3 "$PGSTACK_HOME/engine/central_brain_health.py"
+node "$PGSTACK_HOME/engine/gbrain_remote_mcp_health.mjs"
 ```
 
-After the human approves the target and key:
+After the human approves the endpoint and token:
 
 ```bash
-export PGSTACK_CENTRAL_BRAIN_SSH_TARGET="user@host"
-export PGSTACK_CENTRAL_BRAIN_SSH_KEY="$HOME/.ssh/your_key"
-python3 "$PGSTACK_HOME/engine/central_brain_health.py" --require-config
+export PGSTACK_GBRAIN_REMOTE_MCP_URL="https://example.com/gbrain/mcp"
+export PGSTACK_GBRAIN_REMOTE_MCP_TOKEN="..."
+node "$PGSTACK_HOME/engine/gbrain_remote_mcp_health.mjs" --require-config
 ```
 
-See `docs/central-brain.md`.
+See `docs/gbrain-remote-mcp.md`.
 
 ## Feishu
 

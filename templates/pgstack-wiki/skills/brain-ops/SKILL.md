@@ -33,7 +33,7 @@ Before changing durable rules or answering from project context:
 4. Use MemTensor as governed supporting memory.
 5. Use external sources only when freshness or missing evidence requires it.
 
-Before changing GBrain, MemTensor, central-brain lookup, Agent Kit packaging,
+Before changing GBrain, MemTensor, GBrain Remote MCP, Agent Kit packaging,
 or unattended maintenance topology, also read
 `brain/skills/pgstack-gbrain-compatibility-layer.md`.
 

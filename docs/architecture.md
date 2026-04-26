@@ -8,7 +8,7 @@ Human steward
 -> Codex workbench + Hermes runtime adapters
 -> PGStack workflow layer
 -> PGBrain durable knowledge layer
--> optional Central Brain Host
+-> optional GBrain Remote MCP memory center
 -> optional MemTensor Team Hub
 ```
 
@@ -18,10 +18,9 @@ Human steward
 - `skills/hermes`: runtime skills for scheduled work
 - `templates/pgstack-wiki`: starter Obsidian/Markdown wiki and PGBrain kernel
 - `engine/pgbrain_engine.py`: deterministic local index, query, validation, and maintenance tool
-- `engine/central_brain_lookup.py`: optional read-only central GBrain first,
-  MemTensor second lookup adapter
-- `engine/central_brain_health.py`: optional central-brain maintenance smoke
-- `engine/central_brain_mcp_server.mjs`: optional MCP bridge over central lookup
+- `engine/gbrain_remote_mcp_health.mjs`: optional GBrain Remote MCP smoke test
+- `engine/gbrain_remote_mcp_http_server.mjs`: host-side HTTP MCP wrapper for
+  the cloud memory center
 - `config`: examples only, never live secrets
 
 ## MultiCA And AgentHost

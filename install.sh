@@ -121,7 +121,7 @@ HERMES_HOME=$HERMES_HOME
 Next:
 1. Review $PGSTACK_HOME/AGENTS.md
 2. Configure Hermes cron from $HERMES_HOME/cron/pgstack-jobs.example.json
-3. Optional Central Brain setup lives at $KIT_ROOT/docs/central-brain.md
+3. Optional GBrain Remote MCP setup lives at $KIT_ROOT/docs/gbrain-remote-mcp.md
 4. If an agent installed this, have it follow $KIT_ROOT/docs/agent-install.md for the acceptance report.
 5. Follow $KIT_ROOT/docs/setup-integrations.md to connect only the integrations you need.
 EOF

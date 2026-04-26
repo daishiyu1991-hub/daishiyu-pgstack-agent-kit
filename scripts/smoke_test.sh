@@ -25,9 +25,10 @@ python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "PGStack GBrain Compati
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "PGStack Upstream Parity Checklist" --limit 10
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" related "PGStack Agent Layer Stage 3.5" --limit 10
 python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" maintenance --limit 10
-python3 "$PGSTACK_HOME/engine/central_brain_health.py" --json
-python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" maintenance --central-brain-smoke --limit 10
-node --check "$PGSTACK_HOME/engine/central_brain_mcp_server.mjs"
+node "$PGSTACK_HOME/engine/gbrain_remote_mcp_health.mjs" --json
+python3 "$PGSTACK_HOME/engine/pgbrain_engine.py" maintenance --remote-mcp-smoke --limit 10
+node --check "$PGSTACK_HOME/engine/gbrain_remote_mcp_http_server.mjs"
+node --check "$PGSTACK_HOME/engine/gbrain_remote_mcp_health.mjs"
 
 "$KIT_ROOT/scripts/sanitize_check.sh"
 

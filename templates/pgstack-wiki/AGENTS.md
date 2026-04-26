@@ -21,7 +21,7 @@ This directory is the local `PGStack + PGBrain` wiki for one person or teammate.
 - Read `wiki/index.md` before durable work.
 - Use `brain/RESOLVER.md` before creating durable brain objects.
 - Use `skills/RESOLVER.md` before choosing a canonical skill.
-- Before changing GBrain, MemTensor, central-brain lookup, Agent Kit packaging,
+- Before changing GBrain, MemTensor, GBrain Remote MCP, Agent Kit packaging,
   or unattended maintenance topology, read
   `brain/skills/pgstack-gbrain-compatibility-layer.md`.
 - Before answering whether PGStack is aligned to, merged with, complete against,
