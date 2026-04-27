@@ -19,11 +19,21 @@ When changing the kit:
 - prefer examples over live credentials
 - update `README.md` when installation behavior changes
 
-The canonical architecture is a single local `PGStack Node`:
+The canonical architecture is a native-first personal node:
 
 ```text
-agent host + workflow layer + PGBrain + Obsidian/wiki + optional MemTensor Team Hub
+original GStack + original GBrain + Brain Repo + host adapters + PGStack add-ons
 ```
 
-Each teammate owns their own node. Nodes share compiled knowledge through MemTensor or GitHub, not raw chat logs.
+Durable memory flow defaults to:
 
+```text
+compiled Markdown knowledge object
+-> Brain Repo / GBrain sync/embed/query
+-> optional MemTensor personal pointer
+-> optional governed TeamHub publication
+```
+
+Each teammate owns their own node. Nodes share compiled knowledge through
+GBrain/Brain Repo, MemTensor TeamHub, or GitHub, not raw chat logs. MemTensor is
+a continuity and TeamHub adapter, not a second semantic brain.
