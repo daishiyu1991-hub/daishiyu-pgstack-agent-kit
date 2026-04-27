@@ -2,7 +2,7 @@
 title: MultiCA AgentHost Adapter
 type: source
 created: 2026-04-24
-updated: 2026-04-26
+updated: 2026-04-27
 status: candidate
 confidence: medium
 scope: local_pgstack
@@ -16,8 +16,9 @@ source_of_truth:
 # MultiCA AgentHost Adapter
 
 MultiCA and AgentHost are optional orchestration layers for a PGStack Node.
-They can route work across Codex, Hermes, and other agents, but they should not
-be treated as the durable memory layer.
+They can route work across other people's agents, team-visible runtime lanes,
+or explicitly delegated remote agents, but they should not be treated as the
+durable memory layer or the default private-agent route.
 
 After Agent Layer Stage 3.5, MultiCA/ACP is an orchestration channel. The
 shared kernel remains the source of truth.
@@ -27,9 +28,13 @@ shared kernel remains the source of truth.
 The safe default path is:
 
 ```text
-MultiCA / AgentHost
--> dispatch work to Codex, Hermes, or another agent
--> receive artifact or status
+private user-owned work
+-> native GStack/GBrain through Codex, Hermes, or the user's own agent
+-> write durable conclusions into PGBrain
+
+cross-agent or team-visible work
+-> MultiCA / AgentHost
+-> receive artifact or status from the target agent
 -> write durable conclusions into PGBrain
 -> promote only governed candidates into MemTensor
 ```
@@ -41,6 +46,8 @@ to MemTensor team space.
 
 - 2026-04-24: Added as an optional orchestration adapter in the public starter kit.
 - 2026-04-26: Linked to Agent Layer Stage 3.5.
+- 2026-04-27: Tightened default routing: native GStack/GBrain for private
+  user-owned work, MultiCA/AgentHost for cross-agent or team-visible dispatch.
 
 ## Health Check
 

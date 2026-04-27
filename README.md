@@ -11,7 +11,9 @@ It packages the reusable parts of the system:
   `skills/manifest.json`, always-on `signal-detector` / `brain-ops`, and
   portable thick skills
 - `PGBrain Engine v1` for local indexing, query, relation lookup, doctor checks, and maintenance reports
-- example config for Hermes cron, MemTensor, MultiCA/AgentHost orchestration, NotebookLM sidecars, and GitHub-backed collaboration
+- example config for Hermes cron, MemTensor, optional MultiCA/AgentHost
+  cross-agent orchestration, NotebookLM sidecars, and GitHub-backed
+  collaboration
 - optional GBrain Remote MCP health and host-wrapper commands that keep GBrain
   first and MemTensor as a separately labeled TeamHub/retrieval adapter
 - local smoke tests so a teammate can verify the node before using it
@@ -64,7 +66,8 @@ The installer never installs credentials. Each person must connect their own:
 
 - Feishu or another delivery channel
 - MemTensor local or team hub
-- MultiCA / AgentHost runtime and credentials
+- MultiCA / AgentHost runtime and credentials, only if cross-agent or
+  team-visible dispatch is needed
 - GitHub account/plugin
 - NotebookLM browser login or MCP bridge
 - Hermes cron jobs
@@ -77,7 +80,7 @@ Integration setup is guided, not bundled. See [docs/setup-integrations.md](docs/
 ```text
 Codex  = design, tuning, red-team, documentation, skill evolution
 Hermes = recurring runtime execution and unattended pipelines
-MultiCA / AgentHost = optional orchestration layer for multi-agent routing
+MultiCA / AgentHost = optional orchestration layer for other people's agents, team runtime, or explicit remote-agent routing
 PGBrain = durable local knowledge engine
 MemTensor Team Hub = optional shared compiled knowledge layer
 GBrain Remote MCP = optional shared cloud GBrain memory center

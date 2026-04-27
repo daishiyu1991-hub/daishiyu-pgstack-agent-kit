@@ -77,8 +77,12 @@ Do not enable cron jobs until delivery channels and required state paths are con
 
 ## MultiCA And AgentHost
 
-MultiCA and AgentHost are optional orchestration layers for teammates who want
-one control plane to route work across Codex, Hermes, and other agents.
+MultiCA and AgentHost are optional orchestration layers for teammates who need
+one control plane to route work to another person's agent, a team-visible
+runtime lane, or an explicitly delegated remote agent.
+
+Private user-owned work should stay on native GStack/GBrain through Codex,
+Hermes, or the user's own agent whenever that direct path is enough.
 
 The kit provides:
 
@@ -107,10 +111,14 @@ verify that any MemTensor write uses team-memory gate rules
 Default routing:
 
 ```text
-MultiCA / AgentHost
--> Codex for design and verification
--> Hermes for recurring runtime jobs
+Private user-owned work
+-> Codex or Hermes
 -> PGBrain for durable local conclusions
+
+Cross-agent or team-visible work
+-> MultiCA / AgentHost
+-> target agent returns artifact/status
+-> PGBrain for durable conclusions
 -> MemTensor only after scope/source/review checks
 ```
 

@@ -4,13 +4,17 @@
 
 ```text
 Human steward
--> optional MultiCA / AgentHost orchestration
 -> Codex workbench + Hermes runtime adapters
 -> PGStack workflow layer
 -> PGBrain durable knowledge layer
 -> optional GBrain Remote MCP memory center
 -> optional MemTensor Team Hub
 ```
+
+Private user-owned work defaults to native GStack/GBrain through Codex, Hermes,
+or the user's own agent. MultiCA / AgentHost enters only for another person's
+agent, team/company runtime, target-agent self-repair, or explicitly requested
+remote-agent coordination.
 
 ## Core Surfaces
 
@@ -25,8 +29,8 @@ Human steward
 
 ## MultiCA And AgentHost
 
-MultiCA and AgentHost sit above a local PGStack Node when a teammate wants
-multiple agents to work together.
+MultiCA and AgentHost sit beside a local PGStack Node when a teammate wants to
+route work across other agents or team-visible execution lanes.
 
 They are orchestration surfaces, not the durable memory layer.
 
@@ -34,7 +38,7 @@ Recommended contract:
 
 ```text
 MultiCA / AgentHost
--> dispatches work to Codex, Hermes, or other agents
+-> dispatches work to another agent or a team-visible runtime lane
 -> receives artifacts or status
 -> writes durable conclusions into PGBrain
 -> promotes only governed knowledge candidates into MemTensor

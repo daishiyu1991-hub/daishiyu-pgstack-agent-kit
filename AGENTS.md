@@ -25,6 +25,11 @@ The canonical architecture is a native-first personal node:
 original GStack + original GBrain + Brain Repo + host adapters + PGStack add-ons
 ```
 
+Private agent work should use native `GStack -> GBrain` first. Use MultiCA /
+AgentHost only when routing to another person's agent, company/team runtime,
+target-agent self-repair, or an explicitly requested remote-agent coordination
+case.
+
 Durable memory flow defaults to:
 
 ```text

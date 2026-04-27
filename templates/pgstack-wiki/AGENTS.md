@@ -8,7 +8,10 @@ This directory is the local `PGStack + PGBrain` wiki for one person or teammate.
 - `PGBrain` is the durable knowledge and memory surface.
 - `Codex` is the workbench for design, tuning, verification, and documentation.
 - `Hermes` is the default host for recurring unattended pipelines.
-- `MultiCA / AgentHost` is an optional orchestration layer for routing work across multiple agents.
+- `MultiCA / AgentHost` is an optional orchestration layer for routing work
+  across other people's agents, team-visible runtime lanes, or explicit
+  remote-agent exceptions. Private user-owned work should use native
+  GStack/GBrain first.
 - `MemTensor Team Hub` is optional shared compiled knowledge, not a raw transcript stream.
 - The repo-level `skills/` directory is the canonical behavior layer.
 - Substantive inbound messages should pass through `skills/signal-detector/SKILL.md`

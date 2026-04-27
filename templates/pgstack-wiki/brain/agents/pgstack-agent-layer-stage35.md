@@ -2,7 +2,7 @@
 title: PGStack Agent Layer Stage 3.5
 type: agent
 created: 2026-04-26
-updated: 2026-04-26
+updated: 2026-04-27
 status: active
 confidence: high
 scope: local_pgstack
@@ -24,7 +24,8 @@ Installed PGStack nodes adapt the original `gstack` agent logic by combining:
 - portable skill roles
 - Codex as workbench
 - Hermes as unattended runtime
-- MultiCA/ACP and AgentHost as optional orchestration/execution surfaces
+- native GStack/GBrain as the default private-agent path
+- MultiCA/ACP and AgentHost as optional cross-agent/team execution surfaces
 - PGBrain as the durable source-of-truth layer
 - MemTensor as optional governed recall/team sharing
 
@@ -45,7 +46,7 @@ AGENTS.md
 | Human steward | active | direction, approval, promotion, pruning | does not operate every tool |
 | Codex | active | workbench, edits, verification, Git, local memory | not unattended runtime by default |
 | Hermes | active | recurring runtime, cron, notifications | must leave evidence |
-| MultiCA / ACP | optional | operations channel for prompting remote agents | not source of truth |
+| MultiCA / ACP | optional | operations channel for prompting other-person, team, self-repair, or explicitly delegated remote agents | not source of truth or default private route |
 | AgentHost | optional | execution slots for additional agents | must return artifacts |
 | PGBrain Engine / minions | active | deterministic index, query, doctor, smoke | not a judgment agent |
 | MemTensor | optional | continuity and governed sharing | not the long-form brain repo |

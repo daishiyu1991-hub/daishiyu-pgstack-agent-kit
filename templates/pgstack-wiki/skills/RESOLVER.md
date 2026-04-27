@@ -57,6 +57,13 @@ Pure acknowledgements, disposable UI chatter, and no-op turns may be skipped by
 | MultiCA/ACP, AgentHost, remote repair, or multi-agent handoff | `skills/agent-router/SKILL.md` |
 | Upstream parity question touches agent layer | `skills/agent-router/SKILL.md` plus `brain/skills/pgstack-upstream-parity-checklist.md` |
 
+Agent ownership default:
+
+```text
+private user-owned work or user-owned agent -> native GStack/GBrain CLI/MCP
+cross-agent, team-visible, or other-person agent work -> MultiCA/AgentHost
+```
+
 ### PGStack Workflow
 
 | Trigger | Canonical Skill |

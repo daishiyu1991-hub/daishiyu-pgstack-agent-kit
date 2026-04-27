@@ -10,6 +10,9 @@ Default split:
 - Hermes runs recurring pipelines.
 - PGBrain/Obsidian store durable knowledge.
 - MemTensor stores continuity and optional team knowledge, after governance.
+- Private user-owned agent work uses native GStack/GBrain first.
+- MultiCA / AgentHost is for other people's agents, team-visible runtime,
+  target-agent self-repair, or explicit remote-agent coordination.
 
 For substantive PGStack work:
 

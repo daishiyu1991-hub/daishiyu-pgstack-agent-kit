@@ -91,8 +91,8 @@ Do these after the core install is verified.
 - `GBrain Remote MCP`: configure only after the human approves endpoint, token,
   and memory-center boundary.
   See `docs/gbrain-remote-mcp.md`.
-- `MultiCA / AgentHost`: connect the orchestration layer, run one no-op task,
-  then verify the artifact can land in PGBrain.
+- `MultiCA / AgentHost`: connect only if cross-agent or team-visible dispatch
+  is needed; run one no-op task, then verify the artifact can land in PGBrain.
 - `Feishu`: connect only the teammate's own bot or DM target.
 - `GitHub`: connect the teammate's own plugin, SSH key, deploy key, or CLI.
 - `NotebookLM`: keep as a supervised research sidecar unless a stable bridge is
@@ -107,6 +107,7 @@ The human should decide:
 - which account-backed services are allowed
 - whether team MemTensor sharing is enabled
 - whether Hermes recurring jobs are activated
-- whether MultiCA / AgentHost should route work to this node
+- whether MultiCA / AgentHost should route other agents' or team-visible work
+  to this node
 
 The agent should not guess these decisions silently.

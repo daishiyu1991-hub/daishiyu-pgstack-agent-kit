@@ -4,11 +4,11 @@ title: PGStack Agent Router
 type: skill
 version: 0.1.0
 created: 2026-04-26
-updated: 2026-04-26
+updated: 2026-04-27
 status: active
 confidence: high
 scope: local_pgstack
-description: Route durable work across Codex, Hermes, MultiCA/ACP, AgentHost, jobs, minions, and memory write-back.
+description: Route durable work across native GStack/GBrain private paths, Codex, Hermes, MultiCA/ACP exceptions, AgentHost, jobs, minions, and memory write-back.
 source_of_truth:
   - ../RESOLVER.md
   - ../../brain/agents/pgstack-agent-layer-stage35.md
@@ -24,6 +24,11 @@ complete enough for an upstream-parity claim.
 ## Contract
 
 Do not treat installed tools as an agent layer.
+
+Default private-agent work uses native `GStack -> GBrain` first. Use MultiCA /
+ACP only when routing to another person's agent, company/team runtime,
+target-agent self-repair, or an explicitly requested remote-agent coordination
+case.
 
 An agent route is valid only when it names:
 
@@ -54,7 +59,8 @@ Before routing durable work:
 | Code/workspace implementation | Codex | repo tests, Git, PGBrain doctor | Patch verified and committed when appropriate |
 | Recurring unattended workflow | Hermes | `jobs/`, `minion-orchestrator` | Run evidence, state, notification or silent marker |
 | Remote runtime repair | target agent via MultiCA/ACP prompt | Codex external verifier | target agent performs fix and Codex verifies smoke |
-| Multi-agent dispatch | MultiCA / AgentHost | this router, source-of-truth job or agent page | Each delegated lane has artifact and review gate |
+| Private user-owned agent work | Native GStack/GBrain CLI/MCP through Codex or Hermes | `brain-ops`, source-of-truth job or agent page | Artifact is written and GBrain recovers it |
+| Cross-agent or team-visible dispatch | MultiCA / AgentHost | this router, source-of-truth job or agent page | Each delegated lane has artifact and review gate |
 | Deterministic maintenance or indexing | PGBrain Engine / job minion | `engine/`, `jobs/` | Command output and updated state |
 | Team knowledge publication | runtime curator first, Codex compile second | `team-memory-writing`, `team-memory-gate` | Curated memory or explicit reject/reroute |
 

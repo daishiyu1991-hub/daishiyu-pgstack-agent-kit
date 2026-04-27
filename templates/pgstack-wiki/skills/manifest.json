@@ -80,7 +80,7 @@
     {
       "name": "agent-router",
       "path": "skills/agent-router/SKILL.md",
-      "description": "Route durable work across Codex, Hermes, MultiCA/ACP, AgentHost, jobs, minions, and memory write-back."
+      "description": "Route durable work across native GStack/GBrain private paths, Codex, Hermes, MultiCA/ACP exceptions, AgentHost, jobs, minions, and memory write-back."
     },
     {
       "name": "minion-orchestrator",
