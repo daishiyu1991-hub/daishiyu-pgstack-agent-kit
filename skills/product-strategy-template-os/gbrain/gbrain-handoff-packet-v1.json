@@ -7,7 +7,7 @@
   "source_of_truth": {
     "github_repo": "https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit",
     "skill_path": "skills/product-strategy-template-os",
-    "latest_known_commit": "fill_after_push"
+    "commit_resolution": "Use current origin/main when Hermes Admin executes this packet; Codex final response should report the pushed commit."
   },
   "pages": [
     {

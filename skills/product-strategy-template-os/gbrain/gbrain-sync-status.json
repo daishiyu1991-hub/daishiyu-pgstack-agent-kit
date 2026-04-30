@@ -1,0 +1,13 @@
+{
+  "artifact": "gbrain_sync_status",
+  "created_at": "2026-04-30",
+  "target": "enterprise_gbrain",
+  "write_authority": "Hermes Admin",
+  "status": "ready_for_hermes_admin",
+  "handoff_packet": "gbrain/gbrain-handoff-packet-v1.json",
+  "sync_queue": "gbrain/gbrain-sync-queue.jsonl",
+  "native_route": "Hermes Admin -> gbrain-remote -> enterprise GBrain",
+  "verification_query": "product strategy template os stable pipeline files",
+  "codex_direct_write_status": "not_attempted",
+  "reason": "Cloud GBrain writes should be performed by Hermes Admin through the native GBrain route. Codex prepared the handoff packet, source refs, queue, and acceptance checks."
+}
