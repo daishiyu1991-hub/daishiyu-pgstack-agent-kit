@@ -7,6 +7,8 @@ description: Run a fixed-template consumer-product strategy research pipeline fr
 
 This skill runs a fixed-template category strategy research pipeline without drifting between chapters. It is designed for consumer electronics and Amazon-led category research, but it can be adapted to other physical-product categories.
 
+If you are an agent installing or operating this skill for a teammate, read `README.md` first. It contains the install command, bootstrap validation, run initialization, acceptance checklist, and the exact operating loop expected after installation.
+
 The operating philosophy is:
 
 ```text
@@ -175,6 +177,7 @@ Default visual style:
 
 ## Scripts
 
+- `scripts/bootstrap_check.py`: post-install bootstrap validator for teammate agents; verifies the portable OS files and can initialize a new run skeleton.
 - `scripts/init_run.py`: create a new run skeleton with index, process state, and chapter placeholders.
 - `scripts/sanitize_check.py`: scan the skill package for common secrets before publishing.
 - `scripts/validate_run.py`: validate a run folder has the required state, decision, evidence, and report files.

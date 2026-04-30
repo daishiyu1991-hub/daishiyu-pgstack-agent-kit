@@ -30,6 +30,40 @@ directories, credentials, optional integrations, and cron activation. The agent
 should handle cloning, running the installer, smoke testing, and producing the
 acceptance report.
 
+## Product Strategy Template OS Skill
+
+For the fixed-template product/category research workflow, install:
+
+```bash
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
+```
+
+After installation, the teammate's agent should read:
+
+```text
+skills/product-strategy-template-os/README.md
+```
+
+That README is the canonical bootstrap contract. It tells the agent how to:
+
+- verify that all OS files were installed;
+- initialize a new research run;
+- follow the fixed chapter loop;
+- enforce zero-hallucination evidence rules;
+- stop for human decisions;
+- queue the native GBrain/Hermes Admin handoff.
+
+The minimum acceptance report is:
+
+```text
+OK_BOOTSTRAP
+OK_VALIDATE_RUN
+skill path
+run path
+current chapter
+whether GBrain handoff is queued or synced
+```
+
 ## One-Click Install
 
 After this repository is published, teammates can install with:
