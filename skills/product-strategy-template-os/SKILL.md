@@ -62,6 +62,16 @@ For every chapter, run this exact loop:
 
 The chapter page is not complete until it has a field-level evidence audit, a red-team section, and a human decision stop.
 
+## Architecture
+
+Read `references/pipeline-architecture.md` before changing the pipeline, creating a new run type, or explaining how the skill keeps a long research project consistent across chapters.
+
+The architecture has three layers:
+
+- governance architecture: global rules -> skill runtime -> run architecture -> checkpoint ledger -> artifacts -> memory;
+- complete-report architecture: previous artifact review + latest evidence + red-team + human decision in one primary report;
+- node-loop protocol: every template node runs its own `Input -> Processing -> Output -> review -> red-team -> revised conclusion` cycle.
+
 ## Default Template
 
 Use the default seven chapters unless the user provides another template:
