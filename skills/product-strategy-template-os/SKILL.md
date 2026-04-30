@@ -1,6 +1,6 @@
 ---
 name: product-strategy-template-os
-description: Run a fixed-template consumer-product strategy research pipeline from category signal to product planning. Use when Codex should reproduce the wake-up-light style workflow: chapter-by-chapter template routing, evidence acquisition, zero-hallucination reporting, red-team review, human decision stops, low-saturation HTML reports, process JSON ledgers, and reusable example artifacts for Amazon/consumer-electronics category research.
+description: "Run a fixed-template consumer-product strategy research pipeline from category signal to product planning. Use when Codex should reproduce the wake-up-light style workflow: chapter-by-chapter template routing, evidence acquisition, zero-hallucination reporting, red-team review, human decision stops, low-saturation HTML reports, process JSON ledgers, and reusable example artifacts for Amazon/consumer-electronics category research."
 ---
 
 # Product Strategy Template OS
