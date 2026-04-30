@@ -53,6 +53,14 @@ If the user wants this workflow to become the default behavior inside a project 
 
 ## Core Loop
 
+At skill start, run the native GBrain boundary check:
+
+```bash
+python3 "$SKILL_HOME/scripts/gbrain_auto_sync.py" --skill-root "$SKILL_HOME" --phase start
+```
+
+This is best-effort and must not block the research workflow. If native `gstack-brain-sync` exists, it drains/pushes like original gstack. If it does not exist, it reports the Hermes Admin handoff queue.
+
 For every chapter, run this exact loop:
 
 ```text
@@ -69,6 +77,14 @@ For every chapter, run this exact loop:
 ```
 
 The chapter page is not complete until it has a field-level evidence audit, a red-team section, and a human decision stop.
+
+At skill end, run:
+
+```bash
+python3 "$SKILL_HOME/scripts/gbrain_auto_sync.py" --skill-root "$SKILL_HOME" --phase end
+```
+
+This catches artifacts or queue entries produced during the run. Do not ask the human for a separate "sync GBrain?" decision unless credentials, permissions, or policy are missing.
 
 ## Architecture
 
@@ -178,6 +194,7 @@ Default visual style:
 ## Scripts
 
 - `scripts/bootstrap_check.py`: post-install bootstrap validator for teammate agents; verifies the portable OS files and can initialize a new run skeleton.
+- `scripts/gbrain_auto_sync.py`: best-effort native GBrain sync boundary; uses `gstack-brain-sync` when available and otherwise reports the Hermes Admin handoff route.
 - `scripts/init_run.py`: create a new run skeleton with index, process state, and chapter placeholders.
 - `scripts/sanitize_check.py`: scan the skill package for common secrets before publishing.
 - `scripts/validate_run.py`: validate a run folder has the required state, decision, evidence, and report files.

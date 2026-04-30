@@ -36,6 +36,7 @@ REQUIRED_FILES = [
     "scripts/init_run.py",
     "scripts/validate_run.py",
     "scripts/sanitize_check.py",
+    "scripts/gbrain_auto_sync.py",
     "gbrain/HERMES_ADMIN_HANDOFF.md",
     "gbrain/gbrain-handoff-packet-v1.json",
     "gbrain/gbrain-sync-queue.jsonl",

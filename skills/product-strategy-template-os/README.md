@@ -7,6 +7,7 @@
 1. 安装这个 skill。
 2. 验证基础文件完整。
 3. 按固定 OS 逻辑启动并运行一轮品类战略用研。
+4. 在 skill 边界自动处理 GBrain 同步或 Hermes Admin 交接。
 
 这不是一个普通市场分析 prompt。它是一套固定模板 OS：
 
@@ -122,6 +123,25 @@ gbrain/gbrain-sync-status.json
 ```
 
 ## 5. Operating Logic
+
+每次运行开始，agent 先执行：
+
+```bash
+python3 "$SKILL_HOME/scripts/gbrain_auto_sync.py" --skill-root "$SKILL_HOME" --phase start
+```
+
+每次运行结束，agent 再执行：
+
+```bash
+python3 "$SKILL_HOME/scripts/gbrain_auto_sync.py" --skill-root "$SKILL_HOME" --phase end
+```
+
+这一步不需要人类每次提需求。它是原生 GBrain 的 skill-boundary sync 模式：
+
+```text
+有 gstack-brain-sync -> 自动 drain / discover / once
+没有 gstack-brain-sync -> 不伪造写入，明确进入 Hermes Admin handoff queue
+```
 
 默认模板有七章：
 
@@ -244,7 +264,7 @@ process/section{n}-human-decision-*.json
 
 ## 9. GBrain Handoff
 
-本 skill 不要求每个同事 agent 直接写云端 GBrain。
+本 skill 不要求每个同事 agent 直接写云端 GBrain，但必须自动处理同步边界。
 
 默认边界：
 
@@ -281,6 +301,15 @@ process/gbrain-sync-queue.jsonl
 ```
 
 并把任务交给 Hermes Admin。
+
+不要把 GBrain 同步变成人类每次手动提需求。只有以下情况才问人：
+
+```text
+缺 credentials
+缺权限
+需要选择隐私同步级别
+需要确认是否发布到 team/shared 层
+```
 
 ## 10. Acceptance Checklist
 
