@@ -1,0 +1,41 @@
+{
+  "packet_type": "gbrain_native_handoff",
+  "created_at": "2026-04-30",
+  "scope": "team_candidate",
+  "target": "enterprise_gbrain",
+  "write_authority": "Hermes Admin",
+  "source_of_truth": {
+    "github_repo": "https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit",
+    "skill_path": "skills/product-strategy-template-os",
+    "latest_known_commit": "fill_after_push"
+  },
+  "pages": [
+    {
+      "title": "Product Strategy Template OS",
+      "path": "gbrain/product-strategy-template-os-overview.md",
+      "intended_gbrain_slug": "product-strategy-template-os-overview",
+      "scope": "team_candidate"
+    },
+    {
+      "title": "Product Strategy Template OS File Contract",
+      "path": "gbrain/product-strategy-template-os-file-contract.md",
+      "intended_gbrain_slug": "product-strategy-template-os-file-contract",
+      "scope": "team_candidate"
+    }
+  ],
+  "acceptance_checks": [
+    "Hermes Admin reads the GitHub skill path at the latest commit.",
+    "Hermes Admin writes the two markdown pages into enterprise GBrain through native GBrain route.",
+    "Hermes Admin embeds/syncs the pages.",
+    "Codex or Hermes verifies retrieval by querying: product strategy template os stable pipeline files.",
+    "GBrain result includes GitHub source refs and does not include credentials or supplier secrets."
+  ],
+  "do_not_write": [
+    "raw supplier quotes",
+    "credentials",
+    "tokens",
+    "every draft HTML",
+    "unverified speculation"
+  ],
+  "status": "ready_for_hermes_admin"
+}

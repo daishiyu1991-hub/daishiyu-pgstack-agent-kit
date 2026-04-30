@@ -1,0 +1,22 @@
+{
+  "artifact": "section{n}_{slug}_evidence_v1",
+  "created_at": "YYYY-MM-DD",
+  "run": "{run_name}",
+  "chapter": "{n}. {chapter_name}",
+  "sources": [
+    {
+      "source_id": "source_001",
+      "source_type": "MCP",
+      "source_ref": "tool_name_or_path_or_url",
+      "collected_at": "YYYY-MM-DD",
+      "raw_available": "yes",
+      "transformation": "summarized",
+      "confidence": "medium",
+      "status": "collected_and_used",
+      "used_for": ["template_field_or_claim"]
+    }
+  ],
+  "missing_inputs": [],
+  "manual_required": [],
+  "not_available_in_current_session": []
+}

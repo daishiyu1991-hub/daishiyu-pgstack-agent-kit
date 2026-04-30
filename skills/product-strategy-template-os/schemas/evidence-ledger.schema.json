@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/product-strategy-template-os/evidence-ledger.schema.json",
+  "title": "Evidence Ledger",
+  "type": "object",
+  "required": ["artifact", "chapter", "sources"],
+  "properties": {
+    "artifact": { "type": "string" },
+    "created_at": { "type": "string" },
+    "chapter": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "source_type", "status"],
+        "properties": {
+          "source_id": { "type": "string" },
+          "source_type": {
+            "type": "string",
+            "enum": ["MCP", "API", "file", "web", "browser", "user_input", "offline_supplier", "inference", "local_process"]
+          },
+          "source_ref": { "type": "string" },
+          "collected_at": { "type": "string" },
+          "raw_available": { "type": "string", "enum": ["yes", "no", "unknown"] },
+          "transformation": { "type": "string" },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low", "unknown"] },
+          "status": {
+            "type": "string",
+            "enum": [
+              "collected_and_used",
+              "collected_not_expanded",
+              "missing_to_collect",
+              "manual_required",
+              "not_collectable_now",
+              "not_available_in_current_session"
+            ]
+          },
+          "used_for": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

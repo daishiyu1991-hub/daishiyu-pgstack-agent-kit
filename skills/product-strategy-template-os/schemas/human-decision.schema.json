@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/product-strategy-template-os/human-decision.schema.json",
+  "title": "Human Decision",
+  "type": "object",
+  "required": ["artifact", "created_at", "chapter", "user_choice", "decision", "status"],
+  "properties": {
+    "artifact": { "type": "string" },
+    "created_at": { "type": "string" },
+    "run": { "type": "string" },
+    "chapter": { "type": "string" },
+    "source_plan": { "type": "string" },
+    "source_report": { "type": "string" },
+    "user_choice": { "type": "string" },
+    "decision": { "type": "string" },
+    "user_note": { "type": "string" },
+    "status": { "type": "string" },
+    "next_chapter_unlocked": { "type": "boolean" },
+    "unlocked_next_chapter": { "type": ["string", "null"] },
+    "deferred_evidence": { "type": "array", "items": { "type": "string" } },
+    "resume_conditions": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,30 @@
+{
+  "artifact": "section{n}_execution_plan_v1",
+  "created_at": "YYYY-MM-DD",
+  "run": "{run_name}",
+  "chapter": "{n}. {chapter_name}",
+  "source_template": {
+    "docx": "not_collected",
+    "extracted_structure": "process/template-structure-extracted-v1.json",
+    "io_map": "process/template-docx-full-io-map-v1.md"
+  },
+  "previous_decision": {
+    "chapter": "{previous_chapter}",
+    "decision_record": "process/section{previous_n}-human-decision-*.json",
+    "status": "not_collected"
+  },
+  "chapter_boundary": {
+    "allowed": [],
+    "blocked_until_later": [],
+    "zero_hallucination_rule": "Missing facts remain not_collected/manual_required/not_available_in_current_session."
+  },
+  "template_sections": [],
+  "evidence_router": [],
+  "red_team_basis": [],
+  "human_decision_options": [
+    "A. 通过执行计划，开始本章证据采集与正文",
+    "B. 先补关键证据",
+    "C. 调整样本或章节边界",
+    "D. 暂停"
+  ]
+}

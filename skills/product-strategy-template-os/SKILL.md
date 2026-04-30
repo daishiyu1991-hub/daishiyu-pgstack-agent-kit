@@ -177,6 +177,17 @@ Default visual style:
 
 - `scripts/init_run.py`: create a new run skeleton with index, process state, and chapter placeholders.
 - `scripts/sanitize_check.py`: scan the skill package for common secrets before publishing.
+- `scripts/validate_run.py`: validate a run folder has the required state, decision, evidence, and report files.
+
+## Stability Files
+
+For stable pipeline operation, this skill ships:
+
+- `schemas/`: JSON schemas for run state, evidence ledgers, human decisions, and execution plans.
+- `templates/`: reusable starter files for index, complete reports, execution plans, evidence ledgers, decisions, and GBrain sync queues.
+- `references/global-rules.md`: portable global rules.
+- `references/pipeline-architecture.md`: full architecture.
+- `gbrain/`: native GBrain handoff packet and brain-ready pages for Hermes-admin.
 
 ## Example
 

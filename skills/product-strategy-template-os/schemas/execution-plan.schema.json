@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/product-strategy-template-os/execution-plan.schema.json",
+  "title": "Chapter Execution Plan",
+  "type": "object",
+  "required": ["artifact", "created_at", "chapter", "template_sections"],
+  "properties": {
+    "artifact": { "type": "string" },
+    "created_at": { "type": "string" },
+    "run": { "type": "string" },
+    "chapter": { "type": "string" },
+    "source_template": { "type": "object" },
+    "previous_decision": { "type": "object" },
+    "chapter_boundary": { "type": "object" },
+    "template_sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["section_id", "section_name"],
+        "properties": {
+          "section_id": { "type": "string" },
+          "section_name": { "type": "string" },
+          "purpose": { "type": "string" },
+          "input": { "type": "array", "items": { "type": "string" } },
+          "method": { "type": "array", "items": { "type": "string" } },
+          "tools": { "type": "array", "items": { "type": "string" } },
+          "output": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence_router": { "type": "array" },
+    "red_team_basis": { "type": "array", "items": { "type": "string" } },
+    "human_decision_options": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

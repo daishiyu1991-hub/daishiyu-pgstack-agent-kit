@@ -1,0 +1,15 @@
+{
+  "artifact": "section{n}_human_decision_v1",
+  "created_at": "YYYY-MM-DD",
+  "run": "{run_name}",
+  "chapter": "{n}. {chapter_name}",
+  "source_report": "quality-review-template-ch{n}-{slug}-complete-v1.html",
+  "user_choice": "A/B/C/D",
+  "decision": "human decision text",
+  "user_note": "",
+  "status": "passed | passed_with_deferred_evidence | evidence_requested | paused_by_human_decision",
+  "next_chapter_unlocked": false,
+  "unlocked_next_chapter": null,
+  "deferred_evidence": [],
+  "resume_conditions": []
+}
