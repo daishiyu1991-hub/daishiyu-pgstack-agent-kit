@@ -43,6 +43,12 @@ Recommended:
 - known company capability boundaries;
 - preferred data tools/MCPs.
 
+## Global Files
+
+Read `references/global-rules.md` at the start of every strategy-research run. It is the portable global contract for this pipeline.
+
+If the user wants this workflow to become the default behavior inside a project or workspace, copy or adapt `assets/AGENTS.product-strategy-template-os.example.md` into that project's `AGENTS.md`. That file is not loaded automatically by the skill installer; it is a portable global-rule template.
+
 ## Core Loop
 
 For every chapter, run this exact loop:
