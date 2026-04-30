@@ -254,3 +254,20 @@ Do not write:
 - unverified speculation.
 
 If memory/GBrain is unavailable, write `pending` or `unavailable_in_current_session`. Do not claim sync succeeded.
+
+## 14. Internal Skill Compliance
+
+Local product skills must inherit this OS instead of becoming separate decision
+systems.
+
+- Product-definition skills own judgment, but must still obey the Template
+  Router, Evidence Acquisition Router, red-team review, complete-report output,
+  Human Decision Stop, and native GBrain sync.
+- Product-analysis, marketplace, profit, competitor, review, and social modules
+  are evidence suppliers. They can collect, normalize, calculate, render, and
+  cite evidence, but cannot mark human Go/No-go decisions, unlock later
+  chapters, or bypass the native GStack/GBrain path.
+- When a repeated workflow becomes a skill, first check whether original
+  GStack/GBrain or this Template OS already owns the behavior. Add a wrapper,
+  adapter, or policy extension unless there is a real gap.
+
