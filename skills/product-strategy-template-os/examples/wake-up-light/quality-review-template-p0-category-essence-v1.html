@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1. 品类本质小结 - Wake Up Light</title>
+  <style>
+    :root{
+      --paper:#fbfbf7;
+      --sheet:#ffffff;
+      --ink:#16202a;
+      --soft-ink:#4f5d68;
+      --muted:#788590;
+      --line:#dfe5e8;
+      --line-strong:#b7c5c9;
+      --sun:#ffb23f;
+      --sun-soft:#fff1d5;
+      --sky:#27759a;
+      --sky-soft:#eaf5f8;
+      --leaf:#2f765e;
+      --leaf-soft:#edf6f0;
+      --plum:#7a5277;
+      --plum-soft:#f5edf5;
+      --warn:#a85b16;
+      --shadow:0 22px 60px rgba(22,32,42,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        linear-gradient(90deg, rgba(39,117,154,.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,178,63,.08), rgba(251,251,247,0) 360px),
+        var(--paper);
+      background-size:48px 48px, auto, auto;
+      font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    a{color:var(--sky);font-weight:800;text-decoration:none}
+    a:hover{text-decoration:underline}
+    p,h1,h2,h3{margin:0}
+    p,li{font-size:15px;line-height:1.85;color:var(--soft-ink)}
+    ul{margin:10px 0 0 19px;padding:0}
+    button,textarea{font:inherit}
+    main{max-width:1180px;margin:0 auto;padding:28px 24px 76px}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:5;
+      margin:-28px -24px 34px;
+      padding:12px 24px;
+      background:rgba(251,251,247,.88);
+      border-bottom:1px solid rgba(183,197,201,.72);
+      backdrop-filter:blur(14px);
+    }
+    .nav{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .mark{display:flex;align-items:center;gap:10px;color:var(--soft-ink);font-size:13px;font-weight:850}
+    .mark::before{content:"";width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--sky))}
+    .links{display:flex;flex-wrap:wrap;gap:8px}
+    .linkbtn{
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:7px 11px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.74);
+      color:var(--ink);
+      font-size:13px;
+      font-weight:800;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(300px,.64fr);
+      gap:26px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+    .hero-main{
+      min-height:360px;
+      padding:34px;
+      border:1px solid var(--line-strong);
+      border-radius:16px;
+      background:
+        linear-gradient(135deg, rgba(255,178,63,.22), transparent 44%),
+        linear-gradient(160deg, rgba(39,117,154,.10), transparent 58%),
+        var(--sheet);
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-main::after{
+      content:"";
+      position:absolute;
+      right:30px;
+      bottom:28px;
+      width:132px;
+      height:132px;
+      border-radius:50%;
+      background:radial-gradient(circle at 45% 45%, #ffd67f 0 28%, rgba(255,178,63,.24) 29% 58%, transparent 59%);
+      opacity:.48;
+      pointer-events:none;
+    }
+    .kicker{
+      color:var(--leaf);
+      font-size:13px;
+      font-weight:950;
+      margin-bottom:12px;
+    }
+    h1{
+      max-width:760px;
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:54px;
+      line-height:1.08;
+      font-weight:900;
+      letter-spacing:0;
+    }
+    .hero-main .lead{
+      max-width:780px;
+      margin-top:18px;
+      color:#26333d;
+      font-size:18px;
+      line-height:1.85;
+    }
+    .answer-line{
+      width:min(780px,100%);
+      margin-top:32px;
+      padding-top:18px;
+      border-top:1px solid rgba(22,32,42,.16);
+      display:grid;
+      grid-template-columns:128px 1fr;
+      gap:18px;
+      align-items:start;
+      position:relative;
+      z-index:1;
+    }
+    .answer-line span{color:var(--muted);font-size:13px;font-weight:900}
+    .answer-line strong{
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:28px;
+      line-height:1.34;
+      letter-spacing:0;
+    }
+    .status-card{
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.88);
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .status-label{font-size:13px;font-weight:950;color:var(--warn)}
+    .status-card h2{font-size:24px;line-height:1.32}
+    .status-list{display:grid;gap:12px;margin-top:14px}
+    .status-item{
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+    }
+    .status-item b{display:block;font-size:14px;margin-bottom:2px}
+    .status-item p{font-size:13px;line-height:1.6;color:var(--muted)}
+    section{
+      margin-top:22px;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.92);
+      box-shadow:0 10px 34px rgba(22,32,42,.045);
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:20px;
+    }
+    .section-head h2{
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:30px;
+      line-height:1.25;
+      letter-spacing:0;
+    }
+    .section-head p{max-width:540px;font-size:14px;color:var(--muted)}
+    .conclusion-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+    .conclusion{
+      min-height:190px;
+      padding:18px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .conclusion:nth-child(1){border-top:5px solid var(--leaf)}
+    .conclusion:nth-child(2){border-top:5px solid var(--sky)}
+    .conclusion:nth-child(3){border-top:5px solid var(--sun)}
+    .conclusion:nth-child(4){border-top:5px solid var(--plum)}
+    .label{font-size:12px;font-weight:950;color:var(--muted)}
+    .conclusion strong{
+      display:block;
+      margin:12px 0;
+      font-size:21px;
+      line-height:1.34;
+      color:var(--ink);
+    }
+    .conclusion p{font-size:13px;line-height:1.65}
+    .pyramid-block{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(290px,.74fr);
+      gap:26px;
+      align-items:start;
+    }
+    .pyramid-img{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      box-shadow:0 18px 44px rgba(22,32,42,.06);
+    }
+    .value-stack{display:grid;gap:10px;margin-top:16px}
+    .value-row{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:12px;
+      align-items:start;
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+    }
+    .value-row b{font-size:14px;color:var(--ink)}
+    .value-row p{font-size:13px;line-height:1.65}
+    .field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .field-card{
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:linear-gradient(180deg,#fff,rgba(234,245,248,.45));
+    }
+    .field-card h3{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0 0 12px;
+      font-size:19px;
+      line-height:1.38;
+    }
+    .field-card h3 span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:11px;
+      background:var(--sky-soft);
+      color:var(--sky);
+      font-size:17px;
+      flex:0 0 auto;
+    }
+    .evidence{
+      margin-top:14px;
+      padding:11px 12px;
+      border-left:4px solid var(--sun);
+      background:var(--sun-soft);
+      border-radius:8px;
+      color:#6d4412;
+      font-size:13px;
+      line-height:1.65;
+    }
+    .sources{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .source{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+    .source h3{font-size:17px;line-height:1.4;margin-bottom:10px}
+    .source p{font-size:13px;line-height:1.68}
+    .source small{
+      display:block;
+      margin-top:10px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+      font-weight:800;
+    }
+    .cite a{
+      color:var(--muted);
+      font-size:11px;
+      font-weight:900;
+      margin-left:3px;
+      vertical-align:super;
+    }
+    .references-section{
+      padding:18px 20px;
+      border-style:dashed;
+      background:rgba(255,255,255,.72);
+      box-shadow:none;
+    }
+    .references-section details{display:block}
+    .references-section summary{
+      cursor:pointer;
+      color:var(--soft-ink);
+      font-size:14px;
+      font-weight:950;
+      list-style:none;
+    }
+    .references-section summary::-webkit-details-marker{display:none}
+    .references-section summary::before{
+      content:"+";
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:20px;
+      height:20px;
+      margin-right:8px;
+      border-radius:50%;
+      background:var(--sky-soft);
+      color:var(--sky);
+      font-weight:950;
+    }
+    .references-section details[open] summary::before{content:"-"}
+    .reference-list{
+      margin:16px 0 0;
+      padding-left:22px;
+    }
+    .reference-list li{
+      margin:9px 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.65;
+    }
+    .reference-list b{color:var(--soft-ink)}
+    .boundary{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:20px;
+      border-color:#ead5ba;
+      background:linear-gradient(90deg,var(--sun-soft),#fff 38%);
+    }
+    .boundary h2{
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:26px;
+      line-height:1.28;
+    }
+    .chain{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .chain-card{
+      min-height:180px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      position:relative;
+    }
+    .chain-card::before{
+      content:attr(data-step);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      margin-bottom:16px;
+      color:#fff;
+      background:var(--ink);
+      font-size:13px;
+      font-weight:950;
+    }
+    .chain-card h3{font-size:18px;margin-bottom:8px}
+    .brainstorm{
+      border-color:#c8d8d2;
+      background:linear-gradient(180deg,#fbfffc,#fff);
+    }
+    .brainstorm-lead{
+      max-width:880px;
+      margin-bottom:18px;
+      font-size:15px;
+      line-height:1.85;
+      color:var(--soft-ink);
+    }
+    .choice-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+    .choice-card{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      min-height:210px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .choice-card.recommended{
+      border-color:#9eb9ae;
+      background:linear-gradient(180deg,var(--leaf-soft),#fff 52%);
+    }
+    .choice-card b{
+      display:block;
+      font-size:17px;
+      line-height:1.38;
+      color:var(--ink);
+    }
+    .choice-card p{font-size:13px;line-height:1.68}
+    .choice-card .tag{
+      align-self:flex-start;
+      padding:5px 9px;
+      border-radius:999px;
+      background:rgba(47,118,94,.12);
+      color:var(--leaf);
+      font-size:12px;
+      font-weight:950;
+    }
+    .judge{
+      border-color:#dfc69d;
+      background:linear-gradient(180deg,#fffaf0,#fff);
+    }
+    .judge .section-head{align-items:start}
+    textarea{
+      width:100%;
+      min-height:170px;
+      resize:vertical;
+      padding:18px;
+      border:1px solid #ccb889;
+      border-radius:14px;
+      background:#fff;
+      color:var(--ink);
+      font-size:15px;
+      line-height:1.75;
+      outline:none;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+    }
+    textarea:focus{border-color:var(--warn);box-shadow:0 0 0 4px rgba(255,178,63,.18)}
+    .actions{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+    .button{
+      min-height:42px;
+      padding:10px 16px;
+      border:0;
+      border-radius:999px;
+      background:var(--ink);
+      color:#fff;
+      font-size:14px;
+      font-weight:950;
+      cursor:pointer;
+    }
+    .copy-state{font-size:13px;color:var(--leaf);font-weight:850}
+    @media(max-width:980px){
+      main{padding:18px 14px 56px}
+      .topbar{margin:-18px -14px 24px;padding:10px 14px}
+      .nav,.section-head{align-items:flex-start;flex-direction:column}
+      .hero,.pyramid-block,.boundary{grid-template-columns:1fr}
+      .conclusion-grid,.field-grid,.sources,.chain,.choice-grid{grid-template-columns:1fr}
+      h1{font-size:39px}
+      .hero-main{min-height:auto;padding:24px}
+      .answer-line{grid-template-columns:1fr;gap:8px}
+      section{padding:22px}
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="topbar">
+    <div class="nav">
+      <div class="mark">Wake Up Light｜品类战略用研｜第 1 章</div>
+      <div class="links">
+        <a class="linkbtn" href="quality-review-index.html">索引</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-main">
+      <div>
+        <div class="kicker">严格复刻模板｜1. 品类本质小结</div>
+        <h1>先判断它到底是什么，再判断它值不值得做。</h1>
+        <p class="lead">本章只回答模板第一页的四件事：产品人群、产品场景、使用用途、需求矩阵。市场规模、竞品矩阵、供应链和产品方案都暂时不进入，避免一开始就把“品类本质”做散。</p>
+      </div>
+      <div class="answer-line">
+        <span>第 1 章结论</span>
+        <strong>Wake up light 的本质不是单一“发光闹钟”，而是卧室里的睡眠-起床过渡系统。<sup class="cite"><a href="#ref-1">[1]</a></sup></strong>
+      </div>
+    </div>
+
+    <aside class="status-card">
+      <div>
+        <div class="status-label">判断说明</div>
+        <h2>第一章已进入可判断版本。</h2>
+        <div class="status-list">
+          <div class="status-item">
+            <b>已有输入</b>
+            <p>模板价值金字塔、SellerSprite ASIN池、ASIN详情、评论样本、竞品出单词/流量词。<sup class="cite"><a href="#ref-1">[1]</a></sup></p>
+          </div>
+          <div class="status-item">
+            <b>关键变化</b>
+            <p>“wake up light”不能只看狭义关键词，真实需求横跨 alarm clock、sound machine、night light。</p>
+          </div>
+          <div class="status-item">
+            <b>本页动作</b>
+            <p>先选择你认可的品类本质方向，再进入第二章市场竞争分析。</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>先看结论</h2>
+      <p>这四个块是本页全部结论。下面的金字塔、模板字段、来源和生成链路只是为了让你追溯它是怎么来的。</p>
+    </div>
+    <div class="conclusion-grid">
+      <article class="conclusion">
+        <div>
+          <div class="label">品类本质候选</div>
+          <strong>睡眠-起床过渡系统</strong>
+        </div>
+        <p>它不是“闹钟 + 灯”的拼装，而是把睡前放松、夜间陪伴、晨间唤醒合并成一个卧室 routine。</p>
+      </article>
+      <article class="conclusion">
+        <div>
+          <div class="label">真实需求结构</div>
+          <strong>alarm clock + sound machine + night light</strong>
+        </div>
+        <p>SellerSprite 出单词显示流量并不只来自 sunrise，而是同时吃闹钟、白噪音、夜灯、卧室作息管理。<sup class="cite"><a href="#ref-4">[4]</a></sup></p>
+      </article>
+      <article class="conclusion">
+        <div>
+          <div class="label">人群分层</div>
+          <strong>儿童家庭、重睡眠者、睡眠仪式用户</strong>
+        </div>
+        <p>评论与标题同时出现 kids、heavy sleepers、bedroom、white noise、phone-free routine 和设计感。<sup class="cite"><a href="#ref-2">[2]</a><a href="#ref-3">[3]</a></sup></p>
+      </article>
+      <article class="conclusion">
+        <div>
+          <div class="label">下一章必须拆开</div>
+          <strong>高端 routine vs 低价多功能</strong>
+        </div>
+        <p>Hatch 在 $169.99 卖系统和设计；JALL/Odokee 在 $32-$54 卖多功能和性价比，不能混成一个均值市场。<sup class="cite"><a href="#ref-2">[2]</a></sup></p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>模板第一页：需求价值金字塔</h2>
+      <p>第 1 章的“需求矩阵”必须回到这个金字塔，不然就会变成泛泛地列功能。</p>
+    </div>
+    <div class="pyramid-block">
+      <div>
+        <p>Wake up light 的底层职能很普通：看时间、响铃、发光、播放声音。但 SellerSprite 评论与出单词说明，用户真正愿意停留的地方可能是“醒来没那么痛苦”“孩子能自己起床”“睡前更容易安静下来”。所以第一章要判断的是：它有没有从职能工具上升到情绪和作息系统。</p>
+        <div class="value-stack">
+          <div class="value-row">
+            <b>职能类</b>
+            <p>闹钟、渐亮灯、白噪音、夜灯、蓝牙/FM、双闹钟、亮度/音量调节、显示屏明暗控制。</p>
+          </div>
+          <div class="value-row">
+            <b>情感类</b>
+            <p>不被手机和刺耳铃声硬拽醒，暗冬早晨更柔和，睡前更安静，卧室看起来更有秩序。</p>
+          </div>
+          <div class="value-row">
+            <b>改变生活类</b>
+            <p>儿童能独立起床，成年人建立 screen-free sleep routine，用户把起床从“忍受”变成可重复的日常节奏。</p>
+          </div>
+          <div class="value-row">
+            <b>社会影响类</b>
+            <p>目前没有强证据，不强行写成社会价值；gift 场景只能作为购买场景，不能直接上升为品类本质。</p>
+          </div>
+        </div>
+      </div>
+      <img class="pyramid-img" src="assets/template-value-pyramid-cn.png" alt="爆品战略用研模板需求价值金字塔">
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>按模板填写第 1 章</h2>
+      <p>每个字段只放和第 1 章有关的内容，并明确哪些是事实，哪些只是待验证推断。</p>
+    </div>
+    <div class="field-grid">
+      <article class="field-card">
+        <h3><span>人</span>产品人群</h3>
+        <p>第一层是儿童/家庭作息管理者和 heavy sleepers：JALL 标题与出单词直接覆盖 kids、heavy sleepers，评论出现小学生独立起床、上学日起床。第二层是成年人睡眠 routine 用户：Hatch 评论强调 screen-free routine、风格、睡前声音和柔和唤醒。第三层是性价比多功能买家：Odokee/JALL 用较低价格整合闹钟、白噪音、夜灯、蓝牙/FM。</p>
+        <div class="evidence">证据来源：SellerSprite ASIN详情、评论样本、traffic_keyword。人群权重仍需要第二章按赛道拆开。</div>
+      </article>
+      <article class="field-card">
+        <h3><span>景</span>产品场景</h3>
+        <p>主场景是卧室晨间唤醒：暗晨、冬天、上学日、起床前渐亮。强次场景是睡前 wind-down：白噪音、sunset、睡眠声音、减少手机依赖。辅助场景是半夜柔光、儿童房、床头阅读、婴儿夜间照护，以及把床头音箱/夜灯/闹钟合一。</p>
+        <div class="evidence">证据来源：Hatch/JALL/Odokee 标题、五点描述、评论样本。社媒视频场景尚未采集。</div>
+      </article>
+      <article class="field-card">
+        <h3><span>用</span>使用用途</h3>
+        <p>它被雇佣来做三件事：第一，替代手机/刺耳铃声，用光和声音降低醒来的冲击；第二，把睡前和起床做成可重复 routine；第三，在床头空间里替代多个小设备。狭义 sunrise 只是证明点，广义用途是“卧室节律管理”。</p>
+        <div class="evidence">证据来源：Hatch/JALL/Odokee 评论中“gentle wake”“phone-free”“school days”“dark winter”“sleep sounds”等语义。</div>
+      </article>
+      <article class="field-card">
+        <h3><span>需</span>需求矩阵</h3>
+        <p>职能类解决“能不能叫醒、能不能睡、好不好设置”。情感类解决“醒来是否柔和、睡前是否安定、卧室是否好看”。改变生活类解决“孩子是否能自主管理作息、成年人是否能建立不靠手机的睡眠 routine”。社会影响类暂不成立。</p>
+        <div class="evidence">判断：这个品类的上限不在功能数量，而在能否把职能价值做成用户一眼能理解的作息改善。</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="boundary">
+    <h2>本章边界</h2>
+    <div>
+      <p>第 1 章不判断市场规模，不做 Philips / Hatch / JALL / Dreamegg 竞品矩阵，不做用户旅程，不做 listing 策略和供应链成本。这些内容会进入后续章节。</p>
+      <p style="margin-top:10px">保留这个边界的原因是：品类本质如果没站稳，后面的市场、竞品、用户和产品方案都会被“数据很多但方向很散”拖走。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>本页结论是怎么出来的</h2>
+      <p>这里只解释本页结论的生成链路，不堆完整过程材料。</p>
+    </div>
+    <div class="chain">
+      <article class="chain-card" data-step="1">
+        <h3>输入</h3>
+        <p>模板第 1 页价值金字塔 + SellerSprite ASIN池、代表 ASIN详情、评论样本、traffic_keyword + Philips/Tom's Guide 外部参照。</p>
+      </article>
+      <article class="chain-card" data-step="2">
+        <h3>Processing</h3>
+        <p>先丢弃 fuzzy 搜索里被 light 污染的泛结果，再用精确/短语查询和代表 ASIN 反查，把关键词、评论和 listing 语言映射到人群、场景、用途、需求矩阵。</p>
+      </article>
+      <article class="chain-card" data-step="3">
+        <h3>输出</h3>
+        <p>当前判断：wake up light 更像睡眠-起床过渡系统。第二章必须拆开看高端 routine 赛道与低价多功能赛道，避免被平均值误导。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="brainstorm">
+    <div class="section-head">
+      <h2>我的 Brainstorm</h2>
+      <p>这是给你做动态判断前的三个可选方向，不是最终裁决。你可以直接选一个，也可以推翻它。</p>
+    </div>
+    <p class="brainstorm-lead">如果我是产品经理，我暂时不会把它定义成单纯 wake up light。因为 SellerSprite 的词和评论都在提示：用户不只买“早上亮一下”，而是在买一个床头作息入口。真正的分歧是：我们要把它做成高端 routine 系统、低价多功能设备，先拆赛道继续验证，还是先看下一步会如何影响后续判断。</p>
+    <div class="choice-grid">
+      <article class="choice-card recommended">
+        <span class="tag">我更倾向</span>
+        <b>A. 定义为“睡眠-起床过渡系统”</b>
+        <p>优点是能解释 Hatch 的高价，也能解释 Odokee/JALL 为什么要把声音、夜灯、蓝牙/FM、双闹钟放进来。它把品类从单功能硬件拉到用户 routine。</p>
+        <p>风险是容易做大，需要第二章把高端 routine 与低价多功能拆开。</p>
+      </article>
+      <article class="choice-card">
+        <span class="tag">保守选择</span>
+        <b>B. 继续定义为“sunrise alarm clock”</b>
+        <p>优点是边界清楚，关键词明确，容易做市场规模和竞品表。缺点是会低估 sound machine / night light / phone-free routine 对购买理由的影响。</p>
+        <p>适合我们只想做一个明确替代传统闹钟的产品。</p>
+      </article>
+      <article class="choice-card">
+        <span class="tag">继续验证</span>
+        <b>C. 先拆成两条赛道再判断</b>
+        <p>高端赛道看 Hatch：设计、睡眠 routine、app/内容、品牌溢价。性价比赛道看 JALL/Odokee：多功能、低价、儿童/重睡眠者、无 app/好设置。</p>
+        <p>适合你觉得现在第一章不能直接定品类本质，需要第二章先做市场竞争拆分。</p>
+      </article>
+      <article class="choice-card">
+        <span class="tag">先看下一步</span>
+        <b>D. 暂不定论，先看第 2 章会怎么推</b>
+        <p>不急着把第 1 章锁死，而是先生成市场竞争分析的第一版，看“睡眠-起床过渡系统”这个定义会把市场拆成哪些赛道、哪些对手和哪些机会。</p>
+        <p>适合你觉得方向大致有感觉，但想先看它对后续章节的影响，再回头确认品类本质。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="judge">
+    <div class="section-head">
+      <h2>你的选择 / 判断</h2>
+      <p>只保留一个输入框。你可以直接选 A/B/C，也可以写自己的判断；页面不会替你把选择改成结论。</p>
+    </div>
+    <textarea id="judgment" placeholder="例如：我选择 D，先看第 2 章市场竞争分析会如何拆赛道；暂时不把第 1 章锁死，等看到下一步推演后再回头确认。"></textarea>
+    <div class="actions">
+      <button class="button" type="button" onclick="copyPackage()">复制判断</button>
+      <span class="copy-state" id="copyState"></span>
+    </div>
+  </section>
+
+  <section class="references-section" id="references">
+    <details>
+      <summary>来源与证据链</summary>
+      <ol class="reference-list">
+        <li id="ref-1"><b>SellerSprite MCP｜ASIN池：</b>competitor_lookup；keywordEqual/phrase 查询 wake up light 返回 329 个结果，sunrise alarm clock 返回 267 个结果；market=US；collected_at=2026-04-30。</li>
+        <li id="ref-2"><b>SellerSprite MCP｜代表 ASIN 详情：</b>asin_detail_with_coupon_trend + competitor_lookup；Hatch B0DLLSCVZW $169.99，约 13,353 units；JALL B081CHLF46 $32.88，约 2,894 units，28,011 ratings；Odokee B0DGXD6WVW $53.99，约 8,667 units，1,534 ratings。</li>
+        <li id="ref-3"><b>SellerSprite MCP｜评论样本：</b>review；ASIN: B081CHLF46 / B0DLLSCVZW / B0DGXD6WVW；用于抽取 kids、heavy sleepers、school days、dark winter、phone-free routine、bedside lamp + alarm + speaker 等场景语义。</li>
+        <li id="ref-4"><b>SellerSprite MCP｜出单词/流量词：</b>traffic_keyword；ASIN: B081CHLF46 / B0DLLSCVZW / B0DGXD6WVW；核心词包括 alarm clock、sound machine、night light、sunrise alarm clock、white noise sound machine、alarm clock for heavy sleepers、alarm clock for kids、hatch alarm clock。</li>
+        <li id="ref-5"><b>Philips 官方页：</b><a href="https://www.usa.philips.com/c-p/HF3651_60/smartsleep-sleep-and-wake-up-light-with-with-relaxbreath-for-sleep">SmartSleep Sleep and Wake-Up Light</a>；用于辅助理解高端表达，不替代 Amazon 证据。</li>
+        <li id="ref-6"><b>Tom's Guide：</b><a href="https://www.tomsguide.com/wellness/sleep/best-sunrise-alarm-clocks">best sunrise alarm clocks</a> 与 Philips 评测；用于辅助确认公开分层，不作为 Amazon 销量事实。</li>
+      </ol>
+    </details>
+  </section>
+</main>
+<script>
+  const ids = ["judgment"];
+  const key = "wake-up-light-template-section1-v5";
+  const state = document.getElementById("copyState");
+  function loadDraft(){
+    const data = JSON.parse(localStorage.getItem(key) || "{}");
+    ids.forEach(id => { if(data[id]) document.getElementById(id).value = data[id]; });
+  }
+  function saveDraft(){
+    const data = {};
+    ids.forEach(id => data[id] = document.getElementById(id).value);
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+  function buildPackage(){
+    const v = id => document.getElementById(id).value || "未填写";
+    return `# Wake Up Light｜1. 品类本质小结｜你的选择/判断
+
+${v("judgment")}
+
+## 模板规则
+第 1 章只回答：产品人群、产品场景、使用用途、需求矩阵。需求矩阵必须回到模板第一页的价值金字塔：职能类 / 情感类 / 改变生活类 / 社会影响类。`;
+  }
+  async function copyPackage(){
+    saveDraft();
+    const txt = buildPackage();
+    try {
+      await navigator.clipboard.writeText(txt);
+      state.textContent = "已复制";
+      setTimeout(() => state.textContent = "", 1800);
+    } catch(e) {
+      state.textContent = "浏览器未允许自动复制，请手动选择文本。";
+    }
+  }
+  ids.forEach(id => document.addEventListener("input", e => {
+    if(e.target && e.target.id === id) saveDraft();
+  }));
+  loadDraft();
+</script>
+</body>
+</html>

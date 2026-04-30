@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 3 章完整报告｜头部品牌竞争&竞品分析</title>
+  <style>
+    :root{
+      --bg:#f5f3ed;
+      --paper:#fffdf8;
+      --ink:#20282d;
+      --soft:#4d5a61;
+      --muted:#747d7a;
+      --line:#dde2dc;
+      --sage:#6d8171;
+      --sage-2:#e8eee8;
+      --blue:#667f8e;
+      --blue-2:#e8eef2;
+      --clay:#9d7564;
+      --clay-2:#f2e7e1;
+      --gold:#a68a4d;
+      --gold-2:#f3eddc;
+      --plum:#7e6f7b;
+      --plum-2:#eee8ee;
+      --warn:#9b6b52;
+      --shadow:0 18px 46px rgba(42,49,44,.07);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        linear-gradient(90deg, rgba(103,127,142,.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(109,129,113,.14), rgba(245,243,237,0) 330px),
+        var(--bg);
+      background-size:54px 54px, auto, auto;
+      font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      letter-spacing:0;
+    }
+    a{color:inherit;text-decoration:none}
+    p,h1,h2,h3{margin:0}
+    p,li{font-size:14px;line-height:1.78;color:var(--soft)}
+    main{width:min(1220px,calc(100% - 42px));margin:0 auto;padding:28px 0 72px}
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:7px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,253,248,.76);
+      font-size:12px;
+      font-weight:900;
+      color:var(--soft);
+    }
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) 340px;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .hero-main,.side,.panel,.chart,.judge,.source{
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:rgba(255,253,248,.9);
+      box-shadow:var(--shadow);
+    }
+    .hero-main{padding:34px}
+    .eyebrow{color:var(--sage);font-size:13px;font-weight:950;margin-bottom:14px}
+    h1{
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:44px;
+      line-height:1.13;
+      font-weight:900;
+      max-width:790px;
+    }
+    .lead{margin-top:18px;font-size:17px;line-height:1.78;color:#344047;max-width:780px}
+    .thesis{
+      margin-top:24px;
+      padding:18px 20px;
+      border-left:5px solid var(--sage);
+      border-radius:14px;
+      background:#fff;
+    }
+    .thesis span{display:block;color:var(--muted);font-size:12px;font-weight:950;margin-bottom:8px}
+    .thesis strong{display:block;font-size:23px;line-height:1.45}
+    .side{padding:22px;display:grid;gap:12px;align-content:start}
+    .metric{
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+    .metric b{display:block;font-size:13px;margin-bottom:6px}
+    .metric span{display:block;font-size:12px;line-height:1.6;color:var(--muted)}
+    section{margin-top:18px}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:18px;
+      margin-bottom:12px;
+    }
+    .section-head h2{font-size:26px;line-height:1.25}
+    .section-head p{max-width:640px;color:var(--muted);font-size:13px;line-height:1.7}
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .panel{padding:20px}
+    .panel h3{font-size:19px;line-height:1.35;margin-bottom:9px}
+    .panel p{font-size:13px;line-height:1.7;color:var(--soft)}
+    .label{
+      display:inline-flex;
+      padding:5px 10px;
+      border-radius:999px;
+      background:var(--blue-2);
+      color:var(--blue);
+      font-size:11px;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+    .panel:nth-child(2n) .label{background:var(--sage-2);color:var(--sage)}
+    .panel:nth-child(3n) .label{background:var(--gold-2);color:var(--gold)}
+    .chart{padding:22px}
+    .chart h3{font-size:20px;line-height:1.35;margin-bottom:7px}
+    .chart p{font-size:13px;line-height:1.65;color:var(--soft)}
+    .matrix{
+      position:relative;
+      height:420px;
+      margin-top:22px;
+      border-left:1px solid #bcc7bf;
+      border-bottom:1px solid #bcc7bf;
+      background:
+        linear-gradient(0deg, rgba(221,226,220,.65) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(221,226,220,.65) 1px, transparent 1px);
+      background-size:100% 50%,50% 100%;
+      border-radius:0 12px 0 0;
+    }
+    .axis{position:absolute;font-size:12px;color:var(--muted);font-weight:950}
+    .axis.y{left:0;top:-26px}
+    .axis.x{right:0;bottom:-30px}
+    .dot{
+      position:absolute;
+      transform:translate(-50%,50%);
+      width:max-content;
+      max-width:145px;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      font-size:12px;
+      line-height:1.3;
+      font-weight:950;
+      text-align:center;
+      box-shadow:0 10px 22px rgba(31,40,45,.07);
+    }
+    .premium{background:var(--plum-2);color:var(--plum);border-color:#d8ccd8}
+    .mid{background:var(--sage-2);color:var(--sage);border-color:#cad8cd}
+    .low{background:var(--clay-2);color:var(--clay);border-color:#e5d2c8}
+    .legacy{background:var(--gold-2);color:#806838;border-color:#e2d4b0}
+    .smart{background:var(--blue-2);color:var(--blue);border-color:#ccdbe2}
+    .battle-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+    .battle-table th,.battle-table td{
+      padding:12px 10px;
+      border-bottom:1px solid var(--line);
+      border-right:1px solid var(--line);
+      font-size:12px;
+      line-height:1.5;
+      vertical-align:top;
+    }
+    .battle-table th{background:#f4f5f0;color:var(--soft);font-weight:950;text-align:left}
+    .battle-table tr:last-child td{border-bottom:none}
+    .battle-table th:last-child,.battle-table td:last-child{border-right:none}
+    .product-card{
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 10px 28px rgba(42,49,44,.045);
+    }
+    .product-img{
+      width:100%;
+      aspect-ratio:1.35;
+      object-fit:contain;
+      padding:14px;
+      background:#f8f7f2;
+      border-bottom:1px solid var(--line);
+    }
+    .product-body{padding:16px}
+    .product-body h3{font-size:17px;line-height:1.35;margin-bottom:8px}
+    .small{font-size:12px;line-height:1.6;color:var(--muted)}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+    .stat{
+      padding:9px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fffdfa;
+      font-size:12px;
+      line-height:1.5;
+    }
+    .stat b{display:block;color:var(--ink);font-size:12px}
+    .tag-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+    .tag{display:inline-flex;padding:5px 8px;border-radius:999px;background:var(--sage-2);color:var(--sage);font-size:11px;font-weight:900}
+    .tag.warn{background:var(--clay-2);color:var(--warn)}
+    .tag.blue{background:var(--blue-2);color:var(--blue)}
+    .bar-list{display:grid;gap:10px;margin-top:15px}
+    .bar-row{display:grid;grid-template-columns:130px minmax(0,1fr) 88px;gap:10px;align-items:center}
+    .bar-row b{font-size:12px;line-height:1.35}
+    .track{height:14px;border-radius:999px;background:#ebefea;overflow:hidden}
+    .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--sage),var(--blue))}
+    .bar-row span{text-align:right;color:var(--muted);font-size:12px}
+    .io{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:12px;
+    }
+    .io-card{
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+    .io-card h3{font-size:17px;margin-bottom:8px}
+    .io-card ul{margin:0;padding-left:18px}
+    .redteam{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .argument{
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .argument h3{font-size:18px;margin-bottom:10px}
+    .argument.negative{background:linear-gradient(180deg,var(--clay-2),#fff 62%)}
+    .argument.positive{background:linear-gradient(180deg,var(--sage-2),#fff 62%)}
+    .judge{padding:22px}
+    .choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+    .choice{
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+    .choice b{display:block;font-size:16px;margin-bottom:7px}
+    .choice span{display:block;font-size:12px;line-height:1.6;color:var(--muted)}
+    .source{padding:18px}
+    .source details{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+    .source summary{cursor:pointer;font-weight:950;color:var(--soft)}
+    @media(max-width:1050px){
+      .hero,.grid-4,.grid-3,.grid-2,.redteam,.io{grid-template-columns:1fr}
+    }
+    @media(max-width:720px){
+      main{width:min(100% - 24px,1220px);padding-top:18px}
+      h1{font-size:34px}
+      .hero-main,.side,.panel,.chart,.judge{padding:18px}
+      .bar-row{grid-template-columns:1fr}
+      .bar-row span{text-align:left}
+      .choice-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topbar">
+    <a class="pill" href="quality-review-index.html">返回索引</a>
+    <span>第 3 章 · 头部品牌竞争&竞品分析 · 完整报告 v1</span>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-main">
+      <div class="eyebrow">Conclusion First</div>
+      <h1>真正的短线对手是中价融合产品，真正的长期学习对象是睡眠 routine 与光效权威。</h1>
+      <p class="lead">第 2 章已经判断：这不是自然增长蓝海，而是成熟闹钟、声音机、夜灯底盘里的结构再分化。第 3 章要回答的不是“谁卖得最多”，而是“谁的能力路径可复制，谁的战场适合我们赢”。</p>
+      <div class="thesis">
+        <span>本章核心判断</span>
+        <strong>我们不适合打 $20-$35 的低价声音机/泛闹钟战，也不应该直接复制 Hatch 订阅生态；更适合从“光效体验主导的中价到中高价睡眠唤醒灯”切入。</strong>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="metric"><b>证据来源</b><span>Sorftime product_detail 10 个代表 ASIN；Sorftime product_traffic_terms 6 个代表 ASIN。</span></div>
+      <div class="metric"><b>已知缺口</b><span>gerp-ads/ABA/SIF 未授权；Similarweb/社媒未采集；评论&QA 留到第 4 章。</span></div>
+      <div class="metric"><b>本章边界</b><span>只做品牌矩阵、品牌拆解、产品竞争矩阵；不直接进入用户需求和产品规划。</span></div>
+      <div class="metric"><b>下一步 Stop</b><span>需要你选择：通过进入第 4 章，还是先补品牌/ASIN 证据。</span></div>
+    </aside>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>四个战场先分开</h2>
+      <p>同一个用户搜索“sunrise alarm clock”，实际会碰到不同逻辑的产品。先拆战场，再判断谁适合我们学、谁适合我们打。</p>
+    </div>
+    <div class="grid-4">
+      <article class="panel">
+        <span class="label">长期学习</span>
+        <h3>Premium Routine</h3>
+        <p>Hatch 把闹钟升级为睡眠 routine，胜负手是品牌、内容、app、订阅和睡眠习惯系统。它证明高价心智存在，但不可简单复制。</p>
+      </article>
+      <article class="panel">
+        <span class="label">短线主战场</span>
+        <h3>Mid-price Fusion</h3>
+        <p>Odokee / REACHER 把 sunrise、sound、night light、clock 融合到 $33-$54 区间。这里是最接近当前机会的直接竞品区。</p>
+      </article>
+      <article class="panel">
+        <span class="label">价格压力</span>
+        <h3>Low-price Sound</h3>
+        <p>BUFFBEE / Magicteam 证明声音功能已经很便宜。若我们只加声音，很快会被低价声机定价锚压住。</p>
+      </article>
+      <article class="panel">
+        <span class="label">旧底盘</span>
+        <h3>Legacy / Traditional</h3>
+        <p>JALL、Philips、DreamSky 分别代表旧 wake-up-light、光疗权威和泛闹钟。它们构成评论数与用户预期的底层参照。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="grid-2">
+    <article class="chart">
+      <h3>品牌定位矩阵</h3>
+      <p>横轴是价格/品牌势能，纵轴是产品定义复杂度。我们要找的不是最高点，而是公司能力可以转化成前台价值的区域。</p>
+      <div class="matrix">
+        <span class="axis y">产品定义复杂度 ↑</span>
+        <span class="axis x">价格 / 品牌势能 →</span>
+        <span class="dot premium" style="left:82%;bottom:84%;">Hatch<br>routine 系统</span>
+        <span class="dot legacy" style="left:66%;bottom:58%;">Philips<br>光效权威</span>
+        <span class="dot mid" style="left:48%;bottom:52%;">Odokee<br>中价融合</span>
+        <span class="dot mid" style="left:37%;bottom:43%;">REACHER<br>装饰融合</span>
+        <span class="dot low" style="left:25%;bottom:30%;">BUFFBEE<br>低价声机</span>
+        <span class="dot low" style="left:18%;bottom:20%;">Magicteam<br>纯声机</span>
+        <span class="dot legacy" style="left:39%;bottom:35%;">JALL<br>旧 wake light</span>
+        <span class="dot low" style="left:12%;bottom:13%;">DreamSky<br>泛闹钟</span>
+        <span class="dot smart" style="left:69%;bottom:45%;">Echo Spot<br>智能生态</span>
+      </div>
+    </article>
+    <article class="chart">
+      <h3>月销售额对比</h3>
+      <p>Hatch 的高销售额来自高客单和 routine 心智；Magicteam 的体量来自低价声机底盘。Odokee 是中价融合里最值得短线拆解的样本。</p>
+      <div class="bar-list">
+        <div class="bar-row"><b>Hatch Restore 3</b><div class="track"><div class="fill" style="width:100%"></div></div><span>$2.11M</span></div>
+        <div class="bar-row"><b>Hatch Baby</b><div class="track"><div class="fill" style="width:67%"></div></div><span>$1.41M</span></div>
+        <div class="bar-row"><b>Echo Spot</b><div class="track"><div class="fill" style="width:65%"></div></div><span>$1.38M</span></div>
+        <div class="bar-row"><b>Magicteam</b><div class="track"><div class="fill" style="width:22%"></div></div><span>$455K</span></div>
+        <div class="bar-row"><b>Odokee</b><div class="track"><div class="fill" style="width:20%"></div></div><span>$417K</span></div>
+        <div class="bar-row"><b>Philips</b><div class="track"><div class="fill" style="width:15%"></div></div><span>$310K</span></div>
+        <div class="bar-row"><b>DreamSky</b><div class="track"><div class="fill" style="width:11%"></div></div><span>$240K</span></div>
+        <div class="bar-row"><b>REACHER</b><div class="track"><div class="fill" style="width:6%"></div></div><span>$118K</span></div>
+        <div class="bar-row"><b>BUFFBEE</b><div class="track"><div class="fill" style="width:4%"></div></div><span>$93K</span></div>
+        <div class="bar-row"><b>JALL</b><div class="track"><div class="fill" style="width:3%"></div></div><span>$72K</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>代表竞品卡片</h2>
+      <p>这里不是完整 ASIN 池，而是用于判断竞争结构的代表样本。每张卡都附 Amazon 链接，方便继续手动核验前台页面。</p>
+    </div>
+    <div class="grid-4">
+      <article class="product-card">
+        <img class="product-img" src="https://m.media-amazon.com/images/I/814DUVqPmJL.jpg" alt="Hatch Restore 3">
+        <div class="product-body">
+          <h3><a href="https://www.amazon.com/dp/B0DLLSCVZW">Hatch Restore 3</a></h3>
+          <p class="small">Premium routine / $169.99 / 月销 12,421 / 评论 5,387</p>
+          <div class="stats"><div class="stat"><b>核心价值</b>sleep routine</div><div class="stat"><b>学习点</b>高价心智</div></div>
+          <div class="tag-row"><span class="tag blue">长期学习</span><span class="tag">品牌/内容</span></div>
+        </div>
+      </article>
+      <article class="product-card">
+        <img class="product-img" src="https://m.media-amazon.com/images/I/81mP2pftHML.jpg" alt="Odokee">
+        <div class="product-body">
+          <h3><a href="https://www.amazon.com/dp/B0DGXD6WVW">Odokee</a></h3>
+          <p class="small">Mid-price fusion / $53.99 / 月销 7,719 / 评论 1,534</p>
+          <div class="stats"><div class="stat"><b>核心价值</b>sunrise + sound</div><div class="stat"><b>学习点</b>直接短线对手</div></div>
+          <div class="tag-row"><span class="tag">主战场</span><span class="tag">物理控制</span></div>
+        </div>
+      </article>
+      <article class="product-card">
+        <img class="product-img" src="https://m.media-amazon.com/images/I/31Iqmf4DppL.jpg" alt="REACHER">
+        <div class="product-body">
+          <h3><a href="https://www.amazon.com/dp/B0BZW7WY5M">REACHER</a></h3>
+          <p class="small">Decor fusion / $32.99 / 月销 3,571 / 评论 3,350</p>
+          <div class="stats"><div class="stat"><b>核心价值</b>wood decor</div><div class="stat"><b>学习点</b>装饰化融合</div></div>
+          <div class="tag-row"><span class="tag">主战场</span><span class="tag">低中价</span></div>
+        </div>
+      </article>
+      <article class="product-card">
+        <img class="product-img" src="https://m.media-amazon.com/images/I/51q7d1TAcQL.jpg" alt="JALL">
+        <div class="product-body">
+          <h3><a href="https://www.amazon.com/dp/B081CHLF46">JALL</a></h3>
+          <p class="small">Legacy wake light / $32.88 / 月销 2,180 / 评论 28,011</p>
+          <div class="stats"><div class="stat"><b>核心价值</b>sunrise + FM</div><div class="stat"><b>学习点</b>评论壁垒</div></div>
+          <div class="tag-row"><span class="tag warn">旧底盘</span><span class="tag">评论强</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="grid-2">
+    <article class="chart">
+      <h3>流量词说明：竞品不只吃 wake-up-light</h3>
+      <table class="battle-table">
+        <thead>
+          <tr><th>ASIN / 品牌</th><th>核心流量证据</th><th>含义</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hatch Restore</td><td>alarm clock 第 1 页；hatch alarm clock 第 1 位；sunrise alarm clock 第 1 页；sound machine 第 2 页</td><td>品牌词、闹钟词、声机词、sleep aid 都在吃。</td></tr>
+          <tr><td>Odokee</td><td>sunrise alarm clock 第 1 页第 1/48；sound machine 第 1 页第 6/48</td><td>中价融合跑通，直接验证短线战场。</td></tr>
+          <tr><td>REACHER</td><td>sunrise alarm clock 第 1 页第 2/48；sound machine with light 第 1 页</td><td>装饰化 + 光声融合有入口。</td></tr>
+          <tr><td>BUFFBEE</td><td>sound machine 第 1 页；alarm clock with sound machine 第 1 页第 2/50</td><td>声音机价格锚会压迫融合产品。</td></tr>
+          <tr><td>Philips</td><td>sunrise alarm clock 第 1 页；reading lamp / bedside lamp 有自然位</td><td>光效和灯具身份仍有价值。</td></tr>
+        </tbody>
+      </table>
+    </article>
+    <article class="chart">
+      <h3>消费者前台五维竞争</h3>
+      <table class="battle-table">
+        <thead>
+          <tr><th>维度</th><th>谁强</th><th>对我们的影响</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>卖点/视觉价值</td><td>Hatch、Philips、Odokee</td><td>必须把光效和睡眠唤醒价值做得第一眼可感知。</td></tr>
+          <tr><td>价格</td><td>Magicteam、BUFFBEE、DreamSky</td><td>不要进入低价声机/泛闹钟战。</td></tr>
+          <tr><td>评论数</td><td>Magicteam、Echo Spot、JALL、Philips</td><td>新品牌不能靠评论数硬拼，需要靠前台价值和细分切口。</td></tr>
+          <tr><td>评论质量</td><td>DreamSky、Echo Spot、Odokee、Magicteam</td><td>第 4 章要拆评论质量到底来自功能、价格还是预期管理。</td></tr>
+          <tr><td>coupon/deals</td><td>JALL 已见 coupon；广告后台缺失</td><td>促销空间要等成本和 ads 数据补齐，不能本章推断。</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>模板 Input → Processing → Output</h2>
+      <p>每个模板节点都明确本页结论怎么来的。缺数据只标缺，不补故事。</p>
+    </div>
+    <div class="io">
+      <article class="io-card">
+        <h3>3.1 头部品牌矩阵</h3>
+        <ul>
+          <li>Input：第 2 章战场边界、10 个 ASIN、6 个 ASIN 流量词、企业能力基线。</li>
+          <li>Processing：按价格/品牌势能、产品定义复杂度、公司 fit 建矩阵。</li>
+          <li>Output：Hatch/Philips 为长线学习，Odokee/REACHER/JALL/BUFFBEE 为短线判断重点。</li>
+        </ul>
+      </article>
+      <article class="io-card">
+        <h3>3.1.x 品牌逐个拆解</h3>
+        <ul>
+          <li>Input：价格、销量、评论、上架时间、卖点、流量词。</li>
+          <li>Processing：只拆定位、能力、渠道/流量线索和可复制性，不写品牌百科。</li>
+          <li>Output：Hatch 不可直接复制；Odokee/REACHER 最值得短线拆；Philips 是光效信任对象。</li>
+        </ul>
+      </article>
+      <article class="io-card">
+        <h3>3.2 产品竞争矩阵</h3>
+        <ul>
+          <li>Input：消费者前台五维、代表 ASIN 产品字段、流量词。</li>
+          <li>Processing：判断每个战场的胜负手和我们是否适合进入。</li>
+          <li>Output：产品差异化入口是光效体验、卧室对象感、简单控制、可靠品质。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Red-team Argue</h2>
+      <p>结论输出前先争论一次：市场看起来有机会，不等于适合我们赢。</p>
+    </div>
+    <div class="redteam">
+      <article class="argument negative">
+        <h3>反方</h3>
+        <ul>
+          <li>第 2 章显示 Amazon 年度趋势并不自然增长。</li>
+          <li>Hatch 的成功来自品牌、内容、app、订阅，普通硬件无法直接复制。</li>
+          <li>Odokee/REACHER 已经把融合功能跑出来，新进入者不能只堆功能。</li>
+          <li>BUFFBEE/Magicteam 会把声音功能的价格感打低。</li>
+          <li>公司不以最低成本为优势，低价成熟战场风险很高。</li>
+        </ul>
+      </article>
+      <article class="argument positive">
+        <h3>正方</h3>
+        <ul>
+          <li>品类靠近灯具、光效和卧室体验，公司工艺边界相关。</li>
+          <li>Hatch/Philips 证明用户愿意为更好的睡眠唤醒体验付溢价。</li>
+          <li>当前很多产品仍像塑料闹钟或声音机，灯具质感没有充分展开。</li>
+          <li>公司可用设计、研发、制造、品质，把价值做得可见。</li>
+          <li>白帽打法可以成立，但前提是主图/视频/A+ 能把价值讲清楚。</li>
+        </ul>
+      </article>
+    </div>
+    <article class="panel" style="margin-top:14px">
+      <span class="label">修正后结论</span>
+      <h3>第 4 章必须验证一个核心问题</h3>
+      <p>用户是否真的把这个东西当作“更好的睡眠/唤醒灯具体验”，而不是“一个贵一点的闹钟”或“加了灯的声音机”？如果答案是否定，我们会被低价战场吞掉；如果答案是肯定，公司能力才有发挥空间。</p>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>第 3 章最终输出</h2>
+      <p>压缩成后续章节真正需要带走的东西。</p>
+    </div>
+    <div class="grid-3">
+      <article class="panel">
+        <span class="label">短线主要竞争对象</span>
+        <h3>Odokee / REACHER / JALL / BUFFBEE</h3>
+        <p>Odokee 与 REACHER 是中价融合直接对手；JALL 是旧 wake-light 评论壁垒；BUFFBEE 是低价声音机压力源。</p>
+      </article>
+      <article class="panel">
+        <span class="label">长线学习对象</span>
+        <h3>Hatch / Philips</h3>
+        <p>Hatch 学 routine 和高价心智，Philips 学光效权威与信任背书。Echo Spot 只作为智能生态边界参考。</p>
+      </article>
+      <article class="panel">
+        <span class="label">差异化入口</span>
+        <h3>光效体验主导型睡眠唤醒灯</h3>
+        <p>主攻光效、卧室对象感、简单控制、可靠品质和中价到中高价，而不是低价声机或完整 Hatch 生态。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="judge">
+    <div class="section-head" style="margin-bottom:0">
+      <h2>Human Decision Stop</h2>
+      <p>这里必须停住。第三章不会自动解锁第四章，除非你明确选择。</p>
+    </div>
+    <div class="choice-grid">
+      <div class="choice"><b>A. 通过，并解锁第 4 章</b><span>进入用户场景&需求分析，重点验证“用户是否感知到睡眠/唤醒灯具体验价值”。</span></div>
+      <div class="choice"><b>B. 先补品牌/ASIN证据</b><span>补 gerp-ads/ABA/SIF、Amazon 前台截图、Similarweb/社媒，再更新本章。</span></div>
+      <div class="choice"><b>C. 退回重做品牌池</b><span>扩大或替换代表 ASIN 池，重新做品牌矩阵。</span></div>
+    </div>
+  </section>
+
+  <section class="source">
+    <h2>来源与缺口</h2>
+    <p>本页只把证据放在最后，像论文引用一样保留可追溯入口。</p>
+    <details>
+      <summary>查看本章数据来源</summary>
+      <ul>
+        <li>Sorftime MCP product_detail：B0DLLSCVZW, B0F7C6XJ3P, B0DGXD6WVW, B0BZW7WY5M, B0B2ZTZZ3F, B081CHLF46, B0093162RM, B0DPYZ68GK, B07RWRJ4XW, B0BFC7WQ6R。</li>
+        <li>Sorftime MCP product_traffic_terms：B0DLLSCVZW, B0DGXD6WVW, B0BZW7WY5M, B0B2ZTZZ3F, B081CHLF46, B0093162RM。</li>
+        <li>第 2 章报告：quality-review-template-ch2-market-competition-complete-v2.html。</li>
+        <li>企业能力 Red-team 基线：process/company-capability-red-team-baseline-v1.md。</li>
+      </ul>
+    </details>
+    <details>
+      <summary>查看未采集/不可推断项</summary>
+      <ul>
+        <li>gerp-ads / ABA / SIF：当前业务接口 401 未授权，不能写成已采集。</li>
+        <li>Similarweb / 官方社媒：本章未采集，只作为后续补证。</li>
+        <li>Amazon 前台 A+ / 视频 / 五点完整截图：未用浏览器逐页捕获，后续可补。</li>
+        <li>真实 COGS / 供应链能力：属于私有数据或线下调研，不可从 Amazon 页面推断。</li>
+        <li>评论文本和 Q&A：进入第 4 章用户需求分析，不在本章展开。</li>
+      </ul>
+    </details>
+  </section>
+</main>
+</body>
+</html>

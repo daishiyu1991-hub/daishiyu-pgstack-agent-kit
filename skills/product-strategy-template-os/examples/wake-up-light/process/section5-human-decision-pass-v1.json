@@ -1,0 +1,20 @@
+{
+  "artifact": "section5_human_decision_pass_v1",
+  "created_at": "2026-04-30",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "chapter": "5. 营销分析&社媒传播",
+  "source_report": "quality-review-template-ch5-marketing-social-complete-v1.html",
+  "user_choice": "A",
+  "decision": "通过第 5 章，进入第 6 章供应链管理",
+  "user_note": "通过，后续再补",
+  "status": "passed_with_deferred_evidence",
+  "deferred_evidence": [
+    "Amazon A+ / video / 五点描述截图",
+    "TikTok / YouTube / Instagram 场景视频",
+    "Similarweb 和独立站流量数据",
+    "gerp-ads / ABA / SIF 数据",
+    "Influencer spend / GMV / affiliate conversion data"
+  ],
+  "unlocked_next_chapter": "6. 供应链管理",
+  "pipeline_rule": "通过记录只解锁第 6 章执行计划，不自动生成第 6 章正文结论。"
+}

@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+dist/
+*.zip
+*.tar.gz
+node_modules/
+*.xlsx
+*.xls
+*.csv
+*.docx
+*.pdf
+*.pptx
+*.key
+*.env
+*.log

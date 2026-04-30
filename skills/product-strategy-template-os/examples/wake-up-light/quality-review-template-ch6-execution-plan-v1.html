@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第6章执行计划 · 供应链管理</title>
+  <style>
+    :root{
+      --bg:#f4f3ee;
+      --paper:#fbfaf6;
+      --card:#fff;
+      --ink:#20282d;
+      --muted:#647077;
+      --faint:#8c969b;
+      --line:#d9dedc;
+      --sage:#6f8578;
+      --sage-soft:#eef2ef;
+      --blue:#6f8392;
+      --blue-soft:#edf3f5;
+      --clay:#9b7d68;
+      --clay-soft:#f5eee8;
+      --moss:#7d8765;
+      --moss-soft:#f1f3ec;
+      --rose:#a27773;
+      --rose-soft:#f6eeee;
+      --shadow:0 18px 52px rgba(32,42,49,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:linear-gradient(180deg,rgba(111,131,146,.11),rgba(244,243,238,0) 360px),var(--bg);
+      font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    p,h1,h2,h3{margin:0}
+    p,li{font-size:14px;line-height:1.78;color:var(--muted)}
+    main{max-width:1180px;margin:0 auto;padding:30px 24px 78px}
+    .topnav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted);font-size:13px;font-weight:850}
+    .topnav a{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72)}
+    .hero{
+      min-height:304px;
+      padding:34px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:linear-gradient(135deg,rgba(111,131,146,.18),transparent 56%),var(--paper);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 340px;
+      gap:26px;
+      align-items:end;
+    }
+    .eyebrow{color:var(--blue);font-size:13px;font-weight:950;margin-bottom:12px}
+    h1{max-width:800px;font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:46px;line-height:1.14;letter-spacing:0}
+    .lead{max-width:790px;margin-top:18px;color:#39454c;font-size:17px;line-height:1.82}
+    .note{padding:20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.78)}
+    .note b{display:block;font-size:18px;margin-bottom:10px}
+    section{margin-top:22px;padding:28px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 12px 38px rgba(32,42,49,.04)}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px}
+    .section-head h2{font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:30px;line-height:1.25}
+    .section-head p{max-width:560px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .card{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff}
+    .card h3{font-size:18px;line-height:1.4;margin-bottom:8px}
+    .num{font-size:12px;font-weight:950;color:var(--faint);margin-bottom:8px}
+    .callout{background:linear-gradient(135deg,var(--blue-soft),#fff)}
+    .warn{background:linear-gradient(135deg,var(--rose-soft),#fff)}
+    .source{background:linear-gradient(135deg,var(--moss-soft),#fff)}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .tag{padding:6px 9px;border-radius:999px;background:var(--moss-soft);color:#626a4f;font-size:12px;font-weight:850}
+    table{width:100%;border-collapse:separate;border-spacing:0;min-width:880px}
+    .scroll{overflow-x:auto}
+    th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px;line-height:1.62}
+    th{color:#526068;background:#f7f8f5;font-weight:950}
+    tr:last-child td{border-bottom:0}
+    .flow{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:10px;overflow-x:auto;padding-bottom:4px}
+    .step{padding:16px;border:1px solid var(--line);border-radius:15px;background:#fff;min-height:160px}
+    .step b{display:block;margin-bottom:8px}
+    .bars{display:grid;gap:12px}
+    .bar{display:grid;grid-template-columns:190px minmax(0,1fr) 90px;gap:12px;align-items:center}
+    .track{height:12px;border-radius:999px;background:#edf0ed;overflow:hidden}
+    .fill{height:100%;border-radius:999px;background:var(--blue)}
+    .bar span{font-size:13px;color:var(--muted);font-weight:850}
+    @media(max-width:980px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.flow{grid-template-columns:1fr}h1{font-size:36px}.bar{grid-template-columns:1fr}}
+    @media(max-width:680px){main{padding:16px 12px 56px}.hero,section{padding:20px}h1{font-size:31px}.section-head{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topnav">
+    <a href="quality-review-index.html">返回索引</a>
+    <span>第 6 章 · 执行计划 v1</span>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Chapter 6 · Supply Chain Management</div>
+      <h1>第 6 章不先问“能不能做”，先问哪些成本和工艺会决定我们能不能赢。</h1>
+      <p class="lead">前五章已经把市场、竞品、用户和营销表达推到供应链门口。现在需要验证：wake up light 的关键价值是否落在公司照明能力边界内；哪些模块必须外采或 ODM；哪些成本控制点会决定第 7 章产品规划的取舍。</p>
+    </div>
+    <aside class="note">
+      <b>人类选择记录</b>
+      <p>A. 第 5 章通过，后续再补。缺失的营销证据进入补证队列；本页只解锁第 6 章执行计划，不生成供应链结论。</p>
+    </aside>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>本章边界</h2>
+      <p>第 6 章是成本和可行性验证，不是最终产品定义。所有没有真实来源的数据必须保留为缺口。</p>
+    </div>
+    <div class="grid-2">
+      <article class="card callout">
+        <h3>本章要回答</h3>
+        <p>这个品类的核心成本控制点在哪里？照明、声音、时钟、结构、电源、材料和组装里，哪些可以形成公司的品质/工艺优势，哪些会变成外部供应链依赖？</p>
+      </article>
+      <article class="card warn">
+        <h3>本章不回答</h3>
+        <p>不直接定最终 SKU，不写 listing 策略，不做销售计划。第 6 章只给第 7 章提供“能做什么、成本边界是什么、什么不能承诺”的输入包。</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Template OS 执行循环</h2>
+      <p>供应链最容易因为缺真实数据而幻觉，所以先做证据路由和补证审查。</p>
+    </div>
+    <div class="flow">
+      <div class="step"><b>1. Router</b><p>锁定 6.1 上游供应链和 6.2 供应链竞对，不进入第 7 章。</p></div>
+      <div class="step"><b>2. Evidence</b><p>区分 MCP 可拉、1688 可查、浏览器可看、必须线下确认的数据。</p></div>
+      <div class="step"><b>3. Processing</b><p>按部件清单、供应商特征、竞品成本差异、工艺优势拆解。</p></div>
+      <div class="step"><b>4. Red-team</b><p>用公司能力边界反驳：不是最低成本玩家，不能靠虚假成本优势。</p></div>
+      <div class="step"><b>5. Stop</b><p>输出完整报告后停在人类判断，不自动进入第 7 章。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>模板板块</h2>
+      <p>第 6 章原模板只有两个主体模块，但每个都需要真实输入。</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>板块</th><th>输入</th><th>处理</th><th>输出</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>6.1 上游供应链分析</td>
+            <td>核心组成部件、头部供应商、供应商优势/劣势、行业主要客户</td>
+            <td>供应链调研、供应商访谈、B 端资料收集、部件拆解、1688 辅助验证</td>
+            <td>供应链部件清单、头部供应商特征、成本核心控制点、供应商优劣势</td>
+          </tr>
+          <tr>
+            <td>6.2 供应链竞对分析</td>
+            <td>产品 1 成本、竞品成本、差额、设计方案、工艺、关键部件、模具/工装、组装成本</td>
+            <td>成本对标、部件拆解、工艺差异分析、工厂议价分析</td>
+            <td>竞品成本对标、成本差额分析、可形成优势的部件/工艺、可行性判断</td>
+          </tr>
+          <tr>
+            <td>6.output</td>
+            <td>6.1 和 6.2 的证据结论</td>
+            <td>压缩成产品规划可用的约束和机会</td>
+            <td>核心成本控制点、供应链可行性、竞品成本差异、工艺优势、第 7 章输入包</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Wake Up Light 初始部件假设</h2>
+      <p>这是第 6 章采集前的检查清单，不是成本结论。</p>
+    </div>
+    <div class="grid-3">
+      <article class="card source"><div class="num">Lighting Core</div><h3>照明与光学</h3><p>LED、扩散结构、亮度曲线、色温/色彩、夜灯/阅读灯模式。最贴近公司台灯/落地灯能力边界。</p></article>
+      <article class="card"><div class="num">Control Core</div><h3>时钟与控制</h3><p>RTC、MCU、按键/旋钮、断电记忆、显示屏、交互逻辑。决定评论质量和可靠性。</p></article>
+      <article class="card"><div class="num">Audio Core</div><h3>声音与内容</h3><p>喇叭、声音芯片、白噪音内容、蓝牙/APP/订阅。可能超出内部强项，需要外部模块或 ODM。</p></article>
+      <article class="card"><div class="num">Power</div><h3>电源与安规</h3><p>适配器、USB-C、低压供电、待机功耗、认证。是白帽品质和售后风险的底线。</p></article>
+      <article class="card"><div class="num">Structure</div><h3>结构与材料</h3><p>外壳、织物/木纹/塑胶、透光件、装配公差。决定卧室对象感和品质感。</p></article>
+      <article class="card"><div class="num">Manufacturing</div><h3>组装与测试</h3><p>老化测试、光效校准、闹钟可靠性、按键寿命、包装保护。决定差评率和长期口碑。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>证据路由</h2>
+      <p>哪些可以自动采，哪些必须人工补，先分清楚。</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>字段</th><th>默认路径</th><th>当前状态</th><th>不能伪造的内容</th></tr></thead>
+        <tbody>
+          <tr><td>相似产品与公开成本带</td><td>Sorftime 1688 / 1688 搜索 / 浏览器人工复核</td><td>planned</td><td>不能把欺骗性低价当真实出厂价</td></tr>
+          <tr><td>真实 BOM 与供应商报价</td><td>内部工程 + 供应商报价 + MOQ/交期/模具费</td><td>manual_required</td><td>不能用公开平台价格代替真实 BOM</td></tr>
+          <tr><td>竞品成本拆解</td><td>拆机、供应商反向报价、结构/功能对比</td><td>planned_with_gap</td><td>不能凭售价倒推精确成本</td></tr>
+          <tr><td>公司能力适配</td><td>公司红队基础包 + 内部工艺边界确认</td><td>planned</td><td>不能把外采模块说成内部优势</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>公司能力 Red-team</h2>
+      <p>第 6 章必须把“适合我们做”与“市场上有人卖”分开。</p>
+    </div>
+    <div class="grid-2">
+      <article class="card warn">
+        <h3>反方会攻击</h3>
+        <ul>
+          <li>如果核心价值只是低价闹钟，公司的品质和研发能力无法形成差距。</li>
+          <li>如果音频、APP、内容订阅是核心，可能超出现有照明工艺边界。</li>
+          <li>如果真实成本无法支撑中价段，就会被低价竞品和 Hatch 高端品牌两头挤压。</li>
+        </ul>
+      </article>
+      <article class="card callout">
+        <h3>正方要证明</h3>
+        <ul>
+          <li>光效、结构、材料、可靠性可以被公司照明能力放大。</li>
+          <li>外部模块可以补足声音/内容，而不破坏品质和成本。</li>
+          <li>成本结构能支撑“比低价功能堆叠更有质感，比 Hatch 更少负担”的定位。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>本章判断前置条件</h2>
+      <p>开始正文前，至少要知道哪些数据能拿到，哪些需要人工输入。</p>
+    </div>
+    <div class="bars">
+      <div class="bar"><span>公开产品/价格证据</span><div class="track"><div class="fill" style="width:72%"></div></div><span>可先跑</span></div>
+      <div class="bar"><span>1688 / 供应商线索</span><div class="track"><div class="fill" style="width:58%"></div></div><span>需复核</span></div>
+      <div class="bar"><span>真实 BOM / MOQ</span><div class="track"><div class="fill" style="width:20%"></div></div><span>需人工</span></div>
+      <div class="bar"><span>公司内部工艺边界</span><div class="track"><div class="fill" style="width:42%"></div></div><span>需确认</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>人工判断</h2>
+      <p>确认后才开始第 6 章证据采集和正文。</p>
+    </div>
+    <div class="grid-4">
+      <article class="card"><h3>A. 开始第 6 章</h3><p>按本计划采集供应链证据并生成完整报告。</p></article>
+      <article class="card"><h3>B. 先补内部 BOM</h3><p>先输入供应商报价、MOQ、模具费和内部成本边界。</p></article>
+      <article class="card"><h3>C. 先定供应路径</h3><p>确认内部自研、外部 ODM、或先外采验证。</p></article>
+      <article class="card"><h3>D. 暂停</h3><p>只保留执行计划，不继续。</p></article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

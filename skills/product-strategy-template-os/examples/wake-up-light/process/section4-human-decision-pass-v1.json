@@ -1,0 +1,38 @@
+{
+  "artifact": "section4_human_decision_pass_v1",
+  "created_at": "2026-04-30",
+  "chapter": "4. 用户场景&需求分析",
+  "primary_report": "quality-review-template-ch4-user-scene-demand-complete-v1.html",
+  "user_choice": "A. 通过，并解锁第 5 章营销分析&社媒传播",
+  "user_note": "后续再补",
+  "decision": "pass_with_deferred_evidence",
+  "reason": "第 4 章已足够确认用户购买的核心不是闹钟功能，而是睡前到早晨的体验过渡；缺失的 Q&A、前台截图、社媒视频和样机体验先进入后续补证队列，不阻塞第 5 章。",
+  "surviving_conclusion": "继续围绕中价到中高价、光效体验主导、无订阅/低 app 依赖、可靠控制和床头灯具对象感推进。",
+  "deferred_evidence_queue": [
+    {
+      "item": "Amazon Q&A",
+      "status": "deferred",
+      "future_use": "补充购买前顾虑和 FAQ，不阻塞第 5 章执行计划。"
+    },
+    {
+      "item": "Amazon listing 前台截图 / A+ / 视频 / 五点描述",
+      "status": "must_collect_in_chapter5",
+      "future_use": "第 5 章营销分析的核心输入，不能在第 5 章正文里继续跳过。"
+    },
+    {
+      "item": "社媒场景视频 / vlog / 官方社媒内容",
+      "status": "must_collect_in_chapter5",
+      "future_use": "第 5 章社媒传播和话题机会的核心输入。"
+    },
+    {
+      "item": "问卷 / 访谈 / 样机体验",
+      "status": "deferred_to_validation_or_ch7",
+      "future_use": "验证需求权重和最终产品规划，不作为当前进入第 5 章的阻塞项。"
+    }
+  ],
+  "unlocked_next_chapter": {
+    "chapter": "5. 营销分析&社媒传播",
+    "next_required_artifact": "quality-review-template-ch5-execution-plan-v1.html",
+    "rule": "先生成执行计划，再按模板采集证据，不能直接写第 5 章正文。"
+  }
+}

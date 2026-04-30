@@ -1,0 +1,3 @@
+display_name: Product Strategy Template OS
+short_description: Run fixed-template product strategy research with evidence gates, red-team, HTML reports, and human decision stops.
+default_prompt: Use the Product Strategy Template OS to run this category research one chapter at a time. Keep data source-backed, generate process artifacts, and stop for my decision before unlocking the next chapter.

@@ -1,0 +1,298 @@
+{
+  "artifact": "pipeline_run_state_v1",
+  "created_at": "2026-04-30",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "purpose": "Auditable checkpoint ledger proving whether each chapter actually followed the latest Template OS complete-report pipeline.",
+  "architecture_refs": [
+    "process/pipeline-governance-memory-architecture-v1.md",
+    "process/template-os-complete-report-architecture-v1.md",
+    "process/template-node-loop-protocol-v1.md",
+    "/Users/daishiyu/.codex/skills/product-definition-consumer-electronics/SKILL.md"
+  ],
+  "global_rule_refs": [
+    "AGENTS.md in /Users/daishiyu/Documents/tools for ai/product",
+    "Native GStack/GBrain first",
+    "Conversation Memory Write-Through",
+    "Strategy Research Template OS",
+    "Evidence Integrity Gate"
+  ],
+  "memory_policy": {
+    "local_process_source_of_truth": true,
+    "gbrain_sync_required_for_stable_outputs": true,
+    "gbrain_current_status": "not_synced_in_this_run",
+    "last_gbrain_attempt": {
+      "tool": "mcp__gbrain_remote__.query",
+      "status": "timeout_120s",
+      "note": "Do not claim GBrain was used for chapter 2 evidence."
+    },
+    "default_scope": "team_candidate",
+    "sensitive_raw_supplier_data": "local_only_or_redacted"
+  },
+  "chapter_order": [
+    "1. 品类本质小结",
+    "2. 市场竞争分析",
+    "3. 头部品牌竞争&竞品分析",
+    "4. 用户场景&需求分析",
+    "5. 营销分析&社媒传播",
+    "6. 供应链管理",
+    "7. 产品规划"
+  ],
+  "checklist_definition": [
+    "read_global_rules",
+    "read_skill_runtime",
+    "read_run_architecture",
+    "read_previous_chapter_decision",
+    "run_previous_artifact_review",
+    "run_evidence_router",
+    "collect_available_evidence",
+    "write_analysis_package",
+    "run_evidence_review",
+    "run_red_team",
+    "render_complete_report",
+    "stop_for_human_decision",
+    "write_decision_record",
+    "update_index",
+    "queue_or_sync_gbrain"
+  ],
+  "chapters": [
+    {
+      "chapter": "1. 品类本质小结",
+      "status": "completed_before_latest_pipeline",
+      "primary_report": "quality-review-template-p0-category-essence-v1.html",
+      "notes": "Generated before the complete-report checkpoint ledger existed; should be reviewed if used as source for later chapters.",
+      "checkpoints": {
+        "read_global_rules": "implicit",
+        "read_skill_runtime": "partial",
+        "read_run_architecture": "not_available_then",
+        "read_previous_chapter_decision": "not_applicable",
+        "run_previous_artifact_review": "not_available_then",
+        "run_evidence_router": "partial",
+        "collect_available_evidence": "partial",
+        "write_analysis_package": "partial",
+        "run_evidence_review": "partial",
+        "run_red_team": "partial",
+        "render_complete_report": "partial_legacy_report",
+        "stop_for_human_decision": "completed",
+        "write_decision_record": "not_structured_latest_format",
+        "update_index": "completed",
+        "queue_or_sync_gbrain": "not_started"
+      }
+    },
+    {
+      "chapter": "2. 市场竞争分析",
+      "status": "completed_latest_pipeline_repaired",
+      "primary_report": "quality-review-template-ch2-market-competition-complete-v2.html",
+      "decision_record": "process/section2-human-decision-pass-v1.json",
+      "checkpoints": {
+        "read_global_rules": "completed",
+        "read_skill_runtime": "completed",
+        "read_run_architecture": "completed",
+        "read_previous_chapter_decision": "completed",
+        "run_previous_artifact_review": "completed_after_issue_found",
+        "run_evidence_router": "completed",
+        "collect_available_evidence": "completed_with_gaps",
+        "write_analysis_package": "completed",
+        "run_evidence_review": "completed",
+        "run_red_team": "completed",
+        "render_complete_report": "completed",
+        "stop_for_human_decision": "completed",
+        "write_decision_record": "completed",
+        "update_index": "completed",
+        "queue_or_sync_gbrain": "not_started"
+      },
+      "process_refs": [
+        "process/section2-previous-artifact-review-v1.md",
+        "process/section2-evidence-acquisition-router-v1.json",
+        "process/section2-market-competition-analysis-v8.md",
+        "process/section2-market-competition-v8-evidence-ledger.json",
+        "process/section2-human-decision-pass-v1.json"
+      ],
+      "open_gaps": [
+        "Google Trends not collected due SellerSprite ERROR_UNAUTHORIZED",
+        "Full Amazon annual category sales curve not collected",
+        "Top50 launch-date table not collected",
+        "ABA/reverse keyword conversion data not collected",
+        "GBrain sync queue not yet created"
+      ]
+    },
+    {
+      "chapter": "3. 头部品牌竞争&竞品分析",
+      "status": "completed_human_passed",
+      "primary_report": "quality-review-template-ch3-brand-competitor-complete-v1.html",
+      "decision_record": "process/section3-human-decision-pass-v1.json",
+      "process_refs": [
+        "process/section3-execution-plan-v1.json",
+        "process/section3-brand-competitor-evidence-v1.json",
+        "process/section3-brand-competitor-analysis-v1.md",
+        "process/section3-human-decision-pass-v1.json",
+        "quality-review-template-ch3-brand-competitor-complete-v1.html"
+      ],
+      "checkpoints": {
+        "read_global_rules": "completed",
+        "read_skill_runtime": "completed",
+        "read_run_architecture": "completed",
+        "read_previous_chapter_decision": "completed",
+        "run_previous_artifact_review": "completed_lightweight",
+        "run_evidence_router": "completed_embedded_in_evidence_json",
+        "collect_available_evidence": "completed_with_gaps",
+        "write_analysis_package": "completed",
+        "run_evidence_review": "completed",
+        "run_red_team": "completed",
+        "render_complete_report": "completed",
+        "stop_for_human_decision": "completed",
+        "write_decision_record": "completed",
+        "update_index": "completed",
+        "queue_or_sync_gbrain": "pending"
+      },
+      "open_gaps": [
+        "gerp-ads / ABA / SIF authorization unavailable: business calls return 401 unauthorized",
+        "Similarweb, official social metrics and brand websites not collected",
+        "Amazon frontstage A+ / video / five-bullet screenshots not captured by browser in this chapter",
+        "Review text and Q&A are reserved for chapter 4",
+        "Private COGS and supplier capability remain manual/offline evidence"
+      ],
+      "human_decision_options": [
+        "A. 通过，并解锁第 4 章用户场景&需求分析",
+        "B. 先补品牌/ASIN证据",
+        "C. 退回重做品牌池"
+      ]
+    },
+    {
+      "chapter": "4. 用户场景&需求分析",
+      "status": "completed_human_passed_with_deferred_evidence",
+      "primary_plan": "quality-review-template-ch4-execution-plan-v1.html",
+      "primary_report": "quality-review-template-ch4-user-scene-demand-complete-v1.html",
+      "decision_record": "process/section4-human-decision-pass-v1.json",
+      "process_refs": [
+        "process/section4-execution-plan-v1.json",
+        "process/section4-execution-plan-human-pass-v1.json",
+        "process/section4-user-scene-demand-evidence-v1.json",
+        "process/section4-user-scene-demand-analysis-v1.md",
+        "process/section4-human-decision-pass-v1.json",
+        "quality-review-template-ch4-execution-plan-v1.html",
+        "quality-review-template-ch4-user-scene-demand-complete-v1.html"
+      ],
+      "checkpoints": {
+        "read_global_rules": "completed",
+        "read_skill_runtime": "completed",
+        "read_run_architecture": "completed",
+        "read_previous_chapter_decision": "completed",
+        "run_previous_artifact_review": "completed_lightweight",
+        "run_evidence_router": "completed",
+        "collect_available_evidence": "completed_with_gaps",
+        "write_analysis_package": "completed",
+        "run_evidence_review": "completed",
+        "run_red_team": "completed",
+        "render_complete_report": "completed",
+        "stop_for_human_decision": "completed",
+        "write_decision_record": "completed",
+        "update_index": "completed",
+        "queue_or_sync_gbrain": "pending"
+      },
+      "open_gaps": [
+        "Amazon Q&A not collected",
+        "Amazon listing frontstage screenshots / A+ / video not collected by browser",
+        "Social scene videos / vlog evidence not collected",
+        "Questionnaire / interview / sample hands-on evidence not collected",
+        "GBrain sync queue not yet created"
+      ],
+      "human_decision_options": [
+        "A. 通过，并解锁第 5 章营销分析&社媒传播",
+        "B. 先补 Amazon Q&A / listing 前台截图 / 社媒场景视频",
+        "C. 回到第 3 章调整竞品样本或用户战场"
+      ]
+    },
+    {
+      "chapter": "5. 营销分析&社媒传播",
+      "status": "completed_human_passed_with_deferred_evidence",
+      "primary_plan": "quality-review-template-ch5-execution-plan-v1.html",
+      "primary_report": "quality-review-template-ch5-marketing-social-complete-v1.html",
+      "decision_record": "process/section5-human-decision-pass-v1.json",
+      "process_refs": [
+        "process/section5-execution-plan-v1.json",
+        "process/section5-marketing-social-evidence-v1.json",
+        "process/section5-marketing-social-analysis-v1.md",
+        "process/section5-human-decision-pass-v1.json",
+        "quality-review-template-ch5-execution-plan-v1.html",
+        "quality-review-template-ch5-marketing-social-complete-v1.html"
+      ],
+      "checkpoints": {
+        "read_global_rules": "completed",
+        "read_skill_runtime": "completed",
+        "read_run_architecture": "completed",
+        "read_previous_chapter_decision": "completed",
+        "run_previous_artifact_review": "completed_lightweight",
+        "run_evidence_router": "completed",
+        "collect_available_evidence": "completed_with_gaps",
+        "write_analysis_package": "completed",
+        "run_evidence_review": "completed",
+        "run_red_team": "completed",
+        "render_complete_report": "completed",
+        "stop_for_human_decision": "completed",
+        "write_decision_record": "completed",
+        "update_index": "completed",
+        "queue_or_sync_gbrain": "pending"
+      },
+      "open_gaps": [
+        "Amazon listing screenshots / A+ / video / five-bullet claims not browser-captured in this chapter",
+        "Similarweb and independent站流量数据 not collected",
+        "gerp-ads / ABA / SIF tools not available in the live tool namespace",
+        "TikTok / YouTube / Instagram 场景视频 not manually reviewed",
+        "Influencer spend / GMV / affiliate conversion data not collected",
+        "GBrain sync queue not yet created"
+      ],
+      "human_decision_options": [
+        "A. 通过第 5 章，进入第 6 章供应链管理",
+        "B. 先补 Amazon A+ / video / 五点描述截图",
+        "C. 先补 TikTok / YouTube / Instagram 场景视频",
+        "D. 退回第 4 章重做用户需求"
+      ]
+    },
+    {
+      "chapter": "6. 供应链管理",
+      "status": "paused_by_human_decision",
+      "primary_plan": "quality-review-template-ch6-execution-plan-v1.html",
+      "decision_record": "process/section6-human-decision-pause-v1.json",
+      "process_refs": [
+        "process/section6-execution-plan-v1.json",
+        "process/section6-human-decision-pause-v1.json",
+        "quality-review-template-ch6-execution-plan-v1.html"
+      ],
+      "checkpoints": {
+        "read_global_rules": "completed",
+        "read_skill_runtime": "completed",
+        "read_run_architecture": "completed",
+        "read_previous_chapter_decision": "completed",
+        "run_previous_artifact_review": "pending_for_formal_report",
+        "run_evidence_router": "completed_plan_only",
+        "collect_available_evidence": "pending",
+        "write_analysis_package": "pending",
+        "run_evidence_review": "pending",
+        "run_red_team": "pending",
+        "render_complete_report": "pending",
+        "stop_for_human_decision": "completed",
+        "write_decision_record": "completed",
+        "update_index": "completed",
+        "queue_or_sync_gbrain": "pending"
+      },
+      "open_gaps": [
+        "真实 BOM / MOQ / 模具费 / 交期 / 账期需要人工输入或供应商报价",
+        "1688 / 公开供应商价格需要人工复核，不能直接当真实出厂价",
+        "竞品成本拆解需要拆机或供应商反向报价",
+        "公司内部照明工艺边界、外采模块边界、ODM 路径需要人工确认",
+        "GBrain sync queue not yet created"
+      ],
+      "human_decision_options": [
+        "A. 通过执行计划，开始第 6 章证据采集与正文",
+        "B. 先补内部 BOM / 供应商报价 / MOQ",
+        "C. 先确认内部做还是外部 ODM",
+        "D. 暂停供应链章节"
+      ],
+      "pause_state": {
+        "user_choice": "D",
+        "next_chapter_unlocked": false,
+        "resume_from": "quality-review-template-ch6-execution-plan-v1.html"
+      }
+    }
+  ]
+}

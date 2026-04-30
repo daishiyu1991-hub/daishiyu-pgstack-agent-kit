@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wake Up Light 品类战略用研索引</title>
+  <style>
+    :root{
+      --bg:#f4f3ee;
+      --paper:#fbfaf6;
+      --card:#ffffff;
+      --ink:#202a31;
+      --muted:#68737b;
+      --faint:#8f9aa1;
+      --line:#d9dedc;
+      --sage:#6f8578;
+      --sage-soft:#eef2ef;
+      --blue:#6f8392;
+      --blue-soft:#eef3f5;
+      --clay:#9b7d68;
+      --clay-soft:#f5eee8;
+      --moss:#7d8765;
+      --moss-soft:#f1f3ec;
+      --plum:#877582;
+      --plum-soft:#f2eef2;
+      --slate:#596774;
+      --shadow:0 18px 52px rgba(32,42,49,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        linear-gradient(90deg, rgba(89,103,116,.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(111,133,120,.10), rgba(244,243,238,0) 360px),
+        var(--bg);
+      background-size:56px 56px, auto, auto;
+      font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    p,h1,h2,h3{margin:0}
+    p,li{font-size:14px;line-height:1.78;color:var(--muted)}
+    main{max-width:1220px;margin:0 auto;padding:30px 24px 78px}
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 320px;
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+    .hero-main{
+      min-height:318px;
+      padding:34px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:
+        linear-gradient(135deg, rgba(111,133,120,.18), transparent 50%),
+        var(--paper);
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .eyebrow{
+      color:var(--sage);
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+    h1{
+      max-width:780px;
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:50px;
+      line-height:1.12;
+      font-weight:900;
+      letter-spacing:0;
+    }
+    .lead{
+      max-width:780px;
+      margin-top:18px;
+      color:#39454c;
+      font-size:17px;
+      line-height:1.82;
+    }
+    .hero-note{
+      margin-top:28px;
+      padding-top:16px;
+      border-top:1px solid rgba(32,42,49,.12);
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+    .status{
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.86);
+      box-shadow:var(--shadow);
+      display:grid;
+      align-content:start;
+      gap:18px;
+    }
+    .status h2{font-size:24px;line-height:1.3}
+    .metric-stack{display:grid;gap:10px}
+    .metric{
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+    }
+    .metric b{display:block;font-size:14px;margin-bottom:4px}
+    .metric span{color:var(--muted);font-size:13px;line-height:1.5}
+    section{
+      margin-top:22px;
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.88);
+      box-shadow:0 12px 38px rgba(32,42,49,.04);
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:24px;
+      margin-bottom:18px;
+    }
+    .section-head h2{
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:30px;
+      line-height:1.25;
+      letter-spacing:0;
+    }
+    .section-head p{max-width:560px;color:var(--muted)}
+    .stage-grid{
+      display:grid;
+      grid-template-columns:repeat(7,minmax(128px,1fr));
+      gap:10px;
+    }
+    .stage-tile{
+      min-height:128px;
+      padding:15px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .stage-tile.current{
+      border-color:#aebdb4;
+      background:linear-gradient(180deg,var(--sage-soft),#fff);
+      box-shadow:0 14px 32px rgba(111,133,120,.12);
+    }
+    .stage-tile:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(32,42,49,.07)}
+    .stage-num{font-size:12px;font-weight:950;color:var(--faint)}
+    .stage-title{margin-top:10px;font-size:17px;line-height:1.35;font-weight:900}
+    .stage-state{margin-top:14px;font-size:12px;color:var(--muted);font-weight:850}
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:max-content;
+      min-height:38px;
+      margin-top:14px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--slate);
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+    }
+    .button.ghost{
+      background:#fff;
+      color:var(--muted);
+      border:1px solid var(--line);
+      pointer-events:none;
+    }
+    .detail-list{display:grid;gap:16px}
+    .chapter{
+      display:grid;
+      grid-template-columns:210px minmax(0,1fr) 132px;
+      gap:18px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+    .chapter:nth-child(4n+1){background:linear-gradient(90deg,var(--sage-soft),#fff 26%)}
+    .chapter:nth-child(4n+2){background:linear-gradient(90deg,var(--blue-soft),#fff 26%)}
+    .chapter:nth-child(4n+3){background:linear-gradient(90deg,var(--clay-soft),#fff 26%)}
+    .chapter:nth-child(4n+4){background:linear-gradient(90deg,var(--plum-soft),#fff 26%)}
+    .chapter-title b{
+      display:block;
+      color:var(--faint);
+      font-size:12px;
+      margin-bottom:8px;
+    }
+    .chapter-title h3{font-size:20px;line-height:1.32}
+    .chapter-title p{margin-top:8px;font-size:13px;line-height:1.6}
+    .modules{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    .module{
+      padding:12px 13px;
+      border:1px solid rgba(217,222,220,.82);
+      border-radius:12px;
+      background:rgba(255,255,255,.74);
+    }
+    .module strong{display:block;font-size:14px;line-height:1.45;margin-bottom:5px}
+    .module span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+    .chapter-action{display:flex;align-items:center;justify-content:flex-end}
+    .evidence{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .evidence-card{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      background:#fff;
+    }
+    .evidence-card h3{font-size:17px;line-height:1.35;margin-bottom:10px}
+    .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .tag{
+      padding:6px 9px;
+      border-radius:999px;
+      background:var(--moss-soft);
+      color:#626a4f;
+      font-size:12px;
+      font-weight:850;
+    }
+    @media(max-width:1060px){
+      .hero,.evidence{grid-template-columns:1fr}
+      .stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .chapter{grid-template-columns:1fr}
+      .chapter-action{justify-content:flex-start}
+    }
+    @media(max-width:680px){
+      main{padding:16px 12px 56px}
+      .hero-main,section,.status{padding:20px}
+      h1{font-size:36px}
+      .stage-grid,.modules{grid-template-columns:1fr}
+      .section-head{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div class="hero-main">
+      <div>
+        <div class="eyebrow">Wake Up Light · 爆品战略用研模板</div>
+        <h1>完整路线图先摆出来，再一章一章做判断。</h1>
+        <p class="lead">索引页只负责展示整个模板的工作流和当前进度。每一章进入后再做对应的数据输入、处理框架、输出结论和人工判断。</p>
+      </div>
+      <p class="hero-note">每一章进入后再展开对应页面；索引页只负责保留完整模板结构，避免一开始就丢掉章节边界。</p>
+    </div>
+    <aside class="status">
+      <div>
+        <div class="eyebrow">执行方式</div>
+        <h2>结论先行，过程后置，一章一章推进。</h2>
+      </div>
+      <div class="metric-stack">
+        <div class="metric">
+          <b>已生成页面</b>
+          <span>1. 品类本质小结；2. 市场竞争分析完整报告已通过；3. 头部品牌竞争&竞品分析已通过；4. 用户场景&需求分析已通过；5. 营销分析&社媒传播已通过；6. 供应链管理已暂停</span>
+        </div>
+        <div class="metric">
+          <b>默认数据原则</b>
+          <span>所有数据必须真实、可追溯；缺失项标记 not collected。</span>
+        </div>
+        <div class="metric">
+          <b>下一步</b>
+          <span>第 6 章已暂停；第 7 章产品规划未解锁。后续可从第 6 章执行计划继续。</span>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>模板总览</h2>
+      <p>低饱和路线图：已生成页面可点击，未生成页面保持锁定。这里不提前放结论，只显示章节顺序和工作边界。</p>
+    </div>
+    <div class="stage-grid">
+      <a class="stage-tile" href="quality-review-template-p0-category-essence-v1.html">
+        <div>
+          <div class="stage-num">01</div>
+          <div class="stage-title">品类本质小结</div>
+        </div>
+        <div>
+          <div class="stage-state">已生成</div>
+          <span class="button">打开</span>
+        </div>
+      </a>
+      <a class="stage-tile" href="quality-review-template-ch2-market-competition-complete-v2.html">
+        <div><div class="stage-num">02</div><div class="stage-title">市场竞争分析</div></div>
+        <div><div class="stage-state">已通过</div><span class="button">打开</span></div>
+      </a>
+      <a class="stage-tile" href="quality-review-template-ch3-brand-competitor-complete-v1.html">
+        <div><div class="stage-num">03</div><div class="stage-title">头部品牌竞争&竞品分析</div></div>
+        <div><div class="stage-state">已生成</div><span class="button">打开</span></div>
+      </a>
+      <a class="stage-tile" href="quality-review-template-ch4-user-scene-demand-complete-v1.html">
+        <div><div class="stage-num">04</div><div class="stage-title">用户场景&需求分析</div></div>
+        <div><div class="stage-state">已通过</div><span class="button">打开报告</span></div>
+      </a>
+      <a class="stage-tile" href="quality-review-template-ch5-marketing-social-complete-v1.html">
+        <div><div class="stage-num">05</div><div class="stage-title">营销分析&社媒传播</div></div>
+        <div><div class="stage-state">已通过</div><span class="button">打开报告</span></div>
+      </a>
+      <a class="stage-tile" href="quality-review-template-ch6-execution-plan-v1.html">
+        <div><div class="stage-num">06</div><div class="stage-title">供应链管理</div></div>
+        <div><div class="stage-state">已暂停</div><span class="button">打开计划</span></div>
+      </a>
+      <div class="stage-tile">
+        <div><div class="stage-num">07</div><div class="stage-title">产品规划</div></div>
+        <div><div class="stage-state">待生成</div><span class="button ghost">未开始</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>完整章节清单</h2>
+      <p>下面按原模板顺序排列。后续每完成一章，就把对应节点从“待生成”改成可点击页面。</p>
+    </div>
+    <div class="detail-list">
+      <article class="chapter">
+        <div class="chapter-title">
+          <b>01 · 已生成</b>
+          <h3>品类本质小结</h3>
+          <p>先定义这个品类到底在满足什么需求。</p>
+        </div>
+        <div class="modules">
+          <div class="module"><strong>产品人群</strong><span>基础用户画像信息</span></div>
+          <div class="module"><strong>产品场景</strong><span>产品主次使用场景</span></div>
+          <div class="module"><strong>使用用途</strong><span>主要用来满足什么需求</span></div>
+          <div class="module"><strong>需求矩阵</strong><span>价值金字塔：职能 / 情感 / 改变生活 / 社会影响</span></div>
+        </div>
+        <div class="chapter-action">
+          <a class="button" href="quality-review-template-p0-category-essence-v1.html">打开第 1 章</a>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter-title">
+          <b>02 · 已通过</b>
+          <h3>市场竞争分析</h3>
+          <p>判断市场容量、趋势、生命周期、亚马逊渠道和其他渠道机会。</p>
+        </div>
+        <div class="modules">
+          <div class="module"><strong>2.1 市场大盘</strong><span>全球主要市场大盘 / 市场发展趋势 / 市场生命周期</span></div>
+          <div class="module"><strong>2.2 亚马逊渠道分析</strong><span>关键词搜索趋势 / 市场容量&趋势 / 品牌集中度 / 市场新品趋势</span></div>
+          <div class="module"><strong>2.3 其他渠道市场机会</strong><span>HomeDepot / Walmart / Target / Lowe's 等渠道机会</span></div>
+          <div class="module"><strong>输出</strong><span>品类是否值得继续做、市场阶段和渠道优先级</span></div>
+        </div>
+        <div class="chapter-action">
+          <a class="button ghost" href="quality-review-template-ch2-execution-plan-v1.html">执行计划</a>
+          <a class="button ghost" href="quality-review-template-ch2-decision-pass-v1.html">通过记录</a>
+          <a class="button" href="quality-review-template-ch2-market-competition-complete-v2.html">打开第 2 章完整报告</a>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter-title">
+          <b>03 · 已通过</b>
+          <h3>头部品牌竞争&竞品分析</h3>
+          <p>看头部品牌基因、能力模型、产品矩阵和我们可能的扩维打法。</p>
+        </div>
+        <div class="modules">
+          <div class="module"><strong>3.1 头部品牌矩阵</strong><span>品牌定位 / 能力 / 资源范围 / 品牌战略建议</span></div>
+          <div class="module"><strong>3.1.x 品牌拆解</strong><span>公司简介、用户定位、技术能力、渠道、销售、社媒、供应链</span></div>
+          <div class="module"><strong>3.2 产品竞争矩阵</strong><span>亚马逊头部产品 / 产品矩阵 / 核心参数对比</span></div>
+          <div class="module"><strong>输出</strong><span>短线主要竞争对象、长线学习对象、产品差异化入口</span></div>
+        </div>
+        <div class="chapter-action"><a class="button ghost" href="quality-review-template-ch3-execution-plan-v1.html">执行计划</a><a class="button" href="quality-review-template-ch3-brand-competitor-complete-v1.html">打开第 3 章完整报告</a></div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter-title">
+          <b>04 · 已通过</b>
+          <h3>用户场景&需求分析</h3>
+          <p>把用户是谁、在什么场景怎么使用、购买决策和真实需求拆清楚。</p>
+        </div>
+        <div class="modules">
+          <div class="module"><strong>4.1 用户画像</strong><span>地域 / 个人信息 / 兴趣 / 经济水平 / 用户特性总结</span></div>
+          <div class="module"><strong>4.2 场景矩阵</strong><span>使用场景 / 场景关联分析</span></div>
+          <div class="module"><strong>4.3 用户旅程</strong><span>用户旅程图 / 购买决策链</span></div>
+          <div class="module"><strong>4.4 需求分析</strong><span>需求挖掘 / listing 评论分析 / 高价值评论集 / 产品需求集</span></div>
+          <div class="module"><strong>4.5 产品需求&技术创新</strong><span>产品创意挖掘 / 众筹平台</span></div>
+        </div>
+        <div class="chapter-action"><a class="button ghost" href="quality-review-template-ch4-execution-plan-v1.html">执行计划</a><a class="button ghost" href="quality-review-template-ch4-user-scene-demand-complete-v1.html">完整报告</a><a class="button" href="process/section4-human-decision-pass-v1.json">通过记录</a></div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter-title">
+          <b>05 · 已通过</b>
+          <h3>营销分析&社媒传播</h3>
+          <p>判断对手运营水平、站外情况、社媒突破点和内容打法。</p>
+        </div>
+        <div class="modules">
+          <div class="module"><strong>5.1 亚马逊平台运营竞争分析</strong><span>品牌主页 / listing 设计水平 / SKU 产品布局</span></div>
+          <div class="module"><strong>5.2 其他平台运营竞争分析</strong><span>Walmart 等平台运营情况</span></div>
+          <div class="module"><strong>5.3 独立站</strong><span>品牌直营渠道和站外承接能力</span></div>
+          <div class="module"><strong>5.4 社媒传播</strong><span>官方组织、展会、论坛、媒体、话题集、网红投放</span></div>
+        </div>
+        <div class="chapter-action"><a class="button ghost" href="quality-review-template-ch5-execution-plan-v1.html">执行计划</a><a class="button ghost" href="process/section5-human-decision-pass-v1.json">通过记录</a><a class="button" href="quality-review-template-ch5-marketing-social-complete-v1.html">打开第 5 章完整报告</a></div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter-title">
+          <b>06 · 已暂停</b>
+          <h3>供应链管理</h3>
+          <p>判断产品能不能做、成本结构在哪里、供应链是否能形成优势。</p>
+        </div>
+        <div class="modules">
+          <div class="module"><strong>6.1 上游供应链分析</strong><span>核心组成部件、头部供应商特征、主要客户和优劣势</span></div>
+          <div class="module"><strong>6.2 供应链竞对分析</strong><span>成本对标、关键部件拆解、工艺和议价空间</span></div>
+          <div class="module"><strong>输出</strong><span>成本控制点、可行性、差异化是否能被供应链支撑</span></div>
+        </div>
+        <div class="chapter-action"><a class="button ghost" href="process/section6-human-decision-pause-v1.json">暂停记录</a><a class="button" href="quality-review-template-ch6-execution-plan-v1.html">打开执行计划</a></div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter-title">
+          <b>07 · Locked</b>
+          <h3>产品规划</h3>
+          <p>把前面的判断投射到产品定义、listing 策略和销售计划。</p>
+        </div>
+        <div class="modules">
+          <div class="module"><strong>7.1 产品定义全流程</strong><span>全需求维度参考和产品定义收敛</span></div>
+          <div class="module"><strong>7.2 listing 策略+设计策划</strong><span>图片主题排序、主图策略、页面内容结构</span></div>
+          <div class="module"><strong>7.3 销售计划</strong><span>营销规划、主市场强攻或细分人群突入、KOL 投放</span></div>
+          <div class="module"><strong>输出</strong><span>产品定义、上市策略、渠道打法和验证计划</span></div>
+        </div>
+        <div class="chapter-action"><span class="button ghost">待生成</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>默认证据规则</h2>
+      <p>这部分是全流程的底线：所有后续页面都要按这个规则处理数据，不让 AI 用推断伪装成事实。</p>
+    </div>
+    <div class="evidence">
+      <article class="evidence-card">
+        <h3>第 1 章默认真实输入包</h3>
+        <p>seed keyword / seed ASIN / ASIN 池 / ASIN 详情 / 评论与 Q&A / traffic keyword、ABA 或反查词 / Amazon 前台五维观察。</p>
+        <div class="tag-row">
+          <span class="tag">keyword</span>
+          <span class="tag">ASIN pool</span>
+          <span class="tag">review & Q&A</span>
+          <span class="tag">frontstage</span>
+        </div>
+      </article>
+      <article class="evidence-card">
+        <h3>缺失数据处理</h3>
+        <p>缺失项必须标记为 <b>not collected</b>。如果需要估算，必须明确写成 inference / estimate，不能混入事实表述。</p>
+        <div class="tag-row">
+          <span class="tag">100%真实</span>
+          <span class="tag">可追溯</span>
+          <span class="tag">不伪造</span>
+          <span class="tag">人做判断</span>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

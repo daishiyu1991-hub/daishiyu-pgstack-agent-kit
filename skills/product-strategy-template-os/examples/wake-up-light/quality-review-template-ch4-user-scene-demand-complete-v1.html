@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第4章 用户场景&需求分析 · Wake Up Light</title>
+  <style>
+    :root{
+      --bg:#f4f3ee;
+      --paper:#fbfaf6;
+      --card:#fff;
+      --ink:#20282d;
+      --muted:#647077;
+      --faint:#8c969b;
+      --line:#d9dedc;
+      --sage:#6f8578;
+      --sage-soft:#eef2ef;
+      --blue:#6f8392;
+      --blue-soft:#edf3f5;
+      --clay:#9b7d68;
+      --clay-soft:#f5eee8;
+      --moss:#7d8765;
+      --moss-soft:#f1f3ec;
+      --plum:#877582;
+      --plum-soft:#f2eef2;
+      --rose:#a27773;
+      --rose-soft:#f6eeee;
+      --shadow:0 18px 52px rgba(32,42,49,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        linear-gradient(90deg, rgba(89,103,116,.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(111,133,120,.11), rgba(244,243,238,0) 360px),
+        var(--bg);
+      background-size:56px 56px, auto, auto;
+      font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    p,h1,h2,h3{margin:0}
+    p,li{font-size:14px;line-height:1.78;color:var(--muted)}
+    main{max-width:1240px;margin:0 auto;padding:30px 24px 78px}
+    .topnav{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:center;
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+    }
+    .topnav a{
+      padding:9px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+    }
+    .hero{
+      min-height:330px;
+      padding:34px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(155,125,104,.16), transparent 34%),
+        linear-gradient(135deg, rgba(111,133,120,.18), transparent 52%),
+        var(--paper);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 360px;
+      gap:28px;
+      align-items:end;
+    }
+    .eyebrow{color:var(--sage);font-size:13px;font-weight:950;margin-bottom:12px}
+    h1{
+      max-width:780px;
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:48px;
+      line-height:1.12;
+      letter-spacing:0;
+    }
+    .lead{max-width:790px;margin-top:18px;color:#39454c;font-size:17px;line-height:1.82}
+    .hero-card{
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.78);
+    }
+    .hero-card b{display:block;font-size:18px;margin-bottom:10px}
+    .hero-card span{display:block;color:var(--muted);font-size:14px;line-height:1.7}
+    section{
+      margin-top:22px;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.88);
+      box-shadow:0 12px 38px rgba(32,42,49,.04);
+    }
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px}
+    .section-head h2{
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-size:30px;
+      line-height:1.25;
+    }
+    .section-head p{max-width:560px}
+    .thesis{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+    }
+    .thesis-card{
+      min-height:210px;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--card);
+    }
+    .thesis-card.primary{background:linear-gradient(135deg,var(--sage-soft),#fff)}
+    .thesis-card.risk{background:linear-gradient(135deg,var(--rose-soft),#fff)}
+    .thesis-card h3{font-size:22px;line-height:1.35;margin-bottom:10px}
+    .bigline{
+      margin-top:14px;
+      padding:16px 18px;
+      border-left:5px solid var(--sage);
+      background:rgba(255,255,255,.72);
+      color:#2f3b41;
+      font-size:20px;
+      line-height:1.65;
+      font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      font-weight:900;
+    }
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      background:#fff;
+    }
+    .card h3{font-size:18px;line-height:1.4;margin-bottom:8px}
+    .card .num{font-size:12px;font-weight:950;color:var(--faint);margin-bottom:8px}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .tag{padding:6px 9px;border-radius:999px;background:var(--moss-soft);color:#626a4f;font-size:12px;font-weight:850}
+    .chart-wrap{overflow-x:auto;padding-bottom:4px}
+    table{width:100%;border-collapse:separate;border-spacing:0;min-width:860px}
+    th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px;line-height:1.6}
+    th{color:#526068;background:#f7f8f5;font-weight:950}
+    tr:last-child td{border-bottom:0}
+    .heat{
+      display:grid;
+      grid-template-columns:150px repeat(4,1fr);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .heat div{padding:14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:72px}
+    .heat div:nth-child(5n){border-right:0}
+    .heat .head{background:#f7f8f5;font-weight:950;color:#526068;min-height:auto}
+    .heat .axis{font-weight:950;background:#faf9f3;color:#526068}
+    .hot{background:#edf3ef}
+    .warm{background:#f5eee8}
+    .cool{background:#eef3f5}
+    .journey{
+      display:grid;
+      grid-template-columns:repeat(7,minmax(150px,1fr));
+      gap:10px;
+      overflow-x:auto;
+      padding-bottom:4px;
+    }
+    .step{
+      min-height:220px;
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      background:#fff;
+    }
+    .step b{display:block;font-size:15px;margin-bottom:10px}
+    .step small{display:block;color:var(--faint);font-weight:850;margin-bottom:10px}
+    .barlist{display:grid;gap:12px}
+    .barrow{
+      display:grid;
+      grid-template-columns:210px minmax(0,1fr) 82px;
+      gap:12px;
+      align-items:center;
+    }
+    .barlabel{font-size:13px;font-weight:900;color:#334047}
+    .track{height:14px;background:#eef0ee;border-radius:999px;overflow:hidden}
+    .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--sage),var(--blue))}
+    .score{font-size:12px;color:var(--muted);font-weight:900}
+    .argue{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .argue .against{background:linear-gradient(135deg,var(--rose-soft),#fff)}
+    .argue .for{background:linear-gradient(135deg,var(--sage-soft),#fff)}
+    .decision{
+      border:1px solid #bfc9c2;
+      background:linear-gradient(135deg,var(--sage-soft),#fff);
+    }
+    .decision h3{font-size:22px}
+    .source-list li{font-size:13px}
+    @media(max-width:980px){
+      .hero,.thesis,.grid-3,.grid-2,.argue{grid-template-columns:1fr}
+      h1{font-size:38px}
+    }
+    @media(max-width:680px){
+      main{padding:16px 12px 56px}
+      .hero,section{padding:20px}
+      h1{font-size:32px}
+      .barrow{grid-template-columns:1fr}
+      .heat{grid-template-columns:1fr}
+      .heat div{border-right:0}
+    }
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topnav">
+    <a href="quality-review-index.html">返回索引</a>
+    <span>第 4 章 · 用户场景&需求分析 · complete report v1</span>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Chapter 4 · User Scene & Demand</div>
+      <h1>用户买的不是闹钟，是夜晚到早晨的情绪过渡。</h1>
+      <p class="lead">本章用 Amazon 评论证据回答：wake up light / sunrise alarm clock 到底在什么用户、什么场景里成立，以及它如何避免被用户看成“贵一点的闹钟”。</p>
+    </div>
+    <aside class="hero-card">
+      <b>本章判断边界</b>
+      <span>只判断用户、场景、旅程和需求。营销表达进入第 5 章，供应链可行性进入第 6 章，最终产品规划进入第 7 章。</span>
+    </aside>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>结论先行</h2>
+      <p>先看最小结论，再看证据怎么推出来。</p>
+    </div>
+    <div class="thesis">
+      <article class="thesis-card primary">
+        <h3>幸存方向</h3>
+        <p>用户不是单纯买 alarm clock，而是在买更柔和的早晨、更少手机干扰、更稳定的睡前/醒来 routine，以及一个不破坏卧室氛围的床头对象。</p>
+        <div class="bigline">中价到中高价的“光效体验主导型睡眠唤醒灯”成立，但不能做成 Hatch 平替或功能堆叠闹钟。</div>
+      </article>
+      <article class="thesis-card risk">
+        <h3>最大风险</h3>
+        <p>如果主图和产品体验只让用户看到“闹钟 + 灯 + 声音”，它会被 JALL、REACHER、BUFFBEE、Magicteam 拉入低价比较。</p>
+        <div class="tagrow">
+          <span class="tag">避免贵闹钟感</span>
+          <span class="tag">避免低价声音机战场</span>
+          <span class="tag">避免强订阅依赖</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>图表先看</h2>
+      <p>把评论证据压成三个判断图：用户组、场景热度、需求权重。</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="num">01</div>
+        <h3>最强用户组</h3>
+        <p>暗冬/暗房早起困难者、手机闹钟疲劳者、睡前手机依赖者、儿童独立起床家庭。</p>
+      </article>
+      <article class="card">
+        <div class="num">02</div>
+        <h3>最强场景</h3>
+        <p>睡前放松、夜间低干扰、暗房温和醒来、起床不再靠手机。</p>
+      </article>
+      <article class="card">
+        <div class="num">03</div>
+        <h3>最强需求</h3>
+        <p>自然日出光效、可靠 alarm、无订阅/低 app 依赖、夜间盲操作、床头灯具感。</p>
+      </article>
+    </div>
+
+    <div style="height:18px"></div>
+    <div class="barlist">
+      <div class="barrow"><div class="barlabel">自然日出光效</div><div class="track"><div class="fill" style="width:96%"></div></div><div class="score">极高</div></div>
+      <div class="barrow"><div class="barlabel">可靠唤醒/时间准确</div><div class="track"><div class="fill" style="width:95%"></div></div><div class="score">极高</div></div>
+      <div class="barrow"><div class="barlabel">无订阅/低 app 依赖</div><div class="track"><div class="fill" style="width:90%"></div></div><div class="score">高</div></div>
+      <div class="barrow"><div class="barlabel">夜间盲操作</div><div class="track"><div class="fill" style="width:88%"></div></div><div class="score">高</div></div>
+      <div class="barrow"><div class="barlabel">卧室对象感</div><div class="track"><div class="fill" style="width:78%"></div></div><div class="score">中高</div></div>
+      <div class="barrow"><div class="barlabel">声音质量</div><div class="track"><div class="fill" style="width:72%"></div></div><div class="score">中高</div></div>
+      <div class="barrow"><div class="barlabel">内容/App生态</div><div class="track"><div class="fill" style="width:42%"></div></div><div class="score">低到中</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>4.1 用户画像</h2>
+      <p>只提取评论里直接出现的线索，不推断收入、年龄、职业。</p>
+    </div>
+    <div class="chart-wrap">
+      <table>
+        <thead><tr><th>用户组</th><th>评论中的行为/语言</th><th>真正要解决的事</th><th>产品影响</th></tr></thead>
+        <tbody>
+          <tr><td>睡眠 routine 改善者</td><td>wind-down、screen-free、phone out of bedroom、bedtime routine</td><td>减少睡前刷手机，建立入睡仪式</td><td>需要实体化 bedtime start，而不是强迫打开手机 app</td></tr>
+          <tr><td>重度赖床 / 手机闹钟疲劳者</td><td>sets ten alarms、phone alarm jarring、sleep through alarms</td><td>不被惊吓，但能真正醒来</td><td>sunrise + 渐进声音 + alarm 可靠性是底线</td></tr>
+          <tr><td>暗房 / 冬季 / 季节性用户</td><td>dark winter、Seattle、Alaska、basement、no window</td><td>缺自然晨光导致起床痛苦</td><td>光效曲线和真实日出感比“有灯”更重要</td></tr>
+          <tr><td>家长 / 儿童房用户</td><td>kids school routine、kindergartner、teenage daughter、nursery</td><td>孩子独立起床、睡前安抚、夜灯和白噪音</td><td>需要多日程、可理解状态和安全简单控制</td></tr>
+          <tr><td>卧室审美用户</td><td>aesthetic、nightstand、wood decor、minimal design</td><td>不想床头多一个丑科技设备</td><td>灯具感、材质、比例和光面成为购买理由</td></tr>
+          <tr><td>声音遮蔽用户</td><td>white noise、snoring partner、neighbors、baby naps</td><td>稳定遮蔽噪声，帮助入睡</td><td>声音必须合格，但低价化严重，不宜单独做主卖点</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>4.2 场景矩阵</h2>
+      <p>优先选择高痛点、高可视化，并且贴近照明能力边界的场景。</p>
+    </div>
+    <div class="heat">
+      <div class="head">场景</div><div class="head">痛点强度</div><div class="head">可视化</div><div class="head">低价风险</div><div class="head">适配度</div>
+      <div class="axis">暗房/冬季温和醒来</div><div class="hot">高</div><div class="hot">高</div><div class="cool">中</div><div class="hot">高</div>
+      <div class="axis">睡前放松/减少手机</div><div class="warm">中高</div><div class="warm">中</div><div class="cool">中</div><div class="warm">中高</div>
+      <div class="axis">儿童独立起床</div><div class="warm">中高</div><div class="hot">高</div><div class="warm">中高</div><div class="warm">中高</div>
+      <div class="axis">白噪音遮蔽</div><div class="warm">中</div><div class="cool">低</div><div class="hot">高</div><div class="cool">低到中</div>
+      <div class="axis">床头灯具审美</div><div class="warm">中</div><div class="hot">高</div><div class="cool">中</div><div class="hot">高</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>4.3 用户旅程</h2>
+      <p>用户从“我受够了”到“我愿意多付”的关键路径。</p>
+    </div>
+    <div class="journey">
+      <div class="step"><small>01</small><b>触发</b><p>手机闹钟太刺耳、冬天太暗、睡前刷手机停不下来。</p></div>
+      <div class="step"><small>02</small><b>搜索</b><p>搜索 wake up light / sunrise alarm clock / Hatch dupe。</p></div>
+      <div class="step"><small>03</small><b>比较</b><p>Hatch 贵且订阅烦，便宜款又怕质量差。</p></div>
+      <div class="step"><small>04</small><b>购买</b><p>看主图、价格、评论、coupon，判断是不是贵闹钟。</p></div>
+      <div class="step"><small>05</small><b>首次设置</b><p>复杂按钮、app 慢、黑暗中摸不到 off 会形成第一轮挫败。</p></div>
+      <div class="step"><small>06</small><b>首次醒来</b><p>光效是否真的自然，声音是否舒服，能不能不用手机。</p></div>
+      <div class="step"><small>07</small><b>长期使用</b><p>alarm 是否可靠、时间是否准确、LED/按钮/声音是否耐用。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>4.4 需求分析</h2>
+      <p>需求不是越多越好，真正决定胜负的是 1-2 个关键矛盾。</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <h3>关键矛盾 1</h3>
+        <p>用户愿意为更好的早晨和睡前 routine 付费，但讨厌订阅、复杂 app 和贵闹钟感。</p>
+      </article>
+      <article class="card">
+        <h3>关键矛盾 2</h3>
+        <p>中价平替能打动用户，但当前平替的可靠性、光效、声音和控制体验短板很明显。</p>
+      </article>
+    </div>
+    <div style="height:16px"></div>
+    <div class="chart-wrap">
+      <table>
+        <thead><tr><th>需求</th><th>权重</th><th>证据强度</th><th>前台可表达性</th><th>产品意义</th></tr></thead>
+        <tbody>
+          <tr><td>日出光效自然、渐进、不刺眼、能唤醒</td><td>极高</td><td>高</td><td>高</td><td>核心产品价值，必须成为主卖点</td></tr>
+          <tr><td>alarm 必须可靠，时间必须准确</td><td>极高</td><td>高</td><td>中</td><td>底线，不是差异化；做不好直接差评</td></tr>
+          <tr><td>夜间完全暗 / display 可 dim to zero</td><td>高</td><td>高</td><td>高</td><td>睡眠用户对光污染非常敏感</td></tr>
+          <tr><td>简单物理控制，夜里能盲操作</td><td>高</td><td>高</td><td>高</td><td>同时攻击 Hatch app 和低价按钮混乱</td></tr>
+          <tr><td>无订阅 / 不强制 app</td><td>高</td><td>高</td><td>高</td><td>最直接的 Hatch 反击点</td></tr>
+          <tr><td>好声音但不把声音当主价值</td><td>中高</td><td>高</td><td>中</td><td>声音必须合格，但低价声音机压低溢价</td></tr>
+          <tr><td>卧室对象感 / 床头灯具审美</td><td>中高</td><td>中</td><td>高</td><td>公司设计和灯具工艺可发挥</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>4.5 产品需求&技术创新线索</h2>
+      <p>只输出方向，不进入最终产品定义。</p>
+    </div>
+    <div class="grid-3">
+      <article class="card"><h3>光效主导</h3><p>LED 光谱、扩散、亮度曲线、低亮夜灯、读写灯模式，需要在第 6 章验证成本和工艺。</p></article>
+      <article class="card"><h3>无订阅/轻 app</h3><p>用物理旋钮/按键、一键 bedtime/wake、离线日程降低 Hatch 的 paywall 和 app 负担。</p></article>
+      <article class="card"><h3>一手盲操作</h3><p>大按钮、触感区分、snooze/off 分离、背光可关，解决夜里摸不到和半睡状态误触。</p></article>
+      <article class="card"><h3>可靠基础能力</h3><p>RTC、断电记忆、电源接口、按钮寿命、LED 寿命、speaker 稳定性，这是评论质量关键。</p></article>
+      <article class="card"><h3>卧室灯具对象感</h3><p>从塑料闹钟变成床头灯具对象，靠材料、比例、光面、低噪声和安全感表达溢价。</p></article>
+      <article class="card"><h3>声音合格即可</h3><p>声音要好，但不是主价值；不要把产品定义成更贵的声音机。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>补证 Review</h2>
+      <p>AI 先审证据，不把数据真实性压力丢给人。</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <h3>本章足够成立的部分</h3>
+        <ul>
+          <li>温和醒来、暗冬起床、手机闹钟替代、睡前 routine 是真实评论需求。</li>
+          <li>Hatch 的订阅和 app 依赖是明确负面窗口。</li>
+          <li>中价平替需求成立，但可靠性、控制、光声体验短板明显。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>仍缺失但不阻塞本章</h3>
+        <ul>
+          <li>Amazon Q&A、listing 前台截图、A+、视频、五点描述逐页观察。</li>
+          <li>社媒场景视频、问卷/访谈、真实样机体验。</li>
+          <li>这些会影响第 5/6/7 章，不改变本章最小结论。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Red-team Argue</h2>
+      <p>结论先被反驳，再输出幸存版本。</p>
+    </div>
+    <div class="argue">
+      <article class="card against">
+        <h3>最强反方</h3>
+        <ul>
+          <li>这可能只是 Hatch 教育出的平替市场，用户最终只想更便宜。</li>
+          <li>没有内容生态，无法支撑 Hatch 高价。</li>
+          <li>如果做成三合一功能堆叠，会被 $20-$35 产品打穿。</li>
+          <li>公司优势不在最低成本，不适合低价白牌战。</li>
+        </ul>
+      </article>
+      <article class="card for">
+        <h3>幸存修正</h3>
+        <ul>
+          <li>不做 Hatch 平替，不复制订阅生态。</li>
+          <li>不把声音功能当主价值。</li>
+          <li>用光效、灯具对象感、可靠性、简单控制来承接中价到中高价。</li>
+          <li>该方向贴近照明工艺，适合公司品质和全链路能力。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>给第 5 章的输入</h2>
+      <p>下一章应该验证前台表达，而不是立刻做最终产品规划。</p>
+    </div>
+    <div class="card decision">
+      <h3>第 5 章要回答的问题</h3>
+      <p>主图、视频、A+、五点描述和社媒内容，能不能让用户第一眼理解：这不是贵闹钟，而是更好的睡眠唤醒灯具体验？</p>
+      <div class="tagrow">
+        <span class="tag">光效价值怎么拍</span>
+        <span class="tag">无订阅怎么讲</span>
+        <span class="tag">卧室对象感怎么表达</span>
+        <span class="tag">质量可信怎么证明</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>人工判断</h2>
+      <p>本章必须停在这里，不能自动进入下一章。</p>
+    </div>
+    <div class="grid-3">
+      <article class="card"><h3>A. 通过</h3><p>解锁第 5 章营销分析&社媒传播。</p></article>
+      <article class="card"><h3>B. 补证</h3><p>先补 Amazon Q&A / listing 前台截图 / 社媒场景视频。</p></article>
+      <article class="card"><h3>C. 退回</h3><p>回到第 3 章调整竞品样本或用户战场。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>来源与缺口</h2>
+      <p>来源放最后，像论文引用一样，避免干扰前面的判断。</p>
+    </div>
+    <ul class="source-list">
+      <li>Sorftime MCP `product_reviews`：Hatch Restore 3 B0DLLSCVZW，Positive / Negative，采集于 2026-04-30。</li>
+      <li>Sorftime MCP `product_reviews`：Odokee B0DGXD6WVW，Positive / Negative，采集于 2026-04-30。</li>
+      <li>Sorftime MCP `product_reviews`：REACHER B0BZW7WY5M，Negative，采集于 2026-04-30。</li>
+      <li>Sorftime MCP `product_reviews`：BUFFBEE B0B2ZTZZ3F，Negative，采集于 2026-04-30。</li>
+      <li>Sorftime MCP `product_reviews`：JALL B081CHLF46，Both，采集于 2026-04-30。</li>
+      <li>Sorftime MCP `product_reviews`：Philips B0093162RM，Both，采集于 2026-04-30。</li>
+      <li>Sorftime MCP `product_reviews`：Magicteam B07RWRJ4XW，Negative，采集于 2026-04-30。</li>
+      <li>Sorftime MCP `product_detail`：代表 ASIN 产品详情，来源于第 3 章证据账本 `process/section3-brand-competitor-evidence-v1.json`。</li>
+      <li>未采集：Amazon Q&A、listing 逐页截图、A+、视频、社媒场景视频、问卷/访谈、真实样机体验。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,461 @@
+{
+  "artifact": "template_structure_extracted_v1",
+  "created_at": "2026-04-30",
+  "status": "canonical_for_current_run",
+  "source": {
+    "type": "user_provided_pdf",
+    "path": "/Users/daishiyu/Downloads/ai skills/【模版】爆品战略用研模板v1.0——品类.pdf",
+    "pdf_pages": 51,
+    "extraction_method": "pypdf text extraction plus manual normalization into template sections",
+    "extraction_confidence": "high_for_section_names_and_major_input_method_output_fields; medium_for_sparse_pages_with_placeholder_examples"
+  },
+  "global_rules": {
+    "chapter_router": "Every chapter plan and analysis page must route from this extracted template structure first.",
+    "index_rule": "This process file is not a product index page. Do not add it to quality-review-index.html unless user explicitly asks.",
+    "data_rule": "All data must be source-backed. Missing values are not_collected or unknown. Inferences must be labeled inference.",
+    "chapter_stop_rule": "Every chapter must stop at human decision before unlocking the next chapter."
+  },
+  "template_chapters": [
+    {
+      "chapter_id": "1",
+      "chapter_name": "品类本质小结",
+      "source_pages": [1],
+      "purpose": "定义品类到底满足什么人、什么场景、什么用途和什么层级的需求价值。",
+      "sections": [
+        {
+          "section_id": "1.a",
+          "section_name": "产品人群",
+          "template_text": "基础用户画像信息",
+          "required_output": ["基础用户画像", "核心使用者", "非核心但可能影响购买的人群"]
+        },
+        {
+          "section_id": "1.b",
+          "section_name": "产品场景",
+          "template_text": "产品主次使用场景",
+          "required_output": ["主场景", "次场景", "场景边界"]
+        },
+        {
+          "section_id": "1.c",
+          "section_name": "使用用途",
+          "template_text": "主要用来满足什么需求",
+          "required_output": ["主要用途", "替代对象", "用户要完成的任务"]
+        },
+        {
+          "section_id": "1.d",
+          "section_name": "需求矩阵",
+          "template_text": "提炼产品品类归属不同类别的价值要素",
+          "required_output": ["职能价值", "情感价值", "改变生活价值", "社会影响价值"]
+        }
+      ],
+      "human_decision_stop": ["通过进入第 2 章", "先补输入", "退回重做"]
+    },
+    {
+      "chapter_id": "2",
+      "chapter_name": "市场竞争分析",
+      "source_pages": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      "purpose": "判断市场容量、趋势、生命周期、Amazon 渠道竞争结构和其他渠道市场机会。",
+      "sections": [
+        {
+          "section_id": "2.1",
+          "section_name": "市场大盘",
+          "source_pages": [2, 3, 4, 5, 6, 7],
+          "subsections": [
+            {
+              "section_id": "2.1.1",
+              "section_name": "全球主要市场大盘",
+              "purpose": "全面了解不同区域、线上、线下的总体容量及分布占比，支持长期市场渠道发展路径和业务战略分布。",
+              "input": ["全球市场报告", "行业报告", "论坛协会数据", "供应链 B 端数据", "海关数据"],
+              "method": ["信息检索", "数据收集", "数据分析"],
+              "tools": ["Google", "秘塔AI", "Monica"],
+              "output": ["市场容量", "市场增长情况", "区域/用途/渠道占比", "长期渠道建议"]
+            },
+            {
+              "section_id": "2.1.2",
+              "section_name": "市场发展趋势",
+              "purpose": "全面了解品类不同维度的发展趋势，双向验证市场增长情况。",
+              "input": ["Google 趋势数据", "关键词趋势数据"],
+              "method": ["数据处理", "数据分析", "数据可视化"],
+              "tools": ["Google Trends", "卖家精灵", "生命周期理论"],
+              "output": ["品类趋势", "季节性", "地域热度", "用户画像辅助线索"]
+            },
+            {
+              "section_id": "2.1.3",
+              "section_name": "市场生命周期",
+              "purpose": "确定品类生命周期阶段，支持未来市场策略制定。",
+              "input": ["市场增长率", "需求增长率", "产品品种", "竞争者数量", "进入壁垒", "退出壁垒", "技术变革", "用户购买行为"],
+              "method": ["生命周期理论判断", "指标对照", "策略映射"],
+              "tools": ["生命周期理论", "公开数据", "Amazon 数据"],
+              "output": ["探索期/成长期/成熟期/衰退期判断", "业务策略", "是否处在成长末期或成熟前期", "是否存在细分垂直类目重新进入成长期"]
+            }
+          ]
+        },
+        {
+          "section_id": "2.2",
+          "section_name": "亚马逊渠道分析",
+          "source_pages": [7, 8, 9, 10, 11, 12, 13],
+          "subsections": [
+            {
+              "section_id": "2.2.1",
+              "section_name": "亚马逊关键词搜索趋势",
+              "purpose": "用产品关键词年度搜索指数和年度销量曲线判断 Amazon 渠道需求变化。",
+              "input": ["Amazon 关键词数据", "关键词年度搜索指数", "年度销量曲线"],
+              "method": ["数据处理", "趋势对比", "数据可视化"],
+              "tools": ["Sorftime", "卖家精灵", "Jungle Scout", "Power BI"],
+              "output": ["关键词搜索趋势", "销量趋势", "旺季/淡季", "关键词边界判断"]
+            },
+            {
+              "section_id": "2.2.2",
+              "section_name": "亚马逊市场容量&趋势",
+              "purpose": "确定 Amazon 渠道类目总份额、销售趋势、未来潜力和详细销售目标。",
+              "input": ["亚马逊品类数据", "销量", "销售额", "客单价", "类目价格段", "上架时间"],
+              "method": ["数据处理", "数据分析", "数据可视化"],
+              "tools": ["Sorftime", "卖家精灵", "Jungle Scout", "Power BI"],
+              "output": ["Amazon 类目市场情况", "销售额/销量/客单价", "主要价格段", "新品切入难度", "品类特征分析"]
+            },
+            {
+              "section_id": "2.2.3",
+              "section_name": "品牌集中度",
+              "purpose": "确定 Amazon 渠道品牌集中度，找出对标品牌，支撑营销策略建议。",
+              "input": ["亚马逊品类数据", "其他渠道品牌数据"],
+              "method": ["数据处理", "数据分析", "数据可视化"],
+              "tools": ["Sorftime", "卖家精灵", "Jungle Scout"],
+              "output": ["品牌分布", "品牌垄断系数", "头部品牌份额", "品牌布局策略", "切入难度判断"]
+            },
+            {
+              "section_id": "2.2.4",
+              "section_name": "市场新品趋势",
+              "purpose": "找出 Amazon 渠道新品运营经验和对标参考案例，支撑营销策略建议。",
+              "input": ["新品 ASIN", "上线时间", "类目排名", "销量占比", "广告/关键词投放线索", "产品定义差异"],
+              "method": ["新品案例分析", "销量变化观察", "上架时间与排名对比"],
+              "tools": ["Sorftime", "卖家精灵", "Jungle Scout", "Amazon 前台"],
+              "output": ["新品成功/失败案例", "新品运营参考价值", "产品垄断性判断", "新品切入窗口"]
+            }
+          ]
+        },
+        {
+          "section_id": "2.3",
+          "section_name": "其他渠道市场机会",
+          "source_pages": [13, 14, 15, 16],
+          "purpose": "确定 HomeDepot、Walmart、Target、Lowe's 等其他渠道的市场情况，输出渠道运营建议。",
+          "input": ["渠道平台页面数据", "其他渠道数据", "Top1000 或平台搜索结果", "价格", "评价", "品牌链接数量"],
+          "method": ["平台调研", "数据抓取", "数据分析"],
+          "tools": ["信息检索", "Power BI", "Instant Data Scraper"],
+          "output": ["市场机会分析", "渠道建议", "平台均价/评价/评分", "品牌份额估算", "线上线下融合机会"]
+        },
+        {
+          "section_id": "2.output",
+          "section_name": "第 2 章最终输出",
+          "required_output": ["品类是否值得继续做", "市场阶段", "Amazon 渠道优先级", "其他渠道优先级", "第 3 章输入包"]
+        }
+      ],
+      "human_decision_stop": ["通过并解锁第 3 章", "先补市场证据", "暂停/不继续"]
+    },
+    {
+      "chapter_id": "3",
+      "chapter_name": "头部品牌竞争&竞品分析",
+      "source_pages": [16, 17, 18, 19, 20, 21, 22],
+      "purpose": "分析头部品牌概要情况、公司基因、团队能力模型、短线竞争对象、长线学习对象和可能的扩维打法。",
+      "module_requirements_from_template": [
+        "主要头部品牌的定位/竞争矩阵图",
+        "每家企业的概述情况：简介、国家、品牌影响力、用户定位、产品技术能力、渠道覆盖表、销售额预估、社媒基本等",
+        "产品线介绍",
+        "销售渠道、各渠道基本数据、区域分布",
+        "品牌&社媒数据",
+        "供应链能力分析"
+      ],
+      "sections": [
+        {
+          "section_id": "3.1",
+          "section_name": "头部品牌矩阵",
+          "source_pages": [17, 18],
+          "purpose": "确定不同维度品牌矩阵的分布情况，输出品牌战略建议。",
+          "input": ["竞品品牌各渠道销售", "产品", "品牌基因等信息"],
+          "method": ["信息检索"],
+          "tools": ["Sorftime", "Similarweb"],
+          "output": ["头部品牌定位/竞争矩阵图", "对手能力/资源范围", "品牌战略建议"]
+        },
+        {
+          "section_id": "3.1.x",
+          "section_name": "品牌逐个拆解",
+          "source_pages": [18, 19],
+          "purpose": "确定竞品品牌全方位详细能力，知己知彼，输出运营策略建议。",
+          "template_examples": ["Brand1", "Brand2", "Brand3"],
+          "input": ["公司简介", "国家", "品牌影响力", "用户定位", "产品技术能力", "渠道覆盖表", "销售额预估", "社媒基础数据", "产品与销售渠道"],
+          "method": ["品牌资料检索", "渠道观察", "产品线分析", "社媒和官网观察"],
+          "tools": ["Sorftime", "Similarweb", "Amazon 前台", "品牌官网", "社媒平台"],
+          "output": ["品牌能力卡", "主要竞争对手判断", "学习对象判断", "市场定位和页面设计参考点"]
+        },
+        {
+          "section_id": "3.2",
+          "section_name": "产品竞争矩阵",
+          "source_pages": [20, 21, 22],
+          "subsections": [
+            {
+              "section_id": "3.2.1",
+              "section_name": "亚马逊头部品牌及产品",
+              "purpose": "确定详细品类产品信息的分布情况，输出产品建议。",
+              "input": ["品牌", "产品图片", "预测每月销量", "尺寸范围/其他", "产品参数", "价格范围", "特点", "品牌 slogan", "上市时间", "链接"],
+              "method": ["表格化对比", "头部 ASIN 对比", "Amazon 前台观察"],
+              "tools": ["Amazon 前台", "Sorftime", "卖家精灵", "Jungle Scout"],
+              "output": ["头部品牌及产品表", "产品建议"]
+            },
+            {
+              "section_id": "3.2.2",
+              "section_name": "产品矩阵",
+              "purpose": "按品牌和核心参数建立产品矩阵。",
+              "input": ["品牌维度产品", "核心参数维度产品"],
+              "method": ["按品牌分布", "按核心参数分布"],
+              "tools": ["Excel", "Power BI", "Amazon 前台"],
+              "output": ["按品牌的产品矩阵", "按核心参数的产品矩阵"]
+            },
+            {
+              "section_id": "3.2.3",
+              "section_name": "产品参数对比",
+              "purpose": "确定详细品类产品信息的分布情况，输出产品详细参数建议。",
+              "input": ["核心参数", "价格", "功能", "卖点", "上市时间", "链接"],
+              "method": ["参数对比", "规格归一化", "优劣势判断"],
+              "tools": ["Amazon 前台", "Excel", "Sorftime"],
+              "output": ["产品详细参数建议", "差异化入口候选"]
+            }
+          ]
+        },
+        {
+          "section_id": "3.output",
+          "section_name": "第 3 章最终输出",
+          "required_output": ["短线主要竞争对象", "长线学习对象", "对手能力/资源范围", "产品差异化入口", "第 4 章输入包"]
+        }
+      ],
+      "human_decision_stop": ["通过并解锁第 4 章", "先补品牌/ASIN证据", "退回重做品牌池"]
+    },
+    {
+      "chapter_id": "4",
+      "chapter_name": "用户场景&需求分析",
+      "source_pages": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+      "purpose": "了解是什么用户、在什么场景如何使用产品、从哪里形成认知、关注哪些需求，并为品牌营销、产品需求、社媒运营和供应链提供用户数据支撑。",
+      "sections": [
+        {
+          "section_id": "4.1",
+          "section_name": "用户画像",
+          "source_pages": [22, 23, 24, 25, 26],
+          "purpose": "了解是什么用户，在什么场景如何使用这些产品，从社媒和论坛如何获取信息形成认知，关注哪些需求。",
+          "input": ["平台用户评论数据", "行业报告", "社媒粉丝/独立站用户数据", "供应链/B端数据"],
+          "method": ["文本分析", "报告分析"],
+          "tools": ["微词云", "Shulex", "Similarweb", "Excel", "Power BI"],
+          "output": ["用户特征标签", "个人基础信息", "生活方式信息", "认知影响信息"],
+          "subsections": [
+            "4.1.1 用户地域特性",
+            "4.1.2 用户个人信息",
+            "4.1.3 用户兴趣",
+            "4.1.4 用户经济水平",
+            "4.1.5 用户特性（总结）"
+          ]
+        },
+        {
+          "section_id": "4.2",
+          "section_name": "场景矩阵",
+          "source_pages": [26, 27, 28, 29],
+          "purpose": "决定品牌定位，协助产品开发和运营素材体系构建。",
+          "input": ["场景视频/vlog", "用户评论", "社媒互动图片", "行业报告"],
+          "method": ["场景矩阵图"],
+          "tools": ["亚马逊插件"],
+          "output": ["场景矩阵", "营销策略"],
+          "subsections": ["4.2.1 使用场景", "4.2.2 场景关联分析"]
+        },
+        {
+          "section_id": "4.3",
+          "section_name": "用户旅程",
+          "source_pages": [30, 31, 32],
+          "purpose": "从用户全流程分析影响购买决策的因素，并提出有效提升转化率的策略。",
+          "input": ["场景视频/vlog", "用户评论", "社媒互动图片", "行业报告"],
+          "method": ["用户旅程图", "用户行为分析", "问卷调研", "信息检索"],
+          "tools": ["亚马逊插件", "人工阅读", "PickFu", "Monica", "Youtube 视频"],
+          "output": ["用户旅程图", "购买决策策略建议", "辅助运营建议"],
+          "subsections": ["4.3.1 用户旅程图", "4.3.2 用户购买决策链"]
+        },
+        {
+          "section_id": "4.4",
+          "section_name": "需求分析",
+          "source_pages": [32, 33, 34, 35, 36, 37, 38, 39],
+          "purpose": "精准分析用户需求，品牌化全维度进行产品定义开发。",
+          "input": ["电商用户评论", "论坛互动文本", "评论/视频/文章", "问卷或用户访谈", "实际体验洞察"],
+          "method": ["用户全流程分析", "问卷调研/用户访谈", "评论/视频/文章阅读", "实际体验洞察"],
+          "tools": ["微词云", "Shulex", "gemx.ai", "评论/视频阅读"],
+          "output": ["分权重需求集", "评论词云词频", "listing 评论分析", "高价值评论集", "产品需求集"],
+          "subsections": ["4.4.1 产品需求挖掘", "4.4.2 listing评论分析", "4.4.3 高价值评论集", "4.4.4 产品需求集"]
+        },
+        {
+          "section_id": "4.5",
+          "section_name": "产品需求&技术创新",
+          "source_pages": [39],
+          "subsections": [
+            {
+              "section_id": "4.5.1",
+              "section_name": "产品创意挖掘",
+              "output": ["产品创意方向", "技术创新线索"]
+            },
+            {
+              "section_id": "4.5.2",
+              "section_name": "众筹平台",
+              "input": ["众筹时间", "众筹效果", "众筹发起公司信息", "众筹站外推广动作", "产品用户反馈"],
+              "output": ["生命周期判断", "市场及用户需求", "市场竞争性", "市场成熟度", "用户需求"]
+            }
+          ]
+        },
+        {
+          "section_id": "4.output",
+          "section_name": "第 4 章最终输出",
+          "required_output": ["用户画像", "核心场景矩阵", "用户旅程", "购买决策链", "分权重需求集", "第 5/7 章输入包"]
+        }
+      ],
+      "human_decision_stop": ["通过并解锁第 5 章", "先补用户/评论/场景证据", "退回重做用户需求"]
+    },
+    {
+      "chapter_id": "5",
+      "chapter_name": "营销分析&社媒传播",
+      "source_pages": [40, 41, 42, 43, 44, 45, 46, 47],
+      "purpose": "确认对手运营水平、站外情况、市场竞争情况和社媒渠道突破点。",
+      "sections": [
+        {
+          "section_id": "5.1",
+          "section_name": "亚马逊平台运营竞争分析",
+          "source_pages": [40, 41, 42, 43],
+          "purpose": "确认对手运营水平，以及我们能从运营维度获取的能力优势。",
+          "input": ["竞品品牌信息", "设计元素", "图文视频", "店铺", "listing 设计水平", "文案水平", "SKU 布局", "打法策略", "站外配套", "销售数据"],
+          "method": ["信息检索", "设计分析"],
+          "tools": ["Similarweb", "页面捕获", "Sorftime"],
+          "output": ["辅助运营策略", "品牌主页分析", "listing 设计水平分析", "SKU 产品布局分析"],
+          "subsections": ["5.1.1 品牌主页", "5.1.2 listing设计水平", "5.1.3 SKU产品布局"]
+        },
+        {
+          "section_id": "5.2",
+          "section_name": "其他平台运营竞争分析",
+          "source_pages": [43],
+          "input": ["Walmart 等其他平台页面", "竞品品牌信息", "渠道运营数据"],
+          "method": ["平台调研", "页面观察", "数据抓取"],
+          "tools": ["Walmart", "信息检索", "Instant Data Scraper"],
+          "output": ["其他平台运营情况", "渠道差异", "运营机会"]
+        },
+        {
+          "section_id": "5.3",
+          "section_name": "独立站（品牌直营渠道）",
+          "source_pages": [43],
+          "input": ["品牌独立站", "流量数据", "产品页", "内容页", "转化路径"],
+          "method": ["独立站观察", "流量分析", "内容分析"],
+          "tools": ["Similarweb", "品牌官网", "页面捕获"],
+          "output": ["品牌直营能力", "站外承接能力", "内容与转化路径"]
+        },
+        {
+          "section_id": "5.4",
+          "section_name": "社媒传播",
+          "source_pages": [44, 45, 46, 47],
+          "purpose": "了解竞对品牌站外情况，确定市场竞争情况和社媒渠道突破点。",
+          "input": ["官方组织", "展会", "论坛", "媒体信息", "产品话题集", "网红投放表", "官方社媒内容"],
+          "method": ["社媒检索", "话题分析", "内容分析", "投放观察"],
+          "tools": ["社媒平台", "论坛", "媒体检索", "网红投放表"],
+          "output": ["社媒传播总结", "渠道突破点", "话题机会", "KOL/网红投放参考"]
+        },
+        {
+          "section_id": "5.output",
+          "section_name": "第 5 章最终输出",
+          "required_output": ["亚马逊运营差距", "其他平台运营机会", "独立站能力差距", "社媒传播机会", "第 7 章上市策略输入包"]
+        }
+      ],
+      "human_decision_stop": ["通过并解锁第 6 章", "先补运营/社媒证据", "退回重做营销分析"]
+    },
+    {
+      "chapter_id": "6",
+      "chapter_name": "供应链管理",
+      "source_pages": [47, 48, 49, 50],
+      "purpose": "针对产品进行供应链全方位调研，支撑产品需求成本评审及可行性分析。",
+      "sections": [
+        {
+          "section_id": "6.1",
+          "section_name": "上游供应链分析",
+          "source_pages": [47, 48, 49],
+          "purpose": "把产品核心组成部件的头部供应商特征及市场主流应用客户盘点清楚。",
+          "input": ["核心组成部件", "头部供应商", "供应商优势", "供应商劣势", "行业主要客户"],
+          "method": ["供应链调研", "供应商访谈", "B端资料收集", "部件拆解"],
+          "tools": ["供应商线下调研", "行业资料", "B端数据", "Excel"],
+          "output": ["供应链部件清单", "头部供应商特征", "成本核心控制点", "供应商优劣势"]
+        },
+        {
+          "section_id": "6.2",
+          "section_name": "供应链竞对分析",
+          "source_pages": [49, 50],
+          "purpose": "详细产品定义出来后，针对产品进行详细成本对标及分析，谋划相对优势和精准营销。",
+          "input": ["产品1成本", "竞品品牌产品成本", "差额", "设计方案", "生产工艺", "关键部件成本", "模具/工装分摊", "组装成本"],
+          "method": ["成本对标", "部件拆解", "工艺差异分析", "工厂议价分析"],
+          "tools": ["供应链线下调研", "BOM 表", "Excel"],
+          "output": ["竞品成本对标", "成本差额分析", "可形成优势的部件/工艺", "可行性判断"]
+        },
+        {
+          "section_id": "6.output",
+          "section_name": "第 6 章最终输出",
+          "required_output": ["核心成本控制点", "供应链可行性", "竞品成本差异", "我们可能的成本/工艺优势", "第 7 章产品规划输入包"]
+        }
+      ],
+      "human_decision_stop": ["通过并解锁第 7 章", "先补供应链证据", "暂停产品规划"]
+    },
+    {
+      "chapter_id": "7",
+      "chapter_name": "产品规划",
+      "source_pages": [50, 51],
+      "purpose": "把前面章节的用户、竞争、供应链和营销判断投射到产品定义、listing 策略和销售计划。",
+      "sections": [
+        {
+          "section_id": "7.1",
+          "section_name": "产品定义全流程",
+          "source_pages": [50],
+          "input": ["全需求维度参考", "用户需求集", "竞品矩阵", "供应链可行性", "市场机会"],
+          "method": ["需求收敛", "优先级排序", "产品定义"],
+          "tools": ["需求矩阵", "Excel", "产品定义文档"],
+          "output": ["产品定义", "核心功能", "参数要求", "取舍清单"]
+        },
+        {
+          "section_id": "7.2",
+          "section_name": "listing策略+设计策划",
+          "source_pages": [50, 51],
+          "purpose": "前期用户购买决策树和权重维度需要投射到运营页面内容，尤其是图片主题排序。",
+          "input": ["用户购买决策树", "需求权重", "竞品 listing", "产品卖点", "主图设计策略"],
+          "method": ["图片主题排序", "listing 结构策划", "设计策略"],
+          "tools": ["Amazon 前台", "设计工具", "页面策划表"],
+          "output": ["listing 策略", "主图设计策略", "A+/视频/五点描述主题", "页面设计策划"]
+        },
+        {
+          "section_id": "7.3",
+          "section_name": "销售计划",
+          "source_pages": [51],
+          "purpose": "制定营销规划：根据产品硬实力、竞品运营强弱和品类成熟度选择强攻主市场或细分人群突入。",
+          "input": ["产品硬实力", "竞品运营水平", "品类成熟度", "容量", "KOL 资源", "专业人群站台"],
+          "method": ["销售目标规划", "营销路径选择", "KOL 投放规划"],
+          "tools": ["销售计划表", "KOL 资源表", "渠道计划"],
+          "output": ["销售计划", "主市场强攻或细分突入策略", "KOL 投放资源要求", "验证计划"]
+        },
+        {
+          "section_id": "7.output",
+          "section_name": "第 7 章最终输出",
+          "required_output": ["产品定义", "listing 策略", "设计策划", "销售计划", "上市验证计划"]
+        }
+      ],
+      "human_decision_stop": ["确认产品规划", "先补定义/供应链/营销证据", "退回前置章节"]
+    }
+  ],
+  "routing_rules": [
+    {
+      "rule_id": "route_before_plan",
+      "rule": "Before creating any chapter execution plan, read this JSON and copy only the current chapter's allowed sections."
+    },
+    {
+      "rule_id": "no_cross_chapter_expansion",
+      "rule": "If useful content belongs to a later chapter, record it as next_chapter_input instead of expanding it."
+    },
+    {
+      "rule_id": "execution_plan_required",
+      "rule": "Each chapter must have an execution plan before the formal analysis page."
+    },
+    {
+      "rule_id": "human_choice_required",
+      "rule": "A chapter can only unlock the next chapter after explicit human choice."
+    }
+  ]
+}

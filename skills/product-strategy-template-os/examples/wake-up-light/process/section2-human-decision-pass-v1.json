@@ -1,0 +1,48 @@
+{
+  "artifact": "section2_human_decision_pass_v1",
+  "created_at": "2026-04-30",
+  "chapter": "2. 市场竞争分析",
+  "source_report": "quality-review-template-ch2-market-competition-v8.html",
+  "human_decision": {
+    "choice": "A. 通过，并解锁第 3 章",
+    "status": "passed",
+    "reason": "第 2 章已经足够证明 wake up light 不是一个大盘自然增长机会，而是成熟闹钟/日出唤醒底盘里的结构迁移机会。下一步应进入第 3 章拆头部品牌和竞品机制。"
+  },
+  "approved_core_conclusion": {
+    "market_stage": "成熟大盘 + 融合分支窗口",
+    "market_logic": "机会不是来自 Amazon 站内关键词整体增长，而是来自传统闹钟 / 普通 wake-up-light 向 sunrise + sound machine + sleep routine 融合形态的结构迁移。",
+    "channel_logic": "Amazon 是主战场；Walmart / Target / Best Buy / Macy's 用来验证渠道价格锚和零售存在。",
+    "company_fit_logic": "公司优势在品质、照明/灯具工艺、设计研发生产全链路，不适合低价白牌闹钟价格战；更适合验证中价到中高价的光效体验型切口。"
+  },
+  "accepted_evidence_boundaries": [
+    "Amazon 站内四个相关词最近完整 12 个月搜索总量均下降，因此不能把品类判断写成整体增长。",
+    "Sorftime keyword_detail 和 Walmart keyword_detail 可作为本章已采集证据。",
+    "SellerSprite Google Trends 和 ASIN detail 当前返回 ERROR_UNAUTHORIZED，不能写成已采集。",
+    "精确 wake-up-light 全球 TAM、Google Trends、Amazon 全量年度销售曲线、Top50 launch-date 表仍是缺口。",
+    "这些缺口不阻止进入第 3 章，但会影响后续是否立项和如何定销售目标。"
+  ],
+  "unlocked_next_chapter": {
+    "chapter": "3. 头部品牌竞争&竞品分析",
+    "task": "拆不同战场的代表品牌/ASIN，判断哪些增长机制可复制，哪些机制不适合公司能力。",
+    "input_pool": [
+      "Hatch",
+      "Odokee",
+      "REACHER",
+      "BUFFBEE",
+      "Dreamegg",
+      "Momcozy",
+      "JALL",
+      "Philips",
+      "DreamSky",
+      "Sharp",
+      "Amazon Echo Spot"
+    ],
+    "must_answer": [
+      "Odokee 等中价融合型产品的增长来自产品定义、价格、广告，还是关键词结构？",
+      "Hatch 的 premium routine 是否可学习，哪些部分不能复制？",
+      "低价声音机战场会不会把中价产品拖入价格战？",
+      "传统光疗/闹钟评论门槛对新品进入有多大影响？",
+      "哪一个切口最适合一家品质强、白帽、照明工艺相关的公司？"
+    ]
+  }
+}
