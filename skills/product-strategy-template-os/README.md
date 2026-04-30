@@ -139,9 +139,25 @@ python3 "$SKILL_HOME/scripts/gbrain_auto_sync.py" --skill-root "$SKILL_HOME" --p
 这一步不需要人类每次提需求。它是原生 GBrain 的 skill-boundary sync 模式：
 
 ```text
-有 gstack-brain-sync -> 自动 drain / discover / once
+有 gstack-brain-sync -> 自动注册全局规则记录 -> drain / discover / once
 没有 gstack-brain-sync -> 不伪造写入，明确进入 Hermes Admin handoff queue
 ```
+
+原生 GBrain 可接收的全局规则会被压缩写入：
+
+```text
+${GSTACK_HOME:-$HOME/.gstack}/projects/product-strategy-template-os/learnings.jsonl
+```
+
+并通过：
+
+```text
+gstack-brain-enqueue
+gstack-brain-sync --discover-new
+gstack-brain-sync --once
+```
+
+进入正常的 GBrain 同步链路。
 
 默认模板有七章：
 

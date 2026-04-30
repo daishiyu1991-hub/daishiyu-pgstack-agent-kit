@@ -20,6 +20,38 @@ category / keyword / ASIN / template
 -> state ledger update
 ```
 
+## 1.1 Native GBrain Sync Boundary
+
+GBrain sync is a skill-boundary behavior, not a separate human request.
+
+At the start and end of every Product Strategy Template OS run, the agent must
+try the original native GStack/GBrain path first:
+
+```text
+detect native gstack-brain-sync
+-> register compact global-rule record in projects/product-strategy-template-os/learnings.jsonl
+-> enqueue through gstack-brain-enqueue
+-> run gstack-brain-sync --discover-new
+-> run gstack-brain-sync --once
+```
+
+Only if native `gstack-brain-sync` is unavailable should the agent fall back to
+the Hermes Admin handoff queue:
+
+```text
+gbrain/gbrain-sync-queue.jsonl
+-> Hermes Admin
+-> gbrain-remote
+-> enterprise GBrain
+```
+
+Do not ask the human to request GBrain sync every time. Ask only when native
+sync is not initialized, sync mode is `off`, credentials/permissions are
+missing, or the user must choose privacy/team-publication scope.
+
+Do not claim GBrain sync succeeded unless native sync or Hermes Admin write and
+query verification actually passed.
+
 ## 2. Data Integrity
 
 All data must be real and traceable.

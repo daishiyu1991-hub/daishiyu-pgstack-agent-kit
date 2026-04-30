@@ -61,6 +61,8 @@ python3 "$SKILL_HOME/scripts/gbrain_auto_sync.py" --skill-root "$SKILL_HOME" --p
 
 This is best-effort and must not block the research workflow. If native `gstack-brain-sync` exists, it drains/pushes like original gstack. If it does not exist, it reports the Hermes Admin handoff queue.
 
+When native sync is active, the script also registers a compact global-rule record in original gstack's allowlisted `projects/product-strategy-template-os/learnings.jsonl`, then enqueues it through `gstack-brain-enqueue`. This is the normal GBrain receiving path for durable operating rules.
+
 For every chapter, run this exact loop:
 
 ```text

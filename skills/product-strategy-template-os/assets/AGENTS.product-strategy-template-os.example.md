@@ -44,6 +44,27 @@ Template Router
 -> Index / Ledger Update
 ```
 
+## Native GBrain Sync Boundary
+
+GBrain sync is automatic at skill boundaries. Do not ask the human to request
+sync each time.
+
+At Product Strategy Template OS start and end, first use the original native
+GStack/GBrain path:
+
+```text
+gstack-brain-sync / gstack-brain-enqueue
+-> allowlisted projects/product-strategy-template-os/learnings.jsonl
+-> GBrain sync/embed/query
+```
+
+If native `gstack-brain-sync` is unavailable, fall back to the Hermes Admin
+handoff queue and clearly mark the cloud write as pending, not completed.
+
+Ask the human only when native sync is not initialized, sync mode is `off`,
+credentials/permissions are missing, or privacy/team-publication scope must be
+chosen.
+
 ## Data Integrity
 
 All factual claims must be source-backed.
