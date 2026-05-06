@@ -41,15 +41,21 @@ npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --
 agent 必须把它理解成“从 GitHub 重新安装并验证 Product Strategy Template OS”，然后运行：
 
 ```bash
-SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+SKILL_HOME="${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os"
 python3 "$SKILL_HOME/scripts/update_product_os.py"
+```
+
+如果 skill 是通过 `npx skills add --global` 安装，默认位置通常是：
+
+```bash
+SKILL_HOME="${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os"
 ```
 
 如果本地安装的是旧版本，还没有 `update_product_os.py`，使用 fallback：
 
 ```bash
-npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
-SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os --yes --global
+SKILL_HOME="${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os"
 python3 "$SKILL_HOME/scripts/bootstrap_check.py" --skill-root "$SKILL_HOME"
 ```
 
@@ -63,13 +69,14 @@ OK_BOOTSTRAP
 安装后，skill 通常位于：
 
 ```bash
-${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os
+${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os
 ```
 
 如果 agent 不确定安装位置，先搜索：
 
 ```bash
 find "${CODEX_HOME:-$HOME/.codex}/skills" -maxdepth 2 -name SKILL.md -path '*product-strategy-template-os*'
+find "${AGENTS_HOME:-$HOME/.agents}/skills" -maxdepth 2 -name SKILL.md -path '*product-strategy-template-os*'
 ```
 
 ## 2. Bootstrap Check
@@ -77,7 +84,7 @@ find "${CODEX_HOME:-$HOME/.codex}/skills" -maxdepth 2 -name SKILL.md -path '*pro
 安装后必须先跑验收，不要直接开始分析：
 
 ```bash
-SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+SKILL_HOME="${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os"
 python3 "$SKILL_HOME/scripts/bootstrap_check.py" --skill-root "$SKILL_HOME"
 ```
 
@@ -94,7 +101,7 @@ OK_BOOTSTRAP
 新建一个品类研究 run：
 
 ```bash
-SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+SKILL_HOME="${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os"
 RUN_DIR="$PWD/runs/$(date +%F)-wake-up-light品类战略用研"
 
 python3 "$SKILL_HOME/scripts/init_run.py" \

@@ -26,8 +26,16 @@ def run(cmd: list[str], *, dry_run: bool = False) -> None:
 
 
 def default_skill_root(skill_name: str) -> Path:
-    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")).expanduser()
-    return codex_home / "skills" / skill_name
+    candidates = [
+        Path.home() / ".agents" / "skills" / skill_name,
+        Path(os.environ.get("AGENTS_HOME", Path.home() / ".agents")).expanduser() / "skills" / skill_name,
+        Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")).expanduser() / "skills" / skill_name,
+        Path(__file__).resolve().parents[1],
+    ]
+    for candidate in candidates:
+        if (candidate / "SKILL.md").exists():
+            return candidate
+    return candidates[0]
 
 
 def main() -> None:
@@ -40,7 +48,10 @@ def main() -> None:
 
     skill_root = Path(args.skill_root).expanduser() if args.skill_root else default_skill_root(args.skill)
 
-    run(["npx", "skills", "add", args.repo, "--skill", args.skill], dry_run=args.dry_run)
+    run(
+        ["npx", "skills", "add", args.repo, "--skill", args.skill, "--yes", "--global"],
+        dry_run=args.dry_run,
+    )
 
     bootstrap = skill_root / "scripts" / "bootstrap_check.py"
     if not args.dry_run and not bootstrap.exists():

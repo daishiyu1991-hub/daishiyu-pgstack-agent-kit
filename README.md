@@ -51,11 +51,18 @@ SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
 python3 "$SKILL_HOME/scripts/update_product_os.py"
 ```
 
+If the skill was installed through `npx skills add --global`, the usual path is:
+
+```bash
+SKILL_HOME="${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os"
+python3 "$SKILL_HOME/scripts/update_product_os.py"
+```
+
 If the teammate has an older install without that script, the fallback is:
 
 ```bash
-npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
-SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os --yes --global
+SKILL_HOME="${AGENTS_HOME:-$HOME/.agents}/skills/product-strategy-template-os"
 python3 "$SKILL_HOME/scripts/bootstrap_check.py" --skill-root "$SKILL_HOME"
 ```
 

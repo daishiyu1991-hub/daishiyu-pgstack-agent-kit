@@ -63,7 +63,7 @@ python3 "$SKILL_HOME/scripts/update_product_os.py"
 If that script is unavailable because the installed skill is older, use the fallback:
 
 ```bash
-npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os --yes --global
 ```
 
 Then run `scripts/bootstrap_check.py` and report whether the update is usable.

@@ -1,0 +1,144 @@
+{
+  "artifact": "section6_execution_plan_v1",
+  "created_at": "2026-04-30",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "chapter": "7. 供应链实现（旧第 6 章供应链管理过程样本）",
+  "legacy_note": "本文件生成于旧章节顺序。最新 OS 中第 6 章为产品规划，第 7 章才是供应链实现；此文件只保留为过程样本，不作为当前章节入口。",
+  "source_template": {
+    "docx": "/Users/daishiyu/Downloads/ai skills/【模版】爆品战略用研模板v1.0——品类.docx",
+    "extracted_structure": "process/template-structure-extracted-v1.json",
+    "io_map": "process/template-docx-full-io-map-v1.md"
+  },
+  "previous_decision": {
+    "chapter": "5. 营销分析&社媒传播",
+    "decision_record": "process/section5-human-decision-pass-v1.json",
+    "choice": "A",
+    "status": "passed_with_deferred_evidence"
+  },
+  "chapter_boundary": {
+    "allowed": [
+      "6.1 上游供应链分析",
+      "6.2 供应链竞对分析",
+      "核心成本控制点",
+      "供应链可行性",
+      "竞品成本差异",
+      "可能的成本/工艺优势",
+      "供应链实现输入包"
+    ],
+    "blocked_until_later": [
+      "最终产品定义",
+      "listing 策略",
+      "销售计划",
+      "上市验证计划"
+    ],
+    "zero_hallucination_rule": "没有真实供应链来源的成本、供应商、产能、模具、工艺结论一律标注为 not_collected 或 manual_required。"
+  },
+  "template_sections": [
+    {
+      "section_id": "6.1",
+      "section_name": "上游供应链分析",
+      "purpose": "把产品核心组成部件的头部供应商特征及市场主流应用客户盘点清楚。",
+      "input": [
+        "核心组成部件",
+        "头部供应商",
+        "供应商优势",
+        "供应商劣势",
+        "行业主要客户"
+      ],
+      "method": [
+        "供应链调研",
+        "供应商访谈",
+        "B端资料收集",
+        "部件拆解"
+      ],
+      "tools": [
+        "供应商线下调研",
+        "行业资料",
+        "B端数据",
+        "Excel",
+        "Sorftime 1688 similar product if available"
+      ],
+      "output": [
+        "供应链部件清单",
+        "头部供应商特征",
+        "成本核心控制点",
+        "供应商优劣势"
+      ]
+    },
+    {
+      "section_id": "6.2",
+      "section_name": "供应链竞对分析",
+      "purpose": "详细产品定义出来后，针对产品进行详细成本对标及分析，谋划相对优势和精准营销。",
+      "input": [
+        "产品1成本",
+        "竞品品牌产品成本",
+        "差额",
+        "设计方案",
+        "生产工艺",
+        "关键部件成本",
+        "模具/工装分摊",
+        "组装成本"
+      ],
+      "method": [
+        "成本对标",
+        "部件拆解",
+        "工艺差异分析",
+        "工厂议价分析"
+      ],
+      "tools": [
+        "供应链线下调研",
+        "BOM 表",
+        "Excel",
+        "1688 / supplier quote cross-check"
+      ],
+      "output": [
+        "竞品成本对标",
+        "成本差额分析",
+        "可形成优势的部件/工艺",
+        "可行性判断"
+      ]
+    }
+  ],
+  "evidence_router": [
+    {
+      "field": "产品核心组成部件",
+      "route": "mcp_available_plus_manual_review",
+      "available_tools": ["Sorftime product_detail", "Sorftime ali1688_similar_product"],
+      "manual_needed": "拆机/BOM/内部工程判断",
+      "status_before_execution": "planned"
+    },
+    {
+      "field": "供应商报价与 MOQ",
+      "route": "manual_input_required",
+      "available_tools": ["supplier interviews", "factory quote sheet"],
+      "manual_needed": "真实报价、MOQ、账期、交期、模具费",
+      "status_before_execution": "manual_required"
+    },
+    {
+      "field": "竞品成本对标",
+      "route": "browser_required_plus_manual_teardown",
+      "available_tools": ["Amazon listing specs", "public product pages", "1688 similar product"],
+      "manual_needed": "拆机或供应商反向报价",
+      "status_before_execution": "planned_with_gap"
+    },
+    {
+      "field": "公司能力适配",
+      "route": "company_baseline_required",
+      "available_tools": ["process/company-capability-red-team-baseline-v1.md"],
+      "manual_needed": "确认哪些工艺在内部台灯/落地灯能力边界内，哪些必须外采/ODM",
+      "status_before_execution": "planned"
+    }
+  ],
+  "red_team_basis": [
+    "公司优势在品质和全链路，不在最低成本。",
+    "公司是白帽玩家，供应链优势必须能支撑真实产品力和真实前台承诺。",
+    "现有强项是台灯、落地灯、照明相关工艺；超出工艺范围的功能先用外部供应商或开发工厂验证。",
+    "如果 wake up light 只剩低价闹钟 BOM 竞争，则不适合重投入。"
+  ],
+  "human_decision_options": [
+    "A. 通过执行计划，开始第 6 章证据采集与正文",
+    "B. 先补内部 BOM / 供应商报价 / MOQ",
+    "C. 先确认内部做还是外部 ODM",
+    "D. 暂停供应链章节"
+  ]
+}
