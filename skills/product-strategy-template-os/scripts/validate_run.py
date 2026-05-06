@@ -283,7 +283,7 @@ def check_usp_weight_markers(root: Path, errors: list[str]) -> None:
     pages: list[Path] = []
     for pattern in USP_PAGE_PATTERNS:
         pages.extend(root.glob(pattern))
-    pages = sorted({path for path in pages if path.is_file()})
+    pages = sorted({path for path in pages if path.is_file()}, key=version_sort_key)
     if not pages:
         return
 
@@ -296,6 +296,13 @@ def check_usp_weight_markers(root: Path, errors: list[str]) -> None:
             f"{latest.name}: Chapter 6/USP report must separate comment frequency "
             f"from USP strategic weight; missing markers: {', '.join(missing)}",
         )
+
+
+def version_sort_key(path: Path) -> tuple[int, str]:
+    match = re.search(r"-v(\d+)", path.name)
+    if match:
+        return (int(match.group(1)), path.name)
+    return (-1, path.name)
 
 
 def check_source_raw_flags(root: Path, errors: list[str]) -> None:

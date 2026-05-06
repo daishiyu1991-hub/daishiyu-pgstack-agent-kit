@@ -1,0 +1,54 @@
+{
+  "artifact": "visible_value_scene_thesis_upgrade_v15",
+  "created_at": "2026-05-06",
+  "new_primary_page": "quality-review-visible-value-thesis-v15-scene-thesis-upgrade.html",
+  "previous_page_kept": "quality-review-visible-value-thesis-v14-evidence-vs-usp-weight.html",
+  "reason_for_revision": "After the 2026-05-06 Amazon squad meeting, the product planning method was upgraded: data decides whether the category is worth entering, but product planning must start from the consumer's vivid mental scene before translating into architecture, components, design, supply chain, and project plan.",
+  "meeting_input": {
+    "source": "process/meeting-input-2026-05-06-amazon-squad-v1.json",
+    "core_principle": "产品定义不是先堆参数，而是先找到消费者脑中的画面，再把画面转译成产品能力。"
+  },
+  "evidence_sources_used": [
+    "process/visible-value-review-sampling-audit-v9.json",
+    "process/visible-value-review-theme-analysis-v9.json",
+    "process/visible-value-review-raw-ledger-v9.json",
+    "process/visible-value-review-tagged-ledger-v9.json",
+    "process/visible-value-review-effective-ledger-v9.json",
+    "process/visible-value-evidence-vs-usp-weight-v14.json",
+    "process/meeting-input-2026-05-06-amazon-squad-v1.json"
+  ],
+  "data_integrity": {
+    "new_review_collection": false,
+    "new_market_data": false,
+    "numeric_claims_basis": "review counts and opportunity counts inherit v9 review ledger and v14 calibration; no new numeric market claim was introduced.",
+    "strategic_weights": "inference for product planning only; not a factual metric.",
+    "human_decision_status": "pending"
+  },
+  "scene_thesis_candidates": [
+    {
+      "name": "先叫醒房间，再叫醒你",
+      "role": "recommended_main_scene_thesis",
+      "evidence_basis": "gentle_natural_wake, bedside_aesthetic_lamp, brightness_display_pain, company lighting capability",
+      "why_upgrade": "Turns a device feature into a room-level morning event."
+    },
+    {
+      "name": "按一下晚安，明早自然醒",
+      "role": "routine_hook",
+      "evidence_basis": "sleep_winddown_routine, subscription_app_pain, no_subscription_phone_free",
+      "why_upgrade": "Keeps Hatch's ritual value but avoids being only a Hatch dupe by focusing on the whole night-to-morning ritual."
+    },
+    {
+      "name": "只叫醒你，不吵醒整个房间",
+      "role": "sharp_household_scene",
+      "evidence_basis": "family_kids_heavy_sleeper, gentle_natural_wake",
+      "why_upgrade": "More specific household tension; needs additional frontstage and review validation before main track."
+    },
+    {
+      "name": "冬天也有早晨",
+      "role": "seasonal_content_hook",
+      "evidence_basis": "light_therapy_dark_winter, dark room / winter usage references",
+      "why_upgrade": "Strong content hook but must avoid medical claims."
+    }
+  ],
+  "recommended_next_step": "Use v15 as the current product-planning scene thesis page. If accepted, enter 6.2 product architecture around the main thesis: user task effect -> functional conditions -> key components -> test plan."
+}

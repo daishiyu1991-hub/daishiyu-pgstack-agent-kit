@@ -251,8 +251,8 @@
     },
     {
       "chapter": "6. 产品规划",
-      "status": "in_progress_explosive_usp_rebuild_ready_for_human_decision",
-      "primary_report": "quality-review-visible-value-thesis-v13-explosive-usp.html",
+      "status": "in_progress_scene_thesis_upgrade_ready_for_human_decision",
+      "primary_report": "quality-review-visible-value-thesis-v15-scene-thesis-upgrade.html",
       "process_refs": [
         "process/product-planning-chapter-restructure-v1.json",
         "process/visible-value-review-sampling-audit-v9.json",
@@ -264,7 +264,12 @@
         "quality-review-visible-value-thesis-v12-task-function-component.html",
         "process/visible-value-task-function-component-topology-v12.json",
         "quality-review-visible-value-thesis-v13-explosive-usp.html",
-        "process/visible-value-explosive-usp-rebuild-v13.json"
+        "process/visible-value-explosive-usp-rebuild-v13.json",
+        "quality-review-visible-value-thesis-v14-evidence-vs-usp-weight.html",
+        "process/visible-value-evidence-vs-usp-weight-v14.json",
+        "quality-review-visible-value-thesis-v15-scene-thesis-upgrade.html",
+        "process/visible-value-scene-thesis-upgrade-v15.json",
+        "process/meeting-input-2026-05-06-amazon-squad-v1.json"
       ],
       "modules": [
         "6.1 USP / 赛道选择",
@@ -292,10 +297,10 @@
         "queue_or_sync_gbrain": "pending"
       },
       "human_decision_options": [
-        "A. 选择“先叫醒房间，再叫醒你”进入产品架构",
+        "A. 接受“先叫醒房间，再叫醒你”，进入 6.2 产品架构",
         "B. 先做前台表达验证",
-        "C. 先做光学样机可行性验证",
-        "D. 暂停，继续挖更锋利命题"
+        "C. 先补 Hatch/Odokee/REACHER 竞品表达拆解",
+        "D. 暂停，继续挖更锋利 thesis"
       ]
     },
     {

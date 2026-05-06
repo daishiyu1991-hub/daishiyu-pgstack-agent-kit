@@ -1,0 +1,152 @@
+{
+  "artifact": "meeting_minutes_amazon_squad_2026_05_06_v1",
+  "created_at": "2026-05-06",
+  "source_file": "/Users/daishiyu/Downloads/🚀亚马逊攻坚小分队的视频会议.txt",
+  "video_source_file": "/Users/daishiyu/Downloads/🚀亚马逊攻坚小分队的视频会议.mp4",
+  "video_metadata": {
+    "duration_seconds": 2253.134,
+    "duration_hms": "00:37:33",
+    "resolution": "1920x1080",
+    "video_codec": "H.264",
+    "audio_codec": "MPEG-4 AAC",
+    "file_size_bytes": 151828224
+  },
+  "visual_evidence_assets": {
+    "contact_sheet": "assets/meeting-2026-05-06/meeting-keyframes-contact-sheet.png",
+    "keyframes": [
+      {
+        "timestamp": "00:20",
+        "label": "产品入口 / 画面感开场",
+        "image": "assets/meeting-2026-05-06/thumbs/meeting-opening-product-entrance.png",
+        "clip": "assets/meeting-2026-05-06/clips/meeting-opening-product-entrance.m4v"
+      },
+      {
+        "timestamp": "08:42",
+        "label": "Apple HomePod 用户场景",
+        "image": "assets/meeting-2026-05-06/thumbs/apple-homepod-user-scene.png",
+        "clip": "assets/meeting-2026-05-06/clips/apple-homepod-user-scene.m4v"
+      },
+      {
+        "timestamp": "18:54",
+        "label": "Apple 1984 / 界面隐喻",
+        "image": "assets/meeting-2026-05-06/thumbs/apple-1984-interface-metaphor.png",
+        "clip": "assets/meeting-2026-05-06/clips/apple-1984-interface-metaphor.m4v"
+      },
+      {
+        "timestamp": "23:06",
+        "label": "Shower lamp 原始场景讨论",
+        "image": "assets/meeting-2026-05-06/thumbs/shower-lamp-raw-scene-discussion.png",
+        "clip": "assets/meeting-2026-05-06/clips/shower-lamp-raw-scene-discussion.m4v"
+      },
+      {
+        "timestamp": "26:09",
+        "label": "Shower lamp 画面语言升级",
+        "image": "assets/meeting-2026-05-06/thumbs/shower-lamp-vivid-scene-language.png",
+        "clip": "assets/meeting-2026-05-06/clips/shower-lamp-vivid-scene-language.m4v"
+      },
+      {
+        "timestamp": "30:16",
+        "label": "每日选品清单机制",
+        "image": "assets/meeting-2026-05-06/thumbs/daily-product-list-operating-loop.png",
+        "clip": "assets/meeting-2026-05-06/clips/daily-product-list-operating-loop.m4v"
+      }
+    ]
+  },
+  "meeting": {
+    "title": "亚马逊攻坚小分队视频会议",
+    "duration": "37分34秒",
+    "main_topic": "产品 OS、爆品 thesis、消费者画面、shower lamp 沙盘"
+  },
+  "core_thesis": {
+    "one_sentence": "数据判断能不能进，产品规划必须从消费者脑中的画面开始，再把画面翻译成架构、元器件、设计和供应链。",
+    "why_it_matters": "如果只从评论差评、参数或市场数据倒推，容易得到迭代款；如果从用户场景画面倒推，才可能得到真正有购买冲动的产品命题。"
+  },
+  "durable_principles": [
+    {
+      "principle": "爆品不是产品本身爆，而是找到消费者入口",
+      "meeting_evidence": "大路灯例子：从照明参数转成孩子护眼、格林威治 7 点阳光的健康画面。",
+      "pipeline_implication": "品类本质不能停在功能名，要提炼消费者购买时真正接上的生活画面。"
+    },
+    {
+      "principle": "市场竞争分析回答是否值得进入，不直接回答产品怎么做",
+      "meeting_evidence": "趋势、需求是否上涨、是否已有很多人满足、需求是否未被充分满足。",
+      "pipeline_implication": "前置章节是进入判断；产品规划章节才回到画面、架构、设计与供应链。"
+    },
+    {
+      "principle": "头部品牌和竞品分析要回答竞品在满足哪种需求，以及如何讲给消费者",
+      "meeting_evidence": "Hatch 例子：本机化、少 App、晚上不要看手机有吸引力，但容易变成 Hatch 平替。",
+      "pipeline_implication": "竞品价值可以借鉴，但 USP 不能只是竞品改良或平替。"
+    },
+    {
+      "principle": "产品定义不是数学题，最终要回到消费者感性的画面",
+      "meeting_evidence": "Apple HomePod、Macintosh 1984、iPhone 等广告被用作产品和营销统一的例子。",
+      "pipeline_implication": "产品规划必须有可视化的用户画像、痛点场景、解决方案画面和前台表达。"
+    },
+    {
+      "principle": "我们是应用层产品，不是上游参数供应商",
+      "meeting_evidence": "元器件厂家可以卷参数；应用层品牌要让消费者确实过上某种生活方式。",
+      "pipeline_implication": "参数只服务于画面达成，不能让参数本身成为主叙事。"
+    }
+  ],
+  "shower_lamp_specific_takeaways": {
+    "current_judgment": "暂时怀疑 shower lamp 更像流量/运营打法的胜利，而不是明显产品力胜利。",
+    "reasoning": [
+      "同质化严重，前台页面和产品本身没有明显差异。",
+      "3 个月 1 万多单很强，但尚未看懂它如何赢。",
+      "看不懂别人怎么赢，就不敢贸然进入。"
+    ],
+    "scene_language_examples": [
+      "关掉顶灯，浴室墙上出现一片海。",
+      "把洗澡最后 10 分钟变成一天里像休假的 10 分钟。",
+      "下班后从工作压力里退出，进入一个被水光和自然声包住的小空间。"
+    ],
+    "next_research_question": "shower lamp 的增长到底是产品画面驱动、内容种草驱动、广告投放打法、还是渠道流量套利？"
+  },
+  "pipeline_updates_needed": [
+    {
+      "update": "产品规划前增加消费者画面生成/验证步骤",
+      "description": "在进入架构、规格、BOM 前，必须先产出多个具体、可感知、可前台表达的消费者画面。"
+    },
+    {
+      "update": "爆品 thesis 不能只看数据和差评",
+      "description": "差评和参数只能发现迭代项；爆品 thesis 要从用户欲望、场景画面和购买冲动生成。"
+    },
+    {
+      "update": "加入 Apple-style 画面校准",
+      "description": "用用户画像 -> 痛点场景 -> 解决方案故事 -> 产品能力兑现 的方式检验命题。"
+    },
+    {
+      "update": "shower lamp 先拆打法，再判断是否进入产品规划",
+      "description": "如果胜负来自流量打法，就应进入营销/运营拆解，而不是急着做产品架构。"
+    }
+  ],
+  "team_operating_actions": [
+    {
+      "owner": "罗国华",
+      "action": "用更新后的 skills 重新跑 shower lamp 案例，并反馈跑法问题。",
+      "frequency": "今天完成首次重跑"
+    },
+    {
+      "owner": "军哥",
+      "action": "推进 MCP / 数据工具账号与权限。",
+      "frequency": "尽快"
+    },
+    {
+      "owner": "团队",
+      "action": "每天早上拉备选产品清单，每人选择一个，不要贪多；下午 4 点围绕一个方案讨论。",
+      "frequency": "每日"
+    },
+    {
+      "owner": "团队",
+      "action": "一周至少选出一款进入更完整调研/定义。",
+      "frequency": "每周"
+    }
+  ],
+  "open_questions": [
+    "shower lamp 的核心胜利机制是流量、内容、广告、价格，还是产品画面？",
+    "如果 shower lamp 是流量打法胜利，我们是否具备复制该打法的能力？",
+    "产品 OS 如何强制 agent 先生成消费者画面，而不是直接堆数据？",
+    "如何把消费者画面转译成技术架构、元器件、测试计划和工业设计语言？"
+  ],
+  "recommended_next_step": "把 shower lamp 沙盘重做为一个「画面 thesis -> 胜利机制判断」页面，而不是继续直接做产品规划。"
+}
