@@ -52,11 +52,14 @@ Before running or accepting any strategy report, resolve the actual skill path a
 ```text
 SKILL_HOME
 -> scripts/bootstrap_check.py
+-> templates/os-runtime-contract.json
 -> scripts/init_run.py for new runs
 -> scripts/validate_run.py before accepting a report
 ```
 
 Only `OK_BOOTSTRAP` and `OK_VALIDATE_RUN` count as passing. A polished HTML page that fails validation is a process draft, not a product report.
+
+`templates/os-runtime-contract.json` is the machine-readable contract for agent execution. It defines the fixed chapter order, per-chapter loop, required artifacts, evidence ledger rules, validation gates, and final acceptance fields.
 
 Never use old local skill packages, copied run folders, or chat-transcript templates as the skill source. The canonical source is:
 

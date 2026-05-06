@@ -50,6 +50,8 @@ Recommended:
 
 Read `references/global-rules.md` at the start of every strategy-research run. It is the portable global contract for this pipeline.
 
+Read `templates/os-runtime-contract.json` before running or accepting a chapter. It is the machine-readable contract that tells the agent the startup sequence, chapter order, chapter loop, evidence rules, validation gates, and acceptance fields.
+
 If the user wants this workflow to become the default behavior inside a project or workspace, copy or adapt `assets/AGENTS.product-strategy-template-os.example.md` into that project's `AGENTS.md`. That file is not loaded automatically by the skill installer; it is a portable global-rule template.
 
 ## Core Loop

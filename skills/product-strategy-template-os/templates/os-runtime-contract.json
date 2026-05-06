@@ -1,0 +1,188 @@
+{
+  "artifact": "product_strategy_template_os_runtime_contract_v1",
+  "version": "1.0.0",
+  "canonical_skill_source": {
+    "repo": "https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit",
+    "skill": "product-strategy-template-os",
+    "forbidden_sources": [
+      "old local skill-packages copies",
+      "copied run folders",
+      "chat transcript templates",
+      "standalone HTML pages"
+    ]
+  },
+  "agent_startup_sequence": [
+    {
+      "step": "resolve_skill_home",
+      "required_output": "absolute SKILL_HOME path"
+    },
+    {
+      "step": "bootstrap_check",
+      "command": "python3 \"$SKILL_HOME/scripts/bootstrap_check.py\" --skill-root \"$SKILL_HOME\"",
+      "required_output": "OK_BOOTSTRAP"
+    },
+    {
+      "step": "read_contract_files",
+      "files": [
+        "README.md",
+        "SKILL.md",
+        "templates/os-runtime-contract.json",
+        "references/global-rules.md",
+        "references/pipeline-architecture.md",
+        "references/template-structure.zh.md",
+        "references/data-source-router.md",
+        "references/red-team-company-baseline.md",
+        "references/explosive-usp-framework.md",
+        "references/frontend-report-style.md"
+      ]
+    },
+    {
+      "step": "gbrain_boundary_start",
+      "command": "python3 \"$SKILL_HOME/scripts/gbrain_auto_sync.py\" --skill-root \"$SKILL_HOME\" --phase start",
+      "claim_rule": "Do not claim synced unless verified by native sync or Hermes Admin query."
+    }
+  ],
+  "canonical_chapter_order": [
+    "1. 品类本质小结",
+    "2. 市场竞争分析",
+    "3. 头部品牌竞争&竞品分析",
+    "4. 用户场景&需求分析",
+    "5. 营销分析&社媒传播",
+    "6. 产品规划",
+    "7. 供应链实现",
+    "8. 项目计划"
+  ],
+  "chapter_loop": [
+    {
+      "step": "Template Router",
+      "required_artifact": "process/pipeline-run-state-v1.json",
+      "acceptance": "current chapter and blocked later-chapter content are identified"
+    },
+    {
+      "step": "Chapter Preamble",
+      "required_artifact": "process/section{n}-execution-plan-v1.json",
+      "acceptance": "previous decision, existing artifacts, available data, and missing data are listed"
+    },
+    {
+      "step": "Evidence Contract",
+      "required_artifact": "process/section{n}-{slug}-evidence-v1.json",
+      "acceptance": "every field is collected, not_collected, manual_required, not_available_in_current_session, or unknown"
+    },
+    {
+      "step": "Evidence Acquisition Router",
+      "required_artifact": "process/section{n}-evidence-acquisition-router-v1.json or embedded router section",
+      "acceptance": "available MCP/API/browser/file routes are attempted before asking the human"
+    },
+    {
+      "step": "Input -> Processing -> Output",
+      "required_artifact": "process/section{n}-{slug}-analysis-v1.md",
+      "acceptance": "each template node records the input, processing model, and output"
+    },
+    {
+      "step": "Evidence Sufficiency Review",
+      "required_artifact": "complete report section",
+      "acceptance": "agent attempts补证 when possible and marks remaining gaps honestly"
+    },
+    {
+      "step": "Red-team Argue",
+      "required_artifact": "complete report section",
+      "acceptance": "data skeptic, consumer skeptic, competition skeptic, and company-fit skeptic are represented"
+    },
+    {
+      "step": "Complete HTML Report",
+      "required_artifact": "quality-review-template-ch{n}-{slug}-complete-v1.html or approved chapter-specific report",
+      "acceptance": "conclusion first, charts/tables, process after conclusion, sources at bottom"
+    },
+    {
+      "step": "Human Decision Stop",
+      "required_artifact": "process/section{n}-human-decision-*.json",
+      "acceptance": "AI does not infer blank choices or unlock next chapter without explicit human choice"
+    },
+    {
+      "step": "Index / Ledger Update",
+      "required_artifact": "quality-review-index.html and process/pipeline-run-state-v1.json",
+      "acceptance": "index remains roadmap; process/debug pages are not promoted as product reports"
+    }
+  ],
+  "data_integrity_rules": {
+    "forbidden_fabrication": [
+      "ASIN",
+      "sales",
+      "price",
+      "keyword volume",
+      "trend growth",
+      "review quote",
+      "supplier fact",
+      "COGS",
+      "MOQ",
+      "tooling cost",
+      "citation"
+    ],
+    "missing_labels": [
+      "not_collected",
+      "manual_required",
+      "not_available_in_current_session",
+      "unknown"
+    ],
+    "review_numeric_claims": {
+      "required_ledgers": [
+        "process/*review*raw*ledger*.json",
+        "process/*review*tagged*ledger*.json",
+        "process/*review*effective*ledger*.json"
+      ],
+      "required_row_fields": [
+        "review_id",
+        "content_text",
+        "rating",
+        "asin"
+      ],
+      "fallback_if_missing": "not_recomputable"
+    },
+    "usp_weight_rule": {
+      "must_separate": [
+        "评论提及频次",
+        "USP 战略权重"
+      ],
+      "strategic_weight_inputs": [
+        "purchase driver",
+        "unmet gap",
+        "company capability",
+        "first-eye expression",
+        "technical topology",
+        "BOM/test feasibility",
+        "red-team risk"
+      ]
+    }
+  },
+  "validation_gates": [
+    {
+      "name": "bootstrap",
+      "command": "python3 \"$SKILL_HOME/scripts/bootstrap_check.py\" --skill-root \"$SKILL_HOME\"",
+      "pass": "OK_BOOTSTRAP"
+    },
+    {
+      "name": "run_validation",
+      "command": "python3 \"$SKILL_HOME/scripts/validate_run.py\" \"$RUN_DIR\"",
+      "pass": "OK_VALIDATE_RUN"
+    },
+    {
+      "name": "gbrain_boundary_end",
+      "command": "python3 \"$SKILL_HOME/scripts/gbrain_auto_sync.py\" --skill-root \"$SKILL_HOME\" --phase end",
+      "pass": "native sync verified or explicit queued/pending status"
+    }
+  ],
+  "human_decision_options_default": [
+    "A. 通过，解锁下一章",
+    "B. 需要补证，暂不解锁",
+    "C. 暂停，等待人工输入",
+    "D. 否决或重做本章"
+  ],
+  "acceptance_output_required": [
+    "OK_BOOTSTRAP",
+    "OK_VALIDATE_RUN",
+    "skill path",
+    "run path",
+    "current chapter",
+    "GBrain synced/queued/pending truthfully stated"
+  ]
+}

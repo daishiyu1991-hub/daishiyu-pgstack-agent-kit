@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/product-strategy-template-os/os-runtime-contract.schema.json",
+  "title": "Product Strategy Template OS Runtime Contract",
+  "type": "object",
+  "required": [
+    "artifact",
+    "version",
+    "canonical_skill_source",
+    "agent_startup_sequence",
+    "canonical_chapter_order",
+    "chapter_loop",
+    "data_integrity_rules",
+    "validation_gates",
+    "human_decision_options_default"
+  ],
+  "properties": {
+    "artifact": {
+      "const": "product_strategy_template_os_runtime_contract_v1"
+    },
+    "version": {
+      "type": "string"
+    },
+    "canonical_skill_source": {
+      "type": "object",
+      "required": ["repo", "skill"],
+      "properties": {
+        "repo": { "type": "string" },
+        "skill": { "type": "string" },
+        "forbidden_sources": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "agent_startup_sequence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step"],
+        "properties": {
+          "step": { "type": "string" },
+          "command": { "type": "string" },
+          "files": { "type": "array", "items": { "type": "string" } },
+          "required_output": { "type": "string" },
+          "claim_rule": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "canonical_chapter_order": {
+      "type": "array",
+      "minItems": 8,
+      "items": { "type": "string" }
+    },
+    "chapter_loop": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "required_artifact", "acceptance"],
+        "properties": {
+          "step": { "type": "string" },
+          "required_artifact": { "type": "string" },
+          "acceptance": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "data_integrity_rules": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "validation_gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "command", "pass"],
+        "properties": {
+          "name": { "type": "string" },
+          "command": { "type": "string" },
+          "pass": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "human_decision_options_default": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "acceptance_output_required": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

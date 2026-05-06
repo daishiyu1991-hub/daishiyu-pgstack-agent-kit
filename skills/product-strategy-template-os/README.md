@@ -140,6 +140,14 @@ OK_VALIDATE_RUN
 
 不能靠“让 agent 自觉按模板写”来保证一致性。必须把 skill 当成可执行协议来跑：读取同一套文件、用同一套脚本初始化、用同一套 validator 拦截不合格输出。
 
+机器可读的总控 JSON 在：
+
+```text
+templates/os-runtime-contract.json
+```
+
+它定义了 agent 启动顺序、固定章节、每章循环、证据规则、校验 gate 和最终验收字段。README 是给 agent 和人看的说明；`os-runtime-contract.json` 是给 agent 执行时对齐的结构化契约。
+
 严格模式流程：
 
 ```text
@@ -151,7 +159,7 @@ OK_VALIDATE_RUN
    必须得到 OK_BOOTSTRAP。
 
 3. Read Contract
-   按 README 第 4 节读取 SKILL.md 与 references/*.md。
+   先读 templates/os-runtime-contract.json，再按 README 第 4 节读取 SKILL.md 与 references/*.md。
 
 4. Init Or Resume Run
    新 run 必须用 scripts/init_run.py 创建。
@@ -230,6 +238,7 @@ python3 "$SKILL_HOME/scripts/bootstrap_check.py" \
 ```text
 README.md
 SKILL.md
+templates/os-runtime-contract.json
 references/global-rules.md
 references/pipeline-architecture.md
 references/template-structure.zh.md
