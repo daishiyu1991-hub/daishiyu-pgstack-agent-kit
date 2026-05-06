@@ -147,6 +147,49 @@ Process pages:
 
 The index should point to the primary report for each completed chapter.
 
+## 2.3 Chapter 6 Explosive USP Architecture
+
+Chapter 6 Product Planning has an additional rule: it must not stop at the safest opportunity track.
+
+When the chapter is about USP, product definition, visible value, or product planning, run the explosive USP node before product architecture:
+
+```text
+Previous chapters
+-> opportunity points
+-> user task and competitor purchase reason
+-> explosive USP candidates
+-> company capability boundary
+-> red-team argue
+-> task/function/component topology
+-> human decision stop
+-> product architecture
+```
+
+The capability boundary is dynamic but controlled:
+
+```text
+core capability: must use
+adjacent capability: may grow for a stronger USP
+hard capability: do not jump into without explicit approval
+```
+
+The output is not a list of benefits. It must include:
+
+- a vivid scene-level USP;
+- evidence base and missing evidence;
+- why common benefits are supporting roles rather than the main proposition;
+- ability growth assumptions;
+- red-team argument;
+- `用户任务效果 -> 功能条件 -> 关键元器件` topology;
+- a human decision stop.
+
+Example:
+
+```text
+ordinary direction: 像灯具一样的日出光效
+explosive USP: 先叫醒房间，再叫醒你
+```
+
 ## 3. Chapter State Machine
 
 ```text

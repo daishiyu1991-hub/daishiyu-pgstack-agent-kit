@@ -207,7 +207,33 @@ For Amazon consumer products, always map competition back to what consumers see 
 
 The product question is not only whether defects are reduced. The core question is whether the consumer can quickly feel more value in the buying scene.
 
-## 11. Trend Basis
+## 11. Chapter 6 Explosive USP Rule
+
+Product planning must not only choose the safest track. Before product architecture, run the explosive USP framework:
+
+```text
+opportunity points
+-> user task and competitor purchase reason
+-> vivid scene-level USP candidates
+-> capability boundary check
+-> red-team argue
+-> user task effect -> functional conditions -> key components topology
+-> Human Decision Stop
+```
+
+Company capability is not static. A stronger USP may require adjacent capability growth, but do not jump into very hard, heavy, or uncontrolled systems without explicit approval.
+
+Default capability split:
+
+```text
+core capability: must use
+adjacent capability: may grow for the USP
+hard capability: do not jump into yet
+```
+
+Generic benefits such as better looking, more reliable, no subscription, cheaper, or more modes are supporting material. The main USP should be compressed into a vivid scene-level proposition that can be tested through frontstage expression, prototype feasibility, BOM, and human judgment.
+
+## 12. Trend Basis
 
 Every trend claim must state comparison basis:
 
@@ -218,7 +244,7 @@ Every trend claim must state comparison basis:
 
 No hot-search data means `无热搜趋势数据`, not zero demand.
 
-## 12. Artifact Layout
+## 13. Artifact Layout
 
 Default run layout:
 
@@ -234,7 +260,7 @@ process/
   section{n}-human-decision-*.json
 ```
 
-## 13. Memory / GBrain Boundary
+## 14. Memory / GBrain Boundary
 
 Local run folder is the source of truth for raw process artifacts.
 
@@ -256,7 +282,7 @@ Do not write:
 
 If memory/GBrain is unavailable, write `pending` or `unavailable_in_current_session`. Do not claim sync succeeded.
 
-## 14. Internal Skill Compliance
+## 15. Internal Skill Compliance
 
 Local product skills must inherit this OS instead of becoming separate decision
 systems.

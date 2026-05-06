@@ -23,6 +23,7 @@ REQUIRED_FILES = [
     "references/template-structure.zh.md",
     "references/data-source-router.md",
     "references/red-team-company-baseline.md",
+    "references/explosive-usp-framework.md",
     "references/frontend-report-style.md",
     "schemas/pipeline-run-state.schema.json",
     "schemas/evidence-ledger.schema.json",

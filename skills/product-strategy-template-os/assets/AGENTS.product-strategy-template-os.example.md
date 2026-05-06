@@ -150,6 +150,32 @@ Before a conclusion, argue against it from:
 
 Company fit means: quality-led, white-hat, design/R&D/production full chain, strongest around lighting-related craft unless the user says otherwise.
 
+## Product Planning / Explosive USP Rule
+
+In Chapter 6 Product Planning, do not only choose the safest or easiest-to-build track.
+
+Run the explosive USP loop:
+
+```text
+opportunity points
+-> user task and competitor purchase reason
+-> vivid scene-level USP candidates
+-> capability boundary check
+-> red-team argue
+-> user task effect -> functional conditions -> key components topology
+-> Human Decision Stop
+```
+
+Company capability is not a static boundary. A strong USP may require adjacent capability growth if the difficulty is controllable. Separate:
+
+```text
+core capability: must use
+adjacent capability: may grow
+hard capability: do not jump into without explicit approval
+```
+
+Do not treat generic benefits such as better looking, more reliable, no subscription, cheaper, or more modes as final USP by default. Compress them into a vivid scene-level proposition that can be tested through frontstage expression and prototypes.
+
 ## Memory Boundary
 
 Local run folder is the raw source of truth.

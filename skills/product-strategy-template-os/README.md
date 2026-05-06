@@ -147,6 +147,7 @@ references/pipeline-architecture.md
 references/template-structure.zh.md
 references/data-source-router.md
 references/red-team-company-baseline.md
+references/explosive-usp-framework.md
 references/frontend-report-style.md
 ```
 
@@ -243,6 +244,35 @@ gstack-brain-sync --once
 10. Artifact & Memory Ledger
    更新 process JSON、索引链接、GBrain 交接队列。
 ```
+
+## 5.1 Chapter 6 Explosive USP Rule
+
+第 6 章产品规划必须先运行 `references/explosive-usp-framework.md`。
+
+不能只按“最稳妥、最容易落地、最符合现有能力”的评分选主赛道。若用户认为主赛道太平凡，agent 必须重新生成爆发力 USP，而不是在原结论上润色。
+
+默认推导：
+
+```text
+评论证据 / 竞品购买理由
+-> 用户真实任务
+-> 一眼有画面的场景事件
+-> 爆发力 USP 候选
+-> 可控能力成长边界
+-> Red-team argue
+-> 技术拓扑：用户任务效果 -> 功能条件 -> 关键元器件
+-> Human Decision Stop
+```
+
+能力边界默认三层：
+
+```text
+核心能力：必须利用
+相邻能力：可以为了强 USP 有控制地成长
+难能力：暂时不跳进去
+```
+
+示例：wake up light 的稳妥方向是“像灯具一样的日出光效”，但爆发力 USP 应该进一步压缩成“先叫醒房间，再叫醒你 / 一盏把卧室调成早晨的睡醒灯”。
 
 ## 6. Zero-Hallucination Rules
 

@@ -1,0 +1,86 @@
+{
+  "artifact": "visible_value_explosive_usp_rebuild_v13",
+  "created_at": "2026-05-06",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "source_page": "quality-review-visible-value-thesis-v12-task-function-component.html",
+  "new_page": "quality-review-visible-value-thesis-v13-explosive-usp.html",
+  "reason_for_rebuild": "v12 的主赛道偏稳妥，主要按公司现有能力匹配和落地性选择，用户认为想象空间和吸引力不足。v13 重新加入公司可成长能力边界，以爆发力 USP 为优先。",
+  "evidence_policy": {
+    "new_review_collection": false,
+    "evidence_base": [
+      "process/visible-value-review-sampling-audit-v9.json",
+      "process/visible-value-review-theme-analysis-v9.json",
+      "process/visible-value-review-effective-ledger-v9.json"
+    ],
+    "truth_boundary": "本页的 USP 命题、评分、能力成长边界和技术拓扑是基于 v9 评论证据与公司能力包的产品规划推断，不是市场验证或工程定案。必须用前台表达测试、光学样机、BOM 和供应链验证复核。"
+  },
+  "capability_boundary": {
+    "core_capabilities_to_use": [
+      "灯具光学",
+      "结构与 CMF",
+      "品质制造",
+      "研发生产一体化",
+      "白帽营销表达"
+    ],
+    "adjacent_capabilities_allowed_to_grow": [
+      "空间日出曲线",
+      "本机 routine 引擎",
+      "声音模块",
+      "实体交互",
+      "简单 app optional",
+      "可靠性长测"
+    ],
+    "avoid_for_now": [
+      "医疗光疗宣称",
+      "复杂睡眠算法",
+      "订阅内容生态",
+      "强云服务依赖",
+      "传感器闭环睡眠监测"
+    ]
+  },
+  "recommended_usp": {
+    "name": "先叫醒房间，再叫醒你",
+    "compressed_expression": [
+      "一盏把卧室调成早晨的睡醒灯",
+      "不是闹钟响了，是卧室天亮了"
+    ],
+    "role": "主 USP",
+    "why": "它把原来的灯具化方向从物体描述升级为空间事件，更有主图/视频画面感，同时仍然以公司灯具光学和 CMF 能力为根，只向 routine、声音、交互做相邻成长。"
+  },
+  "candidate_usps": [
+    {
+      "id": "A",
+      "name": "先叫醒房间，再叫醒你",
+      "role": "推荐主命题",
+      "score": 92,
+      "status": "recommended_by_ai_not_human_final"
+    },
+    {
+      "id": "B",
+      "name": "按一下晚安，明早自然醒",
+      "role": "流程钩子",
+      "score": 79,
+      "status": "supporting_hook"
+    },
+    {
+      "id": "C",
+      "name": "只叫醒你，不吵醒整个房间",
+      "role": "探索命题",
+      "score": 71,
+      "status": "needs_more_evidence"
+    },
+    {
+      "id": "D",
+      "name": "冬天也有早晨",
+      "role": "季节钩子",
+      "score": 69,
+      "status": "seasonal_angle_with_claim_risk"
+    }
+  ],
+  "next_step_options": [
+    "A. 选择“先叫醒房间，再叫醒你”进入产品架构",
+    "B. 先做前台表达验证",
+    "C. 先做光学样机可行性验证",
+    "D. 暂停，继续挖更锋利命题"
+  ]
+}

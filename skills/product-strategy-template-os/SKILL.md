@@ -177,6 +177,33 @@ Default company-fit red-team questions:
 - Which capabilities are internal strengths, and which require ODM/external suppliers first?
 - Does the opportunity still work if competitors copy the visible feature?
 
+## Explosive USP Framework
+
+Read `references/explosive-usp-framework.md` before creating or revising Chapter 6 Product Planning, especially when the user says the current USP is too ordinary, too conservative, too flat, or lacks imagination.
+
+Chapter 6 must not merely choose the safest opportunity track. It must first ask whether a stronger `爆发力 USP` can be generated from the evidence:
+
+```text
+评论证据 / 竞品购买理由
+-> 用户真实任务
+-> 一眼有画面的场景事件
+-> 爆发力 USP 候选
+-> 可控能力成长边界
+-> Red-team argue
+-> 技术拓扑：用户任务效果 -> 功能条件 -> 关键元器件
+-> Human Decision Stop
+```
+
+Default principle:
+
+```text
+公司能力不是静态边界。
+好的 USP 可以要求公司长出相邻能力，
+但不能要求公司跳进特别难、特别重、不可控的新系统。
+```
+
+Do not treat common benefits such as `better looking`, `more reliable`, `no subscription`, `cheaper`, or `more modes` as final USP by default. Compress them into a vivid scene-level proposition that can be tested through frontstage expression, prototype feasibility, BOM, and human judgment.
+
 ## Artifacts
 
 Each run should have:

@@ -251,14 +251,20 @@
     },
     {
       "chapter": "6. 产品规划",
-      "status": "in_progress_usp_track_selection_ready_for_human_decision",
-      "primary_report": "quality-review-visible-value-thesis-v10-track-selection.html",
+      "status": "in_progress_explosive_usp_rebuild_ready_for_human_decision",
+      "primary_report": "quality-review-visible-value-thesis-v13-explosive-usp.html",
       "process_refs": [
         "process/product-planning-chapter-restructure-v1.json",
         "process/visible-value-review-sampling-audit-v9.json",
         "process/visible-value-review-theme-analysis-v9.json",
         "process/visible-value-review-effective-ledger-v9.json",
-        "quality-review-visible-value-thesis-v10-track-selection.html"
+        "quality-review-visible-value-thesis-v10-track-selection.html",
+        "quality-review-visible-value-thesis-v11-technical-topology.html",
+        "process/visible-value-technical-topology-v11.json",
+        "quality-review-visible-value-thesis-v12-task-function-component.html",
+        "process/visible-value-task-function-component-topology-v12.json",
+        "quality-review-visible-value-thesis-v13-explosive-usp.html",
+        "process/visible-value-explosive-usp-rebuild-v13.json"
       ],
       "modules": [
         "6.1 USP / 赛道选择",
@@ -276,7 +282,7 @@
         "run_previous_artifact_review": "completed_lightweight",
         "run_evidence_router": "completed_for_usp_review_sampling",
         "collect_available_evidence": "completed_review_sample_395_effective",
-        "write_analysis_package": "completed_v10",
+        "write_analysis_package": "completed_v13_explosive_usp_rebuild",
         "run_evidence_review": "completed",
         "run_red_team": "completed",
         "render_complete_report": "completed",
@@ -286,10 +292,10 @@
         "queue_or_sync_gbrain": "pending"
       },
       "human_decision_options": [
-        "A. 选择主赛道 B，进入产品架构分析",
-        "B. 先补前台素材拆解，再选赛道",
-        "C. 先补供应链/BOM，验证赛道可落地",
-        "D. 暂停 USP，回到用户/竞品补证"
+        "A. 选择“先叫醒房间，再叫醒你”进入产品架构",
+        "B. 先做前台表达验证",
+        "C. 先做光学样机可行性验证",
+        "D. 暂停，继续挖更锋利命题"
       ]
     },
     {
