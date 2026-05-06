@@ -1,0 +1,27 @@
+{
+  "artifact": "section4_execution_plan_human_pass_v1",
+  "created_at": "2026-04-30",
+  "chapter": "4. 用户场景&需求分析",
+  "source_plan": "quality-review-template-ch4-execution-plan-v1.html",
+  "human_decision": {
+    "choice": "A. 通过执行计划，开始第 4 章证据采集与正文",
+    "status": "passed",
+    "reason": "用户确认按第 4 章执行计划进入证据采集和正式分析。"
+  },
+  "execution_scope": {
+    "must_follow_template_sections": [
+      "4.1 用户画像",
+      "4.2 场景矩阵",
+      "4.3 用户旅程",
+      "4.4 需求分析",
+      "4.5 产品需求&技术创新",
+      "4.output 第 4 章最终输出"
+    ],
+    "must_not_expand": [
+      "第 5 章营销传播策略",
+      "第 6 章供应链成本结论",
+      "第 7 章最终产品定义"
+    ],
+    "primary_question": "用户是否真的把这个方向看成更好的睡眠/唤醒灯具体验，而不是贵闹钟或加灯声音机？"
+  }
+}

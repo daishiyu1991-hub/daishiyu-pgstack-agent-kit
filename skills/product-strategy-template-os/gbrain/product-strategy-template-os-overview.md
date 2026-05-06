@@ -19,8 +19,9 @@ AI collects and organizes static quality. Human judges dynamic quality. The pipe
 3. 头部品牌竞争&竞品分析
 4. 用户场景&需求分析
 5. 营销分析&社媒传播
-6. 供应链管理
-7. 产品规划
+6. 产品规划
+7. 供应链实现
+8. 项目计划
 
 ## Stability Contract
 

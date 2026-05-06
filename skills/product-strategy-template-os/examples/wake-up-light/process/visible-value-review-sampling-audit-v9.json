@@ -1,0 +1,856 @@
+{
+  "created_at": "2026-05-06T06:15:06.046258+00:00",
+  "marketplace": "US",
+  "method": "SellerSprite MCP review, stratified by ASIN and star bucket",
+  "target_raw_reviews": 330,
+  "target_effective_reviews": "250+",
+  "raw_returned": 258,
+  "raw_after_dedupe": 412,
+  "effective_reviews": 395,
+  "plan": [
+    {
+      "asin": "B0DLLSCVZW",
+      "brand": "Hatch",
+      "role": "premium routine benchmark",
+      "targets": {
+        "5": 30,
+        "4": 30,
+        "3": 15,
+        "1_2": 25
+      }
+    },
+    {
+      "asin": "B0DGXD6WVW",
+      "brand": "Odokee",
+      "role": "hatch-like accessible dupe",
+      "targets": {
+        "5": 30,
+        "4": 30,
+        "3": 15,
+        "1_2": 25
+      }
+    },
+    {
+      "asin": "B0BZW7WY5M",
+      "brand": "REACHER",
+      "role": "no-subscription low-tech sunrise clock",
+      "targets": {
+        "5": 15,
+        "4": 15,
+        "3": 8,
+        "1_2": 12
+      }
+    },
+    {
+      "asin": "B081CHLF46",
+      "brand": "JALL",
+      "role": "legacy high-review wake-up light baseline",
+      "targets": {
+        "5": 10,
+        "4": 10,
+        "3": 5,
+        "1_2": 7
+      }
+    },
+    {
+      "asin": "B0B2ZTZZ3F",
+      "brand": "BUFFBEE",
+      "role": "low-price sound-machine adjacent baseline",
+      "targets": {
+        "5": 8,
+        "4": 8,
+        "3": 4,
+        "1_2": 6
+      }
+    },
+    {
+      "asin": "B0093162RM",
+      "brand": "Philips",
+      "role": "light-therapy legitimacy benchmark",
+      "targets": {
+        "5": 6,
+        "4": 6,
+        "3": 3,
+        "1_2": 7
+      }
+    }
+  ],
+  "summary_by_asin": {
+    "B0093162RM": {
+      "brand": "Philips",
+      "role": "light-therapy legitimacy benchmark",
+      "raw_after_dedupe": 52,
+      "effective_reviews": 52,
+      "by_star": {
+        "1": 13,
+        "2": 4,
+        "3": 3,
+        "4": 16,
+        "5": 16
+      },
+      "effective_by_star": {
+        "1": 13,
+        "2": 4,
+        "3": 3,
+        "4": 16,
+        "5": 16
+      }
+    },
+    "B081CHLF46": {
+      "brand": "JALL",
+      "role": "legacy high-review wake-up light baseline",
+      "raw_after_dedupe": 10,
+      "effective_reviews": 9,
+      "by_star": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 8
+      },
+      "effective_by_star": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 7
+      }
+    },
+    "B0B2ZTZZ3F": {
+      "brand": "BUFFBEE",
+      "role": "low-price sound-machine adjacent baseline",
+      "raw_after_dedupe": 56,
+      "effective_reviews": 49,
+      "by_star": {
+        "1": 11,
+        "2": 5,
+        "3": 4,
+        "4": 18,
+        "5": 18
+      },
+      "effective_by_star": {
+        "1": 10,
+        "2": 5,
+        "3": 4,
+        "4": 17,
+        "5": 13
+      }
+    },
+    "B0BZW7WY5M": {
+      "brand": "REACHER",
+      "role": "no-subscription low-tech sunrise clock",
+      "raw_after_dedupe": 80,
+      "effective_reviews": 77,
+      "by_star": {
+        "1": 16,
+        "2": 8,
+        "3": 8,
+        "4": 24,
+        "5": 24
+      },
+      "effective_by_star": {
+        "1": 16,
+        "2": 8,
+        "3": 8,
+        "4": 24,
+        "5": 21
+      }
+    },
+    "B0DGXD6WVW": {
+      "brand": "Odokee",
+      "role": "hatch-like accessible dupe",
+      "raw_after_dedupe": 110,
+      "effective_reviews": 106,
+      "by_star": {
+        "1": 15,
+        "2": 15,
+        "3": 20,
+        "4": 30,
+        "5": 30
+      },
+      "effective_by_star": {
+        "1": 15,
+        "2": 15,
+        "3": 20,
+        "4": 30,
+        "5": 26
+      }
+    },
+    "B0DLLSCVZW": {
+      "brand": "Hatch",
+      "role": "premium routine benchmark",
+      "raw_after_dedupe": 104,
+      "effective_reviews": 102,
+      "by_star": {
+        "1": 26,
+        "2": 4,
+        "3": 15,
+        "4": 30,
+        "5": 29
+      },
+      "effective_by_star": {
+        "1": 26,
+        "2": 4,
+        "3": 14,
+        "4": 30,
+        "5": 28
+      }
+    }
+  },
+  "request_log": [
+    {
+      "idx": 1,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DLLSCVZW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 30,
+        "starList": [
+          5
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 2,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DLLSCVZW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 30,
+        "starList": [
+          4
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 3,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DLLSCVZW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 15,
+        "starList": [
+          3
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 4,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DLLSCVZW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 25,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 5,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 30,
+        "starList": [
+          5
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 6,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 30,
+        "starList": [
+          4
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 7,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 15,
+        "starList": [
+          3
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 8,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 1,
+        "size": 25,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 9,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0BZW7WY5M",
+        "marketplace": "US",
+        "page": 1,
+        "size": 15,
+        "starList": [
+          5
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 10,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0BZW7WY5M",
+        "marketplace": "US",
+        "page": 1,
+        "size": 15,
+        "starList": [
+          4
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 11,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0BZW7WY5M",
+        "marketplace": "US",
+        "page": 1,
+        "size": 8,
+        "starList": [
+          3
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 12,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0BZW7WY5M",
+        "marketplace": "US",
+        "page": 1,
+        "size": 12,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 13,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 1,
+        "size": 10,
+        "starList": [
+          5
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 14,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 1,
+        "size": 10,
+        "starList": [
+          4
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 15,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 1,
+        "size": 5,
+        "starList": [
+          3
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 16,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 1,
+        "size": 7,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 17,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0B2ZTZZ3F",
+        "marketplace": "US",
+        "page": 1,
+        "size": 8,
+        "starList": [
+          5
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 18,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0B2ZTZZ3F",
+        "marketplace": "US",
+        "page": 1,
+        "size": 8,
+        "starList": [
+          4
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 19,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0B2ZTZZ3F",
+        "marketplace": "US",
+        "page": 1,
+        "size": 4,
+        "starList": [
+          3
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 20,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0B2ZTZZ3F",
+        "marketplace": "US",
+        "page": 1,
+        "size": 6,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 21,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0093162RM",
+        "marketplace": "US",
+        "page": 1,
+        "size": 6,
+        "starList": [
+          5
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 22,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0093162RM",
+        "marketplace": "US",
+        "page": 1,
+        "size": 6,
+        "starList": [
+          4
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 23,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0093162RM",
+        "marketplace": "US",
+        "page": 1,
+        "size": 3,
+        "starList": [
+          3
+        ]
+      },
+      "status_code": 200
+    },
+    {
+      "idx": 24,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0093162RM",
+        "marketplace": "US",
+        "page": 1,
+        "size": 7,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status_code": 200
+    }
+  ],
+  "effective_rule": "content_text length >= 20 characters after html br normalization",
+  "zero_hallucination": "All review texts are directly returned by SellerSprite MCP. Missing/short content remains in raw ledger and is excluded from effective analysis.",
+  "updated_at": "2026-05-06T06:16:34.283598+00:00",
+  "extra_request_log": [
+    {
+      "idx": 100,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DLLSCVZW",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          5
+        ]
+      },
+      "status": "ok",
+      "returned": 15
+    },
+    {
+      "idx": 101,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DLLSCVZW",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          4
+        ]
+      },
+      "status": "ok",
+      "returned": 15
+    },
+    {
+      "idx": 102,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DLLSCVZW",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status": "ok",
+      "returned": 15
+    },
+    {
+      "idx": 103,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          5
+        ]
+      },
+      "status": "ok",
+      "returned": 15
+    },
+    {
+      "idx": 104,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          4
+        ]
+      },
+      "status": "ok",
+      "returned": 15
+    },
+    {
+      "idx": 105,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 2,
+        "size": 10,
+        "starList": [
+          3
+        ]
+      },
+      "status": "ok",
+      "returned": 10
+    },
+    {
+      "idx": 106,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0DGXD6WVW",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status": "ok",
+      "returned": 15
+    },
+    {
+      "idx": 107,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0BZW7WY5M",
+        "marketplace": "US",
+        "page": 2,
+        "size": 12,
+        "starList": [
+          5
+        ]
+      },
+      "status": "ok",
+      "returned": 12
+    },
+    {
+      "idx": 108,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0BZW7WY5M",
+        "marketplace": "US",
+        "page": 2,
+        "size": 12,
+        "starList": [
+          4
+        ]
+      },
+      "status": "ok",
+      "returned": 12
+    },
+    {
+      "idx": 109,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0BZW7WY5M",
+        "marketplace": "US",
+        "page": 2,
+        "size": 12,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status": "ok",
+      "returned": 12
+    },
+    {
+      "idx": 110,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          5
+        ]
+      },
+      "status": "ok",
+      "returned": 0
+    },
+    {
+      "idx": 111,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 2,
+        "size": 15,
+        "starList": [
+          4
+        ]
+      },
+      "status": "ok",
+      "returned": 0
+    },
+    {
+      "idx": 112,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 1,
+        "size": 10,
+        "starList": [
+          3
+        ]
+      },
+      "status": "ok",
+      "returned": 1
+    },
+    {
+      "idx": 113,
+      "tool": "review",
+      "arguments": {
+        "asin": "B081CHLF46",
+        "marketplace": "US",
+        "page": 1,
+        "size": 15,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status": "ok",
+      "returned": 0
+    },
+    {
+      "idx": 114,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0B2ZTZZ3F",
+        "marketplace": "US",
+        "page": 2,
+        "size": 10,
+        "starList": [
+          5
+        ]
+      },
+      "status": "ok",
+      "returned": 10
+    },
+    {
+      "idx": 115,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0B2ZTZZ3F",
+        "marketplace": "US",
+        "page": 2,
+        "size": 10,
+        "starList": [
+          4
+        ]
+      },
+      "status": "ok",
+      "returned": 10
+    },
+    {
+      "idx": 116,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0B2ZTZZ3F",
+        "marketplace": "US",
+        "page": 2,
+        "size": 10,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status": "ok",
+      "returned": 10
+    },
+    {
+      "idx": 117,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0093162RM",
+        "marketplace": "US",
+        "page": 2,
+        "size": 10,
+        "starList": [
+          5
+        ]
+      },
+      "status": "ok",
+      "returned": 10
+    },
+    {
+      "idx": 118,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0093162RM",
+        "marketplace": "US",
+        "page": 2,
+        "size": 10,
+        "starList": [
+          4
+        ]
+      },
+      "status": "ok",
+      "returned": 10
+    },
+    {
+      "idx": 119,
+      "tool": "review",
+      "arguments": {
+        "asin": "B0093162RM",
+        "marketplace": "US",
+        "page": 2,
+        "size": 10,
+        "starList": [
+          1,
+          2
+        ]
+      },
+      "status": "ok",
+      "returned": 10
+    }
+  ],
+  "sampling_note": "Initial stratified pull produced 247 effective reviews; second-page supplemental pull added enough effective samples without fabricating or counting short content."
+}

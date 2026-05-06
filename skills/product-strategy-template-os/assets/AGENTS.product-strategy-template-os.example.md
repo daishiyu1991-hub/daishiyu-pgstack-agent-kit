@@ -20,8 +20,9 @@ Use this chapter order unless the user provides another template:
 3. 头部品牌竞争&竞品分析
 4. 用户场景&需求分析
 5. 营销分析&社媒传播
-6. 供应链管理
-7. 产品规划
+6. 产品规划
+7. 供应链实现
+8. 项目计划
 ```
 
 Do not jump chapters. If a useful point belongs to a later chapter, record it as a later-chapter input.

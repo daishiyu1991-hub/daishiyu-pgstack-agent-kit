@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 4 章执行计划｜用户场景&需求分析</title>
+  <style>
+    :root{
+      --bg:#f5f3ed;
+      --paper:#fffdf8;
+      --ink:#20282d;
+      --soft:#4f5d62;
+      --muted:#75817d;
+      --line:#dde3dd;
+      --sage:#6f8373;
+      --sage-soft:#e8eee8;
+      --blue:#687e8c;
+      --blue-soft:#e8eef2;
+      --clay:#9b7767;
+      --clay-soft:#f2e7e1;
+      --gold:#a48a51;
+      --gold-soft:#f3eddd;
+      --plum:#7d6f7c;
+      --plum-soft:#eee8ee;
+      --shadow:0 18px 46px rgba(42,49,44,.07);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        linear-gradient(90deg, rgba(104,126,140,.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(111,131,115,.13), rgba(245,243,237,0) 330px),
+        var(--bg);
+      background-size:54px 54px, auto, auto;
+      font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      letter-spacing:0;
+    }
+    a{color:inherit;text-decoration:none}
+    p,h1,h2,h3{margin:0}
+    p,li{font-size:14px;line-height:1.78;color:var(--soft)}
+    main{width:min(1200px,calc(100% - 42px));margin:0 auto;padding:28px 0 72px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted);font-size:13px}
+    .pill{display:inline-flex;align-items:center;min-height:34px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.78);font-size:12px;font-weight:900;color:var(--soft)}
+    .hero{display:grid;grid-template-columns:minmax(0,1.12fr) 350px;gap:18px;margin-bottom:18px}
+    .hero-main,.side,.panel,.table-card,.judge{border:1px solid var(--line);border-radius:20px;background:rgba(255,253,248,.92);box-shadow:var(--shadow)}
+    .hero-main{padding:34px}
+    .eyebrow{color:var(--sage);font-size:13px;font-weight:950;margin-bottom:14px}
+    h1{font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:44px;line-height:1.13;font-weight:900;max-width:780px}
+    .lead{margin-top:18px;font-size:17px;line-height:1.78;color:#344047;max-width:780px}
+    .focus{margin-top:24px;padding:18px 20px;border-left:5px solid var(--sage);border-radius:14px;background:#fff}
+    .focus span{display:block;color:var(--muted);font-size:12px;font-weight:950;margin-bottom:8px}
+    .focus strong{display:block;font-size:22px;line-height:1.45}
+    .side{padding:22px;display:grid;gap:12px;align-content:start}
+    .metric{padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .metric b{display:block;font-size:13px;margin-bottom:6px}
+    .metric span{display:block;font-size:12px;line-height:1.6;color:var(--muted)}
+    section{margin-top:18px}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:12px}
+    .section-head h2{font-size:26px;line-height:1.25}
+    .section-head p{max-width:650px;color:var(--muted);font-size:13px;line-height:1.7}
+    .grid-5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .panel{padding:20px}
+    .panel h3{font-size:18px;line-height:1.35;margin-bottom:8px}
+    .panel p{font-size:13px;line-height:1.7;color:var(--soft)}
+    .label{display:inline-flex;padding:5px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-size:11px;font-weight:950;margin-bottom:10px}
+    .panel:nth-child(2n) .label{background:var(--sage-soft);color:var(--sage)}
+    .panel:nth-child(3n) .label{background:var(--gold-soft);color:var(--gold)}
+    .panel:nth-child(4n) .label{background:var(--plum-soft);color:var(--plum)}
+    .table-card{padding:22px;overflow:auto}
+    table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+    th,td{padding:12px 11px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);font-size:12px;line-height:1.55;vertical-align:top;text-align:left}
+    th{background:#f4f5f0;color:var(--soft);font-weight:950}
+    tr:last-child td{border-bottom:none}
+    th:last-child,td:last-child{border-right:none}
+    .status{display:inline-flex;padding:4px 8px;border-radius:999px;font-weight:950;background:var(--sage-soft);color:var(--sage);white-space:nowrap}
+    .status.warn{background:var(--clay-soft);color:var(--clay)}
+    .status.info{background:var(--blue-soft);color:var(--blue)}
+    .flow{display:grid;gap:12px}
+    .flow-step{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .flow-step b{font-size:14px;color:var(--ink)}
+    .judge{padding:22px}
+    .choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+    .choice{padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .choice b{display:block;font-size:16px;margin-bottom:7px}
+    .choice span{display:block;font-size:12px;line-height:1.6;color:var(--muted)}
+    @media(max-width:1050px){.hero,.grid-5,.grid-3,.grid-2{grid-template-columns:1fr}.flow-step{grid-template-columns:1fr}}
+    @media(max-width:720px){main{width:min(100% - 24px,1200px);padding-top:18px}.hero-main,.side,.panel,.table-card,.judge{padding:18px}h1{font-size:34px}.choice-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topbar">
+    <a class="pill" href="quality-review-index.html">返回索引</a>
+    <span>第 4 章 · 用户场景&需求分析 · 执行计划 v1</span>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-main">
+      <div class="eyebrow">Chapter Router</div>
+      <h1>第 4 章不先写用户故事，先把“用户证据怎么来”定清楚。</h1>
+      <p class="lead">第三章已经通过，说明我们可以进入用户层。但用户层最容易被 AI 用想象填满，所以这一章必须先按模板拆成用户画像、场景矩阵、用户旅程、需求分析、产品需求&技术创新五个小循环。</p>
+      <div class="focus">
+        <span>本章核心问题</span>
+        <strong>用户是否真的把这个方向看成“更好的睡眠/唤醒灯具体验”，而不是贵一点的闹钟或加了灯的声音机？</strong>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="metric"><b>来自第 3 章的输入</b><span>短线对手：Odokee / REACHER / JALL / BUFFBEE；长线学习：Hatch / Philips。</span></div>
+      <div class="metric"><b>本章不做</b><span>不做最终产品定义、不写 listing 策略、不推断真实供应链成本。</span></div>
+      <div class="metric"><b>优先证据</b><span>Amazon 评论、Q&A、场景视频、前台页面、必要时问卷/访谈。</span></div>
+      <div class="metric"><b>下一步</b><span>确认计划后，开始证据采集与第 4 章正文。</span></div>
+    </aside>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>第 4 章五个小循环</h2>
+      <p>每个节点都必须有 Input → Processing → Output，不再先写结论后补证据。</p>
+    </div>
+    <div class="grid-5">
+      <article class="panel"><span class="label">4.1</span><h3>用户画像</h3><p>从评论、报告、社媒/独立站线索里提取“谁在用、谁在买、谁影响购买”。不无来源推断年龄和收入。</p></article>
+      <article class="panel"><span class="label">4.2</span><h3>场景矩阵</h3><p>拆睡前、夜间、早晨、儿童/家庭、卧室氛围、白噪音入睡，并判断痛点强弱和视觉化程度。</p></article>
+      <article class="panel"><span class="label">4.3</span><h3>用户旅程</h3><p>从认知、搜索、比较、购买、首次使用到长期使用，寻找从 $30 升到 $60-$100 的转化理由。</p></article>
+      <article class="panel"><span class="label">4.4</span><h3>需求分析</h3><p>把正负评、Q&A、视频和文章里的需求归类，并区分真实差异价值与质量保障价值。</p></article>
+      <article class="panel"><span class="label">4.5</span><h3>创意与创新线索</h3><p>只输出创意方向和技术创新线索，不直接进入第 7 章产品定义。</p></article>
+    </div>
+  </section>
+
+  <section class="table-card">
+    <div class="section-head">
+      <h2>Evidence Acquisition Router</h2>
+      <p>能从 MCP 拉的先从 MCP 拉；需要浏览器的打开浏览器；需要人工输入的明确标出。</p>
+    </div>
+    <table>
+      <thead>
+        <tr><th>模板输入</th><th>采集状态</th><th>默认工具</th><th>用于哪个节点</th><th>规则</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>平台用户评论数据</td><td><span class="status">mcp_available</span></td><td>Sorftime product_reviews</td><td>4.1 / 4.2 / 4.4</td><td>按 ASIN 和战场分正负评，保留来源。</td></tr>
+        <tr><td>Amazon Q&A / 前台问答</td><td><span class="status info">browser_required</span></td><td>browser-use / 手动导出</td><td>4.3 / 4.4</td><td>MCP 无专用字段时不能编造问答。</td></tr>
+        <tr><td>场景视频 / vlog</td><td><span class="status info">web_research</span></td><td>YouTube / TikTok / web search</td><td>4.2 / 4.3</td><td>只采集场景证据，不写第 5 章传播策略。</td></tr>
+        <tr><td>社媒粉丝 / 独立站用户数据</td><td><span class="status info">browser_or_similarweb</span></td><td>官网 / Similarweb</td><td>4.1</td><td>缺失则 not_collected，不推断画像。</td></tr>
+        <tr><td>行业报告</td><td><span class="status info">web_research</span></td><td>公开报告 / 搜索</td><td>4.1 / 4.3</td><td>只能做上位背景，不能替代评论证据。</td></tr>
+        <tr><td>问卷或用户访谈</td><td><span class="status warn">manual_required</span></td><td>PickFu / 访谈 / 内测</td><td>4.3 / 4.4</td><td>没有真实问卷就只能输出待验证假设。</td></tr>
+        <tr><td>实际体验洞察</td><td><span class="status warn">manual_required</span></td><td>样机 / 内部体验</td><td>4.4 / 4.5</td><td>AI 不能虚构真实使用体验。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="grid-2">
+    <article class="panel">
+      <span class="label">必须继承的第 3 章问题</span>
+      <h3>用户第一眼到底看见了什么？</h3>
+      <p>我们要验证用户会不会把光效、卧室对象感、简单控制和品质可信看成更高价值。如果用户只看成闹钟或声音机，那么产品会被低价锚拖住。</p>
+    </article>
+    <article class="panel">
+      <span class="label">本章输出给后面什么</span>
+      <h3>第 5/7 章输入包</h3>
+      <p>第 4 章最后输出用户画像、核心场景矩阵、用户旅程、购买决策链、分权重需求集，并把内容表达交给第 5 章，把产品定义交给第 7 章。</p>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>执行循环</h2>
+      <p>正式正文开始后，每个节点都按这个循环推进，通过后再进入下一个节点。</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><b>1. Input</b><p>确认当前节点需要的真实输入：评论、Q&A、视频、报告、问卷、体验洞察。没有就标缺。</p></div>
+      <div class="flow-step"><b>2. Acquire</b><p>能 MCP 拉就拉；需要浏览器就浏览器；需要人工就写成待补输入，不用想象替代。</p></div>
+      <div class="flow-step"><b>3. Processing</b><p>按模板方法处理：文本分析、场景矩阵、用户旅程、需求权重、创意线索。</p></div>
+      <div class="flow-step"><b>4. Supplement Review</b><p>AI 先自查缺证：是否评论数量不够、是否只看正评、是否缺 Q&A、是否场景视频不足。</p></div>
+      <div class="flow-step"><b>5. Red-team</b><p>从公司能力和消费者前台视角反驳结论：这到底是差异价值，还是普通功能包装？</p></div>
+      <div class="flow-step"><b>6. Output</b><p>只输出本节点该输出的内容，不跨到产品规划。完整 HTML 作为最终人类判断页面。</p></div>
+    </div>
+  </section>
+
+  <section class="judge">
+    <div class="section-head" style="margin-bottom:0">
+      <h2>Human Decision Stop</h2>
+      <p>第 4 章执行计划已生成。下一步要不要开始采集评论、Q&A、场景视频并写正文，需要你再确认。</p>
+    </div>
+    <div class="choice-grid">
+      <div class="choice"><b>A. 通过执行计划，开始第 4 章证据采集与正文</b><span>默认按 Hatch / Odokee / REACHER / JALL / BUFFBEE / Philips 等代表样本开跑。</span></div>
+      <div class="choice"><b>B. 先调整用户/ASIN/场景样本</b><span>改 ASIN 池、增加用户分群或改变优先场景。</span></div>
+      <div class="choice"><b>C. 回到第 3 章补品牌证据</b><span>先补 gerp-ads / ABA / SIF / 前台截图，再进入用户层。</span></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

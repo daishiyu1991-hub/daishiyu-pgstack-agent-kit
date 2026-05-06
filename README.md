@@ -38,6 +38,27 @@ For the fixed-template product/category research workflow, install:
 npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
 ```
 
+To update an existing install, tell the teammate's agent:
+
+```text
+/update product-os
+```
+
+The installed skill maps that phrase to:
+
+```bash
+SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+python3 "$SKILL_HOME/scripts/update_product_os.py"
+```
+
+If the teammate has an older install without that script, the fallback is:
+
+```bash
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
+SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+python3 "$SKILL_HOME/scripts/bootstrap_check.py" --skill-root "$SKILL_HOME"
+```
+
 After installation, the teammate's agent should read:
 
 ```text

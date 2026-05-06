@@ -1,0 +1,179 @@
+{
+  "artifact": "section4_execution_plan_v1",
+  "created_at": "2026-04-30",
+  "status": "planned_from_canonical_template_structure",
+  "product": "wake up light / sunrise alarm clock",
+  "page": "quality-review-template-ch4-execution-plan-v1.html",
+  "template_source": {
+    "artifact": "process/template-structure-extracted-v1.json",
+    "chapter_id": "4",
+    "chapter_name": "用户场景&需求分析",
+    "source_pages": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+  },
+  "source_decision": {
+    "chapter": "3. 头部品牌竞争&竞品分析",
+    "decision_record": "process/section3-human-decision-pass-v1.json",
+    "human_choice": "A. 通过，并解锁第 4 章"
+  },
+  "template_router": {
+    "current_chapter": "4. 用户场景&需求分析",
+    "allowed_sections_from_template": [
+      "4.1 用户画像",
+      "4.2 场景矩阵",
+      "4.3 用户旅程",
+      "4.4 需求分析",
+      "4.5 产品需求&技术创新",
+      "4.output 第 4 章最终输出"
+    ],
+    "blocked_scope": [
+      "第 5 章营销分析&社媒传播不能在本章展开成营销方案",
+      "第 6 章供应链管理不能在本章推断真实成本或供应商能力",
+      "第 7 章产品规划不能在本章直接输出最终产品定义",
+      "评论和 Q&A 可以用于用户需求，但不能直接跳成 listing 文案"
+    ]
+  },
+  "chapter_preamble": {
+    "previous_outputs_to_use": [
+      "process/section3-brand-competitor-analysis-v1.md",
+      "process/section3-brand-competitor-evidence-v1.json",
+      "process/section3-human-decision-pass-v1.json"
+    ],
+    "core_question_from_chapter3": "用户是否真的把这个东西当作更好的睡眠/唤醒灯具体验，而不是贵闹钟或加灯声音机？",
+    "representative_asins": [
+      "B0DLLSCVZW",
+      "B0F7C6XJ3P",
+      "B0DGXD6WVW",
+      "B0BZW7WY5M",
+      "B0B2ZTZZ3F",
+      "B081CHLF46",
+      "B0093162RM",
+      "B07RWRJ4XW",
+      "B0DPYZ68GK",
+      "B0BFC7WQ6R"
+    ]
+  },
+  "evidence_acquisition_router": [
+    {
+      "template_field": "平台用户评论数据",
+      "status": "mcp_available",
+      "primary_tools": ["Sorftime product_reviews"],
+      "use_for": ["4.1 用户画像", "4.2 场景矩阵", "4.4 需求分析"],
+      "notes": "优先拉正负评，按 ASIN 与战场分组。"
+    },
+    {
+      "template_field": "Amazon Q&A / 前台问答",
+      "status": "browser_required_or_export_required",
+      "primary_tools": ["browser-use", "manual export if needed"],
+      "use_for": ["4.3 用户旅程", "4.4 高价值评论集"],
+      "notes": "MCP 当前未提供 Q&A 专用字段；需要浏览器或导出。"
+    },
+    {
+      "template_field": "场景视频/vlog",
+      "status": "web_research_required",
+      "primary_tools": ["web research", "YouTube/TikTok search", "Sorftime TikTok tools if relevant"],
+      "use_for": ["4.2 场景矩阵", "4.3 用户旅程"],
+      "notes": "只采集可公开追溯的场景内容；不把社媒传播策略写入本章。"
+    },
+    {
+      "template_field": "社媒粉丝/独立站用户数据",
+      "status": "browser_required_or_similarweb_required",
+      "primary_tools": ["brand official sites", "Similarweb if available"],
+      "use_for": ["4.1 用户画像"],
+      "notes": "缺失时标 not_collected，不推断年龄/收入等私人画像。"
+    },
+    {
+      "template_field": "行业报告",
+      "status": "web_research_required",
+      "primary_tools": ["public reports", "Google/search"],
+      "use_for": ["4.1 用户画像", "4.3 用户旅程"],
+      "notes": "只能作为上位背景，不能替代 Amazon 评论证据。"
+    },
+    {
+      "template_field": "问卷或用户访谈",
+      "status": "manual_input_required",
+      "primary_tools": ["PickFu", "manual interview", "internal user test"],
+      "use_for": ["4.3 用户购买决策链", "4.4 需求权重"],
+      "notes": "如果没有真实问卷/访谈，本章只能输出调研假设和待验证问题。"
+    },
+    {
+      "template_field": "实际体验洞察",
+      "status": "manual_input_required",
+      "primary_tools": ["buy sample", "internal hands-on test"],
+      "use_for": ["4.4 产品需求集", "4.5 产品创意挖掘"],
+      "notes": "不能由 AI 虚构使用体验。"
+    }
+  ],
+  "execution_sections": [
+    {
+      "section_id": "4.1",
+      "section_name": "用户画像",
+      "input": ["平台用户评论数据", "行业报告", "社媒粉丝/独立站用户数据", "供应链/B端数据"],
+      "processing": [
+        "按战场分组：premium routine / mid-price fusion / low-price sound / legacy wake light / baby routine / smart clock",
+        "从评论和公开资料中只提取可见用户线索，不强行推断年龄、收入、职业",
+        "把用户特征分成：使用者、购买者、影响购买的人"
+      ],
+      "output": ["用户特征标签", "个人基础信息", "生活方式信息", "认知影响信息"]
+    },
+    {
+      "section_id": "4.2",
+      "section_name": "场景矩阵",
+      "input": ["场景视频/vlog", "用户评论", "社媒互动图片", "行业报告"],
+      "processing": [
+        "把场景拆成睡前、夜间、早晨、儿童/家庭、卧室氛围、白噪音入睡",
+        "每个场景判断任务、现有替代品、情绪状态、触发购买的可见价值",
+        "输出二维矩阵：高频/低频 × 高痛/低痛，另标可视觉化程度"
+      ],
+      "output": ["场景矩阵", "营销策略输入"]
+    },
+    {
+      "section_id": "4.3",
+      "section_name": "用户旅程",
+      "input": ["场景视频/vlog", "用户评论", "社媒互动图片", "行业报告"],
+      "processing": [
+        "按认知、搜索、比较、购买、首次使用、长期使用、复购/推荐拆解",
+        "把购买决策链聚焦到：为什么愿意从 $30 升到 $60-$100",
+        "识别转化阻碍：贵、复杂、像普通闹钟、app 依赖、声音/光效不可信"
+      ],
+      "output": ["用户旅程图", "购买决策策略建议", "辅助运营建议输入"]
+    },
+    {
+      "section_id": "4.4",
+      "section_name": "需求分析",
+      "input": ["电商用户评论", "论坛互动文本", "评论/视频/文章", "问卷或用户访谈", "实际体验洞察"],
+      "processing": [
+        "评论正负向分组，提取功能需求、情感需求、预期差、价格/价值冲突",
+        "为每条需求标注：出现来源、所属场景、是否能通过产品力解决、是否能前台表达",
+        "Red-team：把质量保障价值和真正产品差异价值分开"
+      ],
+      "output": ["分权重需求集", "评论词云词频", "listing 评论分析", "高价值评论集", "产品需求集"]
+    },
+    {
+      "section_id": "4.5",
+      "section_name": "产品需求&技术创新",
+      "input": ["需求集", "场景矩阵", "众筹/创新产品资料", "实际体验洞察"],
+      "processing": [
+        "只输出产品创意方向和技术创新线索，不进入第 7 章产品定义",
+        "判断创新是否能被用户第一眼感知",
+        "把供应链和成本问题转入第 6 章"
+      ],
+      "output": ["产品创意方向", "技术创新线索", "众筹平台待验证输入"]
+    }
+  ],
+  "review_gates": [
+    "template_alignment: every block maps to chapter 4 only",
+    "evidence_integrity: no inferred demographic or income claims without source",
+    "supplement_review: before conclusion, check whether reviews/Q&A/video evidence is enough",
+    "red_team: argue against user-value assumptions from company capability and consumer-frontstage perspective",
+    "boundary_control: no final product definition, no listing strategy, no supplier cost conclusion in chapter 4",
+    "reading_usability: final HTML conclusion first, charts/tables next, process and sources at bottom"
+  ],
+  "human_decision_stop": {
+    "allowed_choices": [
+      "A. 通过执行计划，开始第 4 章证据采集与正文",
+      "B. 先调整用户/ASIN/场景样本",
+      "C. 回到第 3 章补品牌证据"
+    ],
+    "default_next_if_user_says_go": "A"
+  }
+}

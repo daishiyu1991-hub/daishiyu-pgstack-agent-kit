@@ -1,0 +1,222 @@
+{
+  "artifact": "section2_market_competition_v8_evidence_ledger",
+  "created_at": "2026-04-30",
+  "chapter": "2. 市场竞争分析",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "template_source": "process/template-docx-full-io-map-v1.md",
+  "chapter_loop": "Template Node -> Question -> Input Contract -> Evidence Acquisition -> Processing -> Output Draft -> Evidence Sufficiency Review -> Red Team Argument -> Revised Conclusion -> Review Gates -> Human Decision Stop",
+  "live_collection_status": {
+    "sorftime_keyword_detail": "collected_and_used",
+    "sorftime_walmart_keyword_detail": "partial_collected_and_used",
+    "sorftime_product_ranking_trend_by_keyword": "collected_and_used",
+    "sellersprite_google_trend": "ERROR_UNAUTHORIZED",
+    "sellersprite_asin_detail": "ERROR_UNAUTHORIZED",
+    "gbrain_remote_query": "timeout_120s",
+    "web_public_sources": "collected_and_used"
+  },
+  "sources": {
+    "sorftime_keyword_trend_raw_v7": {
+      "file": "process/section2-sorftime-keyword-trend-raw-v7.json",
+      "period": "2024-04 to 2026-03 search volume; 2024-05 to 2026-04 recommended CPC",
+      "used_for": [
+        "Amazon station annual keyword trend",
+        "MoM and YoY calculation",
+        "annual demand decline correction"
+      ]
+    },
+    "sorftime_keyword_detail_live_2026_04_30": [
+      {
+        "keyword": "wake up light",
+        "weekly_search_volume": 1381,
+        "monthly_search_volume": 6193,
+        "recommended_cpc": 0.96,
+        "peak_month": "1月",
+        "search_result_competitor_count": 121153,
+        "top5_brand_sales_share_percent": [
+          ["N/A", 10.8],
+          ["Glocusent", 5.46],
+          ["MediAcous", 4.2],
+          ["Dreamegg", 3.96],
+          ["Odokee", 3.92]
+        ],
+        "read": "The keyword is semantically polluted; top natural products include book lights, night lights, Hatch, Momcozy and other adjacent products."
+      },
+      {
+        "keyword": "sunrise alarm clock",
+        "weekly_search_volume": 26494,
+        "monthly_search_volume": 128138,
+        "recommended_cpc": 0.86,
+        "peak_month": "均衡",
+        "search_result_competitor_count": 3333,
+        "top5_brand_sales_share_percent": [
+          ["N/A", 18.42],
+          ["DreamSky", 12.74],
+          ["Odokee", 7.67],
+          ["Amazon", 7.48],
+          ["Dreamegg", 5.87]
+        ],
+        "read": "Cleaner Amazon entry keyword than wake up light; top products span Echo Spot, DreamSky, Hatch, Sharp and Odokee-type hybrid products."
+      },
+      {
+        "keyword": "sound machine alarm clock",
+        "weekly_search_volume": 2425,
+        "monthly_search_volume": 10156,
+        "recommended_cpc": 1.5,
+        "peak_month": "12月",
+        "search_result_competitor_count": 5792,
+        "top5_brand_sales_share_percent": [
+          ["N/A", 11.76],
+          ["Magicteam", 7.81],
+          ["Odokee", 5.72],
+          ["Amazon", 5.12],
+          ["BrownNoise", 4.94]
+        ],
+        "read": "Smaller search volume but strong adjacent battlefield; results are dominated by sound machines, alarm clocks and hybrid bedside devices."
+      }
+    ],
+    "sorftime_walmart_live_2026_04_30": [
+      {
+        "keyword": "sunrise alarm clock",
+        "search_volume": 32829,
+        "product_count": 443,
+        "first_page_avg_price_usd": 44.58,
+        "first_page_avg_reviews": 389.75,
+        "first_page_avg_star": 4.3,
+        "update": "20260429",
+        "status": "collected_and_used"
+      },
+      {
+        "keyword": "wake up light",
+        "status": "no_related_data_returned_live",
+        "note": "Earlier cached v4 evidence had 20260422 data, but current live call returned no related data, so v8 treats it as weaker than sunrise alarm clock."
+      }
+    ],
+    "sorftime_product_ranking_live_2026_04_30": [
+      {
+        "asin": "B0DGXD6WVW",
+        "brand_or_role": "Odokee",
+        "keyword": "sunrise alarm clock",
+        "read": "Repeated page 1 exposure during 2026-04-17 to 2026-04-29; latest observations include page 1 positions #2, #8 and #11."
+      },
+      {
+        "asin": "B0DLLSCVZW",
+        "brand_or_role": "Hatch Restore 3",
+        "keyword": "sunrise alarm clock",
+        "read": "Visible but more volatile across page 1 and page 2 during 2026-04-24 to 2026-04-29."
+      },
+      {
+        "asin": "B0B2ZTZZ3F",
+        "brand_or_role": "BUFFBEE",
+        "keyword": "sound machine alarm clock",
+        "read": "Stable page 1 exposure in late March and April, often page 1 positions #3-#6."
+      },
+      {
+        "asin": "B0F7C6XJ3P",
+        "brand_or_role": "Hatch sound machine / night light",
+        "keyword": "sound machine alarm clock",
+        "read": "Exposure exists but is less stable, moving across page 1/page 2/page 3."
+      }
+    ],
+    "frozen_prior_sellersprite_evidence": {
+      "file": "process/section2-auto-collected-evidence-v4.json",
+      "used_because": "SellerSprite live asin_detail/google_trend returned unauthorized in v8, so v8 reuses already frozen evidence instead of inventing new values.",
+      "representative_asins": [
+        {"asin": "B0DLLSCVZW", "brand": "Hatch Baby", "monthly_units": 13258, "price": 169.99, "ratings": 5387, "rating": 4.3, "node": "Alarm Clocks"},
+        {"asin": "B0DGXD6WVW", "brand": "Odokee", "monthly_units": 8667, "price": 53.99, "ratings": 1534, "rating": 4.5, "node": "Sleep Sound Machines"},
+        {"asin": "B0BZW7WY5M", "brand": "REACHER", "monthly_units": 4362, "price": 32.99, "ratings": 3348, "rating": 4.4, "node": "Sleep Sound Machines"},
+        {"asin": "B081CHLF46", "brand": "JALL", "monthly_units": 2894, "price": 32.88, "ratings": 28006, "rating": 4.3, "node": "Clock Radios"},
+        {"asin": "B0093162RM", "brand": "Philips", "monthly_units": 3070, "price": 108.99, "ratings": 14687, "rating": "not_collected_in_v4", "node": "Clock Radios"}
+      ]
+    },
+    "public_web_sources": [
+      {
+        "title": "Healthcare Foresights / GlobeNewswire sleep tech devices market report",
+        "url": "https://www.globenewswire.com/news-release/2026/03/25/3262608/0/en/Latest-Global-Sleep-Tech-Devices-Market-Size-Share-Worth-USD-134-60-Billion-by-2035-at-a-18-46-CAGR-Healthcare-Foresights-Analysis-Outlook-Leaders-Report-Trends-Forecast-Segmentati.html",
+        "used_for": "macro adjacent sleep tech proxy, not exact wake-up-light TAM"
+      },
+      {
+        "title": "Hatch Restore 3 official page",
+        "url": "https://www.hatch.co/restore",
+        "used_for": "premium price anchor and product promise"
+      },
+      {
+        "title": "Target Hatch Restore 3 listing",
+        "url": "https://www.target.com/p/-/A-94589549",
+        "used_for": "retail channel presence, price and review anchor"
+      },
+      {
+        "title": "Walmart Hatch Sunrise Alarm Clocks page",
+        "url": "https://www.walmart.com/browse/home/sunrise-alarm-clocks/hatch/4044_133012_642059_4816981_1778194/YnJhbmQ6SGF0Y2gie",
+        "used_for": "Walmart retail channel anchor and price spread"
+      },
+      {
+        "title": "Best Buy Hatch Restore 3 listing",
+        "url": "https://www.bestbuy.com/site/hatch-restore-3-sunrise-alarm-clock-sound-machine-and-smart-light-putty/6615166.p",
+        "used_for": "additional retail price anchor"
+      },
+      {
+        "title": "Macy's Hatch Restore 3 listing",
+        "url": "https://www.macys.com/shop/product/hatch-restore-3-sunrise-alarm-clock-sound-machine-smart-light-greige-white-noise-screen-free-routine?ID=24084395",
+        "used_for": "department-store retail presence and premium anchor"
+      }
+    ]
+  },
+  "section_status": [
+    {
+      "section_id": "2.1.1",
+      "name": "全球主要市场大盘",
+      "status": "partial_collected",
+      "reason": "Sleep tech macro proxy collected, but exact wake-up-light TAM, region split, supply-chain B-side data and customs data are not collected."
+    },
+    {
+      "section_id": "2.1.2",
+      "name": "市场发展趋势",
+      "status": "partial_collected",
+      "reason": "Amazon station 24-month keyword trend collected; Google Trends route returned unauthorized."
+    },
+    {
+      "section_id": "2.1.3",
+      "name": "市场生命周期",
+      "status": "inference_from_collected_facts",
+      "reason": "Lifecycle is inferred from keyword decline, product count, review moat, brand structure and new-product evidence."
+    },
+    {
+      "section_id": "2.2.1",
+      "name": "亚马逊关键词搜索趋势",
+      "status": "collected_and_used",
+      "reason": "Sorftime 24-month search volume, rank and CPC series collected and annual MoM/YoY calculated."
+    },
+    {
+      "section_id": "2.2.2",
+      "name": "亚马逊市场容量&趋势",
+      "status": "partial_collected",
+      "reason": "Keyword-level and representative ASIN data collected; full category annual sales curve remains not_collected."
+    },
+    {
+      "section_id": "2.2.3",
+      "name": "品牌集中度",
+      "status": "partial_collected",
+      "reason": "Sorftime top5 brand/seller shares collected for three keywords, but exact full-category brand count and cleaned N/A attribution remain not_collected."
+    },
+    {
+      "section_id": "2.2.4",
+      "name": "市场新品趋势",
+      "status": "partial_collected",
+      "reason": "Representative new/hybrid ASINs and ranking trends collected; launch-date distribution and full new-ASIN table remain not_collected."
+    },
+    {
+      "section_id": "2.3",
+      "name": "其他渠道市场机会",
+      "status": "partial_collected",
+      "reason": "Walmart live keyword detail and public retail anchors collected; Target/HomeDepot/Lowe's structured Top1000 remains not_collected."
+    }
+  ],
+  "zero_hallucination_notes": [
+    "Exact wake-up-light global TAM is not collected.",
+    "Google Trends is not collected because SellerSprite google_trend returned ERROR_UNAUTHORIZED.",
+    "Amazon full category annual sales curve is not collected.",
+    "SellerSprite live asin_detail is not collected because current calls returned ERROR_UNAUTHORIZED.",
+    "Any lifecycle conclusion is labelled as inference from collected facts.",
+    "Any macro sleep-tech figure is treated as adjacent proxy, not direct wake-up-light market size."
+  ]
+}

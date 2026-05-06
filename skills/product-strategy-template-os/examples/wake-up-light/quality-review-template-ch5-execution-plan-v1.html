@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第5章执行计划 · 营销分析&社媒传播</title>
+  <style>
+    :root{
+      --bg:#f4f3ee;
+      --paper:#fbfaf6;
+      --card:#fff;
+      --ink:#20282d;
+      --muted:#647077;
+      --faint:#8c969b;
+      --line:#d9dedc;
+      --sage:#6f8578;
+      --sage-soft:#eef2ef;
+      --blue:#6f8392;
+      --blue-soft:#edf3f5;
+      --clay:#9b7d68;
+      --clay-soft:#f5eee8;
+      --moss:#7d8765;
+      --moss-soft:#f1f3ec;
+      --rose:#a27773;
+      --rose-soft:#f6eeee;
+      --shadow:0 18px 52px rgba(32,42,49,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:linear-gradient(180deg,rgba(111,133,120,.10),rgba(244,243,238,0) 360px),var(--bg);
+      font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    p,h1,h2,h3{margin:0}
+    p,li{font-size:14px;line-height:1.78;color:var(--muted)}
+    main{max-width:1180px;margin:0 auto;padding:30px 24px 78px}
+    .topnav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted);font-size:13px;font-weight:850}
+    .topnav a{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72)}
+    .hero{
+      min-height:300px;
+      padding:34px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:linear-gradient(135deg,rgba(111,133,120,.18),transparent 56%),var(--paper);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 340px;
+      gap:26px;
+      align-items:end;
+    }
+    .eyebrow{color:var(--sage);font-size:13px;font-weight:950;margin-bottom:12px}
+    h1{max-width:760px;font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:46px;line-height:1.14;letter-spacing:0}
+    .lead{max-width:780px;margin-top:18px;color:#39454c;font-size:17px;line-height:1.82}
+    .note{padding:20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.78)}
+    .note b{display:block;font-size:18px;margin-bottom:10px}
+    section{margin-top:22px;padding:28px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 12px 38px rgba(32,42,49,.04)}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px}
+    .section-head h2{font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:30px;line-height:1.25}
+    .section-head p{max-width:560px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .card{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff}
+    .card h3{font-size:18px;line-height:1.4;margin-bottom:8px}
+    .num{font-size:12px;font-weight:950;color:var(--faint);margin-bottom:8px}
+    .callout{background:linear-gradient(135deg,var(--sage-soft),#fff)}
+    .warn{background:linear-gradient(135deg,var(--rose-soft),#fff)}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .tag{padding:6px 9px;border-radius:999px;background:var(--moss-soft);color:#626a4f;font-size:12px;font-weight:850}
+    table{width:100%;border-collapse:separate;border-spacing:0;min-width:880px}
+    .scroll{overflow-x:auto}
+    th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px;line-height:1.62}
+    th{color:#526068;background:#f7f8f5;font-weight:950}
+    tr:last-child td{border-bottom:0}
+    .flow{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:10px;overflow-x:auto;padding-bottom:4px}
+    .step{padding:16px;border:1px solid var(--line);border-radius:15px;background:#fff;min-height:160px}
+    .step b{display:block;margin-bottom:8px}
+    @media(max-width:980px){.hero,.grid-2,.grid-4{grid-template-columns:1fr}.flow{grid-template-columns:1fr}h1{font-size:36px}}
+    @media(max-width:680px){main{padding:16px 12px 56px}.hero,section{padding:20px}h1{font-size:31px}.section-head{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topnav">
+    <a href="quality-review-index.html">返回索引</a>
+    <span>第 5 章 · 执行计划 v1</span>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Chapter 5 · Marketing & Social Media</div>
+      <h1>第 5 章先不写正文，先定义怎么证明“价值能被看见”。</h1>
+      <p class="lead">第 4 章已通过，但它留下一个更尖锐的问题：主图、A+、视频、品牌页和社媒内容，能不能让用户第一眼理解这不是贵闹钟，而是更好的睡眠唤醒灯具体验？</p>
+    </div>
+    <aside class="note">
+      <b>人类选择记录</b>
+      <p>A. 第 4 章通过，后续再补。缺失证据进入补证队列；第 5 章先按模板执行计划推进。</p>
+    </aside>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>本章问题</h2>
+      <p>第 5 章不是做产品规划，而是判断对手如何运营、如何表达价值、站外如何承接。</p>
+    </div>
+    <div class="grid-2">
+      <article class="card callout">
+        <h3>本章要回答</h3>
+        <p>Amazon 前台、其他平台、独立站和社媒内容，如何把“光效改善睡前和醒来体验”讲成用户能看懂、愿意点击、愿意多付的价值？</p>
+      </article>
+      <article class="card warn">
+        <h3>本章不回答</h3>
+        <p>不推断供应链成本，不定最终 SKU，不直接给上市计划。那些属于第 6 章和第 7 章。</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>执行循环</h2>
+      <p>继续沿用 Template OS：先证据，再分析，再 red-team，最后才出 HTML。</p>
+    </div>
+    <div class="flow">
+      <div class="step"><b>1. Router</b><p>锁定第 5 章边界：营销、运营、社媒，不越界到供应链和产品规划。</p></div>
+      <div class="step"><b>2. Evidence</b><p>采集 Amazon 前台、品牌页、独立站、其他平台和社媒内容。</p></div>
+      <div class="step"><b>3. Processing</b><p>按模板 5.1-5.4 做输入、处理、输出。</p></div>
+      <div class="step"><b>4. Review</b><p>补证 review + red-team：价值表达是否真实可见，是否白帽。</p></div>
+      <div class="step"><b>5. Stop</b><p>生成完整报告后停在人类判断，不自动进入第 6 章。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>模板板块</h2>
+      <p>严格按原模板第 5 章，不把社媒分析变成产品定义。</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>板块</th><th>输入</th><th>处理</th><th>输出</th></tr></thead>
+        <tbody>
+          <tr><td>5.1 亚马逊平台运营竞争分析</td><td>竞品品牌信息、图文视频、店铺、listing、文案、SKU、销售数据</td><td>拆主图、附图、A+、视频、五点描述、价格/评论/coupon 可见性</td><td>品牌主页分析、listing 设计水平、SKU 产品布局、辅助运营策略</td></tr>
+          <tr><td>5.2 其他平台运营竞争分析</td><td>Walmart/Target/HomeDepot/Lowe's 等页面与渠道数据</td><td>比较非 Amazon 渠道是否更重家居、健康、儿童、睡眠场景</td><td>其他平台运营情况、渠道差异、运营机会</td></tr>
+          <tr><td>5.3 独立站</td><td>品牌官网、产品页、内容页、转化路径、流量数据</td><td>看独立站如何教育用户、承接 routine/科学背书/订阅或无订阅价值</td><td>品牌直营能力、站外承接能力、内容与转化路径</td></tr>
+          <tr><td>5.4 社媒传播</td><td>官方社媒、论坛、媒体、话题集、KOL/网红投放内容</td><td>按 dark winter、phone detox、bedtime routine、kids routine、bedroom aesthetic 打标</td><td>社媒传播总结、渠道突破点、话题机会、KOL/网红投放参考</td></tr>
+          <tr><td>5.output</td><td>5.1-5.4 结论</td><td>压缩成对第 7 章有用的上市策略输入</td><td>亚马逊运营差距、其他平台机会、独立站能力差距、社媒传播机会</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>证据路由</h2>
+      <p>哪些能 MCP 拉，哪些必须浏览器看，先写清楚。</p>
+    </div>
+    <div class="grid-4">
+      <article class="card"><div class="num">MCP</div><h3>Sorftime</h3><p>ASIN 详情、销量、价格、流量词、评论；用于 SKU/销售/竞品基础。</p></article>
+      <article class="card"><div class="num">Browser</div><h3>Amazon 前台</h3><p>主图、A+、视频、五点、coupon/deals、品牌页必须实际打开看。</p></article>
+      <article class="card"><div class="num">Web</div><h3>独立站&社媒</h3><p>Hatch、Philips、Lumie 等官网与 TikTok/YouTube/Reddit 公开内容。</p></article>
+      <article class="card"><div class="num">Gap</div><h3>gerp-ads / ABA</h3><p>当前授权还未打通，不能写成已采集；若修好再补。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Red-team 立场</h2>
+      <p>第 5 章最容易过度营销，所以必须先定反方。</p>
+    </div>
+    <div class="grid-2">
+      <article class="card warn">
+        <h3>反方问题</h3>
+        <ul>
+          <li>对手的营销是否只是在包装普通闹钟？</li>
+          <li>我们是否会为了讲故事而过度承诺睡眠改善？</li>
+          <li>如果没有灰帽评论和夸张宣传，前台表达还能赢吗？</li>
+        </ul>
+      </article>
+      <article class="card callout">
+        <h3>公司能力过滤</h3>
+        <ul>
+          <li>白帽表达：必须真实可见，不能虚假造势。</li>
+          <li>品质强项：要能转成评论质量和可信背书。</li>
+          <li>灯具能力：要把光效和卧室对象感讲清楚。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>人工判断</h2>
+      <p>确认后才开始第 5 章证据采集和正文。</p>
+    </div>
+    <div class="grid-4">
+      <article class="card"><h3>A. 开始第 5 章</h3><p>按本计划采集证据并生成完整报告。</p></article>
+      <article class="card"><h3>B. 调整样本</h3><p>先改竞品、渠道或社媒样本。</p></article>
+      <article class="card"><h3>C. 回第 4 章</h3><p>先补用户/Q&A/场景证据。</p></article>
+      <article class="card"><h3>D. 暂停</h3><p>只保留执行计划，不继续。</p></article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

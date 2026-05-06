@@ -5,7 +5,7 @@
   "chapter": "5. 营销分析&社媒传播",
   "source_report": "quality-review-template-ch5-marketing-social-complete-v1.html",
   "user_choice": "A",
-  "decision": "通过第 5 章，进入第 6 章供应链管理",
+  "decision": "通过第 5 章，进入第 6 章产品规划",
   "user_note": "通过，后续再补",
   "status": "passed_with_deferred_evidence",
   "deferred_evidence": [
@@ -15,6 +15,6 @@
     "gerp-ads / ABA / SIF 数据",
     "Influencer spend / GMV / affiliate conversion data"
   ],
-  "unlocked_next_chapter": "6. 供应链管理",
-  "pipeline_rule": "通过记录只解锁第 6 章执行计划，不自动生成第 6 章正文结论。"
+  "unlocked_next_chapter": "6. 产品规划",
+  "pipeline_rule": "通过记录只解锁第 6 章产品规划，不自动生成第 6 章正文结论。"
 }

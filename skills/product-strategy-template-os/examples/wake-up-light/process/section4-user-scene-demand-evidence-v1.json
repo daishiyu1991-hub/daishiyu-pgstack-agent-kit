@@ -1,0 +1,180 @@
+{
+  "artifact": "section4_user_scene_demand_evidence_v1",
+  "created_at": "2026-04-30",
+  "product": "wake up light / sunrise alarm clock",
+  "chapter": {
+    "id": "4",
+    "name": "用户场景&需求分析",
+    "template_sections": [
+      "4.1 用户画像",
+      "4.2 场景矩阵",
+      "4.3 用户旅程",
+      "4.4 需求分析",
+      "4.5 产品需求&技术创新",
+      "4.output 第 4 章最终输出"
+    ]
+  },
+  "source_decision": {
+    "chapter3_decision_record": "process/section3-human-decision-pass-v1.json",
+    "user_choice": "A. 通过，并解锁第 4 章",
+    "chapter4_execution_plan_choice": "A. 通过执行计划，开始第 4 章证据采集与正文",
+    "chapter4_execution_plan_decision_record": "process/section4-execution-plan-human-pass-v1.json"
+  },
+  "evidence_acquisition_router": [
+    {
+      "template_field": "平台用户评论数据",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP product_reviews",
+      "source_refs": [
+        "B0DLLSCVZW Positive and Negative reviews",
+        "B0DGXD6WVW Positive and Negative reviews",
+        "B0BZW7WY5M Negative reviews",
+        "B0B2ZTZZ3F Negative reviews",
+        "B081CHLF46 Both reviews",
+        "B0093162RM Both reviews",
+        "B07RWRJ4XW Negative reviews"
+      ],
+      "used_for": [
+        "4.1 用户画像",
+        "4.2 场景矩阵",
+        "4.3 用户旅程",
+        "4.4 需求分析",
+        "4.5 产品需求&技术创新"
+      ]
+    },
+    {
+      "template_field": "代表 ASIN 产品基础信息",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP product_detail from section 3",
+      "source_ref": "process/section3-brand-competitor-evidence-v1.json",
+      "used_for": [
+        "ASIN 战场分层",
+        "价格带和竞品边界",
+        "产品形态对比"
+      ]
+    },
+    {
+      "template_field": "Amazon Q&A / 前台问答",
+      "status": "missing_to_collect",
+      "tool": "browser or manual export required",
+      "reason": "Sorftime MCP 当前未提供 Q&A 专用字段；本章不虚构问答。"
+    },
+    {
+      "template_field": "Amazon listing 图片 / A+ / 视频 / 五点描述",
+      "status": "collected_not_expanded",
+      "tool": "Sorftime product_detail title/image/description fields from chapter 3",
+      "reason": "已用于战场和前台价值判断，但未通过浏览器逐页截图验证；后续第 5 章营销与 listing 分析需要补 browser 前台观察。"
+    },
+    {
+      "template_field": "场景视频 / vlog / 社媒真实使用内容",
+      "status": "missing_to_collect",
+      "tool": "web research / TikTok / YouTube / Instagram",
+      "reason": "当前未采集；本章场景主要来自 Amazon 评论，不能写成社媒事实。"
+    },
+    {
+      "template_field": "问卷或用户访谈",
+      "status": "manual_required",
+      "tool": "PickFu / 用户访谈 / 内部试用",
+      "reason": "无真实问卷或访谈输入；本章只能输出待验证问题，不能推断私人画像。"
+    },
+    {
+      "template_field": "实际体验洞察",
+      "status": "manual_required",
+      "tool": "buy sample / internal hands-on test",
+      "reason": "AI 未实际体验产品；不虚构手感、亮度、声音细节。"
+    }
+  ],
+  "review_evidence_summary": {
+    "Hatch Restore 3 B0DLLSCVZW": {
+      "positive_patterns": [
+        "用户把它描述为 sleep routine / complete sleep solution，不只是 alarm clock。",
+        "正评高频表达 wind-down、screen-free、sunrise alarm less jarring、phone detox、better mood、dark winter mornings。",
+        "用户愿意为设计、app routine、声音库、灯光和夜间无显示付高价。"
+      ],
+      "negative_patterns": [
+        "订阅费和 paywall 是最大负面集中点。",
+        "app 依赖、WiFi 依赖、设置复杂、慢加载与 screen-free 承诺冲突。",
+        "部分用户抱怨质量、声音中断、连接失败、alarm not going off。",
+        "价格价值不匹配：用户会说 $200 alarm clock 不值得。"
+      ],
+      "implication": "Hatch 证明 routine 价值和高价心智，但也打开了 no subscription / physical control / reliable hardware 的反击窗口。"
+    },
+    "Odokee B0DGXD6WVW": {
+      "positive_patterns": [
+        "用户反复称其为 Hatch dupe / affordable Hatch alternative。",
+        "正评集中在 sunrise + sleep sounds + night light + Bluetooth + no app/subscription。",
+        "用户明确赞赏 physical buttons、dim-to-zero display、light-only wake、冬季/暗房起床改善。"
+      ],
+      "negative_patterns": [
+        "alarm 不响、时钟不准、按钮失效、显示/灯光故障等可靠性问题反复出现。",
+        "按钮太多、夜里难操作、off button 小、day/weekend alarm 不足。",
+        "reading light 太黄、sunrise 光色不够 daylight-like、声音预设差或循环感明显。"
+      ],
+      "implication": "Odokee 证明中价平替需求成立，但质量、光声体验和控制设计还没被做好。"
+    },
+    "REACHER B0BZW7WY5M": {
+      "positive_patterns_from_prior_chapter_review_notes": [
+        "用户认可 wood decor、gentle sunrise、no subscription、simple physical setup。",
+        "家长、儿童、黑暗冬季、重度赖床者均出现在使用场景中。"
+      ],
+      "negative_patterns": [
+        "长期可靠性弱：坏灯、坏按钮、时间不准、alarm 不响、白噪音异常。",
+        "snooze 后 light turns off 被用户认为破坏 sunrise wake 概念。",
+        "off button 难找、按钮密集、weekday/weekend 和 multiple alarm 缺失。",
+        "声音质量和光色自然度不足。"
+      ],
+      "implication": "REACHER 说明装饰化床头对象有需求，但质量和交互是明显短板。"
+    },
+    "BUFFBEE B0B2ZTZZ3F": {
+      "positive_patterns_from_prior_chapter_review_notes": [
+        "用户主要买声音机、闹钟、夜灯三合一和低价便利。",
+        "儿童房、白噪音、低价日常使用是核心场景。"
+      ],
+      "negative_patterns": [
+        "显示 LED 衰减、声音失效、随机关机、时间不准、按钮难用。",
+        "声音质量差、白噪音浅、随机切换声音或无法整夜持续。",
+        "材料 cheap knit 破洞、售后响应弱。"
+      ],
+      "implication": "BUFFBEE 是低价声音机底盘，不是高价值方向；它提醒声音功能本身很容易被低价化。"
+    },
+    "JALL B081CHLF46": {
+      "positive_patterns": [
+        "用户喜欢 gentle wake、kids school routine、dark winter / fall mornings、dual alarms、dim display、FM/radio、reading/night light。",
+        "大量评论把它当 budget-friendly sunrise alarm，强调比手机和普通闹钟更舒服。",
+        "客服和 warranty 多次成为正评理由。"
+      ],
+      "negative_patterns": [
+        "按钮和菜单复杂；黑暗中难操作。",
+        "alarm 不响、cord 损坏、坏机、短期故障、time drift。",
+        "speaker tinny、声音选择少、FM 限制、clock display 太亮。"
+      ],
+      "implication": "JALL 是旧式高评论壁垒样本，证明低价 sunrise clock 大盘存在，但体验仍偏功能堆叠和旧 UI。"
+    },
+    "Philips B0093162RM": {
+      "positive_patterns": [
+        "长期用户强调 5-11 年寿命、光效质量、dawn/sunset simulation、科学感和品牌信任。",
+        "用户把它当 bedside light / radio / evening lamp / sleep-wake cycle helper。",
+        "光色质量、亮度范围和温和唤醒被反复认可。"
+      ],
+      "negative_patterns": [
+        "控制复杂、菜单老旧、没有 app 或日程功能，weekday/weekend 缺失。",
+        "体积大、底座不稳、容易碰倒；按钮小且难找。",
+        "高价下用户会抱怨 1990s design、plastic with a light、价格不值。"
+      ],
+      "implication": "Philips 证明光效和可靠性可形成高价信任，但旧形态给了新一代灯具体验升级空间。"
+    },
+    "Magicteam B07RWRJ4XW": {
+      "negative_patterns": [
+        "声音质量、循环感、无法整夜持续、按钮小、夜里难操作、供电/USB 口脆弱。",
+        "大量负评指向几周到几个月内失效。",
+        "便携/无线预期与实际不符。"
+      ],
+      "implication": "纯声音机低价盘只证明 sound masking 需求存在，不适合作为公司主战场。"
+    }
+  },
+  "data_integrity_notes": [
+    "本证据账本不包含原始全量评论文本，只保存本次 MCP 输出的结构化归纳。",
+    "Q&A、社媒视频、真实用户访谈、样机体验均未采集，不能作为事实使用。",
+    "用户年龄、收入、职业等私人画像未被评论直接支持，不作事实推断。"
+  ]
+}

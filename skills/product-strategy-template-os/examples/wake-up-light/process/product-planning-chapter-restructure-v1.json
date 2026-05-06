@@ -1,0 +1,57 @@
+{
+  "artifact": "product_planning_chapter_restructure_v1",
+  "created_at": "2026-05-06",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "reason": "用户明确修正：产品规划应放在供应链管理前面；USP 属于产品规划内部第一步；产品规划还必须包含架构、测试验证、规格参数、定价与利润、工业设计；供应链是后续如何实现，另加项目计划。",
+  "new_chapter_order": [
+    "1. 品类本质小结",
+    "2. 市场竞争分析",
+    "3. 头部品牌竞争&竞品分析",
+    "4. 用户场景&需求分析",
+    "5. 营销分析&社媒传播",
+    "6. 产品规划",
+    "7. 供应链实现",
+    "8. 项目计划"
+  ],
+  "product_planning_modules": [
+    {
+      "id": "6.1",
+      "name": "USP / 赛道选择",
+      "purpose": "从机会点选择主赛道、进攻钩子、信任底线和商业定位。",
+      "current_artifact": "quality-review-visible-value-thesis-v10-track-selection.html"
+    },
+    {
+      "id": "6.2",
+      "name": "产品架构分析",
+      "purpose": "回答如何达到选择的 USP，需要哪些系统结构、配件、元器件和模块支持。"
+    },
+    {
+      "id": "6.3",
+      "name": "测试验证计划",
+      "purpose": "把 USP 拆成可验证的体验指标、工程测试、样机测试和用户测试。"
+    },
+    {
+      "id": "6.4",
+      "name": "规格参数",
+      "purpose": "根据架构与测试计划定下光效、声音、控制、可靠性、安全认证等参数。"
+    },
+    {
+      "id": "6.5",
+      "name": "定价与利润",
+      "purpose": "用价格带、成本带、广告、coupon room、退货率和毛利率反推可持续经济性。"
+    },
+    {
+      "id": "6.6",
+      "name": "工业设计规范",
+      "purpose": "定义床头对象感、材质、比例、CMF、交互、按键、屏幕和前台表达边界。"
+    }
+  ],
+  "legacy_state": {
+    "old_section6_supply_chain_plan": "quality-review-template-ch6-execution-plan-v1.html",
+    "handling": "保留为旧过程文件；不再作为当前主顺序的第 6 章。后续应重做为第 7 章供应链实现。"
+  },
+  "index_update": {
+    "updated_file": "quality-review-index.html",
+    "policy": "索引结构仍是路线图，不放 AI 替人的最终选择；只更新章节顺序、链接和状态。"
+  }
+}

@@ -104,8 +104,9 @@ Default template:
 3. 头部品牌竞争&竞品分析
 4. 用户场景&需求分析
 5. 营销分析&社媒传播
-6. 供应链管理
-7. 产品规划
+6. 产品规划
+7. 供应链实现
+8. 项目计划
 ```
 
 Do not merge chapters or jump ahead. If useful content belongs to a later chapter, record it as next-chapter input.
@@ -270,4 +271,3 @@ systems.
 - When a repeated workflow becomes a skill, first check whether original
   GStack/GBrain or this Template OS already owns the behavior. Add a wrapper,
   adapter, or policy extension unless there is a real gap.
-

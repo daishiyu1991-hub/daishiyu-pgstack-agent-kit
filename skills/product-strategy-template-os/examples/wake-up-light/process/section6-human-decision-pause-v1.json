@@ -2,10 +2,10 @@
   "artifact": "section6_human_decision_pause_v1",
   "created_at": "2026-04-30",
   "run": "2026-4-30wake-up-light品类战略用研",
-  "chapter": "6. 供应链管理",
+  "chapter": "7. 供应链实现",
   "source_plan": "quality-review-template-ch6-execution-plan-v1.html",
   "user_choice": "D",
-  "decision": "暂停供应链章节",
+  "decision": "暂停旧供应链章节；新结构中供应链后置为第 7 章供应链实现",
   "status": "paused_by_human_decision",
   "next_chapter_unlocked": false,
   "unlocked_next_chapter": null,
@@ -14,9 +14,9 @@
     "quality-review-template-ch6-execution-plan-v1.html"
   ],
   "resume_conditions": [
-    "用户选择 A：按执行计划开始第 6 章证据采集与正文",
+    "用户选择 A：按产品规划输出重做第 7 章供应链实现执行计划",
     "用户选择 B：先补内部 BOM / 供应商报价 / MOQ",
     "用户选择 C：先确认内部做还是外部 ODM"
   ],
-  "pipeline_rule": "第 6 章暂停后，不自动进入第 7 章产品规划。"
+  "pipeline_rule": "供应链必须在产品规划之后执行；旧第 6 章供应链计划只作为过程样本保留。"
 }

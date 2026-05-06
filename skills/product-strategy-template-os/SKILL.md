@@ -1,6 +1,6 @@
 ---
 name: product-strategy-template-os
-description: "Run a fixed-template consumer-product strategy research pipeline from category signal to product planning. Use when Codex should reproduce the wake-up-light style workflow: chapter-by-chapter template routing, evidence acquisition, zero-hallucination reporting, red-team review, human decision stops, low-saturation HTML reports, process JSON ledgers, and reusable example artifacts for Amazon/consumer-electronics category research."
+description: "Run or update the Product Strategy Template OS. Use when Codex should reproduce the wake-up-light style workflow: chapter-by-chapter template routing, evidence acquisition, zero-hallucination reporting, red-team review, human decision stops, low-saturation HTML reports, process JSON ledgers, and reusable example artifacts for Amazon/consumer-electronics category research. Also use when the user says `/update product-os` or wants to refresh the installed product OS skill from GitHub."
 ---
 
 # Product Strategy Template OS
@@ -26,6 +26,7 @@ Use this skill when the user asks to:
 - create one chapter at a time with complete HTML reports and process files;
 - keep data 100% traceable and mark missing evidence honestly;
 - force human decisions before unlocking the next chapter.
+- update this skill when the user says `/update product-os`.
 
 Do not use this skill for quick one-off market summaries unless the user explicitly wants the full template pipeline.
 
@@ -35,7 +36,7 @@ Minimum:
 
 - category or seed keyword;
 - marketplace or target channel;
-- the fixed template to follow, or permission to use the default 7-chapter template;
+- the fixed template to follow, or permission to use the default 8-chapter template;
 - output run directory.
 
 Recommended:
@@ -52,6 +53,20 @@ Read `references/global-rules.md` at the start of every strategy-research run. I
 If the user wants this workflow to become the default behavior inside a project or workspace, copy or adapt `assets/AGENTS.product-strategy-template-os.example.md` into that project's `AGENTS.md`. That file is not loaded automatically by the skill installer; it is a portable global-rule template.
 
 ## Core Loop
+
+If the user says `/update product-os`, run the self-update path first:
+
+```bash
+python3 "$SKILL_HOME/scripts/update_product_os.py"
+```
+
+If that script is unavailable because the installed skill is older, use the fallback:
+
+```bash
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
+```
+
+Then run `scripts/bootstrap_check.py` and report whether the update is usable.
 
 At skill start, run the native GBrain boundary check:
 
@@ -100,7 +115,7 @@ The architecture has three layers:
 
 ## Default Template
 
-Use the default seven chapters unless the user provides another template:
+Use the default eight chapters unless the user provides another template:
 
 ```text
 1. 品类本质小结
@@ -108,8 +123,9 @@ Use the default seven chapters unless the user provides another template:
 3. 头部品牌竞争&竞品分析
 4. 用户场景&需求分析
 5. 营销分析&社媒传播
-6. 供应链管理
-7. 产品规划
+6. 产品规划
+7. 供应链实现
+8. 项目计划
 ```
 
 Read `references/template-structure.zh.md` before creating a chapter execution plan.

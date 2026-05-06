@@ -34,8 +34,9 @@
     "3. 头部品牌竞争&竞品分析",
     "4. 用户场景&需求分析",
     "5. 营销分析&社媒传播",
-    "6. 供应链管理",
-    "7. 产品规划"
+    "6. 产品规划",
+    "7. 供应链实现",
+    "8. 项目计划"
   ],
   "checklist_definition": [
     "read_global_rules",
@@ -242,15 +243,58 @@
         "GBrain sync queue not yet created"
       ],
       "human_decision_options": [
-        "A. 通过第 5 章，进入第 6 章供应链管理",
+        "A. 通过第 5 章，进入第 6 章产品规划",
         "B. 先补 Amazon A+ / video / 五点描述截图",
         "C. 先补 TikTok / YouTube / Instagram 场景视频",
         "D. 退回第 4 章重做用户需求"
       ]
     },
     {
-      "chapter": "6. 供应链管理",
-      "status": "paused_by_human_decision",
+      "chapter": "6. 产品规划",
+      "status": "in_progress_usp_track_selection_ready_for_human_decision",
+      "primary_report": "quality-review-visible-value-thesis-v10-track-selection.html",
+      "process_refs": [
+        "process/product-planning-chapter-restructure-v1.json",
+        "process/visible-value-review-sampling-audit-v9.json",
+        "process/visible-value-review-theme-analysis-v9.json",
+        "process/visible-value-review-effective-ledger-v9.json",
+        "quality-review-visible-value-thesis-v10-track-selection.html"
+      ],
+      "modules": [
+        "6.1 USP / 赛道选择",
+        "6.2 产品架构分析",
+        "6.3 测试验证计划",
+        "6.4 规格参数",
+        "6.5 定价与利润",
+        "6.6 工业设计规范"
+      ],
+      "checkpoints": {
+        "read_global_rules": "completed",
+        "read_skill_runtime": "completed",
+        "read_run_architecture": "completed",
+        "read_previous_chapter_decision": "completed",
+        "run_previous_artifact_review": "completed_lightweight",
+        "run_evidence_router": "completed_for_usp_review_sampling",
+        "collect_available_evidence": "completed_review_sample_395_effective",
+        "write_analysis_package": "completed_v10",
+        "run_evidence_review": "completed",
+        "run_red_team": "completed",
+        "render_complete_report": "completed",
+        "stop_for_human_decision": "pending_user_choice",
+        "write_decision_record": "pending",
+        "update_index": "completed",
+        "queue_or_sync_gbrain": "pending"
+      },
+      "human_decision_options": [
+        "A. 选择主赛道 B，进入产品架构分析",
+        "B. 先补前台素材拆解，再选赛道",
+        "C. 先补供应链/BOM，验证赛道可落地",
+        "D. 暂停 USP，回到用户/竞品补证"
+      ]
+    },
+    {
+      "chapter": "7. 供应链实现",
+      "status": "legacy_plan_paused_before_restructure",
       "primary_plan": "quality-review-template-ch6-execution-plan-v1.html",
       "decision_record": "process/section6-human-decision-pause-v1.json",
       "process_refs": [
@@ -283,16 +327,35 @@
         "GBrain sync queue not yet created"
       ],
       "human_decision_options": [
-        "A. 通过执行计划，开始第 6 章证据采集与正文",
-        "B. 先补内部 BOM / 供应商报价 / MOQ",
+        "A. 以产品规划输出为输入，重做第 7 章供应链实现执行计划",
+        "B. 先补 BOM / 供应商报价 / MOQ",
         "C. 先确认内部做还是外部 ODM",
-        "D. 暂停供应链章节"
+        "D. 暂停供应链实现"
       ],
       "pause_state": {
         "user_choice": "D",
         "next_chapter_unlocked": false,
         "resume_from": "quality-review-template-ch6-execution-plan-v1.html"
-      }
+      },
+      "notes": "该计划生成于旧顺序；新结构中供应链应在产品规划之后重做为供应链实现。",
+      "restructured_from": "6. 供应链管理"
+    },
+    {
+      "chapter": "8. 项目计划",
+      "status": "locked_until_product_planning_and_supply_chain_ready",
+      "process_refs": [],
+      "modules": [
+        "8.1 里程碑",
+        "8.2 责任分工",
+        "8.3 风险与决策门",
+        "8.4 上市验证计划"
+      ],
+      "checkpoints": {}
     }
-  ]
+  ],
+  "latest_structure_change": {
+    "created_at": "2026-05-06",
+    "record": "process/product-planning-chapter-restructure-v1.json",
+    "reason": "产品规划前置，供应链后置；产品规划包含 USP、架构、测试验证、规格参数、定价与利润、工业设计。"
+  }
 }

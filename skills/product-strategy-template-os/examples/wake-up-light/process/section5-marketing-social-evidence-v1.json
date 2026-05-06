@@ -1,0 +1,318 @@
+{
+  "artifact": "section5_marketing_social_evidence_v1",
+  "created_at": "2026-04-30",
+  "product": "wake up light / sunrise alarm clock",
+  "chapter": {
+    "id": "5",
+    "name": "营销分析&社媒传播",
+    "template_sections": [
+      "5.1 亚马逊平台运营竞争分析",
+      "5.1.1 品牌主页",
+      "5.1.2 listing设计水平",
+      "5.1.3 SKU产品布局",
+      "5.2 其他平台运营竞争分析",
+      "5.3 独立站（品牌直营渠道）",
+      "5.4 社媒传播",
+      "5.output 第 5 章最终输出"
+    ]
+  },
+  "source_decision": {
+    "chapter4_decision_record": "process/section4-human-decision-pass-v1.json",
+    "user_choice": "A. 通过，并解锁第 5 章",
+    "chapter5_execution_plan": "process/section5-execution-plan-v1.json"
+  },
+  "evidence_acquisition_router": [
+    {
+      "template_field": "Amazon 代表 ASIN 产品详情、价格、评论、销量、主图、文案",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP product_detail",
+      "source_refs": [
+        "B0DLLSCVZW Hatch Restore 3",
+        "B0DGXD6WVW Odokee Sunrise Alarm Clock White Noise Machine",
+        "B0BZW7WY5M REACHER Wood Grain Sunrise Alarm Clock",
+        "B081CHLF46 JALL Wake Up Light",
+        "B0093162RM Philips SmartSleep Wake-up Light",
+        "B0B2ZTZZ3F BUFFBEE Alarm Clock with Sound Machine"
+      ],
+      "used_for": [
+        "5.1 亚马逊平台运营竞争分析",
+        "5.1.2 listing设计水平",
+        "5.1.3 SKU产品布局"
+      ]
+    },
+    {
+      "template_field": "Amazon ASIN 流量词 / 自然位 / 广告位",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP product_traffic_terms",
+      "source_refs": [
+        "B0DLLSCVZW traffic terms page 1",
+        "B0DGXD6WVW traffic terms page 1",
+        "B0BZW7WY5M traffic terms page 1",
+        "B081CHLF46 traffic terms page 1"
+      ],
+      "used_for": [
+        "5.1 亚马逊平台运营竞争分析",
+        "5.output 第 7 章上市策略输入包"
+      ],
+      "data_quality_note": "traffic_terms 结果中存在少量语义无关曝光词，分析时只使用与 alarm / sunrise / sound machine / bedroom / night light / hatch 相关的词。"
+    },
+    {
+      "template_field": "Walmart 关键词与其他平台搜索结果",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP walmart_keyword_detail / walmart_keyword_search_results",
+      "source_refs": [
+        "walmart_keyword_detail sunrise alarm clock",
+        "walmart_keyword_detail wake up light returned no related data",
+        "walmart_keyword_search_results sound machine alarm clock page 1",
+        "walmart_keyword_search_results sunrise alarm clock returned no related data"
+      ],
+      "used_for": [
+        "5.2 其他平台运营竞争分析"
+      ],
+      "data_quality_note": "Walmart keyword_detail 对 sunrise alarm clock 有数据，但同词 search_results 暂无相关数据；按工具不一致处理，只保留可追溯字段，不扩写为完整渠道大盘。"
+    },
+    {
+      "template_field": "TikTok 商品池 / 达人池",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP tiktok_similar_product / tiktok_author",
+      "source_refs": [
+        "tiktok_similar_product wake up light US page 1",
+        "tiktok_author wake up light US page 1"
+      ],
+      "used_for": [
+        "5.4 社媒传播"
+      ],
+      "data_quality_note": "TikTok 返回结果主要是 night light / motion sensor light / ambient light / kids projector lamp，不能直接当作 sunrise alarm clock 成交池。"
+    },
+    {
+      "template_field": "官方独立站与公开零售页",
+      "status": "collected_and_used",
+      "tool": "web search / web open",
+      "source_refs": [
+        "https://www.hatch.co/restore",
+        "https://www.bestbuy.com/site/hatch-restore-3-sunrise-alarm-clock-sound-machine-and-smart-light-putty/6615166.p",
+        "https://www.usa.philips.com/c-p/HF3520_60/smartsleep/overview",
+        "https://www.lumie.com/products/sunrise-alarm",
+        "https://www.tomsguide.com/wellness/sleep/jall-wakeup-light-sunrise-alarm-clock-review"
+      ],
+      "used_for": [
+        "5.1.1 品牌主页",
+        "5.2 其他平台运营竞争分析",
+        "5.3 独立站（品牌直营渠道）",
+        "5.4 社媒传播"
+      ]
+    },
+    {
+      "template_field": "Amazon A+、视频、五点描述逐页截图",
+      "status": "collected_not_expanded",
+      "tool": "Sorftime product_detail title/image/description; no browser screenshot captured",
+      "reason": "本章使用主图、标题和描述字段判断前台表达，但没有逐屏截图 Amazon A+ / 视频 / 五点描述。不能写成已完整截图。"
+    },
+    {
+      "template_field": "Similarweb / 独立站流量结构",
+      "status": "not_collectable_now",
+      "tool": "Similarweb not available in current tool namespace",
+      "reason": "没有可调用 Similarweb 工具；不估算官方站流量。"
+    },
+    {
+      "template_field": "gerp-ads / ABA / SIF / 后台广告表现",
+      "status": "not_available_in_current_session",
+      "tool": "tool_search returned no gerp-ads tools in live namespace",
+      "reason": "本轮 live tool namespace 未暴露 gerp-ads 工具；不能写成已采集广告后台数据。"
+    },
+    {
+      "template_field": "真实网红投放表 / 官方社媒后台数据",
+      "status": "manual_required",
+      "tool": "brand social accounts / TikTok creator outreach / influencer table",
+      "reason": "当前只采集 TikTok 商品/达人搜索结果，不含真实投放花费、GMV 或转化。"
+    }
+  ],
+  "amazon_frontstage_products": [
+    {
+      "asin": "B0DLLSCVZW",
+      "brand": "Hatch Baby",
+      "title": "Hatch Restore 3 Sunrise Alarm Clock, Sound Machine, Smart Light",
+      "price_usd": 169.99,
+      "rating": 4.3,
+      "reviews": 5387,
+      "monthly_sales": 12421,
+      "monthly_revenue_usd": 2111445.79,
+      "coupon": "not_collected",
+      "frontstage_message": "phone-free sleep routine, Hatch+ content, unwind nightly, wake gently, one big button / bedside light button",
+      "source": "Sorftime product_detail; Hatch official site; Best Buy retail page"
+    },
+    {
+      "asin": "B0DGXD6WVW",
+      "brand": "Odokee",
+      "title": "Sunrise Alarm Clock White Noise Machine",
+      "price_usd": 53.99,
+      "coupon_usd": 5.4,
+      "rating": 4.5,
+      "reviews": 1534,
+      "monthly_sales": 7719,
+      "monthly_revenue_usd": 416748.81,
+      "frontstage_message": "sunrise simulation, 25 sleep sounds, Bluetooth, 0-100% dimmer, no app, physical buttons",
+      "source": "Sorftime product_detail"
+    },
+    {
+      "asin": "B0BZW7WY5M",
+      "brand": "REACHER",
+      "title": "Wood Grain Sunrise Alarm Clock and Sound Machine Nightlight",
+      "price_usd": 32.99,
+      "rating": 4.4,
+      "reviews": 3350,
+      "monthly_sales": 3571,
+      "monthly_revenue_usd": 117807.29,
+      "coupon": "not_collected",
+      "frontstage_message": "cut jarring, awaken sunrise, 26 sounds, one-handed setup, wood decor",
+      "source": "Sorftime product_detail"
+    },
+    {
+      "asin": "B081CHLF46",
+      "brand": "JALL",
+      "title": "Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers",
+      "price_usd": 32.88,
+      "coupon_usd": 1.64,
+      "rating": 4.3,
+      "reviews": 28011,
+      "monthly_sales": 2180,
+      "monthly_revenue_usd": 71678.4,
+      "frontstage_message": "kids / heavy sleepers, dual alarms, FM radio, snooze, nightlight, 7 colors",
+      "source": "Sorftime product_detail; Tom's Guide review"
+    },
+    {
+      "asin": "B0093162RM",
+      "brand": "Philips",
+      "title": "Philips SmartSleep Wake-up Light",
+      "price_usd": 108.99,
+      "rating": 4.3,
+      "reviews": 14687,
+      "monthly_sales": 2840,
+      "monthly_revenue_usd": 309531.6,
+      "coupon": "not_collected",
+      "frontstage_message": "clinically proven, colored sunrise/sunset, lighting expertise, 5 natural sounds, reading lamp",
+      "source": "Sorftime product_detail; Philips official page"
+    },
+    {
+      "asin": "B0B2ZTZZ3F",
+      "brand": "BUFFBEE",
+      "title": "Alarm Clock with Sound Machine",
+      "price_usd": 21.99,
+      "rating": 4.4,
+      "reviews": 6160,
+      "monthly_sales": 4234,
+      "monthly_revenue_usd": 93105.66,
+      "coupon": "not_collected",
+      "frontstage_message": "low-price 2-in-1 white noise machine, soft alarm, ambient night light",
+      "source": "Sorftime product_detail"
+    }
+  ],
+  "traffic_term_summary": {
+    "Hatch Restore 3 B0DLLSCVZW": {
+      "high_signal_terms": [
+        "alarm clock",
+        "alarm clocks for bedrooms",
+        "hatch alarm clock",
+        "hatch sound machine",
+        "sunrise alarm clock",
+        "sound machine",
+        "night light",
+        "white noise machine"
+      ],
+      "interpretation": "Hatch 同时吃品牌词、泛闹钟词、声音机词和卧室/夜灯词，说明其运营不是单一 sunrise 词，而是 routine + bedroom + sound + alarm 的组合。"
+    },
+    "Odokee B0DGXD6WVW": {
+      "high_signal_terms": [
+        "sunrise alarm clock",
+        "hatch alarm clock",
+        "hatch sound machine",
+        "alarm clock",
+        "sound machine",
+        "white noise machine",
+        "alarm clock with sound machine"
+      ],
+      "interpretation": "Odokee 是最清晰的 Hatch 平替型运营：自然位在 sunrise alarm clock 表现强，同时承接 Hatch 品牌词和 sound machine 需求。"
+    },
+    "REACHER B0BZW7WY5M": {
+      "high_signal_terms": [
+        "sunrise alarm clock",
+        "hatch alarm clock",
+        "alarm clock for heavy sleepers",
+        "sound machine",
+        "alarm clock with sound machine",
+        "sound machine with light"
+      ],
+      "interpretation": "REACHER 用 wood decor 和 one-handed setup 做差异，但仍需要广告/自然位覆盖 Hatch、sunrise、sound machine 三类词。"
+    },
+    "JALL B081CHLF46": {
+      "high_signal_terms": [
+        "sunrise alarm clock",
+        "alarm clock for kids",
+        "alarm clock for heavy sleepers",
+        "light alarm clock",
+        "sunrise lamp",
+        "clock radio"
+      ],
+      "interpretation": "JALL 更像旧式 wake-up light / clock radio / kids-heavy-sleeper 战场，评论数强，但运营表达偏功能堆叠。"
+    }
+  },
+  "walmart_channel_summary": {
+    "sunrise_alarm_clock_keyword_detail": {
+      "search_volume": 32829,
+      "product_count": 443,
+      "search_first_page_avg_price_raw": 4458,
+      "search_first_page_avg_reviews": 389.75,
+      "search_first_page_avg_star": 4.3,
+      "note": "avg price unit returned as raw 4458; likely cents but not confirmed by tool, so analysis uses price-band direction rather than exact average."
+    },
+    "wake_up_light_keyword_detail": "no related data returned",
+    "sound_machine_alarm_clock_search_results_signal": [
+      "traditional alarm clocks dominate top rows: La Crosse, Nelsonic, Emerson, Sharp",
+      "sunrise/sound machine combo products appear but many have low or zero monthly sales",
+      "Dreamegg / Better Homes & Gardens / Emerson show Walmart has price-led mass retail variants"
+    ]
+  },
+  "tiktok_summary": {
+    "similar_product_signal": [
+      "top results are mostly plug-in night lights, under cabinet lights, motion sensor lights, ambient decor lights, kids projector/night lights",
+      "top monthly sales examples include SZHLUX night light 22445 units at $11.99, SHINE PAL under cabinet light 9190 units at $20.36, and generic USB rechargeable night light 5536 units at $3.19",
+      "wake up light query does not return a clean sunrise alarm clock pool"
+    ],
+    "author_signal": "tiktok_author returns broad high-follower creators, not a clean sleep-routine creator list; must be manually filtered before influencer planning.",
+    "implication": "TikTok should be used for bedroom-lighting visual content and scenario discovery, not as direct proof that sunrise alarm clock content converts."
+  },
+  "public_web_sources": [
+    {
+      "source": "Hatch official Restore 3 page",
+      "url": "https://www.hatch.co/restore",
+      "used_for": "independent site / brand direct channel / phone-free routine / price / reviews / warranty signals"
+    },
+    {
+      "source": "Best Buy Hatch Restore 3 page",
+      "url": "https://www.bestbuy.com/site/hatch-restore-3-sunrise-alarm-clock-sound-machine-and-smart-light-putty/6615166.p",
+      "used_for": "other channel retail proof / review count / Q&A existence / retail wording"
+    },
+    {
+      "source": "Philips SmartSleep official page",
+      "url": "https://www.usa.philips.com/c-p/HF3520_60/smartsleep/overview",
+      "used_for": "clinical proof / lighting expertise / technical specs / official positioning"
+    },
+    {
+      "source": "Lumie Sunrise Alarm official page",
+      "url": "https://www.lumie.com/products/sunrise-alarm",
+      "used_for": "official independent-site reference for non-Amazon wake-up-light positioning and warranty/trial language"
+    },
+    {
+      "source": "Tom's Guide JALL review",
+      "url": "https://www.tomsguide.com/wellness/sleep/jall-wakeup-light-sunrise-alarm-clock-review",
+      "used_for": "third-party usability evidence about button complexity"
+    }
+  ],
+  "data_integrity_notes": [
+    "No raw Amazon A+ screenshots or video screenshots were captured in this turn.",
+    "No Similarweb traffic numbers were collected.",
+    "No gerp-ads / ABA / SIF business data was collected because live tools were unavailable.",
+    "No influencer spend, CPM, GMV or conversion data was collected.",
+    "All inferred implications in analysis must be marked as interpretation, not raw fact."
+  ]
+}

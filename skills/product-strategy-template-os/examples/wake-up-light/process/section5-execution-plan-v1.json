@@ -1,0 +1,180 @@
+{
+  "artifact": "section5_execution_plan_v1",
+  "created_at": "2026-04-30",
+  "status": "planned_from_canonical_template_structure",
+  "product": "wake up light / sunrise alarm clock",
+  "page": "quality-review-template-ch5-execution-plan-v1.html",
+  "template_source": {
+    "artifact": "process/template-structure-extracted-v1.json",
+    "chapter_id": "5",
+    "chapter_name": "营销分析&社媒传播",
+    "source_pages": [40, 41, 42, 43, 44, 45, 46, 47]
+  },
+  "source_decision": {
+    "chapter": "4. 用户场景&需求分析",
+    "decision_record": "process/section4-human-decision-pass-v1.json",
+    "human_choice": "A. 通过，并解锁第 5 章",
+    "deferred_note": "后续再补"
+  },
+  "template_router": {
+    "current_chapter": "5. 营销分析&社媒传播",
+    "allowed_sections_from_template": [
+      "5.1 亚马逊平台运营竞争分析",
+      "5.1.1 品牌主页",
+      "5.1.2 listing设计水平",
+      "5.1.3 SKU产品布局",
+      "5.2 其他平台运营竞争分析",
+      "5.3 独立站（品牌直营渠道）",
+      "5.4 社媒传播",
+      "5.output 第 5 章最终输出"
+    ],
+    "blocked_scope": [
+      "第 6 章供应链管理不能在本章推断成本、模具、工艺、供应商可行性。",
+      "第 7 章产品规划不能在本章直接输出最终 SKU、参数和上市计划。",
+      "用户需求只作为第 4 章输入承接，不在本章重新做人群画像。",
+      "不能把未采集的社媒、独立站、listing 事实写成已观察结论。"
+    ]
+  },
+  "chapter_preamble": {
+    "previous_outputs_to_use": [
+      "process/section4-user-scene-demand-analysis-v1.md",
+      "process/section4-user-scene-demand-evidence-v1.json",
+      "process/section4-human-decision-pass-v1.json",
+      "process/section3-brand-competitor-evidence-v1.json"
+    ],
+    "core_question_from_chapter4": "如何把“光效改善睡前和醒来体验”的价值，在 Amazon 前台和社媒内容中做得足够显性，让用户不把它归类成贵闹钟？",
+    "representative_brands_or_asins": [
+      "Hatch Restore 3 B0DLLSCVZW",
+      "Odokee B0DGXD6WVW",
+      "REACHER B0BZW7WY5M",
+      "JALL B081CHLF46",
+      "Philips B0093162RM",
+      "BUFFBEE B0B2ZTZZ3F",
+      "Magicteam B07RWRJ4XW"
+    ],
+    "deferred_but_relevant_gaps": [
+      "Amazon Q&A deferred",
+      "Questionnaire / interview deferred",
+      "Sample hands-on test deferred",
+      "Listing screenshots and social content must be collected in chapter 5"
+    ]
+  },
+  "evidence_acquisition_router": [
+    {
+      "template_field": "Amazon 品牌主页",
+      "status": "browser_required",
+      "primary_tools": ["browser-use", "Amazon brand store / seller page"],
+      "use_for": ["5.1.1 品牌主页"],
+      "notes": "需要逐个观察 Hatch、Odokee、REACHER、JALL、Philips 等前台品牌承接。"
+    },
+    {
+      "template_field": "Amazon listing 设计水平",
+      "status": "browser_required",
+      "primary_tools": ["browser-use", "manual screenshot capture"],
+      "use_for": ["5.1.2 listing设计水平"],
+      "notes": "必须采集主图、附图、A+、视频、五点描述、coupon/deal 可见性。"
+    },
+    {
+      "template_field": "SKU 产品布局",
+      "status": "mcp_and_browser_available",
+      "primary_tools": ["Sorftime product_search/product_detail", "Amazon frontstage"],
+      "use_for": ["5.1.3 SKU产品布局"],
+      "notes": "用 Sorftime 做代表 ASIN 和价格带，用浏览器确认变体、套装和前台呈现。"
+    },
+    {
+      "template_field": "销售数据 / 流量词",
+      "status": "mcp_available_with_gap",
+      "primary_tools": ["Sorftime product_detail", "Sorftime product_traffic_terms", "gerp-ads if auth fixed"],
+      "use_for": ["5.1 亚马逊平台运营竞争分析"],
+      "notes": "Sorftime 可用；gerp-ads/ABA/SIF 当前未授权，不能写成已采集。"
+    },
+    {
+      "template_field": "其他平台运营页面",
+      "status": "browser_or_mcp_required",
+      "primary_tools": ["Walmart public page", "Sorftime Walmart tools if relevant"],
+      "use_for": ["5.2 其他平台运营竞争分析"],
+      "notes": "优先检查 Walmart / Target / HomeDepot / Lowe's 是否有同类产品和前台表达。"
+    },
+    {
+      "template_field": "独立站",
+      "status": "browser_required",
+      "primary_tools": ["official websites", "Similarweb if available"],
+      "use_for": ["5.3 独立站"],
+      "notes": "重点看 Hatch / Philips / Lumie 等是否用内容、routine、科学背书承接流量。"
+    },
+    {
+      "template_field": "社媒传播",
+      "status": "web_research_required",
+      "primary_tools": ["TikTok / YouTube / Instagram / Reddit / forums", "Sorftime TikTok tools if relevant"],
+      "use_for": ["5.4 社媒传播"],
+      "notes": "只采集可追溯内容，不把猜测写成事实。"
+    }
+  ],
+  "execution_sections": [
+    {
+      "section_id": "5.1",
+      "section_name": "亚马逊平台运营竞争分析",
+      "input": ["竞品品牌信息", "设计元素", "图文视频", "店铺", "listing 设计水平", "文案水平", "SKU 布局", "打法策略", "站外配套", "销售数据"],
+      "processing": [
+        "把每个竞品的 Amazon 前台拆成消费者可见五维：卖点/视觉价值、价格、评论数、评论质量、coupon/deals。",
+        "重点判断是否能一眼表达：不是闹钟，而是更好的睡眠唤醒灯具体验。",
+        "提炼 Hatch / Philips / Odokee / REACHER / JALL 的前台表达差异。"
+      ],
+      "output": ["辅助运营策略", "品牌主页分析", "listing 设计水平分析", "SKU 产品布局分析"]
+    },
+    {
+      "section_id": "5.2",
+      "section_name": "其他平台运营竞争分析",
+      "input": ["Walmart 等其他平台页面", "竞品品牌信息", "渠道运营数据"],
+      "processing": [
+        "对比 Amazon 以外渠道是否更重视家居/睡眠/健康/儿童场景。",
+        "判断渠道前台是否提供不同价格锚或人群入口。",
+        "标记缺失渠道数据和需要人工/浏览器补采的页面。"
+      ],
+      "output": ["其他平台运营情况", "渠道差异", "运营机会"]
+    },
+    {
+      "section_id": "5.3",
+      "section_name": "独立站（品牌直营渠道）",
+      "input": ["品牌独立站", "流量数据", "产品页", "内容页", "转化路径"],
+      "processing": [
+        "看品牌如何解释 sleep routine、wake-up science、light therapy、subscription/no subscription。",
+        "看独立站是否承担教育用户的任务，而 Amazon 只负责转化。",
+        "判断我们是否需要外部内容承接，而不是只靠 Amazon listing。"
+      ],
+      "output": ["品牌直营能力", "站外承接能力", "内容与转化路径"]
+    },
+    {
+      "section_id": "5.4",
+      "section_name": "社媒传播",
+      "input": ["官方组织", "展会", "论坛", "媒体信息", "产品话题集", "网红投放表", "官方社媒内容"],
+      "processing": [
+        "把社媒内容按场景打标：dark winter morning、phone detox、bedtime routine、kids routine、bedroom aesthetic、sound masking。",
+        "判断哪些内容能让用户直观看到产品价值，而不是被动理解功能。",
+        "区分自然话题、官方内容和疑似投放内容。"
+      ],
+      "output": ["社媒传播总结", "渠道突破点", "话题机会", "KOL/网红投放参考"]
+    },
+    {
+      "section_id": "5.output",
+      "section_name": "第 5 章最终输出",
+      "required_output": ["亚马逊运营差距", "其他平台运营机会", "独立站能力差距", "社媒传播机会", "第 7 章上市策略输入包"]
+    }
+  ],
+  "review_gates": [
+    "template_alignment: no supply-chain or product-planning conclusion in chapter 5",
+    "evidence_integrity: listing/social/website observations must have source refs or screenshots",
+    "supplement_review: AI must decide whether missing listing/social evidence blocks the conclusion before writing HTML",
+    "red_team: challenge whether marketing can really make value visible without overclaiming",
+    "company_fit: white-hat marketing only; no fake review, gray-hat ranking, or exaggerated health claims",
+    "reading_usability: final HTML conclusion first, chart boards next, process and sources at bottom"
+  ],
+  "human_decision_stop": {
+    "allowed_choices": [
+      "A. 通过执行计划，开始第 5 章证据采集与正文",
+      "B. 先调整竞品/渠道/社媒样本",
+      "C. 回到第 4 章补用户证据"
+    ],
+    "default_next_if_user_says_go": "A"
+  }
+}

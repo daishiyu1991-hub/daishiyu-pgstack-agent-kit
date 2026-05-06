@@ -11,8 +11,9 @@
 3. 头部品牌竞争&竞品分析
 4. 用户场景&需求分析
 5. 营销分析&社媒传播
-6. 供应链管理
-7. 产品规划
+6. 产品规划
+7. 供应链实现
+8. 项目计划
 
 ## 已保留文件
 
@@ -22,8 +23,11 @@
 - `quality-review-template-ch3-brand-competitor-complete-v1.html`：第 3 章完整报告示例。
 - `quality-review-template-ch4-user-scene-demand-complete-v1.html`：第 4 章完整报告示例。
 - `quality-review-template-ch5-marketing-social-complete-v1.html`：第 5 章完整报告示例。
-- `quality-review-template-ch6-execution-plan-v1.html`：第 6 章执行计划示例。
+- `quality-review-visible-value-thesis-v10-track-selection.html`：第 6 章产品规划里的 USP / 赛道选择示例。
+- `quality-review-template-ch6-execution-plan-v1.html`：旧供应链执行计划过程文件，保留为“为什么后来把供应链后置”的错误/过程样本。
 - `process/pipeline-run-state-v1.json`：状态账本。
+- `process/product-planning-chapter-restructure-v1.json`：第 6/7/8 章重排记录。
+- `process/visible-value-review-*-v9.json`：USP v10 的 395 条评论证据底座。
 - `process/section*-human-decision-*.json`：人类选择记录。
 - `process/template-structure-extracted-v1.json`：模板结构映射。
 
@@ -33,7 +37,8 @@
 - 第 3 章：通过，进入第 4 章。
 - 第 4 章：通过，后续再补。
 - 第 5 章：通过，后续再补。
-- 第 6 章：暂停，不解锁第 7 章。
+- 第 6 章产品规划：USP v10 已生成，等待人类选择主赛道。
+- 旧第 6 章供应链：暂停；在新结构中后置为第 7 章供应链实现。
 
 ## 注意
 

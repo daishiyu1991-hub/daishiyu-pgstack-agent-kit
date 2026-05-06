@@ -1,0 +1,392 @@
+{
+  "artifact": "section3_brand_competitor_evidence_v1",
+  "created_at": "2026-04-30",
+  "product": "wake up light / sunrise alarm clock",
+  "chapter": {
+    "id": "3",
+    "name": "头部品牌竞争&竞品分析",
+    "template_sections": [
+      "3.1 头部品牌矩阵",
+      "3.1.x 品牌逐个拆解",
+      "3.2 产品竞争矩阵",
+      "3.output 第 3 章最终输出"
+    ]
+  },
+  "source_from_previous_chapter": {
+    "chapter2_report": "quality-review-template-ch2-market-competition-complete-v2.html",
+    "chapter2_decision": "通过并解锁第 3 章",
+    "chapter2_core_boundary": [
+      "wake up light 是 seed，不是干净品类边界",
+      "sunrise alarm clock 是更干净的 Amazon 入口词",
+      "sound machine alarm clock 是相邻融合战场",
+      "市场不是自然增长蓝海，而是成熟底盘里的结构再分化窗口"
+    ]
+  },
+  "evidence_acquisition_router": [
+    {
+      "field": "Amazon 代表 ASIN 产品详情",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP product_detail",
+      "scope": "10 representative ASINs across premium routine, baby routine, mid-price fusion, legacy wake light, low-price sound machine, traditional clock and smart clock"
+    },
+    {
+      "field": "ASIN 流量关键词",
+      "status": "collected_and_used",
+      "tool": "Sorftime MCP product_traffic_terms",
+      "scope": "Hatch Restore 3, Odokee, REACHER, BUFFBEE, JALL, Philips"
+    },
+    {
+      "field": "Amazon 前台图片/卖点",
+      "status": "collected_and_used",
+      "tool": "Sorftime product_detail image/title/description fields",
+      "scope": "main image, title and product description from tool output"
+    },
+    {
+      "field": "广告后台/ABA/SIF",
+      "status": "missing_to_collect",
+      "tool": "gerp-ads MCP",
+      "reason": "MCP tools/list succeeds, but business calls return 401 unauthorized"
+    },
+    {
+      "field": "Similarweb / 独立站 / 社媒基础数据",
+      "status": "not_collectable_now",
+      "tool": "not executed in this turn",
+      "reason": "Keep chapter 3 report moving under previous accepted route; mark as follow-up evidence instead of inventing data"
+    },
+    {
+      "field": "真实供应链能力与私有成本",
+      "status": "manual_required",
+      "tool": "offline supplier or internal sourcing",
+      "reason": "Not inferable from Amazon listing data"
+    }
+  ],
+  "representative_products": [
+    {
+      "battlefield": "premium_routine",
+      "asin": "B0DLLSCVZW",
+      "brand": "Hatch Baby",
+      "seller": "Hatch Baby, Inc.",
+      "seller_origin": "US",
+      "title": "Hatch Restore 3 Sunrise Alarm Clock, Sound Machine, Smart Light",
+      "image": "https://m.media-amazon.com/images/I/814DUVqPmJL.jpg",
+      "price_usd": 169.99,
+      "rating": 4.3,
+      "reviews": 5387,
+      "launch_date": "2024-11-01",
+      "monthly_sales": 12421,
+      "monthly_revenue_usd": 2111445.79,
+      "category_rank": "Home & Kitchen 1052; Alarm Clocks 5",
+      "frontstage_value": [
+        "screen-free sleep routine",
+        "sunrise alarm",
+        "sleep sounds/content",
+        "customizable light and audio",
+        "Hatch+ subscription"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "baby_routine",
+      "asin": "B0F7C6XJ3P",
+      "brand": "Hatch Baby",
+      "seller": "Hatch Baby, Inc.",
+      "seller_origin": "US",
+      "title": "Sound Machine, Night Light | Sleep Support | Routine Builder",
+      "image": "https://m.media-amazon.com/images/I/41jxQOTULTL.jpg",
+      "price_usd": 99.99,
+      "rating": 4.3,
+      "reviews": 8828,
+      "launch_date": "2025-09-10",
+      "monthly_sales": 14125,
+      "monthly_revenue_usd": 1412358.75,
+      "category_rank": "Baby 159; Night Lights 3",
+      "frontstage_value": [
+        "baby sleep support",
+        "real-time sleep consultant",
+        "time-to-rise routine",
+        "night light",
+        "app control"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "mid_price_fusion",
+      "asin": "B0DGXD6WVW",
+      "brand": "Odokee",
+      "seller": "Odokee",
+      "seller_origin": "CN",
+      "title": "Sunrise Alarm Clock White Noise Machine",
+      "image": "https://m.media-amazon.com/images/I/81mP2pftHML.jpg",
+      "price_usd": 53.99,
+      "rating": 4.5,
+      "reviews": 1534,
+      "launch_date": "2024-10-12",
+      "monthly_sales": 7719,
+      "monthly_revenue_usd": 416748.81,
+      "category_rank": "Health & Household 4709; Sleep Sound Machines 9",
+      "frontstage_value": [
+        "sunrise simulation",
+        "25 sleep sounds",
+        "Bluetooth speaker",
+        "0-100% dimmable clock and night light",
+        "no app, physical buttons"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "mid_price_fusion",
+      "asin": "B0BZW7WY5M",
+      "brand": "REACHER",
+      "seller": "ReacherDirect",
+      "seller_origin": "HK",
+      "title": "Wood Grain Sunrise Alarm Clock and Sound Machine Nightlight",
+      "image": "https://m.media-amazon.com/images/I/31Iqmf4DppL.jpg",
+      "price_usd": 32.99,
+      "rating": 4.4,
+      "reviews": 3350,
+      "launch_date": "2023-03-29",
+      "monthly_sales": 3571,
+      "monthly_revenue_usd": 117807.29,
+      "category_rank": "Health & Household 7474; Sleep Sound Machines 18",
+      "frontstage_value": [
+        "sunrise simulation",
+        "26 sleep sounds",
+        "0-100% dimmable clock and night light",
+        "easy one-handed setup",
+        "wood decor"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "low_price_sound_machine",
+      "asin": "B0B2ZTZZ3F",
+      "brand": "BUFFBEE",
+      "seller": "HOUSBAY",
+      "seller_origin": "CN",
+      "title": "Alarm Clock with Sound Machine",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81sFkaZd3FL._AC_UL600_SR600,400_.jpg",
+      "price_usd": 21.99,
+      "rating": 4.4,
+      "reviews": 6160,
+      "launch_date": "2022-06-02",
+      "monthly_sales": 4234,
+      "monthly_revenue_usd": 93105.66,
+      "category_rank": "Health & Household 6869; Sleep Sound Machines 15",
+      "frontstage_value": [
+        "white noise machine",
+        "soft alarm sounds",
+        "ambient night light",
+        "low price",
+        "2-in-1"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "legacy_wake_light",
+      "asin": "B081CHLF46",
+      "brand": "JALL",
+      "seller": "BUG HULL",
+      "seller_origin": "CN",
+      "title": "Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers",
+      "image": "https://m.media-amazon.com/images/I/51q7d1TAcQL.jpg",
+      "price_usd": 32.88,
+      "coupon_usd": 1.64,
+      "rating": 4.3,
+      "reviews": 28011,
+      "launch_date": "2019-11-12",
+      "monthly_sales": 2180,
+      "monthly_revenue_usd": 71678.4,
+      "category_rank": "Electronics 1503; Clock Radios 3",
+      "frontstage_value": [
+        "sunrise simulation",
+        "dual alarms",
+        "FM radio",
+        "7 colors",
+        "night light / bedside lamp"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "legacy_wake_light",
+      "asin": "B0093162RM",
+      "brand": "Philips",
+      "seller": "Amazon",
+      "seller_origin": "unknown",
+      "title": "Philips SmartSleep Wake-up Light",
+      "image": "https://m.media-amazon.com/images/I/71iYjlMI6rL.jpg",
+      "price_usd": 108.99,
+      "rating": 4.3,
+      "reviews": 14687,
+      "launch_date": "2012-08-28",
+      "monthly_sales": 2840,
+      "monthly_revenue_usd": 309531.6,
+      "category_rank": "Electronics 1628; Alarm Clocks 57",
+      "frontstage_value": [
+        "clinically proven",
+        "colored sunrise and sunset",
+        "5 natural sounds",
+        "FM radio",
+        "reading lamp"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "traditional_clock",
+      "asin": "B0DPYZ68GK",
+      "brand": "DreamSky",
+      "seller": "DreamSky Direct",
+      "seller_origin": "US",
+      "title": "Wooden Digital Alarm Clock",
+      "image": "https://m.media-amazon.com/images/I/51-9j--XcHL.jpg",
+      "price_usd": 15.99,
+      "rating": 4.6,
+      "reviews": 2359,
+      "launch_date": "2025-01-16",
+      "monthly_sales": 15014,
+      "monthly_revenue_usd": 240073.86,
+      "category_rank": "Home & Kitchen 842; Alarm Clocks 4",
+      "frontstage_value": [
+        "large numbers",
+        "simple setup",
+        "dimmer",
+        "loud alarm",
+        "wood decor"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "low_price_sound_machine",
+      "asin": "B07RWRJ4XW",
+      "brand": "Magicteam",
+      "seller": "Magicteam Official",
+      "seller_origin": "CN",
+      "title": "White Noise Machine with 20 Non Looping Natural Soothing Sounds",
+      "image": "https://m.media-amazon.com/images/I/71CBN1gUirL.jpg",
+      "price_usd": 18.69,
+      "rating": 4.5,
+      "reviews": 67849,
+      "launch_date": "2019-05-27",
+      "monthly_sales": 24336,
+      "monthly_revenue_usd": 454839.84,
+      "category_rank": "Health & Household 1001; Sleep Sound Machines 1",
+      "frontstage_value": [
+        "20 sleep sounds",
+        "32 volume levels",
+        "timer",
+        "portable",
+        "low price"
+      ],
+      "source": "Sorftime product_detail"
+    },
+    {
+      "battlefield": "smart_clock",
+      "asin": "B0BFC7WQ6R",
+      "brand": "Amazon",
+      "seller": "Amazon",
+      "seller_origin": "unknown",
+      "title": "Amazon Echo Spot, Smart alarm clock",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/61bA0fjrSXL._AC_UL600_SR600,400_.jpg",
+      "price_usd": 79.99,
+      "rating": 4.6,
+      "reviews": 41503,
+      "launch_date": "2024-04-12",
+      "monthly_sales": 17225,
+      "monthly_revenue_usd": 1377827.75,
+      "category_rank": "Wireless Multiroom Systems 2",
+      "frontstage_value": [
+        "Alexa",
+        "smart alarm",
+        "music",
+        "smart home",
+        "customizable clock"
+      ],
+      "source": "Sorftime product_detail"
+    }
+  ],
+  "traffic_keyword_highlights": [
+    {
+      "asin": "B0DLLSCVZW",
+      "brand": "Hatch Restore 3",
+      "important_terms": [
+        {"keyword": "alarm clock", "monthly_search": 499010, "natural_position": "page 1, 2/48"},
+        {"keyword": "hatch alarm clock", "monthly_search": 177220, "natural_position": "page 1, 1/48"},
+        {"keyword": "hatch sound machine", "monthly_search": 172650, "natural_position": "page 1, 6/48"},
+        {"keyword": "sunrise alarm clock", "monthly_search": 128138, "natural_position": "page 1, 7/48"},
+        {"keyword": "sound machine", "monthly_search": 215603, "natural_position": "page 2, 20/48"},
+        {"keyword": "sleep aid", "monthly_search": 174992, "natural_position": "page 1, 8/48"}
+      ],
+      "interpretation": "Hatch 不只吃 wake-up-light，它同时吃 alarm clock、品牌词、sound machine、sleep aid 和 night light/decor 流量。"
+    },
+    {
+      "asin": "B0DGXD6WVW",
+      "brand": "Odokee",
+      "important_terms": [
+        {"keyword": "sunrise alarm clock", "monthly_search": 128138, "natural_position": "page 1, 1/48"},
+        {"keyword": "sound machine", "monthly_search": 215603, "natural_position": "page 1, 6/48"},
+        {"keyword": "alarm clock", "monthly_search": 499010, "natural_position": "page 1, 6/48"},
+        {"keyword": "alarm clock with sound machine", "monthly_search": 26107, "natural_position": "page 1, 13/50"}
+      ],
+      "interpretation": "Odokee 是最接近当前机会的中价融合样本：sunrise + sound + physical control。"
+    },
+    {
+      "asin": "B0BZW7WY5M",
+      "brand": "REACHER",
+      "important_terms": [
+        {"keyword": "sunrise alarm clock", "monthly_search": 128138, "natural_position": "page 1, 2/48"},
+        {"keyword": "hatch alarm clock", "monthly_search": 177220, "natural_position": "page 1, 5/48"},
+        {"keyword": "alarm clock with sound machine", "monthly_search": 26107, "natural_position": "page 1, 20/50"},
+        {"keyword": "sound machine with light", "monthly_search": 22223, "natural_position": "page 1, 27/50"}
+      ],
+      "interpretation": "REACHER 证明 wood/decor + sunrise + sound 的中价形态能进入核心词。"
+    },
+    {
+      "asin": "B0B2ZTZZ3F",
+      "brand": "BUFFBEE",
+      "important_terms": [
+        {"keyword": "sound machine", "monthly_search": 215603, "natural_position": "page 1, 5/48"},
+        {"keyword": "white noise sound machine", "monthly_search": 143944, "natural_position": "page 2, 1/48"},
+        {"keyword": "alarm clock with sound machine", "monthly_search": 26107, "natural_position": "page 1, 2/50"},
+        {"keyword": "sunrise alarm clock", "monthly_search": 128138, "natural_position": "page 3, 30/48"}
+      ],
+      "interpretation": "BUFFBEE 的真实战场偏 sound machine，不是光效主导；它会压低融合产品的声音功能价格感。"
+    },
+    {
+      "asin": "B081CHLF46",
+      "brand": "JALL",
+      "important_terms": [
+        {"keyword": "sunrise alarm clock", "monthly_search": 128138, "natural_position": "page 1, 5/48"},
+        {"keyword": "alarm clock", "monthly_search": 499010, "natural_position": "page 3, 36/48"},
+        {"keyword": "light alarm clock", "monthly_search": 13991, "natural_position": "page 1, 3/48"}
+      ],
+      "interpretation": "JALL 是旧式 wake-up-light 标杆，评论数很强，但产品语言偏老。"
+    },
+    {
+      "asin": "B0093162RM",
+      "brand": "Philips",
+      "important_terms": [
+        {"keyword": "sunrise alarm clock", "monthly_search": 128138, "natural_position": "page 1, 4/48"},
+        {"keyword": "night light", "monthly_search": 312445, "natural_position": "page 1, 38/48"},
+        {"keyword": "reading lamp", "monthly_search": 72908, "natural_position": "page 2, 4/48"},
+        {"keyword": "bedside lamp", "monthly_search": 83306, "natural_position": "page 2, 7/48"}
+      ],
+      "interpretation": "Philips 更接近光疗/灯具权威，是长期学习对象，不是短线低价竞品。"
+    }
+  ],
+  "red_team_company_baseline": {
+    "source": "process/company-capability-red-team-baseline-v1.md",
+    "company_fit": [
+      "quality and reliability advantage, not lowest cost",
+      "OEM experience for Philips, Panasonic and Huawei",
+      "white-hat player: must win through product value and legitimate marketing",
+      "design, R&D and production full-chain capability",
+      "strongest process boundary around table lamps, floor lamps and lighting-related products"
+    ]
+  },
+  "evidence_gaps_for_next_round": [
+    "gerp-ads / ABA / SIF authorization remains missing",
+    "Similarweb and official social metrics not collected",
+    "Amazon frontstage screenshots/video/A+ not captured through browser in this chapter",
+    "real supplier cost and private supply-chain capability cannot be inferred",
+    "review text and Q&A are reserved for chapter 4"
+  ]
+}

@@ -1,0 +1,1650 @@
+{
+  "created_at": "2026-05-06T06:19:16.075042+00:00",
+  "sample": {
+    "created_at": "2026-05-06T06:15:06.046258+00:00",
+    "marketplace": "US",
+    "method": "SellerSprite MCP review, stratified by ASIN and star bucket",
+    "target_raw_reviews": 330,
+    "target_effective_reviews": "250+",
+    "raw_returned": 258,
+    "raw_after_dedupe": 412,
+    "effective_reviews": 395,
+    "plan": [
+      {
+        "asin": "B0DLLSCVZW",
+        "brand": "Hatch",
+        "role": "premium routine benchmark",
+        "targets": {
+          "5": 30,
+          "4": 30,
+          "3": 15,
+          "1_2": 25
+        }
+      },
+      {
+        "asin": "B0DGXD6WVW",
+        "brand": "Odokee",
+        "role": "hatch-like accessible dupe",
+        "targets": {
+          "5": 30,
+          "4": 30,
+          "3": 15,
+          "1_2": 25
+        }
+      },
+      {
+        "asin": "B0BZW7WY5M",
+        "brand": "REACHER",
+        "role": "no-subscription low-tech sunrise clock",
+        "targets": {
+          "5": 15,
+          "4": 15,
+          "3": 8,
+          "1_2": 12
+        }
+      },
+      {
+        "asin": "B081CHLF46",
+        "brand": "JALL",
+        "role": "legacy high-review wake-up light baseline",
+        "targets": {
+          "5": 10,
+          "4": 10,
+          "3": 5,
+          "1_2": 7
+        }
+      },
+      {
+        "asin": "B0B2ZTZZ3F",
+        "brand": "BUFFBEE",
+        "role": "low-price sound-machine adjacent baseline",
+        "targets": {
+          "5": 8,
+          "4": 8,
+          "3": 4,
+          "1_2": 6
+        }
+      },
+      {
+        "asin": "B0093162RM",
+        "brand": "Philips",
+        "role": "light-therapy legitimacy benchmark",
+        "targets": {
+          "5": 6,
+          "4": 6,
+          "3": 3,
+          "1_2": 7
+        }
+      }
+    ],
+    "summary_by_asin": {
+      "B0093162RM": {
+        "brand": "Philips",
+        "role": "light-therapy legitimacy benchmark",
+        "raw_after_dedupe": 52,
+        "effective_reviews": 52,
+        "by_star": {
+          "1": 13,
+          "2": 4,
+          "3": 3,
+          "4": 16,
+          "5": 16
+        },
+        "effective_by_star": {
+          "1": 13,
+          "2": 4,
+          "3": 3,
+          "4": 16,
+          "5": 16
+        }
+      },
+      "B081CHLF46": {
+        "brand": "JALL",
+        "role": "legacy high-review wake-up light baseline",
+        "raw_after_dedupe": 10,
+        "effective_reviews": 9,
+        "by_star": {
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 8
+        },
+        "effective_by_star": {
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 7
+        }
+      },
+      "B0B2ZTZZ3F": {
+        "brand": "BUFFBEE",
+        "role": "low-price sound-machine adjacent baseline",
+        "raw_after_dedupe": 56,
+        "effective_reviews": 49,
+        "by_star": {
+          "1": 11,
+          "2": 5,
+          "3": 4,
+          "4": 18,
+          "5": 18
+        },
+        "effective_by_star": {
+          "1": 10,
+          "2": 5,
+          "3": 4,
+          "4": 17,
+          "5": 13
+        }
+      },
+      "B0BZW7WY5M": {
+        "brand": "REACHER",
+        "role": "no-subscription low-tech sunrise clock",
+        "raw_after_dedupe": 80,
+        "effective_reviews": 77,
+        "by_star": {
+          "1": 16,
+          "2": 8,
+          "3": 8,
+          "4": 24,
+          "5": 24
+        },
+        "effective_by_star": {
+          "1": 16,
+          "2": 8,
+          "3": 8,
+          "4": 24,
+          "5": 21
+        }
+      },
+      "B0DGXD6WVW": {
+        "brand": "Odokee",
+        "role": "hatch-like accessible dupe",
+        "raw_after_dedupe": 110,
+        "effective_reviews": 106,
+        "by_star": {
+          "1": 15,
+          "2": 15,
+          "3": 20,
+          "4": 30,
+          "5": 30
+        },
+        "effective_by_star": {
+          "1": 15,
+          "2": 15,
+          "3": 20,
+          "4": 30,
+          "5": 26
+        }
+      },
+      "B0DLLSCVZW": {
+        "brand": "Hatch",
+        "role": "premium routine benchmark",
+        "raw_after_dedupe": 104,
+        "effective_reviews": 102,
+        "by_star": {
+          "1": 26,
+          "2": 4,
+          "3": 15,
+          "4": 30,
+          "5": 29
+        },
+        "effective_by_star": {
+          "1": 26,
+          "2": 4,
+          "3": 14,
+          "4": 30,
+          "5": 28
+        }
+      }
+    },
+    "request_log": [
+      {
+        "idx": 1,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DLLSCVZW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 30,
+          "starList": [
+            5
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 2,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DLLSCVZW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 30,
+          "starList": [
+            4
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 3,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DLLSCVZW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 15,
+          "starList": [
+            3
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 4,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DLLSCVZW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 25,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 5,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 30,
+          "starList": [
+            5
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 6,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 30,
+          "starList": [
+            4
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 7,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 15,
+          "starList": [
+            3
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 8,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 1,
+          "size": 25,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 9,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0BZW7WY5M",
+          "marketplace": "US",
+          "page": 1,
+          "size": 15,
+          "starList": [
+            5
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 10,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0BZW7WY5M",
+          "marketplace": "US",
+          "page": 1,
+          "size": 15,
+          "starList": [
+            4
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 11,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0BZW7WY5M",
+          "marketplace": "US",
+          "page": 1,
+          "size": 8,
+          "starList": [
+            3
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 12,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0BZW7WY5M",
+          "marketplace": "US",
+          "page": 1,
+          "size": 12,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 13,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 1,
+          "size": 10,
+          "starList": [
+            5
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 14,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 1,
+          "size": 10,
+          "starList": [
+            4
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 15,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 1,
+          "size": 5,
+          "starList": [
+            3
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 16,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 1,
+          "size": 7,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 17,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0B2ZTZZ3F",
+          "marketplace": "US",
+          "page": 1,
+          "size": 8,
+          "starList": [
+            5
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 18,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0B2ZTZZ3F",
+          "marketplace": "US",
+          "page": 1,
+          "size": 8,
+          "starList": [
+            4
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 19,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0B2ZTZZ3F",
+          "marketplace": "US",
+          "page": 1,
+          "size": 4,
+          "starList": [
+            3
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 20,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0B2ZTZZ3F",
+          "marketplace": "US",
+          "page": 1,
+          "size": 6,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 21,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0093162RM",
+          "marketplace": "US",
+          "page": 1,
+          "size": 6,
+          "starList": [
+            5
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 22,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0093162RM",
+          "marketplace": "US",
+          "page": 1,
+          "size": 6,
+          "starList": [
+            4
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 23,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0093162RM",
+          "marketplace": "US",
+          "page": 1,
+          "size": 3,
+          "starList": [
+            3
+          ]
+        },
+        "status_code": 200
+      },
+      {
+        "idx": 24,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0093162RM",
+          "marketplace": "US",
+          "page": 1,
+          "size": 7,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status_code": 200
+      }
+    ],
+    "effective_rule": "content_text length >= 20 characters after html br normalization",
+    "zero_hallucination": "All review texts are directly returned by SellerSprite MCP. Missing/short content remains in raw ledger and is excluded from effective analysis.",
+    "updated_at": "2026-05-06T06:16:34.283598+00:00",
+    "extra_request_log": [
+      {
+        "idx": 100,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DLLSCVZW",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            5
+          ]
+        },
+        "status": "ok",
+        "returned": 15
+      },
+      {
+        "idx": 101,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DLLSCVZW",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            4
+          ]
+        },
+        "status": "ok",
+        "returned": 15
+      },
+      {
+        "idx": 102,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DLLSCVZW",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status": "ok",
+        "returned": 15
+      },
+      {
+        "idx": 103,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            5
+          ]
+        },
+        "status": "ok",
+        "returned": 15
+      },
+      {
+        "idx": 104,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            4
+          ]
+        },
+        "status": "ok",
+        "returned": 15
+      },
+      {
+        "idx": 105,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 2,
+          "size": 10,
+          "starList": [
+            3
+          ]
+        },
+        "status": "ok",
+        "returned": 10
+      },
+      {
+        "idx": 106,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0DGXD6WVW",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status": "ok",
+        "returned": 15
+      },
+      {
+        "idx": 107,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0BZW7WY5M",
+          "marketplace": "US",
+          "page": 2,
+          "size": 12,
+          "starList": [
+            5
+          ]
+        },
+        "status": "ok",
+        "returned": 12
+      },
+      {
+        "idx": 108,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0BZW7WY5M",
+          "marketplace": "US",
+          "page": 2,
+          "size": 12,
+          "starList": [
+            4
+          ]
+        },
+        "status": "ok",
+        "returned": 12
+      },
+      {
+        "idx": 109,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0BZW7WY5M",
+          "marketplace": "US",
+          "page": 2,
+          "size": 12,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status": "ok",
+        "returned": 12
+      },
+      {
+        "idx": 110,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            5
+          ]
+        },
+        "status": "ok",
+        "returned": 0
+      },
+      {
+        "idx": 111,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 2,
+          "size": 15,
+          "starList": [
+            4
+          ]
+        },
+        "status": "ok",
+        "returned": 0
+      },
+      {
+        "idx": 112,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 1,
+          "size": 10,
+          "starList": [
+            3
+          ]
+        },
+        "status": "ok",
+        "returned": 1
+      },
+      {
+        "idx": 113,
+        "tool": "review",
+        "arguments": {
+          "asin": "B081CHLF46",
+          "marketplace": "US",
+          "page": 1,
+          "size": 15,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status": "ok",
+        "returned": 0
+      },
+      {
+        "idx": 114,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0B2ZTZZ3F",
+          "marketplace": "US",
+          "page": 2,
+          "size": 10,
+          "starList": [
+            5
+          ]
+        },
+        "status": "ok",
+        "returned": 10
+      },
+      {
+        "idx": 115,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0B2ZTZZ3F",
+          "marketplace": "US",
+          "page": 2,
+          "size": 10,
+          "starList": [
+            4
+          ]
+        },
+        "status": "ok",
+        "returned": 10
+      },
+      {
+        "idx": 116,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0B2ZTZZ3F",
+          "marketplace": "US",
+          "page": 2,
+          "size": 10,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status": "ok",
+        "returned": 10
+      },
+      {
+        "idx": 117,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0093162RM",
+          "marketplace": "US",
+          "page": 2,
+          "size": 10,
+          "starList": [
+            5
+          ]
+        },
+        "status": "ok",
+        "returned": 10
+      },
+      {
+        "idx": 118,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0093162RM",
+          "marketplace": "US",
+          "page": 2,
+          "size": 10,
+          "starList": [
+            4
+          ]
+        },
+        "status": "ok",
+        "returned": 10
+      },
+      {
+        "idx": 119,
+        "tool": "review",
+        "arguments": {
+          "asin": "B0093162RM",
+          "marketplace": "US",
+          "page": 2,
+          "size": 10,
+          "starList": [
+            1,
+            2
+          ]
+        },
+        "status": "ok",
+        "returned": 10
+      }
+    ],
+    "sampling_note": "Initial stratified pull produced 247 effective reviews; second-page supplemental pull added enough effective samples without fabricating or counting short content."
+  },
+  "taxonomy": {
+    "gentle_natural_wake": {
+      "type": "purchase_driver",
+      "label": "温和自然醒 / 不被吓醒"
+    },
+    "sleep_winddown_routine": {
+      "type": "purchase_driver",
+      "label": "睡前放松 / routine / sleep hygiene"
+    },
+    "sound_noise_value": {
+      "type": "purchase_driver",
+      "label": "白噪音 / 声音助眠 / 音箱"
+    },
+    "bedside_aesthetic_lamp": {
+      "type": "purchase_driver",
+      "label": "床头灯感 / 外观审美 / 卧室物件"
+    },
+    "price_value_dupe": {
+      "type": "purchase_driver",
+      "label": "价格价值 / Hatch 平替 / 低风险试水"
+    },
+    "no_subscription_phone_free": {
+      "type": "purchase_driver",
+      "label": "无订阅 / 少 app / 不碰手机"
+    },
+    "customization_control": {
+      "type": "purchase_driver",
+      "label": "可定制 / 多模式 / 可调亮度音量"
+    },
+    "family_kids_heavy_sleeper": {
+      "type": "purchase_driver",
+      "label": "孩子 / 家庭 / 重睡眠者 / 伴侣"
+    },
+    "light_therapy_dark_winter": {
+      "type": "purchase_driver",
+      "label": "暗房 / 冬天 / 光疗信任"
+    },
+    "simple_physical_control": {
+      "type": "purchase_driver",
+      "label": "简单实体控制 / 低技术负担"
+    },
+    "subscription_app_pain": {
+      "type": "pain",
+      "label": "订阅 / app / paywall 反感"
+    },
+    "setup_complexity_pain": {
+      "type": "pain",
+      "label": "设置复杂 / 按键难懂 / 说明书问题"
+    },
+    "reliability_alarm_time_pain": {
+      "type": "pain",
+      "label": "可靠性 / 时间漂移 / 闹钟失效"
+    },
+    "brightness_display_pain": {
+      "type": "pain",
+      "label": "亮度 / 显示 / 光效曲线问题"
+    },
+    "sound_quality_pain": {
+      "type": "pain",
+      "label": "声音质量 / 循环 / 声音选择不足"
+    },
+    "cheap_build_durability_pain": {
+      "type": "pain",
+      "label": "质感便宜 / 做工 / 耐用性"
+    },
+    "price_expectation_pain": {
+      "type": "pain",
+      "label": "价格预期 / 贵但还要加钱"
+    },
+    "insufficient_customization_pain": {
+      "type": "pain",
+      "label": "自定义不足 / schedule 不够"
+    }
+  },
+  "overall_theme_counts": [
+    {
+      "key": "sound_noise_value",
+      "label": "白噪音 / 声音助眠 / 音箱",
+      "type": "purchase_driver",
+      "count": 111
+    },
+    {
+      "key": "bedside_aesthetic_lamp",
+      "label": "床头灯感 / 外观审美 / 卧室物件",
+      "type": "purchase_driver",
+      "count": 111
+    },
+    {
+      "key": "gentle_natural_wake",
+      "label": "温和自然醒 / 不被吓醒",
+      "type": "purchase_driver",
+      "count": 107
+    },
+    {
+      "key": "simple_physical_control",
+      "label": "简单实体控制 / 低技术负担",
+      "type": "purchase_driver",
+      "count": 103
+    },
+    {
+      "key": "customization_control",
+      "label": "可定制 / 多模式 / 可调亮度音量",
+      "type": "purchase_driver",
+      "count": 96
+    },
+    {
+      "key": "family_kids_heavy_sleeper",
+      "label": "孩子 / 家庭 / 重睡眠者 / 伴侣",
+      "type": "purchase_driver",
+      "count": 83
+    },
+    {
+      "key": "brightness_display_pain",
+      "label": "亮度 / 显示 / 光效曲线问题",
+      "type": "pain",
+      "count": 80
+    },
+    {
+      "key": "reliability_alarm_time_pain",
+      "label": "可靠性 / 时间漂移 / 闹钟失效",
+      "type": "pain",
+      "count": 69
+    },
+    {
+      "key": "cheap_build_durability_pain",
+      "label": "质感便宜 / 做工 / 耐用性",
+      "type": "pain",
+      "count": 68
+    },
+    {
+      "key": "sleep_winddown_routine",
+      "label": "睡前放松 / routine / sleep hygiene",
+      "type": "purchase_driver",
+      "count": 59
+    },
+    {
+      "key": "insufficient_customization_pain",
+      "label": "自定义不足 / schedule 不够",
+      "type": "pain",
+      "count": 48
+    },
+    {
+      "key": "setup_complexity_pain",
+      "label": "设置复杂 / 按键难懂 / 说明书问题",
+      "type": "pain",
+      "count": 45
+    },
+    {
+      "key": "subscription_app_pain",
+      "label": "订阅 / app / paywall 反感",
+      "type": "pain",
+      "count": 39
+    },
+    {
+      "key": "price_expectation_pain",
+      "label": "价格预期 / 贵但还要加钱",
+      "type": "pain",
+      "count": 34
+    },
+    {
+      "key": "sound_quality_pain",
+      "label": "声音质量 / 循环 / 声音选择不足",
+      "type": "pain",
+      "count": 27
+    },
+    {
+      "key": "price_value_dupe",
+      "label": "价格价值 / Hatch 平替 / 低风险试水",
+      "type": "purchase_driver",
+      "count": 23
+    },
+    {
+      "key": "light_therapy_dark_winter",
+      "label": "暗房 / 冬天 / 光疗信任",
+      "type": "purchase_driver",
+      "count": 12
+    },
+    {
+      "key": "no_subscription_phone_free",
+      "label": "无订阅 / 少 app / 不碰手机",
+      "type": "purchase_driver",
+      "count": 8
+    }
+  ],
+  "brand_summary": {
+    "BUFFBEE": {
+      "effective_reviews": 49,
+      "star_distribution": {
+        "1": 10,
+        "2": 5,
+        "3": 4,
+        "4": 17,
+        "5": 13
+      },
+      "top_purchase_drivers": [
+        {
+          "key": "sound_noise_value",
+          "label": "白噪音 / 声音助眠 / 音箱",
+          "count": 12
+        },
+        {
+          "key": "simple_physical_control",
+          "label": "简单实体控制 / 低技术负担",
+          "count": 9
+        },
+        {
+          "key": "family_kids_heavy_sleeper",
+          "label": "孩子 / 家庭 / 重睡眠者 / 伴侣",
+          "count": 8
+        },
+        {
+          "key": "customization_control",
+          "label": "可定制 / 多模式 / 可调亮度音量",
+          "count": 7
+        },
+        {
+          "key": "bedside_aesthetic_lamp",
+          "label": "床头灯感 / 外观审美 / 卧室物件",
+          "count": 7
+        },
+        {
+          "key": "sleep_winddown_routine",
+          "label": "睡前放松 / routine / sleep hygiene",
+          "count": 3
+        },
+        {
+          "key": "gentle_natural_wake",
+          "label": "温和自然醒 / 不被吓醒",
+          "count": 2
+        }
+      ],
+      "top_pains": [
+        {
+          "key": "reliability_alarm_time_pain",
+          "label": "可靠性 / 时间漂移 / 闹钟失效",
+          "count": 10
+        },
+        {
+          "key": "cheap_build_durability_pain",
+          "label": "质感便宜 / 做工 / 耐用性",
+          "count": 10
+        },
+        {
+          "key": "brightness_display_pain",
+          "label": "亮度 / 显示 / 光效曲线问题",
+          "count": 9
+        },
+        {
+          "key": "sound_quality_pain",
+          "label": "声音质量 / 循环 / 声音选择不足",
+          "count": 3
+        },
+        {
+          "key": "setup_complexity_pain",
+          "label": "设置复杂 / 按键难懂 / 说明书问题",
+          "count": 1
+        },
+        {
+          "key": "price_expectation_pain",
+          "label": "价格预期 / 贵但还要加钱",
+          "count": 1
+        }
+      ]
+    },
+    "Hatch": {
+      "effective_reviews": 102,
+      "star_distribution": {
+        "1": 26,
+        "2": 4,
+        "3": 14,
+        "4": 30,
+        "5": 28
+      },
+      "top_purchase_drivers": [
+        {
+          "key": "sleep_winddown_routine",
+          "label": "睡前放松 / routine / sleep hygiene",
+          "count": 41
+        },
+        {
+          "key": "sound_noise_value",
+          "label": "白噪音 / 声音助眠 / 音箱",
+          "count": 38
+        },
+        {
+          "key": "gentle_natural_wake",
+          "label": "温和自然醒 / 不被吓醒",
+          "count": 31
+        },
+        {
+          "key": "bedside_aesthetic_lamp",
+          "label": "床头灯感 / 外观审美 / 卧室物件",
+          "count": 29
+        },
+        {
+          "key": "customization_control",
+          "label": "可定制 / 多模式 / 可调亮度音量",
+          "count": 22
+        },
+        {
+          "key": "family_kids_heavy_sleeper",
+          "label": "孩子 / 家庭 / 重睡眠者 / 伴侣",
+          "count": 21
+        },
+        {
+          "key": "simple_physical_control",
+          "label": "简单实体控制 / 低技术负担",
+          "count": 18
+        },
+        {
+          "key": "no_subscription_phone_free",
+          "label": "无订阅 / 少 app / 不碰手机",
+          "count": 7
+        }
+      ],
+      "top_pains": [
+        {
+          "key": "subscription_app_pain",
+          "label": "订阅 / app / paywall 反感",
+          "count": 36
+        },
+        {
+          "key": "price_expectation_pain",
+          "label": "价格预期 / 贵但还要加钱",
+          "count": 17
+        },
+        {
+          "key": "brightness_display_pain",
+          "label": "亮度 / 显示 / 光效曲线问题",
+          "count": 15
+        },
+        {
+          "key": "setup_complexity_pain",
+          "label": "设置复杂 / 按键难懂 / 说明书问题",
+          "count": 13
+        },
+        {
+          "key": "cheap_build_durability_pain",
+          "label": "质感便宜 / 做工 / 耐用性",
+          "count": 13
+        },
+        {
+          "key": "insufficient_customization_pain",
+          "label": "自定义不足 / schedule 不够",
+          "count": 13
+        },
+        {
+          "key": "reliability_alarm_time_pain",
+          "label": "可靠性 / 时间漂移 / 闹钟失效",
+          "count": 11
+        },
+        {
+          "key": "sound_quality_pain",
+          "label": "声音质量 / 循环 / 声音选择不足",
+          "count": 9
+        }
+      ]
+    },
+    "JALL": {
+      "effective_reviews": 9,
+      "star_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 7
+      },
+      "top_purchase_drivers": [
+        {
+          "key": "family_kids_heavy_sleeper",
+          "label": "孩子 / 家庭 / 重睡眠者 / 伴侣",
+          "count": 6
+        },
+        {
+          "key": "gentle_natural_wake",
+          "label": "温和自然醒 / 不被吓醒",
+          "count": 6
+        },
+        {
+          "key": "simple_physical_control",
+          "label": "简单实体控制 / 低技术负担",
+          "count": 6
+        },
+        {
+          "key": "sound_noise_value",
+          "label": "白噪音 / 声音助眠 / 音箱",
+          "count": 5
+        },
+        {
+          "key": "bedside_aesthetic_lamp",
+          "label": "床头灯感 / 外观审美 / 卧室物件",
+          "count": 5
+        },
+        {
+          "key": "customization_control",
+          "label": "可定制 / 多模式 / 可调亮度音量",
+          "count": 4
+        },
+        {
+          "key": "sleep_winddown_routine",
+          "label": "睡前放松 / routine / sleep hygiene",
+          "count": 3
+        },
+        {
+          "key": "light_therapy_dark_winter",
+          "label": "暗房 / 冬天 / 光疗信任",
+          "count": 1
+        }
+      ],
+      "top_pains": [
+        {
+          "key": "brightness_display_pain",
+          "label": "亮度 / 显示 / 光效曲线问题",
+          "count": 4
+        },
+        {
+          "key": "setup_complexity_pain",
+          "label": "设置复杂 / 按键难懂 / 说明书问题",
+          "count": 3
+        },
+        {
+          "key": "cheap_build_durability_pain",
+          "label": "质感便宜 / 做工 / 耐用性",
+          "count": 2
+        },
+        {
+          "key": "sound_quality_pain",
+          "label": "声音质量 / 循环 / 声音选择不足",
+          "count": 1
+        },
+        {
+          "key": "reliability_alarm_time_pain",
+          "label": "可靠性 / 时间漂移 / 闹钟失效",
+          "count": 1
+        },
+        {
+          "key": "insufficient_customization_pain",
+          "label": "自定义不足 / schedule 不够",
+          "count": 1
+        }
+      ]
+    },
+    "Odokee": {
+      "effective_reviews": 106,
+      "star_distribution": {
+        "1": 15,
+        "2": 15,
+        "3": 20,
+        "4": 30,
+        "5": 26
+      },
+      "top_purchase_drivers": [
+        {
+          "key": "gentle_natural_wake",
+          "label": "温和自然醒 / 不被吓醒",
+          "count": 37
+        },
+        {
+          "key": "bedside_aesthetic_lamp",
+          "label": "床头灯感 / 外观审美 / 卧室物件",
+          "count": 35
+        },
+        {
+          "key": "customization_control",
+          "label": "可定制 / 多模式 / 可调亮度音量",
+          "count": 34
+        },
+        {
+          "key": "simple_physical_control",
+          "label": "简单实体控制 / 低技术负担",
+          "count": 29
+        },
+        {
+          "key": "sound_noise_value",
+          "label": "白噪音 / 声音助眠 / 音箱",
+          "count": 27
+        },
+        {
+          "key": "family_kids_heavy_sleeper",
+          "label": "孩子 / 家庭 / 重睡眠者 / 伴侣",
+          "count": 18
+        },
+        {
+          "key": "price_value_dupe",
+          "label": "价格价值 / Hatch 平替 / 低风险试水",
+          "count": 10
+        },
+        {
+          "key": "sleep_winddown_routine",
+          "label": "睡前放松 / routine / sleep hygiene",
+          "count": 5
+        }
+      ],
+      "top_pains": [
+        {
+          "key": "brightness_display_pain",
+          "label": "亮度 / 显示 / 光效曲线问题",
+          "count": 24
+        },
+        {
+          "key": "cheap_build_durability_pain",
+          "label": "质感便宜 / 做工 / 耐用性",
+          "count": 18
+        },
+        {
+          "key": "reliability_alarm_time_pain",
+          "label": "可靠性 / 时间漂移 / 闹钟失效",
+          "count": 18
+        },
+        {
+          "key": "insufficient_customization_pain",
+          "label": "自定义不足 / schedule 不够",
+          "count": 16
+        },
+        {
+          "key": "setup_complexity_pain",
+          "label": "设置复杂 / 按键难懂 / 说明书问题",
+          "count": 13
+        },
+        {
+          "key": "sound_quality_pain",
+          "label": "声音质量 / 循环 / 声音选择不足",
+          "count": 8
+        },
+        {
+          "key": "price_expectation_pain",
+          "label": "价格预期 / 贵但还要加钱",
+          "count": 6
+        }
+      ]
+    },
+    "Philips": {
+      "effective_reviews": 52,
+      "star_distribution": {
+        "1": 13,
+        "2": 4,
+        "3": 3,
+        "4": 16,
+        "5": 16
+      },
+      "top_purchase_drivers": [
+        {
+          "key": "simple_physical_control",
+          "label": "简单实体控制 / 低技术负担",
+          "count": 24
+        },
+        {
+          "key": "bedside_aesthetic_lamp",
+          "label": "床头灯感 / 外观审美 / 卧室物件",
+          "count": 17
+        },
+        {
+          "key": "family_kids_heavy_sleeper",
+          "label": "孩子 / 家庭 / 重睡眠者 / 伴侣",
+          "count": 15
+        },
+        {
+          "key": "gentle_natural_wake",
+          "label": "温和自然醒 / 不被吓醒",
+          "count": 12
+        },
+        {
+          "key": "customization_control",
+          "label": "可定制 / 多模式 / 可调亮度音量",
+          "count": 11
+        },
+        {
+          "key": "sound_noise_value",
+          "label": "白噪音 / 声音助眠 / 音箱",
+          "count": 9
+        },
+        {
+          "key": "light_therapy_dark_winter",
+          "label": "暗房 / 冬天 / 光疗信任",
+          "count": 2
+        },
+        {
+          "key": "sleep_winddown_routine",
+          "label": "睡前放松 / routine / sleep hygiene",
+          "count": 1
+        }
+      ],
+      "top_pains": [
+        {
+          "key": "brightness_display_pain",
+          "label": "亮度 / 显示 / 光效曲线问题",
+          "count": 13
+        },
+        {
+          "key": "cheap_build_durability_pain",
+          "label": "质感便宜 / 做工 / 耐用性",
+          "count": 11
+        },
+        {
+          "key": "setup_complexity_pain",
+          "label": "设置复杂 / 按键难懂 / 说明书问题",
+          "count": 11
+        },
+        {
+          "key": "reliability_alarm_time_pain",
+          "label": "可靠性 / 时间漂移 / 闹钟失效",
+          "count": 8
+        },
+        {
+          "key": "insufficient_customization_pain",
+          "label": "自定义不足 / schedule 不够",
+          "count": 7
+        },
+        {
+          "key": "price_expectation_pain",
+          "label": "价格预期 / 贵但还要加钱",
+          "count": 6
+        },
+        {
+          "key": "sound_quality_pain",
+          "label": "声音质量 / 循环 / 声音选择不足",
+          "count": 2
+        },
+        {
+          "key": "subscription_app_pain",
+          "label": "订阅 / app / paywall 反感",
+          "count": 1
+        }
+      ]
+    },
+    "REACHER": {
+      "effective_reviews": 77,
+      "star_distribution": {
+        "1": 16,
+        "2": 8,
+        "3": 8,
+        "4": 24,
+        "5": 21
+      },
+      "top_purchase_drivers": [
+        {
+          "key": "sound_noise_value",
+          "label": "白噪音 / 声音助眠 / 音箱",
+          "count": 20
+        },
+        {
+          "key": "gentle_natural_wake",
+          "label": "温和自然醒 / 不被吓醒",
+          "count": 19
+        },
+        {
+          "key": "bedside_aesthetic_lamp",
+          "label": "床头灯感 / 外观审美 / 卧室物件",
+          "count": 18
+        },
+        {
+          "key": "customization_control",
+          "label": "可定制 / 多模式 / 可调亮度音量",
+          "count": 18
+        },
+        {
+          "key": "simple_physical_control",
+          "label": "简单实体控制 / 低技术负担",
+          "count": 17
+        },
+        {
+          "key": "family_kids_heavy_sleeper",
+          "label": "孩子 / 家庭 / 重睡眠者 / 伴侣",
+          "count": 15
+        },
+        {
+          "key": "price_value_dupe",
+          "label": "价格价值 / Hatch 平替 / 低风险试水",
+          "count": 8
+        },
+        {
+          "key": "sleep_winddown_routine",
+          "label": "睡前放松 / routine / sleep hygiene",
+          "count": 6
+        }
+      ],
+      "top_pains": [
+        {
+          "key": "reliability_alarm_time_pain",
+          "label": "可靠性 / 时间漂移 / 闹钟失效",
+          "count": 21
+        },
+        {
+          "key": "brightness_display_pain",
+          "label": "亮度 / 显示 / 光效曲线问题",
+          "count": 15
+        },
+        {
+          "key": "cheap_build_durability_pain",
+          "label": "质感便宜 / 做工 / 耐用性",
+          "count": 14
+        },
+        {
+          "key": "insufficient_customization_pain",
+          "label": "自定义不足 / schedule 不够",
+          "count": 11
+        },
+        {
+          "key": "price_expectation_pain",
+          "label": "价格预期 / 贵但还要加钱",
+          "count": 4
+        },
+        {
+          "key": "sound_quality_pain",
+          "label": "声音质量 / 循环 / 声音选择不足",
+          "count": 4
+        },
+        {
+          "key": "setup_complexity_pain",
+          "label": "设置复杂 / 按键难懂 / 说明书问题",
+          "count": 4
+        },
+        {
+          "key": "subscription_app_pain",
+          "label": "订阅 / app / paywall 反感",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "opportunities": [
+    {
+      "name": "无订阅也完整的睡醒仪式",
+      "driver_keys": [
+        "sleep_winddown_routine",
+        "gentle_natural_wake",
+        "no_subscription_phone_free"
+      ],
+      "pain_keys": [
+        "subscription_app_pain",
+        "price_expectation_pain"
+      ],
+      "logic": "学习 Hatch 的 routine 价值，但把核心流程本机化，降低订阅和 app 反感。",
+      "driver_count": 174,
+      "pain_count": 73,
+      "evidence_strength": "high"
+    },
+    {
+      "name": "像灯具一样的日出光效与床头对象感",
+      "driver_keys": [
+        "bedside_aesthetic_lamp",
+        "light_therapy_dark_winter",
+        "customization_control"
+      ],
+      "pain_keys": [
+        "brightness_display_pain",
+        "cheap_build_durability_pain"
+      ],
+      "logic": "把公司灯具工艺能力转成第一眼能看见的扩散罩、光色曲线、材质和卧室陈列感。",
+      "driver_count": 219,
+      "pain_count": 148,
+      "evidence_strength": "high"
+    },
+    {
+      "name": "每天可信的闹钟可靠性",
+      "driver_keys": [
+        "gentle_natural_wake",
+        "simple_physical_control"
+      ],
+      "pain_keys": [
+        "reliability_alarm_time_pain",
+        "setup_complexity_pain"
+      ],
+      "logic": "平替产品证明需求成立，但闹钟类产品容错极低；可靠性可成为信任锚。",
+      "driver_count": 210,
+      "pain_count": 114,
+      "evidence_strength": "high"
+    },
+    {
+      "name": "Hatch 感平替，但不落入廉价感",
+      "driver_keys": [
+        "price_value_dupe",
+        "bedside_aesthetic_lamp",
+        "sound_noise_value"
+      ],
+      "pain_keys": [
+        "cheap_build_durability_pain",
+        "sound_quality_pain",
+        "setup_complexity_pain"
+      ],
+      "logic": "Odokee/REACHER 证明可接近价格成立，但需要用质感、声音、交互补足平替短板。",
+      "driver_count": 245,
+      "pain_count": 140,
+      "evidence_strength": "high"
+    }
+  ],
+  "tagging_rule_version": "v9.2 refined; removed broad alarm/clock/price triggers to reduce false positives",
+  "notes": [
+    "Rule-based theme counts are directional and used with review reading, not as final statistical truth.",
+    "JALL returned only 9 effective reviews in current MCP calls; treat as boundary calibration only."
+  ]
+}

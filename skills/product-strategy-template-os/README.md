@@ -30,6 +30,36 @@
 npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
 ```
 
+## 1.1 Update
+
+同事后续只需要对 agent 说：
+
+```text
+/update product-os
+```
+
+agent 必须把它理解成“从 GitHub 重新安装并验证 Product Strategy Template OS”，然后运行：
+
+```bash
+SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+python3 "$SKILL_HOME/scripts/update_product_os.py"
+```
+
+如果本地安装的是旧版本，还没有 `update_product_os.py`，使用 fallback：
+
+```bash
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
+SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills/product-strategy-template-os"
+python3 "$SKILL_HOME/scripts/bootstrap_check.py" --skill-root "$SKILL_HOME"
+```
+
+预期更新验收：
+
+```text
+OK_UPDATE_PRODUCT_OS
+OK_BOOTSTRAP
+```
+
 安装后，skill 通常位于：
 
 ```bash
@@ -159,7 +189,7 @@ gstack-brain-sync --once
 
 进入正常的 GBrain 同步链路。
 
-默认模板有七章：
+默认模板有八章：
 
 ```text
 1. 品类本质小结
@@ -167,8 +197,9 @@ gstack-brain-sync --once
 3. 头部品牌竞争&竞品分析
 4. 用户场景&需求分析
 5. 营销分析&社媒传播
-6. 供应链管理
-7. 产品规划
+6. 产品规划
+7. 供应链实现
+8. 项目计划
 ```
 
 每一章都必须执行同一个循环：
