@@ -45,6 +45,28 @@ Template Router
 -> Index / Ledger Update
 ```
 
+## Strict Skill Compliance
+
+Before running or accepting any strategy report, resolve the actual skill path and validate it:
+
+```text
+SKILL_HOME
+-> scripts/bootstrap_check.py
+-> scripts/init_run.py for new runs
+-> scripts/validate_run.py before accepting a report
+```
+
+Only `OK_BOOTSTRAP` and `OK_VALIDATE_RUN` count as passing. A polished HTML page that fails validation is a process draft, not a product report.
+
+Never use old local skill packages, copied run folders, or chat-transcript templates as the skill source. The canonical source is:
+
+```text
+https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit
+product-strategy-template-os
+```
+
+If there are multiple installed copies, report which `SKILL_HOME` is active and use the one that passes bootstrap/validation.
+
 ## Native GBrain Sync Boundary
 
 GBrain sync is automatic at skill boundaries. Do not ask the human to request
@@ -82,6 +104,17 @@ unknown
 ```
 
 Label inference as inference.
+
+Review-derived numeric claims require raw / tagged / effective review ledgers under `process/`. If raw rows are unavailable, mark the claim as `not_recomputable` and do not treat it as a verified metric.
+
+In Product Planning / USP work, always separate:
+
+```text
+评论提及频次
+USP 战略权重
+```
+
+High-frequency comment themes cannot automatically become the main USP. They must also pass purchase-driver, unmet-gap, company-fit, first-eye-expression, technical-topology, and testability checks.
 
 ## Evidence Responsibility
 

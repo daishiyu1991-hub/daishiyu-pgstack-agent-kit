@@ -82,6 +82,33 @@ unknown
 
 Inferences must be labeled as inference. Calculations must show source rows or method.
 
+## 2.1 Reproducibility And Raw Evidence
+
+The OS must be reproducible across agents. A polished report is not enough.
+
+Mandatory validation:
+
+```text
+python3 "$SKILL_HOME/scripts/validate_run.py" "$RUN_DIR"
+-> OK_VALIDATE_RUN
+```
+
+If validation fails, fix the run or mark it as process output. Do not promote it to the primary report.
+
+For review analysis:
+
+- numeric review claims require raw / tagged / effective review ledgers under `process/`;
+- ledgers must expose recomputable rows, such as `review_id`, `content_text`, `rating`, `asin`, or equivalent fields;
+- evidence JSON saying `raw_available=yes` is not enough unless the run folder includes or references the exact raw ledger;
+- if only summarized evidence is available, the report must use directional wording and mark the result as `not_recomputable`.
+
+For USP/product-planning analysis:
+
+- `评论提及频次` is not the same as `USP 战略权重`;
+- comments show what people talked about and where evidence is dense;
+- USP weight combines purchase driver, unmet gap, company capability, first-eye visibility, technical topology, BOM/test feasibility, and red-team risk;
+- any strategic weighting beyond collected evidence must be labeled as inference.
+
 ## 3. Evidence Acquisition Is The Pipeline's Job
 
 If a tool/API/MCP/file/browser route is available, use it before asking the human to judge. Do not ask the human whether to run a standard evidence collection step after they have asked the pipeline to continue.
@@ -232,6 +259,19 @@ hard capability: do not jump into yet
 ```
 
 Generic benefits such as better looking, more reliable, no subscription, cheaper, or more modes are supporting material. The main USP should be compressed into a vivid scene-level proposition that can be tested through frontstage expression, prototype feasibility, BOM, and human judgment.
+
+Chapter 6 must include an evidence calibration block before choosing a USP:
+
+```text
+review mention frequency
+-> purchase reason and dissatisfaction gap
+-> company-fit and capability-growth boundary
+-> first-eye frontstage expression
+-> technical topology and testability
+-> USP strategic weight
+```
+
+Never let high-frequency support themes, such as sound or aesthetic mentions, automatically become the main USP. They can become the main track only if they also pass the strategic-weight tests.
 
 ## 12. Trend Basis
 

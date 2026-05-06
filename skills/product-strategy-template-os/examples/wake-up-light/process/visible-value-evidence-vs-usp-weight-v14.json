@@ -1,0 +1,33 @@
+{
+  "artifact": "visible_value_evidence_vs_usp_weight_v14",
+  "created_at": "2026-05-06T08:01:36Z",
+  "new_primary_page": "quality-review-visible-value-thesis-v14-evidence-vs-usp-weight.html",
+  "previous_page_kept": "quality-review-visible-value-thesis-v13-explosive-usp.html",
+  "reason_for_revision": "User noticed that the final USP comment theme chart put sound and aesthetics at the top, while chapter 04/05 conclusions did not treat sound/aesthetics as the main product-planning direction.",
+  "diagnosis": {
+    "section_04_sample_role": "Chapter 04 used Sorftime product_reviews and product_detail evidence to summarize user tasks, scenes, journeys, and needs. Its evidence ledger stores structured summaries rather than the raw full review text, so it is not a frequency-statistics artifact.",
+    "section_05_sample_role": "Chapter 05 mainly used product detail, traffic terms, Walmart/TikTok/official-site/frontstage evidence. It is a marketing and channel analysis, not a review-theme frequency analysis.",
+    "v09_v13_sample_role": "The USP review section used SellerSprite review collection with 395 effective reviews, stratified by ASIN and star bucket. Hatch and Odokee contributed 208/395 effective reviews, which naturally elevated sound, routine, and bedside-aesthetic themes.",
+    "tagging_caveat": "Theme counts are multi-label mentions. One long review can count toward sound, aesthetics, sunrise light, routine, controls, setup pain, and build quality at the same time. Counts do not equal first purchase reason."
+  },
+  "revision_principle": {
+    "keep_evidence_frequency": "Show comment theme frequency as evidence of what users often mention.",
+    "add_strategy_weight": "Add a separate USP strategic-weight view that filters themes through purchase impulse, first-glance visibility, low-price-war avoidance, company capability fit, architecture traceability, and testability.",
+    "do_not_overwrite_human_choice": "The page can recommend a USP hypothesis but cannot mark it as the user's final selection."
+  },
+  "data_sources_used": [
+    "process/visible-value-review-sampling-audit-v9.json",
+    "process/visible-value-review-theme-analysis-v9.json",
+    "process/visible-value-review-effective-ledger-v9.json",
+    "process/section4-user-scene-demand-evidence-v1.json",
+    "process/section4-user-scene-demand-analysis-v1.md",
+    "process/section5-marketing-social-evidence-v1.json",
+    "process/section5-marketing-social-analysis-v1.md"
+  ],
+  "data_integrity": {
+    "new_review_collection": false,
+    "new_market_data": false,
+    "new_claims": "Only explanatory and strategic-weight inference was added.",
+    "inference_labeling": "USP strategic weights are labeled as product-planning inference requiring human review and prototype/frontstage validation."
+  }
+}

@@ -142,6 +142,26 @@ Read `references/template-structure.zh.md` before creating a chapter execution p
 - Do not unlock the next chapter without explicit human choice.
 - If a user chooses `pause`, write a decision record and do not unlock the next chapter.
 
+## Reproducibility Rules
+
+Different agents must be able to rerun the same OS and get the same structure, the same evidence boundary, and comparable conclusions. Before accepting a run or handing it to another teammate, run:
+
+```bash
+python3 "$SKILL_HOME/scripts/validate_run.py" "$RUN_DIR"
+```
+
+The run is not acceptable unless `OK_VALIDATE_RUN` is returned.
+
+Hard requirements:
+
+- `pipeline-run-state-v1.json` must use the canonical 8-chapter order: Chapter 6 is `产品规划`, Chapter 7 is `供应链实现`, Chapter 8 is `项目计划`.
+- Old 7-chapter order is invalid, even if the HTML pages look polished.
+- Review-derived numeric claims, such as `395 条评论`, `120 次提及`, or `50+ pain points`, require raw / tagged / effective review ledger JSON under `process/`.
+- If the raw review rows are not available, use directional language and mark the metric as `not_recomputable`; do not present the number as a verified fact.
+- Product Planning / USP pages must separate `评论提及频次` from `USP 战略权重`. Frequency answers what reviewers talked about; USP weight answers what product track the company should choose.
+- Company-fit, first-eye visibility, and explosive-USP imagination scores are decision aids and must be labeled as inference unless backed by collected evidence.
+- State ledgers must be internally consistent. A locked chapter cannot have generated artifacts, and the top-level status must match the active chapter.
+
 ## Evidence Routing
 
 Read `references/data-source-router.md` when deciding how to collect evidence.

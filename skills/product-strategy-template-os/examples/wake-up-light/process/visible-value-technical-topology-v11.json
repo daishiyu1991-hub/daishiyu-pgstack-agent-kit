@@ -1,0 +1,45 @@
+{
+  "artifact": "visible_value_technical_topology_v11",
+  "created_at": "2026-05-06",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "source_page": "quality-review-visible-value-thesis-v10-track-selection.html",
+  "new_page": "quality-review-visible-value-thesis-v11-technical-topology.html",
+  "purpose": "把四条 USP 赛道映射到同一张技术拓扑图，辅助第 6 章产品规划从赛道选择进入产品架构分析。",
+  "evidence_policy": {
+    "new_review_collection": false,
+    "evidence_base": [
+      "process/visible-value-review-sampling-audit-v9.json",
+      "process/visible-value-review-theme-analysis-v9.json",
+      "process/visible-value-review-effective-ledger-v9.json"
+    ],
+    "topology_status": "product_architecture_hypothesis",
+    "truth_boundary": "技术拓扑是基于赛道选择、评论主题和公司能力包形成的架构假设，不是已经验证的工程事实。下一步必须用产品架构分析、样机测试和供应链/BOM 复核。"
+  },
+  "track_to_technical_focus": [
+    {
+      "track": "A",
+      "role": "进攻钩子",
+      "focus": "本机 routine / 离线完整睡醒仪式",
+      "modules": ["本机日程与场景引擎", "睡前渐暗", "日出唤醒", "声音联动", "实体 snooze/off/mode 控制", "可选 app"]
+    },
+    {
+      "track": "B",
+      "role": "推荐主赛道",
+      "focus": "光学引擎 / 床头对象感",
+      "modules": ["LED 与光学扩散", "日出曲线", "亮度与色温层次", "床头比例", "CMF", "屏幕隐藏", "主图第一眼表达"]
+    },
+    {
+      "track": "C",
+      "role": "信任底线",
+      "focus": "闹钟可靠性核心",
+      "modules": ["RTC 时间精度", "断电记忆", "异常恢复", "fail-safe", "按键寿命", "误触防护"]
+    },
+    {
+      "track": "D",
+      "role": "商业定位",
+      "focus": "成本 / 价格 / 毛利边界",
+      "modules": ["目标价格带", "目标 BOM", "coupon room", "毛利率", "模块化平台", "affordable premium CMF"]
+    }
+  ],
+  "next_step": "进入 6.2 产品架构分析，把拓扑节点转成关键配件、规格参数和可验证 test plan。"
+}

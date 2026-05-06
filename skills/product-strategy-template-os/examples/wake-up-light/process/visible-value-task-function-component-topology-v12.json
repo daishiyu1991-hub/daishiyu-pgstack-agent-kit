@@ -1,0 +1,77 @@
+{
+  "artifact": "visible_value_task_function_component_topology_v12",
+  "created_at": "2026-05-06",
+  "run": "2026-4-30wake-up-light品类战略用研",
+  "source_page": "quality-review-visible-value-thesis-v11-technical-topology.html",
+  "new_page": "quality-review-visible-value-thesis-v12-task-function-component.html",
+  "purpose": "将 USP 技术拓扑图板块改为产品定义顺序：用户任务效果 -> 功能条件 -> 关键元器件发力点。",
+  "scope": {
+    "changed": [
+      "技术拓扑图板块",
+      "页面标题与说明文案",
+      "索引页产品规划链接",
+      "pipeline state 的第 6 章主报告指向"
+    ],
+    "unchanged": [
+      "v9 395 条有效评论证据底座",
+      "四条赛道候选与评分矩阵",
+      "red-team argue",
+      "Human Decision Stop"
+    ]
+  },
+  "evidence_policy": {
+    "new_review_collection": false,
+    "evidence_base": [
+      "process/visible-value-review-sampling-audit-v9.json",
+      "process/visible-value-review-theme-analysis-v9.json",
+      "process/visible-value-review-effective-ledger-v9.json"
+    ],
+    "topology_status": "product_architecture_hypothesis",
+    "truth_boundary": "本页的元器件与结构发力点是基于评论主题、赛道选择和公司能力包形成的产品规划假设，不是已经验证的工程事实。必须在 6.2 产品架构分析中用样机、BOM、供应链能力和测试计划复核。"
+  },
+  "topology_layers": [
+    {
+      "layer": "用户任务效果",
+      "questions": [
+        "用户醒来后到底要感受到什么？",
+        "产品放在床头要呈现什么对象感？",
+        "用户为什么愿意为它买单？"
+      ],
+      "outputs": [
+        "温和自然醒",
+        "像灯具一样值得摆放",
+        "无订阅也完整的睡前到醒来 routine",
+        "每天可信的闹钟可靠性"
+      ]
+    },
+    {
+      "layer": "功能条件",
+      "questions": [
+        "要实现这个效果，功能必须满足哪些可测试条件？",
+        "哪些条件决定用户第一眼感受？",
+        "哪些条件决定长期评论质量？"
+      ],
+      "outputs": [
+        "光效条件",
+        "床头对象条件",
+        "Routine 条件",
+        "可靠性条件"
+      ]
+    },
+    {
+      "layer": "关键元器件与结构发力点",
+      "questions": [
+        "哪些元器件决定该效果能否达成？",
+        "哪些结构/CMF 决定第一眼价值？",
+        "哪些模块必须进入测试计划和 BOM 验证？"
+      ],
+      "outputs": [
+        "光学引擎",
+        "结构与 CMF",
+        "控制与声音系统",
+        "可靠性核心"
+      ]
+    }
+  ],
+  "next_step": "进入 6.2 产品架构分析，把每个元器件发力点转成方案选项、验证 test plan、BOM 区间和工业设计约束。"
+}

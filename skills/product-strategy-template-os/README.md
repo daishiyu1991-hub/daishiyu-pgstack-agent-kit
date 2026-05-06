@@ -22,12 +22,28 @@
 -> 状态与 GBrain 交接记录
 ```
 
+## 0. Single Source Of Truth
+
+这套 OS 只能有一个可更新源头：
+
+```text
+GitHub source:
+https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit
+
+skill:
+product-strategy-template-os
+```
+
+同事安装、更新、复现案例时，都必须从这个源头安装。不要从旧 zip、旧本地 `skill-packages/`、聊天记录里的半成品 HTML、或某次 run folder 直接复制成 skill。
+
+如果机器上存在多个同名 skill，agent 必须先报告实际读取的 `SKILL_HOME`，并以通过 `bootstrap_check.py` 和 `validate_run.py` 的那一份为准。旧 7 章版本必须视为无效版本。
+
 ## 1. Install
 
 在同事机器上运行：
 
 ```bash
-npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os
+npx skills add https://github.com/daishiyu1991-hub/daishiyu-pgstack-agent-kit --skill product-strategy-template-os --yes --global
 ```
 
 ## 1.1 Update
@@ -95,6 +111,78 @@ OK_BOOTSTRAP
 ```
 
 如果没有 `OK_BOOTSTRAP`，先修安装，不要继续跑 research。
+
+## 2.1 Run Validation Gate
+
+任何 run 要交给同事、放进索引主报告、或作为案例沉淀前，必须跑：
+
+```bash
+python3 "$SKILL_HOME/scripts/validate_run.py" "$RUN_DIR"
+```
+
+只有看到下面结果，才算通过：
+
+```text
+OK_VALIDATE_RUN
+```
+
+这个校验会拦住最常见的跑偏：
+
+- 旧 7 章顺序：`6. 供应链管理 / 7. 产品规划`；
+- 顶层状态和章节状态不一致；
+- 锁定章节已经生成页面；
+- 评论数量、提及次数等数字没有 raw/tag/effective review ledger；
+- 产品规划 / USP 页面没有区分 `评论提及频次` 与 `USP 战略权重`。
+
+如果校验失败，该页面只能算过程稿，不能当主报告。
+
+## 2.2 Strict Mode: How To Run 100% By The Skill
+
+不能靠“让 agent 自觉按模板写”来保证一致性。必须把 skill 当成可执行协议来跑：读取同一套文件、用同一套脚本初始化、用同一套 validator 拦截不合格输出。
+
+严格模式流程：
+
+```text
+1. Resolve Skill
+   找到唯一 SKILL_HOME，并回报路径。
+
+2. Bootstrap
+   python3 "$SKILL_HOME/scripts/bootstrap_check.py" --skill-root "$SKILL_HOME"
+   必须得到 OK_BOOTSTRAP。
+
+3. Read Contract
+   按 README 第 4 节读取 SKILL.md 与 references/*.md。
+
+4. Init Or Resume Run
+   新 run 必须用 scripts/init_run.py 创建。
+   旧 run 必须先读取 process/pipeline-run-state-v1.json。
+
+5. Chapter Loop
+   每章都必须跑：
+   Template Router -> Preamble -> Evidence Contract -> Evidence Acquisition
+   -> Input/Processing/Output -> Evidence Review -> Red-team
+   -> Complete HTML Report -> Human Decision Stop -> Decision Record。
+
+6. Raw Evidence Ledger
+   任何 review 数字、关键词数字、趋势数字，都必须有 process/ 下的可复算 ledger。
+   没有 ledger，就只能写 not_collected / not_recomputable / inference。
+
+7. Validate Before Accept
+   python3 "$SKILL_HOME/scripts/validate_run.py" "$RUN_DIR"
+   不通过就修，不允许把失败页面放进主索引当成结论。
+
+8. Sync Boundary
+   章节结束运行 gbrain_auto_sync.py；未验证成功不能声称已同步。
+```
+
+这个流程能保证“被接受的产出”100%遵守 skill。它不能保证每个中间草稿都完美，但任何不合规草稿都会被 validator 拦下来，不能进入主报告和案例包。
+
+如果同事跑出的结果不同，优先检查四件事：
+
+- 读到的是否是同一个 `SKILL_HOME`；
+- 是否还是旧 7 章顺序；
+- 是否缺 raw/tag/effective evidence ledger；
+- 是否把 `评论提及频次` 当成了 `USP 战略权重`。
 
 ## 3. Start A New Run
 

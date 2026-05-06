@@ -10,7 +10,10 @@
       "source_ref": "tool_name_or_path_or_url",
       "collected_at": "YYYY-MM-DD",
       "raw_available": "yes",
+      "raw_ledger_ref": "process/source_001-raw-ledger.json or not_collected",
+      "tagged_ledger_ref": "process/source_001-tagged-ledger.json or not_collected",
       "transformation": "summarized",
+      "recomputable_metrics": "yes/no/unknown",
       "confidence": "medium",
       "status": "collected_and_used",
       "used_for": ["template_field_or_claim"]

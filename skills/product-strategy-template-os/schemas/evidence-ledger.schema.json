@@ -22,7 +22,10 @@
           "source_ref": { "type": "string" },
           "collected_at": { "type": "string" },
           "raw_available": { "type": "string", "enum": ["yes", "no", "unknown"] },
+          "raw_ledger_ref": { "type": "string" },
+          "tagged_ledger_ref": { "type": "string" },
           "transformation": { "type": "string" },
+          "recomputable_metrics": { "type": "string", "enum": ["yes", "no", "unknown"] },
           "confidence": { "type": "string", "enum": ["high", "medium", "low", "unknown"] },
           "status": {
             "type": "string",

@@ -128,6 +128,30 @@ unknown
 - `画面冲击`、`能力成长匹配`、`前台表达`、`落地难度反向` 必须标注为推断。
 - 最终选择必须停在人类判断。
 
+## 6.1 评论频次与 USP 权重校准
+
+第 6 章不能直接把评论主题频次当成主 USP 排名。评论频次只能说明样本中哪些话题被更多提及；USP 权重要回答公司应该押注哪条产品赛道。
+
+必须拆成两张表或两个图：
+
+```text
+评论提及频次
+-> 用户在评论里反复说了什么
+-> 支撑：raw / tagged / effective review ledger
+
+USP 战略权重
+-> 哪个命题最值得进入产品规划
+-> 支撑：购买驱动、竞品缺口、公司能力、第一眼表达、技术拓扑、BOM/test 可验证性
+```
+
+如果某个主题评论频次很高，但只是保障性价值、审美支持项或使用体验配套项，不能自动升为主 USP。它只能作为主 USP 的支撑模块，除非 red-team 证明它同时具备购买冲动、竞争缺口、前台表达和可落地架构。
+
+所有 review-derived 数字必须可复算：
+
+- 至少保留 `process/*review*raw*ledger*.json`、`process/*review*tagged*ledger*.json` 或 `process/*review*effective*ledger*.json`；
+- ledger 中必须能看到 review row 或等价字段，例如 `review_id`、`content_text`、`rating`、`asin`；
+- 如果只有摘要，必须写 `not_recomputable`，不能把数字写成验证事实。
+
 ## 7. Red-team 立场
 
 输出主 USP 前，至少从以下立场反驳：

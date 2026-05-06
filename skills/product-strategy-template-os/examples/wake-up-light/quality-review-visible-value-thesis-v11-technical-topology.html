@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wake Up Light USP v11 · 技术拓扑</title>
+  <style>
+    :root{
+      --bg:#f4f2ec;--paper:#fffdf8;--card:#fff;--ink:#20282d;--soft:#4d5a61;--muted:#707b80;--faint:#969fa2;--line:#ddd8cc;
+      --sage:#6f8374;--sage-soft:#eaf0ea;--blue:#697f8c;--blue-soft:#e8eef1;--clay:#967761;--clay-soft:#f3e9df;--rose:#967876;--rose-soft:#f4e8e6;--gold:#9a875d;--gold-soft:#f5efdf;--shadow:0 18px 52px rgba(32,40,46,.06);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;color:var(--ink);background:linear-gradient(90deg,rgba(32,40,46,.035) 1px,transparent 1px),linear-gradient(180deg,rgba(111,131,116,.14),rgba(244,242,236,0) 360px),var(--bg);background-size:58px 58px,auto,auto;font-family:"Avenir Next","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+    a{color:#536f79;text-decoration:none;border-bottom:1px solid rgba(83,111,121,.24)} p,h1,h2,h3{margin:0} p,li{font-size:14px;line-height:1.78;color:var(--soft)} main{width:min(1240px,calc(100% - 42px));margin:0 auto;padding:28px 0 76px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;color:var(--muted);font-size:13px;font-weight:850} .topbar a{border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:rgba(255,253,248,.78);color:var(--muted)}
+    .hero,section{border:1px solid var(--line);background:rgba(255,253,248,.94);box-shadow:var(--shadow)}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:26px;align-items:end;min-height:370px;padding:38px;border-radius:22px;background:radial-gradient(circle at 86% 16%,rgba(154,135,93,.16),transparent 30%),linear-gradient(135deg,rgba(111,131,116,.18),rgba(255,253,248,.96) 50%),var(--paper)}
+    .eyebrow{font-size:13px;color:var(--sage);font-weight:950;margin-bottom:12px} h1{max-width:900px;font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:46px;line-height:1.13;font-weight:900;letter-spacing:0} .lead{max-width:920px;margin-top:18px;font-size:17px;line-height:1.86;color:#39464c}
+    .hero-side{padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.78)} .hero-side b{display:block;font-size:18px;margin-bottom:10px} .hero-side span{display:block;color:var(--muted);font-size:14px;line-height:1.72}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px} .pill{display:inline-flex;padding:7px 10px;border-radius:999px;background:var(--sage-soft);color:#566e5f;font-size:12px;font-weight:850} .pill.warn{background:var(--clay-soft);color:#765d49}
+    section{margin-top:22px;padding:28px;border-radius:20px} .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:22px} .section-head h2{font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:31px;line-height:1.25} .section-head p{max-width:720px;color:var(--muted)}
+    .summary{display:grid;grid-template-columns:1.35fr .95fr;gap:16px} .thesis{padding:24px;border:1px solid #cbd8d0;border-left:6px solid var(--sage);border-radius:20px;background:linear-gradient(90deg,var(--sage-soft),#fff 38%)} .label{font-size:12px;color:var(--faint);font-weight:950;margin-bottom:8px} .thesis-line{margin-top:10px;font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:32px;line-height:1.42;font-weight:900;color:#233137}
+    .note-card,.card,.track-card,.question-card{padding:20px;border:1px solid var(--line);border-radius:18px;background:#fff} .note-card h3,.card h3,.track-card h3,.question-card h3{font-size:19px;line-height:1.35;margin-bottom:10px}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px} .metric{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff} .metric b{display:block;font-family:"Songti SC",serif;font-size:32px;line-height:1;color:#2f3e43;margin-bottom:8px} .metric span{font-size:13px;color:var(--muted);line-height:1.55}
+    .track-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px} .track-card{background:linear-gradient(135deg,#fff,var(--blue-soft))} .track-card.recommended{border-color:#bac9bf;background:linear-gradient(135deg,var(--sage-soft),#fff)} .track-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:12px;color:var(--faint);font-weight:950} .track-top b{padding:5px 9px;border-radius:999px;background:#2f3e43;color:#fff;font-size:12px} .track-card strong{display:block;margin-top:12px;color:#334149;font-size:13px}
+    .track-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px} .track-metrics div{padding:10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.75)} .track-metrics b{display:block;font-size:18px;color:#26343a} .track-metrics span{display:block;font-size:12px;color:var(--muted)}
+    .question-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px} .question-card b{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;background:var(--gold-soft);color:#776540;margin-bottom:10px}
+    .bar-wrap{display:grid;gap:9px} .bar-row{display:grid;grid-template-columns:240px minmax(0,1fr) 48px;gap:12px;align-items:center} .bar-label{font-size:13px;color:#3f4b52;font-weight:850} .bar-track{height:13px;border-radius:999px;background:#eee9de;overflow:hidden} .bar-fill{height:100%;border-radius:999px;background:var(--blue)} .bar-row.pain .bar-fill{background:var(--rose)} .bar-value{font-size:13px;color:var(--muted);font-weight:900;text-align:right}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff} table{width:100%;min-width:1180px;border-collapse:separate;border-spacing:0} th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px;line-height:1.62} th{background:#f6f5ef;color:#43505a;font-weight:950} tr:last-child td{border-bottom:0} td span{display:block;color:var(--muted);font-size:12px;margin-top:4px} tr.recommended td{background:rgba(234,240,234,.55)}
+    .role-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px} .role{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff} .role b{display:block;color:var(--faint);font-size:12px;margin-bottom:8px} .role strong{display:block;font-size:17px;line-height:1.4;margin-bottom:8px;color:#2f3e43}
+    .topology{position:relative;display:grid;grid-template-columns:1fr 1.08fr 1fr;grid-template-rows:auto auto auto;gap:16px;align-items:stretch;padding:18px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#fff,var(--paper));overflow:hidden}
+    .topology:before{content:"";position:absolute;inset:42px;border:1px dashed rgba(105,127,140,.28);border-radius:28px;pointer-events:none}
+    .topology:after{content:"";position:absolute;left:50%;top:54px;bottom:54px;border-left:1px solid rgba(105,127,140,.22);pointer-events:none}
+    .top-node{position:relative;z-index:1;min-height:178px;padding:18px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 12px 30px rgba(32,40,46,.045)}
+    .top-node h3{font-size:18px;line-height:1.34;margin-bottom:10px}.top-node p{font-size:13px;line-height:1.68}.top-node ul{margin:12px 0 0;padding-left:18px}.top-node li{font-size:12px;line-height:1.62;color:var(--muted)}
+    .top-node small{display:block;margin-bottom:8px;color:var(--faint);font-size:12px;font-weight:950}.top-node strong{display:block;margin-top:10px;font-size:12px;color:#334149}
+    .top-node.main{border-color:#bac9bf;background:linear-gradient(145deg,var(--sage-soft),#fff 68%)} .top-node.hook{background:linear-gradient(145deg,var(--gold-soft),#fff 68%)} .top-node.trust{background:linear-gradient(145deg,var(--blue-soft),#fff 68%)} .top-node.biz{background:linear-gradient(145deg,var(--clay-soft),#fff 68%)}
+    .hub{position:relative;z-index:2;grid-column:2;grid-row:1 / span 3;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:24px;border:1px solid #b9c6bf;border-radius:28px;background:linear-gradient(180deg,#fff,var(--sage-soft));box-shadow:0 22px 55px rgba(47,62,67,.12)}
+    .hub h3{font-family:"Songti SC","STSong","Noto Serif CJK SC",serif;font-size:29px;line-height:1.25}.hub p{font-size:13px}.hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.hub-chip{padding:11px;border:1px solid rgba(111,131,116,.32);border-radius:14px;background:rgba(255,255,255,.82);font-size:12px;line-height:1.46;color:#3e4d52;font-weight:850}.hub-chip span{display:block;margin-top:4px;color:var(--muted);font-weight:500}
+    .topology-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}.legend-card{padding:15px;border:1px solid var(--line);border-radius:16px;background:#fff}.legend-card b{display:block;font-size:13px;margin-bottom:6px}.legend-card span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+    .decision{border-color:#c8d2ca;background:linear-gradient(135deg,var(--sage-soft),#fff 72%)} .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px} details{margin-top:14px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px 16px} summary{cursor:pointer;font-weight:950;color:#3f4b52} .source-list{columns:2;column-gap:28px} .source-list li{break-inside:avoid;margin-bottom:8px;font-size:13px;color:var(--muted)}
+    @media(max-width:980px){.hero,.summary,.metric-grid,.track-grid,.question-grid,.role-map,.grid-2,.topology,.topology-legend{grid-template-columns:1fr}.hub{grid-column:auto;grid-row:auto}.topology:before,.topology:after{display:none} h1{font-size:36px} .thesis-line{font-size:27px} .bar-row{grid-template-columns:1fr 1fr 44px}} @media(max-width:680px){main{width:min(100% - 24px,1240px);padding:16px 0 56px} .hero,section{padding:20px} h1{font-size:31px} .source-list{columns:1}.hub-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topbar"><a href="quality-review-index.html">返回索引</a><span>Visible Value Thesis · v11 · 技术拓扑</span></nav>
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Wake Up Light · USP Track Selection</div>
+      <h1>机会点不是卖点列表，而是赛道候选池。</h1>
+      <p class="lead">v9 已经证明 4 个机会点都有真实价值。v10 解决赛道角色分配；v11 继续把赛道放到同一张技术拓扑图里，判断每条赛道到底会压到哪些架构、测试、规格和成本模块。</p>
+      <div class="pill-row"><span class="pill">有效评论 395 条</span><span class="pill">原始去重 412 条</span><span class="pill">4 条赛道候选</span><span class="pill warn">评分含推断项，最终需人判断</span></div>
+    </div>
+    <aside class="hero-side"><b>本页新增什么？</b><span>新增一张技术拓扑图：赛道 B 压光学与床头对象感，赛道 A 压本机 routine，赛道 C 压可靠性核心，赛道 D 压成本/定位边界。</span></aside>
+  </header>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">结论先行</div><h2>推荐主赛道：像灯具一样的日出光效与床头对象感。</h2></div><p>这是 AI 基于评论证据、竞品缺口和公司能力包给出的推荐，不是最终人类选择。核心理由：它最符合公司灯具工艺和品质优势，也最容易在亚马逊第一眼被看见。</p></div>
+    <div class="summary">
+      <div class="thesis"><div class="label">v11 USP topology thesis</div><p class="thesis-line">主赛道打“卧室里真正像灯具的睡醒系统”；用“无订阅完整 routine”进攻 Hatch，用“每天可信”建立信任，用 affordable premium 避开低价 dupe 战。</p></div>
+      <div class="note-card"><h3>为什么不是四选一？</h3><p>因为它们不是同一层级：灯具化光效是主价值；无订阅 routine 是进攻钩子；可靠闹钟是信任底线；Hatch 感平替是价格/定位策略。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Sampling Ledger</div><h2>仍然沿用 v9 的证据底座</h2></div><p>本页不重新采集评论，不新增未验证数据。它只把 v9 的评论洞察进一步转成赛道选择逻辑。</p></div>
+    <div class="metric-grid">
+      <div class="metric"><b>412</b><span>原始去重评论</span></div>
+      <div class="metric"><b>395</b><span>有效评论，超过 250 条目标线</span></div>
+      <div class="metric"><b>6</b><span>竞品/边界 ASIN 覆盖</span></div>
+      <div class="metric"><b>4</b><span>赛道候选，来自 v9 机会点</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Track Pool</div><h2>4 个机会点，重新定义为 4 条赛道</h2></div><p>每条赛道都有价值，但只有一条适合作为主赛道。其他赛道应该变成钩子、门槛或定位，而不是全部堆进主图。</p></div>
+    <div class="track-grid">
+      <article class="track-card ">
+        <div class="track-top"><span>赛道 A</span><b>进攻钩子</b></div>
+        <h3>无订阅也完整的睡醒仪式</h3>
+        <p>承接 Hatch 已经证明的 sleep routine 价值，但把核心睡前/醒来流程从订阅和 app 里拿出来。</p>
+        <div class="track-metrics">
+          <div><b>174</b><span>购买驱动</span></div>
+          <div><b>73</b><span>痛点缺口</span></div>
+          <div><b>76</b><span>赛道分</span></div>
+        </div>
+        <strong>风险：</strong><p>如果没有漂亮光效和硬件体验支撑，会变成“没有订阅的普通闹钟”。</p>
+        <strong>下一步：</strong><p>做成本机 routine：睡前渐暗、声音、日出唤醒、实体关闭/暂停，app 只能作为可选增强。</p>
+      </article>
+      <article class="track-card recommended">
+        <div class="track-top"><span>赛道 B</span><b>推荐主赛道</b></div>
+        <h3>像灯具一样的日出光效与床头对象感</h3>
+        <p>把 wake up light 从“会亮的闹钟”拉回“卧室里值得摆放的灯具对象”，用光效、材质、扩散罩和卧室场景建立第一眼价值。</p>
+        <div class="track-metrics">
+          <div><b>219</b><span>购买驱动</span></div>
+          <div><b>148</b><span>痛点缺口</span></div>
+          <div><b>95</b><span>赛道分</span></div>
+        </div>
+        <strong>风险：</strong><p>如果光效曲线和材质没有真实领先，只会变成“包装更好看的普通 sunrise alarm clock”。</p>
+        <strong>下一步：</strong><p>先定义光效曲线、扩散罩、材质、床头比例、夜间显示和主图第一屏故事。</p>
+      </article>
+      <article class="track-card ">
+        <div class="track-top"><span>赛道 C</span><b>信任底线</b></div>
+        <h3>每天可信的闹钟可靠性</h3>
+        <p>把平替产品常见的时间漂移、失效、设置复杂、断电丢设置等问题做成可靠性门槛。</p>
+        <div class="track-metrics">
+          <div><b>210</b><span>购买驱动</span></div>
+          <div><b>114</b><span>痛点缺口</span></div>
+          <div><b>82</b><span>赛道分</span></div>
+        </div>
+        <strong>风险：</strong><p>前台表达难，用户购买前不一定相信。必须用机制和测试承诺显性化。</p>
+        <strong>下一步：</strong><p>建立 RTC/断电记忆/闹钟触发/按键寿命/时间精度测试，并转成副图信任背书。</p>
+      </article>
+      <article class="track-card ">
+        <div class="track-top"><span>赛道 D</span><b>商业定位</b></div>
+        <h3>Hatch 感平替，但不落入廉价感</h3>
+        <p>承接 Odokee/REACHER 证明的中价可接近窗口，但不把自己定义成 cheap Hatch dupe。</p>
+        <div class="track-metrics">
+          <div><b>245</b><span>购买驱动</span></div>
+          <div><b>140</b><span>痛点缺口</span></div>
+          <div><b>80</b><span>赛道分</span></div>
+        </div>
+        <strong>风险：</strong><p>容易进入价格战，也削弱公司品质型品牌空间。</p>
+        <strong>下一步：</strong><p>把它作为 affordable premium 价格策略：低于 Hatch，但通过灯具质感和可靠性高于平替。</p>
+      </article></div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Technical Topology</div><h2>四条赛道在同一张技术拓扑图里的位置</h2></div><p>这不是已经验证的工程方案，而是产品规划用的架构假设图。它的作用是把“我要打哪个 USP”转换成“我必须定义哪些模块、测试哪些指标、控制哪些成本”。</p></div>
+    <div class="topology">
+      <article class="top-node hook" style="grid-column:1;grid-row:1">
+        <small>赛道 A · 进攻钩子</small>
+        <h3>无订阅完整睡醒仪式</h3>
+        <p>重点不是多一个 app，而是让睡前到醒来的核心流程在本机闭环。</p>
+        <ul>
+          <li>本机日程与场景引擎</li>
+          <li>睡前渐暗 / 日出唤醒 / 声音联动</li>
+          <li>实体 snooze / off / mode 控制</li>
+          <li>app 只做可选增强，不做 paywall</li>
+        </ul>
+        <strong>反推测试：离线可用、设置时间、一次设置成功率。</strong>
+      </article>
+      <article class="hub">
+        <div class="eyebrow">Wake Up Light Product Platform</div>
+        <h3>产品架构中心</h3>
+        <p>主赛道不是文案，而是架构优先级。选择赛道 B 之后，光学、床头对象感和可靠体验必须成为平台中心。</p>
+        <div class="hub-grid">
+          <div class="hub-chip">光学引擎<span>LED / 扩散 / 曲线 / 色温</span></div>
+          <div class="hub-chip">声音与 routine<span>白噪音 / 日程 / 场景联动</span></div>
+          <div class="hub-chip">控制与可靠性<span>RTC / 断电记忆 / 按键寿命</span></div>
+          <div class="hub-chip">结构与 CMF<span>床头比例 / 材质 / 屏幕隐藏</span></div>
+          <div class="hub-chip">成本与价格带<span>BOM / coupon room / 毛利</span></div>
+          <div class="hub-chip">前台表达<span>主图 / 视频 / A+ / 五点</span></div>
+        </div>
+      </article>
+      <article class="top-node main" style="grid-column:3;grid-row:1">
+        <small>赛道 B · 推荐主赛道</small>
+        <h3>像灯具一样的日出光效与床头对象感</h3>
+        <p>这是最适合公司灯具能力的主赛道，决定产品第一眼和核心结构。</p>
+        <ul>
+          <li>大面积柔光扩散罩 / 光导结构</li>
+          <li>可感知的日出曲线与亮度层次</li>
+          <li>床头对象感：比例、材质、屏幕隐藏</li>
+          <li>主图可直接表达“不是普通闹钟”</li>
+        </ul>
+        <strong>反推测试：眩光、均匀性、色温、夜间显示干扰、主图第一眼理解。</strong>
+      </article>
+      <article class="top-node trust" style="grid-column:1;grid-row:3">
+        <small>赛道 C · 信任底线</small>
+        <h3>每天可信的闹钟可靠性</h3>
+        <p>它不一定制造购买冲动，但它决定评论质量、退货率和长期信任。</p>
+        <ul>
+          <li>RTC 时间精度与闹钟触发</li>
+          <li>断电记忆 / 异常恢复 / fail-safe</li>
+          <li>按键寿命、误触防护、夜间可操作</li>
+          <li>可靠性结果转成副图信任背书</li>
+        </ul>
+        <strong>反推测试：时间漂移、断电恢复、连续闹钟触发、按键寿命。</strong>
+      </article>
+      <article class="top-node biz" style="grid-column:3;grid-row:3">
+        <small>赛道 D · 商业定位</small>
+        <h3>Hatch 感平替，但不落入廉价感</h3>
+        <p>它约束价格与成本，不应该抢走主 USP。目标是 affordable premium。</p>
+        <ul>
+          <li>低于 Hatch 的价格锚，但不进入低价 dupe</li>
+          <li>用 CMF / 光效 / 可靠性解释溢价</li>
+          <li>模块化平台控制 BOM</li>
+          <li>coupon room 与毛利率共同约束上市打法</li>
+        </ul>
+        <strong>反推测试：目标 BOM、价格带、coupon room、竞品复制后的利润韧性。</strong>
+      </article>
+    </div>
+    <div class="topology-legend">
+      <div class="legend-card"><b>为什么 B 放在主轴？</b><span>B 直接决定光学结构、工业设计、主图第一眼和公司能力匹配，是最不像“普通闹钟”的地方。</span></div>
+      <div class="legend-card"><b>A / C / D 怎么用？</b><span>A 做进攻钩子，C 做信任底线，D 做价格与毛利约束。它们支撑主赛道，但不抢主叙事。</span></div>
+      <div class="legend-card"><b>下一步怎么推进？</b><span>进入产品架构分析时，逐项把拓扑节点转成关键配件、规格参数和验证 test plan。</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Six Questions</div><h2>赛道选择六问</h2></div><p>这 6 个问题会沉淀进后续 skill：只要出现多个机会点，就必须先转成赛道，再用这 6 问过滤。</p></div>
+    <div class="question-grid">
+      <article class="question-card"><b>1</b><h3>是否是购买冲动？</h3><p>它能不能让用户主动下单，而不是只在做不好时差评？</p></article>
+      <article class="question-card"><b>2</b><h3>是否被竞品证明？</h3><p>是否已有竞品靠它形成销量、评论或品牌心智？</p></article>
+      <article class="question-card"><b>3</b><h3>是否存在未满足缺口？</h3><p>竞品是否证明需求成立，但交付方式仍让用户不满？</p></article>
+      <article class="question-card"><b>4</b><h3>是否符合公司能力？</h3><p>它是否落在品质、灯具工艺、设计研发生产链路优势内？</p></article>
+      <article class="question-card"><b>5</b><h3>是否第一眼可见？</h3><p>能否被主图、视频、A+、五点描述直接表达？</p></article>
+      <article class="question-card"><b>6</b><h3>是否能反推产品架构？</h3><p>能否推导元器件、成本、功能、参数、场景图和定价？</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Score Matrix</div><h2>100 分赛道评分矩阵</h2></div><p>购买驱动、竞品证明和缺口强度来自 v9 评论/竞品分析；公司能力匹配、第一眼可见性和架构落地为 AI 基于公司能力包与产品判断的推断，必须在人类决策时复核。</p></div>
+    <div class="table-wrap"><table><thead><tr><th>赛道</th><th>购买驱动<br>20</th><th>竞品证明<br>15</th><th>缺口强度<br>15</th><th>公司能力匹配<br>20</th><th>第一眼可见性<br>15</th><th>产品架构可落地<br>15</th><th>总分</th><th>判断</th></tr></thead><tbody>
+      <tr class="">
+        <td><b>赛道 A</b><span>无订阅也完整的睡醒仪式</span></td>
+        <td>15</td><td>15</td><td>13</td><td>12</td><td>9</td><td>12</td>
+        <td><b>76</b><span>进攻钩子</span></td>
+        <td>Hatch 评论证明 routine 成立，订阅/app 反感也强；但“无订阅”本身偏防守，第一眼不如光效和床头对象感直观。</td>
+      </tr>
+      <tr class="recommended">
+        <td><b>赛道 B</b><span>像灯具一样的日出光效与床头对象感</span></td>
+        <td>18</td><td>14</td><td>14</td><td>20</td><td>15</td><td>14</td>
+        <td><b>95</b><span>推荐主赛道</span></td>
+        <td>床头审美、温和醒来、亮度/显示痛点都高频；同时这条赛道最贴合公司灯具工艺、品质和设计能力，也最容易通过主图/视频表达。</td>
+      </tr>
+      <tr class="">
+        <td><b>赛道 C</b><span>每天可信的闹钟可靠性</span></td>
+        <td>14</td><td>14</td><td>15</td><td>17</td><td>7</td><td>15</td>
+        <td><b>82</b><span>信任底线</span></td>
+        <td>可靠性痛点强，但闹钟可靠更多是“做不好会被骂”的底线，不是最强购买冲动。适合作为信任承诺和产品规格，不适合单独做主赛道。</td>
+      </tr>
+      <tr class="">
+        <td><b>赛道 D</b><span>Hatch 感平替，但不落入廉价感</span></td>
+        <td>17</td><td>15</td><td>12</td><td>13</td><td>11</td><td>12</td>
+        <td><b>80</b><span>商业定位</span></td>
+        <td>平替需求成立，但如果主叙事是 Hatch dupe，价格锚会被 Odokee/REACHER 拉低；它更适合指导定价和定位，不适合做最终 USP。</td>
+      </tr></tbody></table></div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Role Assignment</div><h2>推荐不是把其他赛道丢掉，而是分配角色</h2></div><p>如果把 4 条赛道都当主卖点，页面会失焦；如果只选一条又会漏掉必要信任。正确做法是主次分工。</p></div>
+    <div class="role-map">
+      <div class="role"><b>主赛道</b><strong>像灯具一样的日出光效与床头对象感</strong><p>决定产品形态、主图第一眼、光效曲线、材质和床头场景。</p></div>
+      <div class="role"><b>进攻钩子</b><strong>无订阅也完整的睡醒仪式</strong><p>用于反击 Hatch 的订阅/app 负担，但需要主赛道支撑。</p></div>
+      <div class="role"><b>信任底线</b><strong>每天可信的闹钟可靠性</strong><p>必须做到，作为副图和规格背书，不单独做主 USP。</p></div>
+      <div class="role"><b>商业定位</b><strong>Affordable premium</strong><p>低于 Hatch，但不做低价 Hatch dupe；用品质和灯具感解释溢价。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Theme Map</div><h2>v9 评论里的价值与摩擦仍然是底座</h2></div><p>蓝色是购买驱动，红色是痛点。这里保留 v9 的主题图，方便你回看赛道选择不是凭空来的。</p></div>
+    <div class="bar-wrap">
+      <div class="bar-row driver">
+        <div class="bar-label">白噪音 / 声音助眠 / 音箱</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+        <div class="bar-value">111</div>
+      </div>
+      <div class="bar-row driver">
+        <div class="bar-label">床头灯感 / 外观审美 / 卧室物件</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+        <div class="bar-value">111</div>
+      </div>
+      <div class="bar-row driver">
+        <div class="bar-label">温和自然醒 / 不被吓醒</div>
+        <div class="bar-track"><div class="bar-fill" style="width:96%"></div></div>
+        <div class="bar-value">107</div>
+      </div>
+      <div class="bar-row driver">
+        <div class="bar-label">简单实体控制 / 低技术负担</div>
+        <div class="bar-track"><div class="bar-fill" style="width:93%"></div></div>
+        <div class="bar-value">103</div>
+      </div>
+      <div class="bar-row driver">
+        <div class="bar-label">可定制 / 多模式 / 可调亮度音量</div>
+        <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+        <div class="bar-value">96</div>
+      </div>
+      <div class="bar-row driver">
+        <div class="bar-label">孩子 / 家庭 / 重睡眠者 / 伴侣</div>
+        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+        <div class="bar-value">83</div>
+      </div>
+      <div class="bar-row pain">
+        <div class="bar-label">亮度 / 显示 / 光效曲线问题</div>
+        <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+        <div class="bar-value">80</div>
+      </div>
+      <div class="bar-row pain">
+        <div class="bar-label">可靠性 / 时间漂移 / 闹钟失效</div>
+        <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+        <div class="bar-value">69</div>
+      </div>
+      <div class="bar-row pain">
+        <div class="bar-label">质感便宜 / 做工 / 耐用性</div>
+        <div class="bar-track"><div class="bar-fill" style="width:61%"></div></div>
+        <div class="bar-value">68</div>
+      </div>
+      <div class="bar-row driver">
+        <div class="bar-label">睡前放松 / routine / sleep hygiene</div>
+        <div class="bar-track"><div class="bar-fill" style="width:53%"></div></div>
+        <div class="bar-value">59</div>
+      </div>
+      <div class="bar-row pain">
+        <div class="bar-label">自定义不足 / schedule 不够</div>
+        <div class="bar-track"><div class="bar-fill" style="width:43%"></div></div>
+        <div class="bar-value">48</div>
+      </div>
+      <div class="bar-row pain">
+        <div class="bar-label">设置复杂 / 按键难懂 / 说明书问题</div>
+        <div class="bar-track"><div class="bar-fill" style="width:41%"></div></div>
+        <div class="bar-value">45</div>
+      </div></div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Red-team</div><h2>反方审查：为什么主赛道不是别的？</h2></div><p>这部分防止 AI 过早替你“选”。如果你不同意推荐，可以直接选择补证路径。</p></div>
+    <div class="table-wrap"><table><thead><tr><th>质疑</th><th>回答</th><th>下一步验证</th></tr></thead><tbody>
+      <tr><td>无订阅 routine 为什么不做主赛道？</td><td>它很强，但更像对 Hatch 的进攻钩子。没有光效和灯具对象感支撑，会变成防守型卖点。</td><td>主图 A/B：先打无订阅 routine vs 先打灯具化日出光效。</td></tr>
+      <tr><td>可靠性痛点这么强，为什么不是主赛道？</td><td>可靠性是闹钟品类的信任底线，做不好会失败，但用户购买前很难第一眼感知。</td><td>把可靠性拆成可视化机制：断电记忆、独立闹钟、时间精度、长测承诺。</td></tr>
+      <tr><td>Hatch 平替为什么不做主定位？</td><td>平替需求成立，但会把价格锚交给 Hatch/Odokee，容易掉进低价比较。</td><td>用 affordable premium 定价模型验证：低于 Hatch，高于平替，靠光效/可靠性解释差价。</td></tr>
+      <tr><td>灯具化会不会太审美，缺少功能爆点？</td><td>灯具化不是单纯好看，而是把光效曲线、扩散罩、床头对象感和温和醒来合成可见价值。</td><td>下一步必须进入产品架构：光源、扩散、色温曲线、亮度曲线、材料和交互。</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="decision">
+    <div class="section-head"><div><div class="eyebrow">Human Decision Stop</div><h2>你的选择 / 判断</h2></div><p>AI 推荐主赛道 B，但不自动写成人类最终选择。你可以直接回复 A/B/C/D。</p></div>
+    <div class="grid-2">
+      <div class="card"><h3>A. 选择主赛道 B，进入产品规划</h3><p>围绕灯具化日出光效与床头对象感，继续拆光效、形态、交互、成本和主副图。</p></div>
+      <div class="card"><h3>B. 先补前台素材拆解，再选赛道</h3><p>拉 Hatch/Odokee/REACHER/Philips 的主图、视频、A+、五点描述，验证第一眼表达。</p></div>
+      <div class="card"><h3>C. 先补供应链/BOM，验证赛道可落地</h3><p>确认灯具化光效、扩散罩、音频、RTC、外壳材料会把成本推到什么价格带。</p></div>
+      <div class="card"><h3>D. 暂停 USP，回到用户/竞品补证</h3><p>如果你认为主赛道仍不稳，先补特定人群或竞品样本。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="eyebrow">Process / Sources</div><h2>过程文件与来源</h2></div><p>v11 不新增评论数据，只引用 v9 的证据底座；技术拓扑是基于赛道选择和公司能力包形成的产品架构假设，必须在下一步产品架构分析里验证。</p></div>
+    <details open><summary>本页引用的过程文件</summary><ul class="source-list">
+      <li><code>process/visible-value-review-sampling-audit-v9.json</code>：采样审计与星级/ASIN 分布。</li>
+      <li><code>process/visible-value-review-theme-analysis-v9.json</code>：主题统计与机会点综合。</li>
+      <li><code>process/visible-value-review-effective-ledger-v9.json</code>：有效评论 ledger，395 条。</li>
+      <li>JALL 本轮有效评论仅 9 条，继续只作为边界校准，不参与主赛道定案。</li>
+    </ul></details>
+  </section>
+</main>
+</body>
+</html>
